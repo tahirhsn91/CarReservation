@@ -1,5 +1,6 @@
 namespace CarReservation.Core.Migrations
 {
+    using CarReservation.Core.Constant;
     using CarReservation.Core.Infrastructure;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -20,6 +21,7 @@ namespace CarReservation.Core.Migrations
             //  This method will be called after migrating to the latest version.
 
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
 
             var user = new ApplicationUser()
             {
@@ -30,7 +32,19 @@ namespace CarReservation.Core.Migrations
                 LastName = "Joudeh"
             };
 
-            manager.Create(user, "MySuperP@ssword!");
+            manager.Create(user, "MySuperP@ss!");
+
+            if (roleManager.Roles.Count() == 0)
+            {
+                roleManager.Create(new IdentityRole { Name = UserRoles.SUPER });
+                roleManager.Create(new IdentityRole { Name = UserRoles.ADMIN });
+                roleManager.Create(new IdentityRole { Name = UserRoles.SUPERVISOR });
+                roleManager.Create(new IdentityRole { Name = UserRoles.DRIVER });
+            }
+
+            var adminUser = manager.FindByName("SuperPowerUser");
+
+            manager.AddToRoles(adminUser.Id, new string[] { UserRoles.SUPER, UserRoles.ADMIN });
         }
     }
 }

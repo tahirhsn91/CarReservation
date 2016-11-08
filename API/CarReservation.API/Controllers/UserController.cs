@@ -1,4 +1,6 @@
-﻿using CarReservation.Core.Infrastructure;
+﻿using CarReservation.Common.Attributes;
+using CarReservation.Core.Constant;
+using CarReservation.Core.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,7 @@ namespace CarReservation.API.Controllers
     {
         [Route("")]
         [HttpGet]
+        [AuthorizeRoles(UserRoles.ADMIN)]
         public List<ApplicationUser> Get()
         {
             return this.AppUserManager.Users.ToList();

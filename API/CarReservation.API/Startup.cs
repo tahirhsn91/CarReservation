@@ -1,5 +1,8 @@
 ﻿using CarReservation.Common.Provider;
 using CarReservation.Core.Infrastructure;
+using CarReservation.Core.Provider;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using Owin;
 using System;
@@ -30,6 +33,20 @@ namespace CarReservation.API
         {
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
+
+            app.UseExternalSignInCookie(Microsoft.AspNet.Identity.DefaultAuthenticationTypes.ExternalCookie);
+
+            OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
+            {
+                AllowInsecureHttp = true,
+                TokenEndpointPath = new PathString("/Token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                Provider = new AuthorizationServerProvider()
+            };
+
+            app.UseOAuthAuthorizationServer(OAuthServerOptions);
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
         }
 
         private void ConfigureWebApi(HttpConfiguration config)
