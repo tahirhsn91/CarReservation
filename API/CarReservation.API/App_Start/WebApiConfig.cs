@@ -11,8 +11,6 @@ namespace CarReservation.API
     {
         public static void Register(HttpConfiguration config)
         {
-            config.MapHttpAttributeRoutes(new CentralizedPrefixProvider("api"));
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
         }
     }
 }

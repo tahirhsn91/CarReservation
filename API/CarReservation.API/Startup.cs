@@ -1,4 +1,5 @@
 ﻿using CarReservation.Common.Provider;
+using CarReservation.Core;
 using CarReservation.Core.Infrastructure;
 using CarReservation.Core.Provider;
 using Microsoft.Owin;
@@ -12,6 +13,8 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using Microsoft.Practices.Unity;
 
 namespace CarReservation.API
 {
@@ -52,10 +55,11 @@ namespace CarReservation.API
         private void ConfigureWebApi(HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes(new CentralizedPrefixProvider("api"));
-
-            //var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
-            //jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+
+            var container = IoC.Container;
+            container.RegisterInstance<IHttpControllerActivator>(new UnityHttpControllerActivator(container));
+            config.Services.Replace(typeof(IHttpControllerActivator), new UnityHttpControllerActivator(container));
         }
     }
 }
