@@ -1,6 +1,7 @@
 ﻿using CarReservation.Common.Attributes;
 using CarReservation.Core.Constant;
 using CarReservation.Core.Infrastructure;
+using CarReservation.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

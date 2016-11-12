@@ -131,9 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant\UserRoles.cs" />
+    <Compile Include="DTO\Base\BaseDTO.cs" />
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
-    <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
     <Compile Include="Infrastructure\UnityHttpControllerActivator.cs" />
     <Compile Include="IoC.cs" />
@@ -145,7 +145,20 @@
     <Compile Include="Migrations\201611051624195_DeleteExtraColumns.Designer.cs">
       <DependentUpon>201611051624195_DeleteExtraColumns.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611121314528_addingRoles.cs" />
+    <Compile Include="Migrations\201611121314528_addingRoles.Designer.cs">
+      <DependentUpon>201611121314528_addingRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611121405354_addingUserAudit.cs" />
+    <Compile Include="Migrations\201611121405354_addingUserAudit.Designer.cs">
+      <DependentUpon>201611121405354_addingUserAudit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\ApplicationUser.cs" />
+    <Compile Include="Model\Base\EntityBase.cs" />
+    <Compile Include="Model\Base\IAuditModel.cs" />
+    <Compile Include="Model\Base\IBase.cs" />
+    <Compile Include="Model\Base\IDeletable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\AuthorizationServerProvider.cs" />
   </ItemGroup>
@@ -163,6 +176,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611051624195_DeleteExtraColumns.resx">
       <DependentUpon>201611051624195_DeleteExtraColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611121314528_addingRoles.resx">
+      <DependentUpon>201611121314528_addingRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611121405354_addingUserAudit.resx">
+      <DependentUpon>201611121405354_addingUserAudit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

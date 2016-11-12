@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using CarReservation.Core.Model;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,5 @@ namespace CarReservation.Core.Infrastructure
         {
             return new ApplicationDbContext();
         }
-
     }
 }

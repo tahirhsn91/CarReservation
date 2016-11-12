@@ -2,6 +2,7 @@ namespace CarReservation.Core.Migrations
 {
     using CarReservation.Core.Constant;
     using CarReservation.Core.Infrastructure;
+    using CarReservation.Core.Model;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
