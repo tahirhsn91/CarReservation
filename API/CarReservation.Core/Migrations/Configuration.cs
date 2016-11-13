@@ -24,16 +24,18 @@ namespace CarReservation.Core.Migrations
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
 
-            var user = new ApplicationUser()
+            if (manager.FindByNameAsync("SuperPowerUser") == null)
             {
-                UserName = "SuperPowerUser",
-                Email = "taiseer.joudeh@mymail.com",
-                EmailConfirmed = true,
-                FirstName = "Taiseer",
-                LastName = "Joudeh"
-            };
-
-            manager.Create(user, "MySuperP@ss!");
+                var user = new ApplicationUser()
+                {
+                    UserName = "SuperPowerUser",
+                    Email = "taiseer.joudeh@mymail.com",
+                    EmailConfirmed = true,
+                    FirstName = "Taiseer",
+                    LastName = "Joudeh"
+                };
+                manager.Create(user, "MySuperP@ss!");
+            }
 
             if (roleManager.Roles.Count() == 0)
             {
@@ -45,7 +47,7 @@ namespace CarReservation.Core.Migrations
 
             var adminUser = manager.FindByName("SuperPowerUser");
 
-            manager.AddToRoles(adminUser.Id, new string[] { UserRoles.SUPER, UserRoles.ADMIN });
+            //manager.AddToRoles(adminUser.Id, new string[] { UserRoles.SUPER, UserRoles.ADMIN });
         }
     }
 }

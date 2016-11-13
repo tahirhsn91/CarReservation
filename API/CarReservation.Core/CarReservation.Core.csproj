@@ -153,12 +153,54 @@
     <Compile Include="Migrations\201611121405354_addingUserAudit.Designer.cs">
       <DependentUpon>201611121405354_addingUserAudit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611121456283_AddingUsersTypes.cs" />
+    <Compile Include="Migrations\201611121456283_AddingUsersTypes.Designer.cs">
+      <DependentUpon>201611121456283_AddingUsersTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611130740454_VehicleAndPackage.cs" />
+    <Compile Include="Migrations\201611130740454_VehicleAndPackage.Designer.cs">
+      <DependentUpon>201611130740454_VehicleAndPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611130801448_Account.cs" />
+    <Compile Include="Migrations\201611130801448_Account.Designer.cs">
+      <DependentUpon>201611130801448_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611130820378_Ride.cs" />
+    <Compile Include="Migrations\201611130820378_Ride.Designer.cs">
+      <DependentUpon>201611130820378_Ride.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\AccountLog.cs" />
     <Compile Include="Model\ApplicationUser.cs" />
     <Compile Include="Model\Base\EntityBase.cs" />
     <Compile Include="Model\Base\IAuditModel.cs" />
     <Compile Include="Model\Base\IBase.cs" />
     <Compile Include="Model\Base\IDeletable.cs" />
+    <Compile Include="Model\Base\SetupEntity.cs" />
+    <Compile Include="Model\City.cs" />
+    <Compile Include="Model\Color.cs" />
+    <Compile Include="Model\Country.cs" />
+    <Compile Include="Model\Currency.cs" />
+    <Compile Include="Model\CurrencyLog.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Driver.cs" />
+    <Compile Include="Model\Fare.cs" />
+    <Compile Include="Model\LocationLagLon.cs" />
+    <Compile Include="Model\Package.cs" />
+    <Compile Include="Model\Ride.cs" />
+    <Compile Include="Model\State.cs" />
+    <Compile Include="Model\Supervisor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\TravelUnit.cs" />
+    <Compile Include="Model\Vehicle.cs" />
+    <Compile Include="Model\VehicleAssembly.cs" />
+    <Compile Include="Model\VehicleBodyType.cs" />
+    <Compile Include="Model\VehicleFeature.cs" />
+    <Compile Include="Model\VehicleModel.cs" />
+    <Compile Include="Model\VehicleMaker.cs" />
+    <Compile Include="Model\VehicleTransmission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\AuthorizationServerProvider.cs" />
   </ItemGroup>
@@ -182,6 +224,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611121405354_addingUserAudit.resx">
       <DependentUpon>201611121405354_addingUserAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611121456283_AddingUsersTypes.resx">
+      <DependentUpon>201611121456283_AddingUsersTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611130740454_VehicleAndPackage.resx">
+      <DependentUpon>201611130740454_VehicleAndPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611130801448_Account.resx">
+      <DependentUpon>201611130801448_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611130820378_Ride.resx">
+      <DependentUpon>201611130820378_Ride.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

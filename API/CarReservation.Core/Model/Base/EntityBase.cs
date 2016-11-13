@@ -15,4 +15,8 @@ namespace CarReservation.Core.Model.Base
         public DateTime LastModifiedOn { get; set; }
         public bool IsDeleted { get; set; }
     }
+
+    public abstract class EntityBase : EntityBase<int>
+    {
+    }
 }
