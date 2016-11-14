@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201611130820378_Ride.Designer.cs">
       <DependentUpon>201611130820378_Ride.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611141650115_MissingSetupEntities.cs" />
+    <Compile Include="Migrations\201611141650115_MissingSetupEntities.Designer.cs">
+      <DependentUpon>201611141650115_MissingSetupEntities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountLog.cs" />
@@ -184,15 +188,28 @@
     <Compile Include="Model\Currency.cs" />
     <Compile Include="Model\CurrencyLog.cs" />
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Distance.cs" />
+    <Compile Include="Model\DistanceUnit.cs" />
     <Compile Include="Model\Driver.cs" />
+    <Compile Include="Model\DriverLocation.cs" />
+    <Compile Include="Model\DriverLocationLog.cs" />
+    <Compile Include="Model\DriverStatus.cs" />
     <Compile Include="Model\Fare.cs" />
     <Compile Include="Model\LocationLagLon.cs" />
     <Compile Include="Model\Package.cs" />
+    <Compile Include="Model\PackageTravelUnit.cs" />
+    <Compile Include="Model\PackageVehicleAssembly.cs" />
+    <Compile Include="Model\PackageVehicleBodyType.cs" />
+    <Compile Include="Model\PackageVehicleFeature.cs" />
+    <Compile Include="Model\PackageVehicleModel.cs" />
+    <Compile Include="Model\PackageVehicleTransmission.cs" />
     <Compile Include="Model\Ride.cs" />
+    <Compile Include="Model\RideStatus.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Supervisor.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\TimeTracker.cs" />
     <Compile Include="Model\TravelUnit.cs" />
     <Compile Include="Model\Vehicle.cs" />
     <Compile Include="Model\VehicleAssembly.cs" />
@@ -236,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611130820378_Ride.resx">
       <DependentUpon>201611130820378_Ride.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611141650115_MissingSetupEntities.resx">
+      <DependentUpon>201611141650115_MissingSetupEntities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

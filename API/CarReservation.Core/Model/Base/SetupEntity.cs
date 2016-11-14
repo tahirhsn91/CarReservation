@@ -12,12 +12,12 @@ namespace CarReservation.Core.Model.Base
         [Required]
         [MaxLength(50)]
         [MinLength(1)]
-        string Name { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [MaxLength(50)]
         [MinLength(1)]
-        string Code { get; set; }
+        public string Code { get; set; }
     }
 
     public abstract class SetupEntity : SetupEntity<int>

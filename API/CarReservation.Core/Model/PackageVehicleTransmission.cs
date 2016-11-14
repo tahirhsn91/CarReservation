@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.Model
 {
-    public class TravelUnit : SetupEntity
+    public class PackageVehicleTransmission : EntityBase
     {
+        public Package Package { get; set; }
+
+        public VehicleTransmission VehicleTransmission { get; set; }
     }
 }

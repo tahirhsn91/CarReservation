@@ -27,7 +27,7 @@ namespace CarReservation.Core.Model
         [Required]
         public ApplicationUser User { get; set; }
 
-        public bool IsAvailable { get; set; }
+        public DriverStatus Status { get; set; }
 
         public Account Account { get; set; }
     }

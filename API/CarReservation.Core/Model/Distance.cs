@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.Model
 {
-    public class TravelUnit : SetupEntity
+    public class Distance : EntityBase
     {
+        public double TotalDistance { get; set; }
+
+        public DistanceUnit Unit { get; set; }
     }
 }

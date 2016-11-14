@@ -13,19 +13,9 @@ namespace CarReservation.Core.Model
 
         public LocationLagLon Destination { get; set; }
 
-        public double TotalDistance { get; set; }
+        public Distance RideDistance { get; set; }
 
-        public DateTime StartTime { get; set; }
-
-        public DateTime EndTime { get; set; }
-
-        public TimeSpan TotalTime
-        {
-            get
-            {
-                return EndTime.Subtract(StartTime);
-            }
-        }
+        public TimeTracker TimeTaken { get; set; }
 
         public Fare TotalFare { get; set; }
 
@@ -39,6 +29,8 @@ namespace CarReservation.Core.Model
 
         public List<TravelUnit> TravelUnits { get; set; }
 
-        public string RideStatus { get; set; }
+        public RideStatus RideStatus { get; set; }
+
+        public List<Ride> SharedRides { get; set; }
     }
 }
