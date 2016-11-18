@@ -86,6 +86,14 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.4.0.1\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.4.0.1\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
@@ -107,6 +115,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
       <Private>True</Private>
@@ -130,17 +139,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspect\AuditLoggingAroundAdvice.cs" />
+    <Compile Include="Attributes\AuditOperation.cs" />
     <Compile Include="Constant\UserRoles.cs" />
     <Compile Include="DTO\Base\BaseDTO.cs" />
+    <Compile Include="DTO\Base\SetupDTO.cs" />
+    <Compile Include="DTO\ColorDTO.cs" />
+    <Compile Include="Enums\OperationType.cs" />
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
     <Compile Include="Infrastructure\Base\IRepositoryRequisites.cs" />
     <Compile Include="Infrastructure\Base\IRequestInfo.cs" />
+    <Compile Include="Infrastructure\RepositoryRequisites.cs" />
+    <Compile Include="Infrastructure\RequestInfo.cs" />
     <Compile Include="Infrastructure\UnityHttpControllerActivator.cs" />
     <Compile Include="IoC.cs" />
-    <Compile Include="IRepository\Base\IActivityLogRepository.cs" />
     <Compile Include="IRepository\Base\IBaseRepository.cs" />
+    <Compile Include="IRepository\Base\IUnitOfWork.cs" />
+    <Compile Include="IRepository\IColorRepository.cs" />
+    <Compile Include="IService\Base\IBaseService.cs" />
+    <Compile Include="IService\Base\SetupService.cs" />
+    <Compile Include="IService\IColorService.cs" />
     <Compile Include="Migrations\201611051621268_InitialCreate.cs" />
     <Compile Include="Migrations\201611051621268_InitialCreate.Designer.cs">
       <DependentUpon>201611051621268_InitialCreate.cs</DependentUpon>
@@ -227,10 +247,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
-    <Folder Include="IService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

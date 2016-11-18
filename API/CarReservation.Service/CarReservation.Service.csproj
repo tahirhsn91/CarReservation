@@ -39,7 +39,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\BaseService.cs" />
+    <Compile Include="Base\SetupService.cs" />
+    <Compile Include="ColorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarReservation.Common\CarReservation.Common.csproj">
+      <Project>{ee73d8eb-5965-4bf3-a684-813c4d7c9b22}</Project>
+      <Name>CarReservation.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarReservation.Core\CarReservation.Core.csproj">
+      <Project>{295fabb4-d5f3-4987-a8f7-d3c40852e1a6}</Project>
+      <Name>CarReservation.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarReservation.Repository\CarReservation.Repository.csproj">
+      <Project>{523f5a9d-6f25-409e-832a-06b830a77cd1}</Project>
+      <Name>CarReservation.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

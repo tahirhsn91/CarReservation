@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\AuthorizeRolesAttribute.cs" />
+    <Compile Include="Helper\DateTimeExtension.cs" />
     <Compile Include="Helper\JsonApiEFQueryBuilder.cs" />
     <Compile Include="Helper\ReleaseResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

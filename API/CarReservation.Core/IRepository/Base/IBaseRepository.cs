@@ -17,4 +17,8 @@ namespace CarReservation.Core.IRepository.Base
         Task<TEntity> Update(TEntity entity);
         Task DeleteAsync(TKey id);
     }
+
+    public interface IBaseRepository
+    {
+    }
 }
