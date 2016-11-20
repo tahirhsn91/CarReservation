@@ -14,7 +14,9 @@ namespace CarReservation.Repository.Base
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IRequestInfo _requestInfo;
+
         private readonly IColorRepository _colorRepository;
+        private readonly IRideStatusRepository _rideStatusRepository;
 
 
         public ApplicationDbContext DBContext
@@ -25,18 +27,26 @@ namespace CarReservation.Repository.Base
         {
             get { return this._requestInfo; }
         }
+
         public IColorRepository ColorRepository
         {
             get { return this._colorRepository; }
         }
+        public IRideStatusRepository RideStatusRepository
+        {
+            get { return this._rideStatusRepository; }
+        }
 
         public UnitOfWork(
             IRequestInfo requestInfo,
-            IColorRepository colorRepository
+            IColorRepository colorRepository,
+            IRideStatusRepository rideStatusRepository
             )
         {
             this._requestInfo = requestInfo;
+
             this._colorRepository = colorRepository;
+            this._rideStatusRepository = rideStatusRepository;
         }
 
         public async Task<int> SaveAsync()

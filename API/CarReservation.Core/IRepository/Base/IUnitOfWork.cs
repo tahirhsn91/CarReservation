@@ -13,7 +13,9 @@ namespace CarReservation.Core.IRepository.Base
     {
         ApplicationDbContext DBContext { get; }
         IRequestInfo RequestInfo { get; }
+
         IColorRepository ColorRepository { get; }
+        IRideStatusRepository RideStatusRepository { get; }
 
         Task<int> SaveAsync();
         int Save();
