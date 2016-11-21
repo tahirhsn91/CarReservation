@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.DTO.Base
 {
-    public abstract class SetupDTO<TEntity, TKey> : BaseDTO<TEntity, TKey> where TEntity : SetupEntity<TKey>, new()
+    public abstract class SetupDTO<TEntity, TKey> : BaseDTO<TEntity, TKey>
+        where TEntity : SetupEntity<TKey>, new()
     {
         public string Name { get; set; }
         public string Code { get; set; }
