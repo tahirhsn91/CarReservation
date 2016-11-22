@@ -1,4 +1,5 @@
-﻿using CarReservation.Core.Infrastructure;
+﻿using CarReservation.Common.Attributes;
+using CarReservation.Core.Infrastructure;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System;
@@ -10,6 +11,8 @@ using System.Web.Http;
 
 namespace CarReservation.API.Controllers
 {
+    [Authorize]
+    [ValidationAttribute]
     public class BaseController : ApiController
     {
         private ApplicationUserManager _AppUserManager = null;

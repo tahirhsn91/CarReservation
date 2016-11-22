@@ -12,5 +12,6 @@ namespace CarReservation.Core.Constant
         public const string ADMIN = "Administrator";
         public const string SUPERVISOR = "Supervisor";
         public const string DRIVER = "Driver";
+        public const string CUSTOMER = "Customer";
     }
 }

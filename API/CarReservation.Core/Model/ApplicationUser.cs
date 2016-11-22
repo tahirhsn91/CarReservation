@@ -12,19 +12,15 @@ namespace CarReservation.Core.Model
     public class ApplicationUser : IdentityUser, IAuditModel<string>
     {
         [Required]
-        [MaxLength(100)]
         public string FirstName { get; set; }
 
         [Required]
-        [MaxLength(100)]
         public string LastName { get; set; }
 
-        [MaxLength(50)]
         public virtual string CreatedBy { get; set; }
 
         public virtual DateTime CreatedOn { get; set; }
         
-        [MaxLength(50)]
         public virtual string LastModifiedBy { get; set; }
         
         public DateTime LastModifiedOn { get; set; }

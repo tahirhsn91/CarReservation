@@ -24,30 +24,34 @@ namespace CarReservation.Core.Migrations
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
 
-            if (manager.FindByNameAsync("SuperPowerUser") == null)
-            {
-                var user = new ApplicationUser()
-                {
-                    UserName = "SuperPowerUser",
-                    Email = "taiseer.joudeh@mymail.com",
-                    EmailConfirmed = true,
-                    FirstName = "Taiseer",
-                    LastName = "Joudeh"
-                };
-                manager.Create(user, "MySuperP@ss!");
-            }
-
             if (roleManager.Roles.Count() == 0)
             {
                 roleManager.Create(new IdentityRole { Name = UserRoles.SUPER });
                 roleManager.Create(new IdentityRole { Name = UserRoles.ADMIN });
                 roleManager.Create(new IdentityRole { Name = UserRoles.SUPERVISOR });
                 roleManager.Create(new IdentityRole { Name = UserRoles.DRIVER });
+                roleManager.Create(new IdentityRole { Name = UserRoles.CUSTOMER });
             }
 
-            var adminUser = manager.FindByName("SuperPowerUser");
+            string emailAddress = "tahir.hassan@gmail.com";
+            if (manager.FindByEmail(emailAddress) == null)
+            {
+                var user = new ApplicationUser()
+                {
+                    UserName = emailAddress,
+                    Email = emailAddress,
+                    EmailConfirmed = true,
+                    FirstName = "tahir",
+                    LastName = "hassan",
+                    CreatedOn = DateTime.UtcNow,
+                    LastModifiedOn = DateTime.UtcNow
+                };
+                manager.Create(user, "Admin123!@#$");
 
-            //manager.AddToRoles(adminUser.Id, new string[] { UserRoles.SUPER, UserRoles.ADMIN });
+                var adminUser = manager.FindByName(emailAddress);
+
+                manager.AddToRoles(adminUser.Id, new string[] { UserRoles.SUPER, UserRoles.ADMIN });
+            }
         }
     }
 }

@@ -12,14 +12,11 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Service
 {
-    //public class RideStatusService : SetupService<RideStatusRepository, RideStatus, RideStatusDTO, int>
-    //{
-    //    IUnitOfWork _unitOfWork;
-
-    //    public RideStatusService(IUnitOfWork unitOfWork)
-    //        : base(unitOfWork.RideStatusRepository)
-    //    {
-    //        this._unitOfWork = unitOfWork;
-    //    }
-    //}
+    public class RideStatusService : SetupService<IBaseRepository<RideStatus, int>, RideStatus, RideStatusDTO, int>, IRideStatusService
+    {
+        public RideStatusService(IUnitOfWork unitOfWork)
+            : base(unitOfWork, unitOfWork.RideStatusRepository)
+        {
+        }
+    }
 }
