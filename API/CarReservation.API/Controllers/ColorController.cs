@@ -38,7 +38,7 @@ namespace CarReservation.API.Controllers
 
         [HttpPost]
         [Route("")]
-        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
+        //[AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
         public Task<ColorDTO> Post(ColorDTO dtoObject)
         {
             return this._service.CreateAsync(dtoObject);
