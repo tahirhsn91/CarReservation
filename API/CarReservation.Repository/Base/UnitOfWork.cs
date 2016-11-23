@@ -33,19 +33,14 @@ namespace CarReservation.Repository.Base
         private readonly IDistanceUnitRepository _distanceUnitRepository;
         private readonly IDriverStatusRepository _driverStatusRepository;
 
-        public ApplicationDbContext DBContext
-        {
-            get { return this._requestInfo.Context; }
-        }
-        public IRequestInfo RequestInfo
-        {
-            get { return this._requestInfo; }
-        }
+        private readonly ICreditCardRepository _creditCardRepository;
 
-        public IColorRepository ColorRepository
-        {
-            get { return this._colorRepository; }
-        }
+
+
+        public ApplicationDbContext DBContext { get { return this._requestInfo.Context; } }
+        public IRequestInfo RequestInfo { get { return this._requestInfo; } }
+
+        public IColorRepository ColorRepository { get { return this._colorRepository; } }
         public IRideStatusRepository RideStatusRepository { get { return this._rideStatusRepository; } }
 
         public ICountryRepository CountryRepository { get { return _countryRepository; } }
@@ -63,28 +58,53 @@ namespace CarReservation.Repository.Base
         public IDistanceUnitRepository DistanceUnitRepository { get { return _distanceUnitRepository; } }
         public IDriverStatusRepository DriverStatusRepository { get { return _driverStatusRepository; } }
 
+        public ICreditCardRepository CreditCardRepository { get { return _creditCardRepository; } }
+
         public UnitOfWork(
             IRequestInfo requestInfo,
+
             IColorRepository colorRepository,
             IRideStatusRepository rideStatusRepository,
+            
             ICountryRepository countryRepository,
             IStateRepository stateRepository,
             ICityRepository cityRepository,
+            
             IVehicleMakerRepository vehicleMakerRepository,
             IVehicleModelRepository vehicleModelRepository,
             IVehicleBodyTypeRepository vehicleBodyTypeRepository,
             IVehicleFeatureRepository vehicleFeatureRepository,
             IVehicleTransmissionRepository vehicleTransmissionRepository,
             IVehicleAssemblyRepository vehicleAssemblyRepository,
+            
             ITravelUnitRepository travelUnitRepository,
             IDistanceUnitRepository distanceUnitRepository,
-            IDriverStatusRepository driverStatusRepository
+            IDriverStatusRepository driverStatusRepository,
+            
+            ICreditCardRepository creditCardRepository
             )
         {
             this._requestInfo = requestInfo;
 
             this._colorRepository = colorRepository;
             this._rideStatusRepository = rideStatusRepository;
+
+            this._countryRepository = countryRepository;
+            this._stateRepository = stateRepository;
+            this._cityRepository = cityRepository;
+
+            this._vehicleMakerRepository = vehicleMakerRepository;
+            this._vehicleModelRepository = vehicleModelRepository;
+            this._vehicleBodyTypeRepository = vehicleBodyTypeRepository;
+            this._vehicleFeatureRepository = vehicleFeatureRepository;
+            this._vehicleTransmissionRepository = vehicleTransmissionRepository;
+            this._vehicleAssemblyRepository = vehicleAssemblyRepository;
+
+            this._travelUnitRepository = travelUnitRepository;
+            this._distanceUnitRepository = distanceUnitRepository;
+            this._driverStatusRepository = driverStatusRepository;
+
+            this._creditCardRepository = creditCardRepository;
         }
 
         public async Task<int> SaveAsync()

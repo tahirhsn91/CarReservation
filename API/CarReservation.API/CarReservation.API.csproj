@@ -207,6 +207,7 @@
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\ColorController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\CreditCardController.cs" />
     <Compile Include="Controllers\DistanceUnitController.cs" />
     <Compile Include="Controllers\DriverStatusController.cs" />
     <Compile Include="Controllers\RideStatusController.cs" />

@@ -11,8 +11,8 @@ using CarReservation.Core.Model.Base;
 namespace CarReservation.API.Controllers.Base
 {
     public abstract class SetupController<TService, TDto, TEntity> : BaseController
-        where TEntity : SetupEntity, new()
-        where TDto : SetupDTO<TEntity, int>, new()
+        where TEntity : EntityBase<int>, new()
+        where TDto : BaseDTO<TEntity, int>, new()
         where TService : IBaseService<TDto, int>
     {
         protected TService _service;
@@ -24,7 +24,7 @@ namespace CarReservation.API.Controllers.Base
 
         [HttpGet]
         [Route("")]
-        //[AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
+        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
         public virtual Task<IList<TDto>> Get()
         {
             var request = Request.GetJsonApiRequest();
@@ -41,7 +41,7 @@ namespace CarReservation.API.Controllers.Base
 
         [HttpPost]
         [Route("")]
-        //[AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
+        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
         public virtual Task<TDto> Post(TDto dtoObject)
         {
             return this._service.CreateAsync(dtoObject);

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Service
 {
-    public class CountryService : SetupService<IBaseRepository<Country, int>, Country, CountryDTO, int>, ICountryService
+    public class CountryService : BaseService<IBaseRepository<Country, int>, Country, CountryDTO, int>, ICountryService
     {
         public CountryService(IUnitOfWork unitOfWork)
             : base(unitOfWork, unitOfWork.CountryRepository)

@@ -57,10 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseService.cs" />
-    <Compile Include="Base\SetupService.cs" />
     <Compile Include="CityService.cs" />
     <Compile Include="ColorService.cs" />
     <Compile Include="CountryService.cs" />
+    <Compile Include="CreditCardService.cs" />
     <Compile Include="DistanceUnitService.cs" />
     <Compile Include="DriverStatusService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

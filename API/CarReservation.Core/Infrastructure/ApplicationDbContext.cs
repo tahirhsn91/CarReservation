@@ -66,6 +66,8 @@ namespace CarReservation.Core.Infrastructure
         public DbSet<RideStatus> RideStatus { get; set; }
         public DbSet<Ride> Ride { get; set; }
 
+        public DbSet<CreditCard> CreditCard { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

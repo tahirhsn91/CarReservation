@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Service
 {
-    public class VehicleTransmissionService : SetupService<IBaseRepository<VehicleTransmission, int>, VehicleTransmission, VehicleTransmissionDTO, int>, IVehicleTransmissionService
+    public class VehicleTransmissionService : BaseService<IBaseRepository<VehicleTransmission, int>, VehicleTransmission, VehicleTransmissionDTO, int>, IVehicleTransmissionService
     {
         public VehicleTransmissionService(IUnitOfWork unitOfWork)
             : base(unitOfWork, unitOfWork.VehicleTransmissionRepository)

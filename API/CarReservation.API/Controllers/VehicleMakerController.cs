@@ -6,6 +6,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.API.Controllers
 {
+    [RoutePrefix("VehicleMaker")]
     public class VehicleMakerController : SetupController<IVehicleMakerService, VehicleMakerDTO, VehicleMaker>
     {
         public VehicleMakerController(IVehicleMakerService service)
