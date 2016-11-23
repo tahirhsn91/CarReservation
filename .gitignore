@@ -4,3 +4,10 @@ obj/
 .vs
 /.vs
 *.user
+node_modules
+platforms
+plugins
+MobileApp/www/lib/
+MobileApp/res/
+MobileApp/resources/
+.editorconfig

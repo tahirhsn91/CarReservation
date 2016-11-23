@@ -1,0 +1,24 @@
+/* Empty. Add your own CSS if you like */
+
+a {
+    cursor: pointer;
+}
+
+.validation p {
+    color: #fd7f7f;
+}
+
+/********** auth-wrapper **********/
+.auth-wrapper {
+    background: url(../img/auth-background-blurred.jpg) left top no-repeat;
+    background-size: cover;
+}
+
+.auth-wrapper .landing-buttons {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 15px;
+    width: calc(100% - 100px);
+    left: 0;
+    right: 0;
+}

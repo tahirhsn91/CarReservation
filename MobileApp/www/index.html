@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- bower:js -->
+    <script src="lib/lodash/dist/lodash.compat.js"></script>
+    <script src="lib/restangular/dist/restangular.js"></script>
+    <script src="lib/a0-angular-storage/dist/angular-storage.js"></script>
+    <script src="lib/angular-messages/angular-messages.js"></script>
+    
+    <!-- App.js -->
+    <script src="src/core/core.module.js"></script>
+    <script src="src/common/common.module.js"></script>
+    <script src="src/app.module.js"></script>
+
+    <script src="src/core/restangular.config.js"></script>
+    <script src="src/core/router.config.js"></script>
+    <script src="src/core/httpStatus.constant.js"></script>
+    <script src="src/core/appRoles.constant.js"></script>
+    <script src="src/core/core.run.js"></script>
+
+    <script src="src/common/regex.constant.js"></script>
+    <script src="src/common/validationDirective/errorMessages.constant.js"></script>
+    <script src="src/common/validationDirective/validations.directive.js"></script>
+
+    <script src="src/shell/shell.module.js"></script>
+    <script src="src/shell/shell.controller.js"></script>
+
+    <script src="src/auth/auth.module.js"></script>
+    <script src="src/auth/auth.factory.js"></script>
+    <script src="src/auth/login.controller.js"></script>
+    <script src="src/auth/register.controller.js"></script>
+    <script src="src/auth/forgotPassword.controller.js"></script>
+
+    <script src="src/dashboard/customer/customerDashboard.module.js"></script>
+    <script src="src/dashboard/customer/customerDashboard.controller.js"></script>
+    <script src="src/dashboard/driver/driverDashboard.module.js"></script>
+    <script src="src/dashboard/driver/driverDashboard.controller.js"></script>
+
+    <script src="src/wallet/wallet.module.js"></script>
+    <script src="src/wallet/wallet.controller.js"></script>
+
+    <script src="src/rides/rides.module.js"></script>
+    <script src="src/rides/rides.controller.js"></script>
+
+  </head>
+
+  <body ng-app="app">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

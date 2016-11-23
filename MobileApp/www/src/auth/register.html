@@ -1,0 +1,44 @@
+<ion-content class="auth-wrapper">
+  <form name="registerForm" novalidate ng-submit="registerForm.$valid && vm.register()">
+    <div class="card padding">
+      <h4 class="text-center">Sign Up</h4>
+      <div class="list card">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">First Name</span>
+          <input type="text" name="FirstName" placeholder="First Name" ng-model="vm.user.FirstName" required>
+          <validations form-name="registerForm" field-name="FirstName" label="First name" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Last Name</span>
+          <input type="text" name="LastName" placeholder="Last Name" ng-model="vm.user.LastName" required>
+          <validations form-name="registerForm" field-name="LastName" label="Last name" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Email</span>
+          <input type="email" placeholder="Email" name="Email"
+          ng-model="vm.user.Email" ng-pattern="vm.regex.email" required>
+          <validations form-name="registerForm" field-name="Email" label="Email" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="Password" name="password" ng-model="vm.user.Password" required>
+          <validations form-name="registerForm" field-name="password" label="Password" ></validations>
+        </label>
+        <label class="item item-input item-select">
+          <span class="input-label">Role</span>
+          <select name="role" placeholder="Role" ng-model="vm.user.Role">
+            <option ng-selected="true" value="CUSTOMER">Customer</option>
+            <option value="DRIVER">Driver</option>
+          </select>
+        </label>
+      </div>
+      <button type="submit" class="button button-block button-balanced" >
+        <strong>Sign Up</strong>
+      </button>
+    </div>
+  </form>
+  <div class="auth-links text-center">
+    <a ui-sref="auth" class="button button-clear button-light">Back</a>
+    <a ui-sref="login" class="button button-clear button-energized">Sign In</a>
+  </div>
+</ion-content>

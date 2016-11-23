@@ -1,0 +1,30 @@
+<ion-content class="auth-wrapper">
+  <form name="loginform" novalidate ng-submit="loginform.$valid && vm.login()">
+    <div class="card padding">
+      <h4 class="text-center">Sign In</h4>
+      <div class="list card">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Email</span>
+          <input type="email" name="email" id="email"
+              placeholder="Email" ng-model="vm.user.Email"
+              ng-pattern="vm.regex.email"
+              required>
+          <validations form-name="loginform" field-name="email" label="Email" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Password</span>
+          <input type="password" name="password" id="password" placeholder="Password"
+              ng-model="vm.user.Password" required>
+          <validations form-name="loginform" field-name="password" label="Password" ></validations>
+        </label>
+      </div>
+      <button type="submit" class="button button-block button-balanced" >
+        <strong>Sign In</strong>
+      </button>
+    </div>
+  </form>
+  <div class="auth-links text-center">
+    <a ui-sref="auth" class="button button-clear button-light">Back</a>
+    <a ui-sref="forgotPassword" class="button button-clear button-energized">Forgot Password?</a>
+  </div>
+</ion-content>

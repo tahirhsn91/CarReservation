@@ -1,0 +1,49 @@
+<div ng-messages="formName[fieldName + index].$error" class="validation"
+     ng-show="formName.$submitted || (formName[fieldName].$dirty && dirty)">
+    <p ng-message="required">
+        <span ng-bind="label"></span>
+        <span ng-if="!errorMessages[fieldName].required" ng-bind="errorMessages.default.required"></span>
+        <span ng-if="errorMessages[fieldName].required" ng-bind="errorMessages[fieldName].required"></span>
+    </p>
+    <p ng-message="validator">
+        <span ng-bind="label"></span>
+        <span ng-if="!errorMessages[fieldName].validator" ng-bind="errorMessages.default.validator"></span>
+        <span ng-if="errorMessages[fieldName].validator" ng-bind="errorMessages[fieldName].validator"></span>
+    </p>
+    <p ng-message="max">
+        <span ng-bind="label"></span>
+        <span ng-if="!errorMessages[fieldName].max" ng-bind="errorMessages.default.max"></span>
+        <span ng-if="errorMessages[fieldName].max" ng-bind="errorMessages[fieldName].max"></span>
+    </p>
+    <p ng-message="min">
+        <span ng-bind="label"></span>
+        <span ng-if="!errorMessages[fieldName].min" ng-bind="errorMessages.default.min"></span>
+        <span ng-if="errorMessages[fieldName].min" ng-bind="errorMessages[fieldName].min"></span>
+    </p>
+    <p ng-message="maxlength">
+        <span ng-bind="label"></span>
+        <span ng-if="!errorMessages[fieldName].maxlength" ng-bind="errorMessages.default.maxlength"></span>
+        <span ng-if="errorMessages[fieldName].maxlength" ng-bind="errorMessages[fieldName].maxlength"></span>
+    </p>
+    <p ng-message="minlength">
+        <span ng-bind="label"></span>
+        <span ng-if="!errorMessages[fieldName].minlength" ng-bind="errorMessages.default.minlength"></span>
+        <span ng-if="errorMessages[fieldName].minlength" ng-bind="errorMessages[fieldName].minlength"></span>
+    </p>
+    <p ng-message="email">
+        <span ng-bind="label"></span>
+        <span ng-if="!errorMessages[fieldName].email" ng-bind="errorMessages.default.email"></span>
+        <span ng-if="errorMessages[fieldName].email" ng-bind="errorMessages[fieldName].email"></span>
+    </p>
+    <p ng-message="number">
+        <span ng-bind="label"></span>
+        <span ng-if="!errorMessages[fieldName].number" ng-bind="errorMessages.default.number"></span>
+        <span ng-if="errorMessages[fieldName].number" ng-bind="errorMessages[fieldName].number"></span>
+    </p>
+    <p ng-message="pattern">
+        <span ng-bind="label"></span>
+        <span ng-if="!errorMessages[fieldName].pattern" ng-bind="errorMessages.default.pattern"></span>
+        <span ng-if="errorMessages[fieldName].pattern" ng-bind="errorMessages[fieldName].pattern"></span>
+    </p>
+</div>
+
