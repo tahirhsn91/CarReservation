@@ -8,7 +8,39 @@ a {
     color: #fd7f7f;
 }
 
+.pull-right {
+    float: right;
+}
+
+.row {
+    margin: -10px;
+}
+
+.item-icon-left .icon, .item-icon-right .icon {
+    font-size: 22px;
+}
+
+/********** app-sidebar **********/
+
+.app-sidebar {
+    background: #333;
+}
+.app-sidebar .item {
+    background-color: transparent;
+    border:none;
+    border-bottom:1px solid #666;
+    color: white;
+}
+
+.app-sidebar .item-complex .item-content, .dark .item-radio .item-content {
+  background-color: transparent;
+}
+
 /********** auth-wrapper **********/
+.view-container {
+    background-color: #000;
+}
+
 .auth-wrapper {
     background: url(../img/auth-background-blurred.jpg) left top no-repeat;
     background-size: cover;
@@ -21,4 +53,47 @@ a {
     width: calc(100% - 100px);
     left: 0;
     right: 0;
+}
+
+/********** ride-route **********/
+
+.ride-route {
+     text-decoration: none;
+}
+.ride-route h3 {
+     font-weight: bold;
+     color: #aaa;
+}
+.ride-route h2 {
+     padding: 0 0 0 20px;
+     position: relative;
+}
+.ride-route h2 .amount {
+    font-weight: bold;
+    float: right;
+}
+.ride-route h2 i {
+     margin-left: -20px;
+     margin-right: 5px;
+     color: #0c63ee;
+}
+.ride-route h2 i.ion-ios-location {
+     margin-left: -19px;
+}
+.ride-route h2 div {
+    margin-top: 3px;
+     margin-bottom: 10px;
+     color: #aaa;
+}
+.ride-route h2 .location-bar {
+    position: absolute;
+    left: 3px;
+    top: 28px;
+     color: #aaa;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
 }

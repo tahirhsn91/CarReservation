@@ -21,6 +21,15 @@
             controller: 'RidesCtrl as vm',
           }
         }
+      })
+      .state('shell.rideDetail', {
+        url:'/ride/:id',
+        views: {
+          'menuContent': {
+            templateUrl:'src/rides/rideDetail.html',
+            controller: 'RideDetailCtrl as vm',
+          }
+        }
       });
   }
 
