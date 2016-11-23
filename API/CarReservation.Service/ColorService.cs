@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Service
 {
-    public class ColorService : SetupService<IBaseRepository<Color, int>, Color, ColorDTO, int>, IColorService
+    public class ColorService : BaseService<IBaseRepository<Color, int>, Color, ColorDTO, int>, IColorService
     {
         public ColorService(IUnitOfWork unitOfWork)
             : base(unitOfWork, unitOfWork.ColorRepository)

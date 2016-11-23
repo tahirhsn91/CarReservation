@@ -149,6 +149,7 @@
     <Compile Include="DTO\CityDTO.cs" />
     <Compile Include="DTO\ColorDTO.cs" />
     <Compile Include="DTO\CountryDTO.cs" />
+    <Compile Include="DTO\CreditCardDTO.cs" />
     <Compile Include="DTO\DistanceUnitDTO.cs" />
     <Compile Include="DTO\DriverStatusDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="IRepository\ICityRepository.cs" />
     <Compile Include="IRepository\IColorRepository.cs" />
     <Compile Include="IRepository\ICountryRepository.cs" />
+    <Compile Include="IRepository\ICreditCardRepository.cs" />
     <Compile Include="IRepository\IDistanceUnitRepository.cs" />
     <Compile Include="IRepository\IDriverStatusRepository.cs" />
     <Compile Include="IRepository\IRideStatusRepository.cs" />
@@ -193,6 +195,7 @@
     <Compile Include="IService\ICityService.cs" />
     <Compile Include="IService\IColorService.cs" />
     <Compile Include="IService\ICountryService.cs" />
+    <Compile Include="IService\ICreditCardService.cs" />
     <Compile Include="IService\IDistanceUnitService.cs" />
     <Compile Include="IService\IDriverStatusService.cs" />
     <Compile Include="IService\IRideStatusService.cs" />
@@ -245,6 +248,10 @@
     <Compile Include="Migrations\201611221244498_AddingUserValidation.Designer.cs">
       <DependentUpon>201611221244498_AddingUserValidation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611231055484_CreditCardInfo.cs" />
+    <Compile Include="Migrations\201611231055484_CreditCardInfo.Designer.cs">
+      <DependentUpon>201611231055484_CreditCardInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountLog.cs" />
@@ -257,6 +264,7 @@
     <Compile Include="Model\City.cs" />
     <Compile Include="Model\Color.cs" />
     <Compile Include="Model\Country.cs" />
+    <Compile Include="Model\CreditCard.cs" />
     <Compile Include="Model\Currency.cs" />
     <Compile Include="Model\CurrencyLog.cs" />
     <Compile Include="Model\Customer.cs" />
@@ -329,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611221244498_AddingUserValidation.resx">
       <DependentUpon>201611221244498_AddingUserValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611231055484_CreditCardInfo.resx">
+      <DependentUpon>201611231055484_CreditCardInfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

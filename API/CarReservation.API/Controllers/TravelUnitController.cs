@@ -6,6 +6,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.API.Controllers
 {
+    [RoutePrefix("TravelUnit")]
     public class TravelUnitController : SetupController<ITravelUnitService, TravelUnitDTO, TravelUnit>
     {
         public TravelUnitController(ITravelUnitService service)

@@ -1,10 +1,5 @@
-﻿using CarReservation.Core.Model.Base;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using CarReservation.Core.Model.Base;
 
 namespace CarReservation.Core.Model
 {

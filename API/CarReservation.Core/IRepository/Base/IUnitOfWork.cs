@@ -32,6 +32,8 @@ namespace CarReservation.Core.IRepository.Base
         IDistanceUnitRepository DistanceUnitRepository { get; }
         IDriverStatusRepository DriverStatusRepository { get; }
 
+        ICreditCardRepository CreditCardRepository { get; }
+
         Task<int> SaveAsync();
         int Save();
         DbContextTransaction BeginTransaction();

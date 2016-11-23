@@ -64,6 +64,7 @@
     <Compile Include="CityRepository.cs" />
     <Compile Include="ColorRepository.cs" />
     <Compile Include="CountryRepository.cs" />
+    <Compile Include="CreditCardRepository.cs" />
     <Compile Include="DistanceUnitRepository.cs" />
     <Compile Include="DriverStatusRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Service
 {
-    public class VehicleBodyTypeService : BaseService<IBaseRepository<VehicleBodyType, int>, VehicleBodyType, VehicleBodyTypeDTO, int>, IVehicleBodyTypeService
+    public class CreditCardService: BaseService<IBaseRepository<CreditCard, int>, CreditCard, CreditCardDTO, int>, ICreditCardService
     {
-        public VehicleBodyTypeService(IUnitOfWork unitOfWork)
-            : base(unitOfWork, unitOfWork.VehicleBodyTypeRepository)
+        public CreditCardService(IUnitOfWork unitOfWork)
+            : base(unitOfWork, unitOfWork.CreditCardRepository)
         {
         }
     }

@@ -6,6 +6,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.API.Controllers
 {
+    [RoutePrefix("City")]
     public class CityController : SetupController<ICityService, CityDTO, City>
     {
         public CityController(ICityService service)

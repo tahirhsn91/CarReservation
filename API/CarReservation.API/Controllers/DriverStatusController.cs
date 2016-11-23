@@ -6,6 +6,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.API.Controllers
 {
+    [RoutePrefix("DriverStatus")]
     public class DriverStatusController : SetupController<IDriverStatusService, DriverStatusDTO, DriverStatus>
     {
         public DriverStatusController(IDriverStatusService service)
