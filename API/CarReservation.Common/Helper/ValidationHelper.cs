@@ -13,7 +13,7 @@ namespace CarReservation.Common.Helper
         {
             List<string> error = new List<string>();
 
-            return obj.IsValid(error);
+            return obj.IsValid(error, throwError);
         }
 
         public static bool IsValid(this object obj, List<string> error, bool throwError = true)

@@ -202,9 +202,23 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\Base\SetupController.cs" />
+    <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\ColorController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\DistanceUnitController.cs" />
+    <Compile Include="Controllers\DriverStatusController.cs" />
+    <Compile Include="Controllers\RideStatusController.cs" />
+    <Compile Include="Controllers\StateController.cs" />
+    <Compile Include="Controllers\TravelUnitController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VehicleAssemblyController.cs" />
+    <Compile Include="Controllers\VehicleBodyTypeController.cs" />
+    <Compile Include="Controllers\VehicleFeatureController.cs" />
+    <Compile Include="Controllers\VehicleMakerController.cs" />
+    <Compile Include="Controllers\VehicleModelController.cs" />
+    <Compile Include="Controllers\VehicleTransmissionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

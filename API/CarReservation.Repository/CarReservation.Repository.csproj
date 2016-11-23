@@ -61,9 +61,21 @@
     <Compile Include="Base\BaseRepository.cs" />
     <Compile Include="Base\DeletableRepository.cs" />
     <Compile Include="Base\UnitOfWork.cs" />
+    <Compile Include="CityRepository.cs" />
     <Compile Include="ColorRepository.cs" />
+    <Compile Include="CountryRepository.cs" />
+    <Compile Include="DistanceUnitRepository.cs" />
+    <Compile Include="DriverStatusRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RideStatusRepository.cs" />
+    <Compile Include="StateRepository.cs" />
+    <Compile Include="TravelUnitRepository.cs" />
+    <Compile Include="VehicleAssemblyRepository.cs" />
+    <Compile Include="VehicleBodyTypeRepository.cs" />
+    <Compile Include="VehicleFeatureRepository.cs" />
+    <Compile Include="VehicleMakerRepository.cs" />
+    <Compile Include="VehicleModelRepository.cs" />
+    <Compile Include="VehicleTransmissionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarReservation.Common\CarReservation.Common.csproj">
@@ -76,7 +88,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

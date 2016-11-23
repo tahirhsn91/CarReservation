@@ -58,10 +58,22 @@
   <ItemGroup>
     <Compile Include="Base\BaseService.cs" />
     <Compile Include="Base\SetupService.cs" />
+    <Compile Include="CityService.cs" />
     <Compile Include="ColorService.cs" />
+    <Compile Include="CountryService.cs" />
+    <Compile Include="DistanceUnitService.cs" />
+    <Compile Include="DriverStatusService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RideStatusService.cs" />
+    <Compile Include="StateService.cs" />
+    <Compile Include="TravelUnitService.cs" />
     <Compile Include="UserService.cs" />
+    <Compile Include="VehicleAssemblyService.cs" />
+    <Compile Include="VehicleBodyTypeService.cs" />
+    <Compile Include="VehicleFeatureService.cs" />
+    <Compile Include="VehicleMakerService.cs" />
+    <Compile Include="VehicleModelService.cs" />
+    <Compile Include="VehicleTransmissionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarReservation.Common\CarReservation.Common.csproj">

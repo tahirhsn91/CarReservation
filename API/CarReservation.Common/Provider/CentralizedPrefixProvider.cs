@@ -24,5 +24,10 @@ namespace CarReservation.Common.Provider
 
             return string.Format("{0}/{1}", _centralizedPrefix, existingPrefix);
         }
+
+        protected override IReadOnlyList<IDirectRouteFactory> GetActionRouteFactories(HttpActionDescriptor actionDescriptor)
+        {
+            return actionDescriptor.GetCustomAttributes<IDirectRouteFactory>(true);
+        }
     }
 }

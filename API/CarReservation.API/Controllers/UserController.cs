@@ -1,20 +1,19 @@
-﻿using CarReservation.Common.Attributes;
-using CarReservation.Common.Helper;
-using CarReservation.Core.Constant;
-using CarReservation.Core.DTO;
-using CarReservation.Core.Infrastructure;
-using CarReservation.Core.IService;
-using CarReservation.Core.Model;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using CarReservation.API.Controllers.Base;
+using CarReservation.Common.Attributes;
+using CarReservation.Common.Helper;
+using CarReservation.Core.Constant;
+using CarReservation.Core.DTO;
+using CarReservation.Core.IService;
+using CarReservation.Core.Model;
+using Newtonsoft.Json.Linq;
 
 namespace CarReservation.API.Controllers
 {
@@ -61,7 +60,7 @@ namespace CarReservation.API.Controllers
 
             LoginDTO login = new LoginDTO()
             {
-                UserName = register.Email,
+                Email = register.Email,
                 Password = register.Password
             };
 
@@ -88,7 +87,7 @@ namespace CarReservation.API.Controllers
             FormUrlEncodedContent formContent = new FormUrlEncodedContent(new[]
             {
                 new KeyValuePair<string, string>("grant_type", "password"),
-                new KeyValuePair<string, string>("username", loginData.UserName),
+                new KeyValuePair<string, string>("username", loginData.Email),
                 new KeyValuePair<string, string>("password", loginData.Password),
             });
 

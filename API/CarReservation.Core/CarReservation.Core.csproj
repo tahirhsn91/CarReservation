@@ -149,14 +149,19 @@
     <Compile Include="DTO\CityDTO.cs" />
     <Compile Include="DTO\ColorDTO.cs" />
     <Compile Include="DTO\CountryDTO.cs" />
+    <Compile Include="DTO\DistanceUnitDTO.cs" />
+    <Compile Include="DTO\DriverStatusDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
     <Compile Include="DTO\RegisterDTO.cs" />
     <Compile Include="DTO\RideStatusDTO.cs" />
     <Compile Include="DTO\StateDTO.cs" />
+    <Compile Include="DTO\TravelUnitDTO.cs" />
+    <Compile Include="DTO\VehicleAssemblyDTO.cs" />
     <Compile Include="DTO\VehicleBodyTypeDTO.cs" />
     <Compile Include="DTO\VehicleFeatureDTO.cs" />
     <Compile Include="DTO\VehicleMakerDTO.cs" />
     <Compile Include="DTO\VehicleModelDTO.cs" />
+    <Compile Include="DTO\VehicleTransmissionDTO.cs" />
     <Compile Include="Enums\OperationType.cs" />
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
@@ -169,13 +174,37 @@
     <Compile Include="IoC.cs" />
     <Compile Include="IRepository\Base\IBaseRepository.cs" />
     <Compile Include="IRepository\Base\IUnitOfWork.cs" />
+    <Compile Include="IRepository\ICityRepository.cs" />
     <Compile Include="IRepository\IColorRepository.cs" />
+    <Compile Include="IRepository\ICountryRepository.cs" />
+    <Compile Include="IRepository\IDistanceUnitRepository.cs" />
+    <Compile Include="IRepository\IDriverStatusRepository.cs" />
     <Compile Include="IRepository\IRideStatusRepository.cs" />
+    <Compile Include="IRepository\IStateRepository.cs" />
+    <Compile Include="IRepository\ITravelUnitRepository.cs" />
+    <Compile Include="IRepository\IVehicleAssemblyRepository.cs" />
+    <Compile Include="IRepository\IVehicleBodyTypeRepository.cs" />
+    <Compile Include="IRepository\IVehicleFeatureRepository.cs" />
+    <Compile Include="IRepository\IVehicleMakerRepository.cs" />
+    <Compile Include="IRepository\IVehicleModelRepository.cs" />
+    <Compile Include="IRepository\IVehicleTransmissionRepository.cs" />
     <Compile Include="IService\Base\IBaseService.cs" />
     <Compile Include="IService\Base\ISetupService.cs" />
+    <Compile Include="IService\ICityService.cs" />
     <Compile Include="IService\IColorService.cs" />
+    <Compile Include="IService\ICountryService.cs" />
+    <Compile Include="IService\IDistanceUnitService.cs" />
+    <Compile Include="IService\IDriverStatusService.cs" />
     <Compile Include="IService\IRideStatusService.cs" />
+    <Compile Include="IService\IStateService.cs" />
+    <Compile Include="IService\ITravelUnitService.cs" />
     <Compile Include="IService\IUserService.cs" />
+    <Compile Include="IService\IVehicleAssemblyService.cs" />
+    <Compile Include="IService\IVehicleBodyTypeService.cs" />
+    <Compile Include="IService\IVehicleFeatureService.cs" />
+    <Compile Include="IService\IVehicleMakerService.cs" />
+    <Compile Include="IService\IVehicleModelService.cs" />
+    <Compile Include="IService\IVehicleTransmissionService.cs" />
     <Compile Include="Migrations\201611051621268_InitialCreate.cs" />
     <Compile Include="Migrations\201611051621268_InitialCreate.Designer.cs">
       <DependentUpon>201611051621268_InitialCreate.cs</DependentUpon>
@@ -268,7 +297,6 @@
     <Folder Include="Helper\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

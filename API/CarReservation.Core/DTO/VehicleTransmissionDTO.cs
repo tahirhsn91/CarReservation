@@ -10,5 +10,14 @@ namespace CarReservation.Core.DTO
 {
     public class VehicleTransmissionDTO : SetupDTO<VehicleTransmission, int>
     {
+        public VehicleTransmissionDTO()
+            : base()
+        {
+        }
+
+        public VehicleTransmissionDTO(VehicleTransmission vehicleTransmission)
+            : base(vehicleTransmission)
+        {
+        }
     }
 }
