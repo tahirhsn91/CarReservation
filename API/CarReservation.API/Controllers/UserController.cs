@@ -54,7 +54,7 @@ namespace CarReservation.API.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<JObject> Register(RegisterDTO register)
+        public async Task<JObject> Register(UserDTO register)
         {
             register = await this._service.CreateAsync(register);
 

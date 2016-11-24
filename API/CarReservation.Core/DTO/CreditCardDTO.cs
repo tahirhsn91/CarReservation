@@ -36,17 +36,20 @@ namespace CarReservation.Core.DTO
         [Required]
         public CountryDTO Country { get; set; }
 
+        public UserDTO User { get; set; }
+
         public override CreditCard ConvertToEntity(CreditCard entity)
         {
-            CreditCard setupEntity = base.ConvertToEntity(entity);
+            entity = base.ConvertToEntity(entity);
 
             entity.CardNumber = this.CardNumber;
             entity.ExpirationDate = this.ExpirationDate;
             entity.CVV = this.CVV;
             entity.CardHolderName = this.CardHolderName;
-            entity.Country = new CountryDTO().ConvertToEntity();
+            entity.Country = this.Country.ConvertToEntity();
+            entity.User = this.User.ConvertToEntity();
 
-            return setupEntity;
+            return entity;
         }
 
         public override void ConvertFromEntity(CreditCard entity)
@@ -58,6 +61,7 @@ namespace CarReservation.Core.DTO
             this.CVV = entity.CVV;
             this.CardHolderName = entity.CardHolderName;
             this.Country = new CountryDTO(entity.Country);
+            this.User = new UserDTO(entity.User, string.Empty);
         }
     }
 }

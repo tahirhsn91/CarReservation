@@ -43,6 +43,7 @@ namespace CarReservation.Core.Migrations
                     EmailConfirmed = true,
                     FirstName = "tahir",
                     LastName = "hassan",
+                    MobileNumber="0000000000",
                     CreatedOn = DateTime.UtcNow,
                     LastModifiedOn = DateTime.UtcNow
                 };

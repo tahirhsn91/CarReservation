@@ -25,12 +25,12 @@ namespace CarReservation.Core.DTO.Base
 
         public override TEntity ConvertToEntity(TEntity entity)
         {
-            TEntity setupEntity = base.ConvertToEntity(entity);
+            entity = base.ConvertToEntity(entity);
 
             entity.Name = this.Name;
             entity.Code = this.Code;
 
-            return setupEntity;
+            return entity;
         }
 
         public override void ConvertFromEntity(TEntity entity)

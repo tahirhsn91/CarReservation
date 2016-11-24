@@ -20,5 +20,8 @@ namespace CarReservation.Core.Model
 
         [Required]
         public Country Country { get; set; }
+
+        [Required]
+        public ApplicationUser User { get; set; }
     }
 }

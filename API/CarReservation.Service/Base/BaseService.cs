@@ -5,6 +5,7 @@ using CarReservation.Core.IService.Base;
 using CarReservation.Core.Model.Base;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,7 +48,13 @@ namespace CarReservation.Service.Base
         {
             TEntity entity = dtoObject.ConvertToEntity();
             var result = await this._repository.Create(entity);
-            await this._unitOfWork.SaveAsync();
+            try
+            {
+                await this._unitOfWork.SaveAsync();
+            }
+            catch (DbEntityValidationException e)
+            {
+            }
 
             dtoObject.ConvertFromEntity(result);
             return dtoObject;

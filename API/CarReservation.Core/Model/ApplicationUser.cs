@@ -17,6 +17,8 @@ namespace CarReservation.Core.Model
         [Required]
         public string LastName { get; set; }
 
+        public string MobileNumber { get; set; }
+
         public virtual string CreatedBy { get; set; }
 
         public virtual DateTime CreatedOn { get; set; }
