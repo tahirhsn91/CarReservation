@@ -14,6 +14,12 @@
           <validations form-name="registerForm" field-name="LastName" label="Last name" ></validations>
         </label>
         <label class="item item-input item-floating-label">
+          <span class="input-label">Mobile Number</span>
+          <input type="text" placeholder="Mobile Number" name="MobileNumber"
+          ng-model="vm.user.MobileNumber" required>
+          <validations form-name="registerForm" field-name="Email" label="Email" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
           <span class="input-label">Email</span>
           <input type="email" placeholder="Email" name="Email"
           ng-model="vm.user.Email" ng-pattern="vm.regex.email" required>
@@ -32,13 +38,13 @@
           </select>
         </label>
       </div>
-      <button type="submit" class="button button-block button-balanced" >
+      <button type="submit" class="button button-block button-positive" >
         <strong>Sign Up</strong>
       </button>
     </div>
   </form>
   <div class="auth-links text-center">
     <a ui-sref="auth" class="button button-clear button-light">Back</a>
-    <a ui-sref="login" class="button button-clear button-energized">Sign In</a>
+    <a ui-sref="login" class="button button-clear button-positive">Sign In</a>
   </div>
 </ion-content>

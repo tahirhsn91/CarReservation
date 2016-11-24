@@ -35,6 +35,15 @@
         role: appUserRole.All,
         templateUrl:'src/auth/forgotPassword.html',
         controller: 'ForgotPasswordCtrl as vm'
+      })
+      .state('shell.changePassword', {
+        url:'/change-password',
+        views: {
+          'menuContent': {
+            templateUrl:'src/auth/changePassword.html',
+            controller: 'ChangePasswordCtrl as vm',
+          }
+        }
       });
   }
 
