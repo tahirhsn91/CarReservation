@@ -20,16 +20,19 @@
     vm.login = login;
 
     function login() {
-      authFactory.login(vm.user).then(function(result){
-        store.set('token', result);
+      $state.go('shell.customerDashboard');
+        store.set('token', 'result');
         store.set('user', 'Umair');
-        var user = 'Umair';
-        if(user === 'Umair'){
-          $state.go('shell.customerDashboard');
-        } else {
-          $state.go('shell.driverDashboard');
-        }
-      });
+      // authFactory.login(vm.user).then(function(result){
+      //   store.set('token', result);
+      //   store.set('user', 'Umair');
+      //   var user = 'Umair';
+      //   if(user === 'Umair'){
+      //     $state.go('shell.customerDashboard');
+      //   } else {
+      //     $state.go('shell.driverDashboard');
+      //   }
+      // });
     }
   }
 

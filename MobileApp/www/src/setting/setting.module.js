@@ -1,24 +1,24 @@
 /**
  * @ngdoc overview
- * @name app.wallet
- * @description Wallet module
+ * @name app.setting
+ * @description Setting module
  */
 
 (function(){
 
-  angular.module('app.wallet', [])
+  angular.module('app.setting', [])
     .config(configuration);
 
   /* @ngInject */
   function configuration($stateProvider){
 
     $stateProvider
-      .state('shell.wallet', {
-        url:'/wallet',
+      .state('shell.setting', {
+        url:'/setting',
         views: {
           'menuContent': {
-            templateUrl:'src/wallet/wallet.html',
-            controller: 'WalletCtrl as vm',
+            templateUrl:'src/setting/setting.html',
+            controller: 'SettingCtrl as vm',
           }
         }
       });

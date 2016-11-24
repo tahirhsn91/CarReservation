@@ -12,15 +12,24 @@
     .controller('ShellCtrl', ShellCtrl);
 
   /* @ngInject */
-  function ShellCtrl(store, $state){
+  function ShellCtrl(store, $state, $ionicPopup){
     var vm = this;
 
     vm.logout = logout;
 
     function logout(){
-      store.remove('token');
-      store.remove('user');
-      $state.go('auth');
+      $ionicPopup.confirm({
+        title: 'Logout',
+        template: 'Are you sure you want to logout from the application?'
+      }).then(function(res) {
+        if(res) {
+          store.remove('token');
+          store.remove('user');
+          $state.go('auth');
+        } else {
+          console.log('You Canceled');
+        }
+      });
     }
 
   }

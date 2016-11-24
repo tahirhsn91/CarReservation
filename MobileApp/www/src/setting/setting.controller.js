@@ -1,18 +1,18 @@
 /**
  * @ngdoc controller
- * @name app.wallet.controller:WalletCtrl
- * @description Wallet controller
+ * @name app.setting.controller:SettingCtrl
+ * @description Setting controller
  */
 
 (function(){
 
   'use strict';
 
-  angular.module('app.wallet')
-    .controller('WalletCtrl', WalletCtrl);
+  angular.module('app.setting')
+    .controller('SettingCtrl', SettingCtrl);
 
   /* @ngInject */
-  function WalletCtrl(){
+  function SettingCtrl(){
     var vm = this;
 
   }

@@ -4,6 +4,11 @@ a {
     cursor: pointer;
 }
 
+.item a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .validation p {
     color: #fd7f7f;
 }
@@ -14,6 +19,7 @@ a {
 
 .row {
     margin: -10px;
+    width: calc(100% + 20px);
 }
 
 .item-icon-left .icon, .item-icon-right .icon {
@@ -55,6 +61,18 @@ a {
     right: 0;
 }
 
+/********* footer-action ********/
+.footer-action {
+    margin: -6px -5px -5px;
+    width: calc(100% + 10px);
+}
+.footer-action .button{
+    width: 100%;
+    border-radius: 0;
+    padding: 5px 0px;
+}
+
+
 /********** ride-route **********/
 
 .ride-route {
@@ -90,10 +108,43 @@ a {
     left: 3px;
     top: 28px;
      color: #aaa;
+    transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
 
+.gmap-wrap {
+    margin:0;
+    height:calc(100% - 88px);
+    margin-top: 44px;
+    position: relative;
+
+}
+.gmap-wrap #map_canvas{
+    height:100%;
+    margin:0;
+}
+.gmap-wrap .center-marker{
+    position:absolute;
+    background:url(http://maps.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png) no-repeat;
+    top:50%;left:50%;
+    z-index:1;
+    margin-left: -50px;/*-16px*/
+    margin-top: -16px;
+    height: 32px;
+    width: 32px;
+    cursor:pointer;
+}
+.gmap-wrap .map-location {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    padding: 5px 5px 2px;
+    font-size: 16px;
 }

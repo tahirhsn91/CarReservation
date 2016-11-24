@@ -19,7 +19,9 @@
     'app.customerDashboard',
     'app.driverDashboard',
     'app.rides',
-    'app.wallet'
+    'app.wallet',
+    'app.setting',
+    'app.staticPages'
   ]);
 
 }());

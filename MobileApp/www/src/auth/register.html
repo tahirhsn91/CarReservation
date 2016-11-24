@@ -14,6 +14,12 @@
           <validations form-name="registerForm" field-name="LastName" label="Last name" ></validations>
         </label>
         <label class="item item-input item-floating-label">
+          <span class="input-label">Mobile Number</span>
+          <input type="text" placeholder="Mobile Number" name="MobileNumber"
+          ng-model="vm.user.MobileNumber" required>
+          <validations form-name="registerForm" field-name="Email" label="Email" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
           <span class="input-label">Email</span>
           <input type="email" placeholder="Email" name="Email"
           ng-model="vm.user.Email" ng-pattern="vm.regex.email" required>
