@@ -1,0 +1,59 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">
+            <span ng-bind="vm.pageTitle"></span>
+            <small>Module</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ui-sref="shell">Dashboard</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-file"></i>
+                <span ng-bind="vm.pageTitle"></span> Module
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <div ng-if="vm.data.length" class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th ng-repeat="field in vm.fields">
+                            <span ng-bind="field"></span>
+                        </th>
+                        <th>Details</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in vm.data">
+                        <td ng-repeat="field in vm.fields">
+                            <span ng-bind="data[field]"></span>
+                        </td>
+                        <td>
+                            <a ui-sref="shell.genericCrud.genericCrudDetail({'moduleName': vm.module, 'id': data.Id})">
+                                View Details
+                            </a>
+                        </td>
+                        <td>
+                            <a ui-sref="shell.genericCrud.genericCrudEdit({'moduleName': vm.module, 'id': data.Id})">
+                                Edit
+                            </a>
+                            <a ng-click="vm.deleteRecord(data)">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-if="!vm.data.length" class="text-center">
+            Sorry no {{vm.module}} data found
+        </div>
+    </div>
+</div>

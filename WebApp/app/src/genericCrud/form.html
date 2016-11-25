@@ -1,0 +1,51 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">
+            <span ng-bind="vm.pageTitle"></span>
+            <small>{{vm.data.Name}} Edit</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ui-sref="shell">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ui-sref="shell.genericCrud.genericCrudList({'moduleName': vm.module})">
+                    <span ng-bind="vm.pageTitle"></span> Module
+                </a>
+            </li>
+            <li class="active">
+                <i class="fa fa-file"></i>
+                <span ng-bind="vm.data.Name"></span> Edit
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <form role="form" name="form" novalidate ng-submit="form.$valid && vm.submit()">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr ng-repeat="field in vm.fields">
+                            <td>
+                                <label for="{{field}}">{{field}}</label>
+                            </td>
+                            <td>
+                                <input id="{{field}}" name="{{field}}" type="text"
+                                    ng-model="vm.data[field]" class="form-control">
+                                <!--<div class="validation">Example block-level help text here.</div>-->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="submit" class="btn btn-success">Submit Button</button>
+            <button type="reset" class="btn btn-info">Reset Button</button>
+        </form>
+    </div>
+</div>

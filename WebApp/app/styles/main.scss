@@ -1,0 +1,14 @@
+@import 'partials/skin';
+@import 'partials/theme';
+@import 'partials/auth';
+
+body {
+    margin-top: 50px;
+    background-color: #222;
+}
+
+@media(min-width:768px) {
+    // body {
+    //     margin-top: 50px;
+    // }
+}

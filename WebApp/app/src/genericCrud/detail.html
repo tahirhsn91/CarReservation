@@ -1,0 +1,60 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">
+            <span ng-bind="vm.pageTitle"></span>
+            <small>{{vm.data.Name}} Details</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ui-sref="shell">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ui-sref="shell.genericCrud.genericCrudList({'moduleName': vm.module})">
+                    <span ng-bind="vm.pageTitle"></span> Module
+                </a>
+            </li>
+            <li class="active">
+                <i class="fa fa-file"></i>
+                <span ng-bind="vm.data.Name"></span>
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="field in vm.fields">
+                        <td>
+                            <span ng-bind="field"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="vm.data[field]"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Actions</td>
+                        <td>
+                            <a ui-sref="shell.genericCrud.genericCrudEdit({'moduleName': vm.module, 'id': vm.data.Id})">
+                                Edit
+                            </a>
+                            <a ng-click="vm.deleteRecord()">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
