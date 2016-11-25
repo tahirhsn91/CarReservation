@@ -5,6 +5,7 @@ obj/
 /.vs
 *.user
 node_modules
+bower_components
 platforms
 plugins
 MobileApp/www/lib/

@@ -20,9 +20,9 @@
     vm.login = login;
 
     function login() {
+      store.set('token', 'result');
+      store.set('user', 'Umair');
       $state.go('shell.customerDashboard');
-        store.set('token', 'result');
-        store.set('user', 'Umair');
       // authFactory.login(vm.user).then(function(result){
       //   store.set('token', result);
       //   store.set('user', 'Umair');
