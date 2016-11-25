@@ -12,7 +12,8 @@
     'ui.router',
     'restangular',
     'ngMessages',
-    'angular-storage'
+    'angular-storage',
+    'ngToast'
   ]);
 
 }());

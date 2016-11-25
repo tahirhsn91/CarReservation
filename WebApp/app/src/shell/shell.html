@@ -1,13 +1,8 @@
-<div ui-view="topNavBar"></div>
-<section id="site-wrap">
-    <section id="site-container">
-        <div ui-view="sideBar"></div>
-        <section id="site-content-wrap">
-            <section id="site-content-container" class="site-content-container">
-                <section id="site-content">
-                    <div ui-view="content"></div>
-                </section>
-            </section>
-        </section>
-    </section>
-</section>
+<div id="wrapper">
+    <div ui-view="topNavBar"></div>
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div ui-view="content"></div>
+        </div>
+    </div>
+</div>

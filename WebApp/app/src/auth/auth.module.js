@@ -35,6 +35,16 @@
                     }
                 }
             })
+            .state('authShell.register', {
+                url: '/register',
+                role: appUserRole.All,
+                views: {
+                    'authContent@authShell': {
+                        templateUrl: 'src/auth/register.html',
+                        controller: 'Register as vm'
+                    }
+                }
+            })
             .state('authShell.forgetPassword', {
                 url: '/forget-password',
                 role: appUserRole.All,
@@ -42,16 +52,6 @@
                     'authContent@authShell': {
                         templateUrl: 'src/auth/forget.html',
                         controller: 'Forget as vm'
-                    }
-                }
-            })
-            .state('authShell.resetPassword', {
-                url: '/reset-password?passcode?username',
-                role: appUserRole.All,
-                views: {
-                    'authContent@authShell': {
-                        templateUrl: 'src/auth/resetPassword.html',
-                        controller: 'ResetPassword as vm'
                     }
                 }
             });

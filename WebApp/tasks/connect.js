@@ -10,8 +10,8 @@ module.exports = {
   proxies: [
     {
       context: '/api',
-      host: 'localhost',
-      port: 3000
+      host: '172.16.2.122',
+      port: 1401
     }
   ],
   livereload: {

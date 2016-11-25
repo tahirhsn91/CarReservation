@@ -1,0 +1,59 @@
+<form name="registerForm" novalidate ng-submit="registerForm.$valid && vm.register()">
+    <div class="login-fields">
+        <div class="form-group">
+            <input type="text"
+                   name="firstName"
+                   ng-model="vm.user.FirstName"
+                   class="form-control"
+                   id="firstName"
+                   placeholder="First Name"
+                   required>
+            <validations form-name="registerForm" field-name="firstName" label="First Name" ></validations>
+        </div>
+        <div class="form-group">
+            <input type="text"
+                   name="lastName"
+                   ng-model="vm.user.LastName"
+                   class="form-control"
+                   id="lastName"
+                   placeholder="Last Name"
+                   required>
+            <validations form-name="registerForm" field-name="lastName" label="Last Name" ></validations>
+        </div>
+        <div class="form-group">
+            <input type="text"
+                   name="phoneNumber"
+                   ng-model="vm.user.PhoneNumber"
+                   class="form-control"
+                   id="phoneNumber"
+                   placeholder="Phone Number"
+                   required>
+            <validations form-name="registerForm" field-name="phoneNumber" label="Phone Number" ></validations>
+        </div>
+        <div class="form-group">
+            <input type="email"
+                   name="email"
+                   ng-model="vm.user.Email"
+                   class="form-control"
+                   id="email"
+                   placeholder="Email"
+                   ng-pattern="vm.regex.email"
+                   required>
+            <validations form-name="registerForm" field-name="email" label="Email" ></validations>
+        </div>
+        <div class="form-group">
+            <input type="password"
+                   name="password"
+                   ng-model="vm.user.Password"
+                   class="form-control"
+                   id="password"
+                   placeholder="Password"
+                   required>
+            <validations form-name="registerForm" field-name="password" label="Password" ></validations>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn">Register</button>
+        </div>
+        <a class="pull-right" ui-sref="authShell.login">Login</a>
+    </div>
+</form>

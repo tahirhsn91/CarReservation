@@ -13,29 +13,47 @@
         .factory('authFactory', authFactory);
 
     /* @ngInject */
-    function authFactory(Restangular) {
+    function authFactory(Restangular, store) {
 
         return {
             login: login,
             forgetPass: forgetPass,
             resetPassword: resetPassword,
-            logout: logout
+            logout: logout,
+            register: register,
+            setToken: setToken
         };
 
         function forgetPass(data) {
-            return Restangular.all('Users/Forget').post(data);
+            return Restangular.all('User/Forget').post(data);
         }
 
         function resetPassword(data) {
-            return Restangular.all('Users/Reset').post(data);
+            return Restangular.all('User/Reset').post(data);
         }
 
         function login(data) {
-            return Restangular.all('Users/Login').post(data);
+            return Restangular.all('User/Login').post(data);
+        }
+
+        function register(data) {
+            return Restangular.all('User/Register').post(data);
         }
 
         function logout() {
-            return Restangular.all('Users/Logout').post();
+            return Restangular.all('User/Logout').post();
+        }
+
+        function setToken(){
+            var defaultHeaders = {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            };
+            var token = store.get('token');
+            if (token) {
+                defaultHeaders.Authorization = token.token_type + ' ' + token.access_token;
+            }
+            Restangular.setDefaultHeaders(defaultHeaders);
         }
     }
 

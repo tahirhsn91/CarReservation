@@ -13,14 +13,9 @@
                    required>
             <validations form-name="forgetForm" field-name="email" label="Email Address" ></validations>
         </div>
-        <button type="submit" ng-click="vm.sendEmail(forgetForm)" class="btn btn-orange rounded capitalize full-width">Send
-        </button>
-        <a class="forget-pass" ui-sref="authShell.login" ng-class="{'hide' : emailSuccess}">Cancel</a>
+        <div class="form-group">
+            <button type="submit" ng-click="vm.sendEmail(forgetForm)"class="btn">Send</button>
+        </div>
+        <a class="pull-right" ui-sref="authShell.login">Cancel</a>
     </div>
 </form>
-<div ng-if="emailSuccess" class="success-message">
-    <p>Email has been sent successfully</p>
-    <button type="submit" ng-if="emailSuccess" ui-sref="authShell.login" class="btn btn-orange rounded capitalize full-width">
-        OK
-    </button>
-</div>

@@ -1,33 +1,30 @@
-<form name="loginForm" novalidate>
+<form name="loginForm" novalidate ng-submit="loginForm.$valid && vm.login()">
     <div class="login-fields">
         <div class="form-group">
             <input type="email"
                    name="email"
-                   ng-model="vm.cred.userName"
+                   ng-model="vm.user.Email"
                    class="form-control"
-                   id="username"
-                   placeholder="Username"
-                   pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                   id="email"
+                   placeholder="Email"
+                   ng-pattern="vm.regex.email"
                    required>
-            <validations form-name="loginForm" field-name="email" label="Username" ></validations>
+            <validations form-name="loginForm" field-name="email" label="Email" ></validations>
         </div>
         <div class="form-group">
             <input type="password"
                    name="password"
-                   ng-model="vm.cred.password"
+                   ng-model="vm.user.Password"
                    class="form-control"
                    id="password"
                    placeholder="Password"
-                   required
-                   ng-minlength="8">
+                   required>
             <validations form-name="loginForm" field-name="password" label="Password" ></validations>
         </div>
-        <button id="login-btn"
-                type="submit"
-                ng-click="vm.login(loginForm)"
-                class="btn btn-orange rounded capitalize full-width">Log In
-        </button>
-        <a class="pull-left" ng-click="vm.openTermsAndCondition()">Terms & Conditions</a>
-        <a class="pull-right " ui-sref="authShell.forget">Forgot Password?</a>
+        <div class="form-group">
+            <button type="submit" class="btn">Log In</button>
+        </div>
+        <a class="pull-right" ui-sref="authShell.forgetPassword">Forgot Password?</a>
+        <a class="pull-left" ui-sref="authShell.register">Register</a>
     </div>
 </form>

@@ -12,7 +12,7 @@
     .run(runFunciton);
 
   /* @ngInject */
-  function runFunciton(Restangular, httpStatus, store) {
+  function runFunciton(Restangular, httpStatus, store, authFactory) {
 
     Restangular.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig){
             //Loader show here
@@ -21,7 +21,7 @@
                 operation : operation,
                 route : route,
                 url : url,
-                headers: headers, //_.extend(headers, {'X-XSRF-Token': auth.getTokenFromLocalStorage()}),
+                headers: _.extend(headers, {'X-XSRF-Token': authFactory.setToken()}),
                 params: params,
                 httpConfig: httpConfig
             };

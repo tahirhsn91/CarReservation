@@ -6,13 +6,13 @@
   <!-- build:css styles/main.css -->
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast.css" />
   <!-- endbower -->
   <link rel="stylesheet" href="styles/css/main.css"/>
   <!-- endbuild -->
 </head>
 
-  <body class="container">
-    <h3> ngSuper Generator </h3>
+  <body>
     <div ui-view></div>
   </body>
 
@@ -27,8 +27,9 @@
   <script src="bower_components/restangular/dist/restangular.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="bower_components/a0-angular-storage/dist/angular-storage.js"></script>
   <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/a0-angular-storage/dist/angular-storage.js"></script>
+  <script src="bower_components/ngToast/dist/ngToast.js"></script>
   <!-- endbower -->
   <script src="src/core/core.module.js"></script>
   <script src="src/common/common.module.js"></script>
@@ -42,12 +43,13 @@
 
   <script src="src/common/regex.constant.js"></script>
   <script src="src/common/appModules.constant.js"></script>
+  <script src="src/common/toast.factory.js"></script>
 
   <script src="src/auth/auth.module.js"></script>
   <script src="src/auth/auth.factory.js"></script>
   <script src="src/auth/login.controller.js"></script>
+  <script src="src/auth/register.controller.js"></script>
   <script src="src/auth/forgetPassword.controller.js"></script>
-  <script src="src/auth/resetPassword.controller.js"></script>
 
   <script src="src/shell/shell.module.js"></script>
   <script src="src/shell/shell.controller.js"></script>
@@ -55,6 +57,7 @@
   <script src="src/shell/topNavBar.controller.js"></script>
   
   <script src="src/genericCrud/genericCrud.module.js"></script>
+  <script src="src/genericCrud/genericCrud.factory.js"></script>
   <script src="src/genericCrud/genericList.controller.js"></script>
   <script src="src/genericCrud/genericDetail.controller.js"></script>
   <script src="src/genericCrud/genericForm.controller.js"></script>
