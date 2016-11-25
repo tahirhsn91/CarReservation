@@ -61,6 +61,7 @@
     <Compile Include="ColorService.cs" />
     <Compile Include="CountryService.cs" />
     <Compile Include="CreditCardService.cs" />
+    <Compile Include="CurrencyService.cs" />
     <Compile Include="DistanceUnitService.cs" />
     <Compile Include="DriverStatusService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +91,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

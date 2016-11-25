@@ -9,6 +9,5 @@ namespace CarReservation.Core.Model
 {
     public class Country : SetupEntity
     {
-        public List<State> States { get; set; }
     }
 }

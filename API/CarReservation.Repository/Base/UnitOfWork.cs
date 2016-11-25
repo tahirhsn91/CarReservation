@@ -34,6 +34,8 @@ namespace CarReservation.Repository.Base
         private readonly IDriverStatusRepository _driverStatusRepository;
 
         private readonly ICreditCardRepository _creditCardRepository;
+        private readonly ICurrencyRepository _currencyRepository;
+        private readonly ICurrencyLogRepository _currencyLogRepository;
 
 
 
@@ -59,29 +61,34 @@ namespace CarReservation.Repository.Base
         public IDriverStatusRepository DriverStatusRepository { get { return _driverStatusRepository; } }
 
         public ICreditCardRepository CreditCardRepository { get { return _creditCardRepository; } }
+        
+        public ICurrencyRepository CurrencyRepository { get { return _currencyRepository; } }
+        public ICurrencyLogRepository CurrencyLogRepository { get { return _currencyLogRepository; } }
 
         public UnitOfWork(
             IRequestInfo requestInfo,
 
             IColorRepository colorRepository,
             IRideStatusRepository rideStatusRepository,
-            
+
             ICountryRepository countryRepository,
             IStateRepository stateRepository,
             ICityRepository cityRepository,
-            
+
             IVehicleMakerRepository vehicleMakerRepository,
             IVehicleModelRepository vehicleModelRepository,
             IVehicleBodyTypeRepository vehicleBodyTypeRepository,
             IVehicleFeatureRepository vehicleFeatureRepository,
             IVehicleTransmissionRepository vehicleTransmissionRepository,
             IVehicleAssemblyRepository vehicleAssemblyRepository,
-            
+
             ITravelUnitRepository travelUnitRepository,
             IDistanceUnitRepository distanceUnitRepository,
             IDriverStatusRepository driverStatusRepository,
-            
-            ICreditCardRepository creditCardRepository
+
+            ICreditCardRepository creditCardRepository,
+            ICurrencyRepository currencyRepository,
+            ICurrencyLogRepository currencyLogRepository
             )
         {
             this._requestInfo = requestInfo;
@@ -105,6 +112,8 @@ namespace CarReservation.Repository.Base
             this._driverStatusRepository = driverStatusRepository;
 
             this._creditCardRepository = creditCardRepository;
+            this._currencyRepository = currencyRepository;
+            this._currencyLogRepository = currencyLogRepository;
         }
 
         public async Task<int> SaveAsync()

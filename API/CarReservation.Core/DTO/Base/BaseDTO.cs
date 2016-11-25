@@ -4,17 +4,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace CarReservation.Core.DTO.Base
 {
-    public abstract class BaseDTO<TEntity, TKey> : IBase<TKey> where TEntity : IDeletable<TKey>, new()
+    public abstract class BaseDTO<TEntity, TKey> : IBase<TKey> where TEntity : IAuditModel<TKey>, new()
     {
-        public bool IsDeleted { get; set; }
         public TKey Id { get; set; }
+
+        [IgnoreDataMember]
+        public bool IsDeleted { get; set; }
+        [IgnoreDataMember]
+        public string CreatedBy { get; set; }
+        [IgnoreDataMember]
+        public DateTime CreatedOn { get; set; }
+        [IgnoreDataMember]
+        public string ModifiedBy { get; set; }
+        [IgnoreDataMember]
+        public DateTime ModifiedOn { get; set; }
+
         public BaseDTO()
         {
             Init();
         }
+
         public BaseDTO(TEntity entity)
             : this()
         {
@@ -28,6 +41,12 @@ namespace CarReservation.Core.DTO.Base
         public virtual TEntity ConvertToEntity(TEntity entity)
         {
             entity.Id = Id == null || Id.Equals(default(TKey)) ? entity.Id : Id;
+
+            entity.CreatedOn = CreatedOn == DateTime.MinValue ? DateTime.UtcNow : CreatedOn;
+            entity.CreatedBy = CreatedBy;
+            entity.LastModifiedOn = ModifiedOn == DateTime.MinValue ? DateTime.UtcNow : ModifiedOn;
+            entity.LastModifiedBy = ModifiedBy;
+
             return entity;
         }
 
@@ -41,10 +60,11 @@ namespace CarReservation.Core.DTO.Base
         {
             IsDeleted = entity.IsDeleted;
             Id = entity.Id;
-            //CreatedOn = entity.CreatedOn.GetISOStandardDateTime();
-            //CreatedBy = entity.CreatedBy;
-            //ModifiedOn = entity.LastModifiedOn.GetISOStandardDateTime();
-            //ModifiedBy = entity.LastModifiedBy;
+
+            CreatedOn = entity.CreatedOn;
+            CreatedBy = entity.CreatedBy;
+            ModifiedOn = entity.LastModifiedOn;
+            ModifiedBy = entity.LastModifiedBy;
         }
 
         public static List<TDTO> ConvertEntityListToDTOList<TDTO>(IEnumerable<TEntity> entityList) where TDTO : BaseDTO<TEntity, TKey>, new()
@@ -59,7 +79,7 @@ namespace CarReservation.Core.DTO.Base
                 }
             return result;
         }
-        
+
         public static IList<TEntity> ConvertDTOListToEntity(IEnumerable<BaseDTO<TEntity, TKey>> dtoList, IEnumerable<TEntity> entityList)
         {
 
@@ -84,7 +104,7 @@ namespace CarReservation.Core.DTO.Base
             }
             return result;
         }
-        
+
         public static IList<TEntity> ConvertDTOListToEntity(IEnumerable<BaseDTO<TEntity, TKey>> dtoList)
         {
             var result = new List<TEntity>();

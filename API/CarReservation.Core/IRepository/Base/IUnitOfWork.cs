@@ -33,6 +33,8 @@ namespace CarReservation.Core.IRepository.Base
         IDriverStatusRepository DriverStatusRepository { get; }
 
         ICreditCardRepository CreditCardRepository { get; }
+        ICurrencyRepository CurrencyRepository { get; }
+        ICurrencyLogRepository CurrencyLogRepository { get; }
 
         Task<int> SaveAsync();
         int Save();

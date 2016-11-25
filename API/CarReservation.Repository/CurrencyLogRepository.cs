@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Repository
 {
-    public class StateRepository : AuditableRepository<State, int>, IStateRepository
+    public class CurrencyLogRepository : AuditableRepository<CurrencyLog, int>, ICurrencyLogRepository
     {
-        public StateRepository(IRepositoryRequisites repositoryRequisite)
+        public CurrencyLogRepository(IRepositoryRequisites repositoryRequisite)
             : base(repositoryRequisite)
         {
         }
@@ -26,11 +26,11 @@ namespace CarReservation.Repository
             }
         }
 
-        protected override IQueryable<State> DefaultSingleQuery
+        protected override System.Linq.IQueryable<CurrencyLog> DefaultSingleQuery
         {
             get
             {
-                return base.DefaultSingleQuery.Include(x => x.Country);
+                return base.DefaultSingleQuery.Include(x => x.Currency);
             }
         }
     }

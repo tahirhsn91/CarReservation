@@ -12,5 +12,7 @@ namespace CarReservation.Core.Model
         public double Balance { get; set; }
 
         public Currency Currency { get; set; }
+
+        public ApplicationUser User { get; set; }
     }
 }
