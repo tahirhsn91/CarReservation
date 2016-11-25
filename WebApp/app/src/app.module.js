@@ -14,7 +14,9 @@
   /**
     * Application modules
   **/
-    'app.welcome'
+    'app.auth',
+    'app.shell',
+    'app.genericCrud'
   ]);
 
 }());

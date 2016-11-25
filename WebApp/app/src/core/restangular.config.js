@@ -14,7 +14,7 @@
   /* @ngInject */
   function configuration(RestangularProvider){
 
-    RestangularProvider.setBaseUrl('/api');
+    RestangularProvider.setBaseUrl('http://172.16.2.122:1401/api');
 
   }
 

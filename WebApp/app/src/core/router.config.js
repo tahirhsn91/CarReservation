@@ -15,12 +15,12 @@
   /* @ngInject */
   function configuration($urlRouterProvider){
 
-    $urlRouterProvider.otherwise('/welcome');
+    $urlRouterProvider.otherwise('/');
 
   }
 
   /* @ngInject */
-  function routingEvents($rootScope){
+  function routingEvents($rootScope, store, $state, appUserRole){
     //on routing error
     $rootScope.$on('$stateNotFound', function(event, unfoundState, fromState, fromParams){
       //do some logging and toasting
@@ -30,6 +30,13 @@
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
       //do some title setting
       $rootScope.pageTitle = toState.title || 'app';
+    });
+
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+        // if((store.get('user') === null && toState.role !== appUserRole.All)){
+        //     event.preventDefault();
+        //     $state.go('auth');
+        // }
     });
   }
 

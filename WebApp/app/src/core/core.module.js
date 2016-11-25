@@ -10,7 +10,9 @@
 
   angular.module('app.core', [
     'ui.router',
-    'restangular'
+    'restangular',
+    'ngMessages',
+    'angular-storage'
   ]);
 
 }());

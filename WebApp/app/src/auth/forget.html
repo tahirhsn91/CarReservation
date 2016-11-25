@@ -1,0 +1,26 @@
+<form name="forgetForm" novalidate ng-if="!emailSuccess">
+    <div class="login-fields">
+        <div class="form-group">
+            <p ng-if="vm.isEmailSent" class="validation">Email does not sent.</p>
+            <p ng-if="vm.Invalid" class="validation">User profile not found.</p>
+            <input type="email"
+                   name="email"
+                   ng-model="vm.email"
+                   class="form-control"
+                   id="email"
+                   pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                   placeholder="Email Address"
+                   required>
+            <validations form-name="forgetForm" field-name="email" label="Email Address" ></validations>
+        </div>
+        <button type="submit" ng-click="vm.sendEmail(forgetForm)" class="btn btn-orange rounded capitalize full-width">Send
+        </button>
+        <a class="forget-pass" ui-sref="authShell.login" ng-class="{'hide' : emailSuccess}">Cancel</a>
+    </div>
+</form>
+<div ng-if="emailSuccess" class="success-message">
+    <p>Email has been sent successfully</p>
+    <button type="submit" ng-if="emailSuccess" ui-sref="authShell.login" class="btn btn-orange rounded capitalize full-width">
+        OK
+    </button>
+</div>
