@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IService
 {
-    public interface IUserService : IBaseService<UserDTO, string>
+    public interface IRoleService : IBaseService<UserDTO, int>
     {
-        Dictionary<string, string> GetAllRoles();
     }
 }

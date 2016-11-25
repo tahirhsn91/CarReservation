@@ -11,11 +11,16 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Service
 {
-    public class CreditCardService: BaseService<IBaseRepository<CreditCard, int>, CreditCard, CreditCardDTO, int>, ICreditCardService
+    public class CreditCardService : BaseService<IBaseRepository<CreditCard, int>, CreditCard, CreditCardDTO, int>, ICreditCardService
     {
         public CreditCardService(IUnitOfWork unitOfWork)
             : base(unitOfWork, unitOfWork.CreditCardRepository)
         {
+        }
+
+        public CreditCardDTO Topup(int amount, CreditCardDTO dtoObject, UserDTO user)
+        {
+            return dtoObject;
         }
     }
 }

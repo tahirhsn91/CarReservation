@@ -141,6 +141,7 @@
   <ItemGroup>
     <Compile Include="Aspect\AuditLoggingAroundAdvice.cs" />
     <Compile Include="Attributes\AuditOperation.cs" />
+    <Compile Include="Constant\Claim.cs" />
     <Compile Include="Constant\Message.cs" />
     <Compile Include="Constant\UserRoles.cs" />
     <Compile Include="Constant\Validations.cs" />
@@ -153,7 +154,7 @@
     <Compile Include="DTO\DistanceUnitDTO.cs" />
     <Compile Include="DTO\DriverStatusDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
-    <Compile Include="DTO\RegisterDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\RideStatusDTO.cs" />
     <Compile Include="DTO\StateDTO.cs" />
     <Compile Include="DTO\TravelUnitDTO.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="IService\IDistanceUnitService.cs" />
     <Compile Include="IService\IDriverStatusService.cs" />
     <Compile Include="IService\IRideStatusService.cs" />
+    <Compile Include="IService\IRoleService.cs" />
     <Compile Include="IService\IStateService.cs" />
     <Compile Include="IService\ITravelUnitService.cs" />
     <Compile Include="IService\IUserService.cs" />
@@ -251,6 +253,18 @@
     <Compile Include="Migrations\201611231055484_CreditCardInfo.cs" />
     <Compile Include="Migrations\201611231055484_CreditCardInfo.Designer.cs">
       <DependentUpon>201611231055484_CreditCardInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611240608388_AddingUserInCreditCard.cs" />
+    <Compile Include="Migrations\201611240608388_AddingUserInCreditCard.Designer.cs">
+      <DependentUpon>201611240608388_AddingUserInCreditCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611240802528_MobileNumber.cs" />
+    <Compile Include="Migrations\201611240802528_MobileNumber.Designer.cs">
+      <DependentUpon>201611240802528_MobileNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611241230530_removeValidation.cs" />
+    <Compile Include="Migrations\201611241230530_removeValidation.Designer.cs">
+      <DependentUpon>201611241230530_removeValidation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Account.cs" />
@@ -340,6 +354,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611231055484_CreditCardInfo.resx">
       <DependentUpon>201611231055484_CreditCardInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611240608388_AddingUserInCreditCard.resx">
+      <DependentUpon>201611240608388_AddingUserInCreditCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611240802528_MobileNumber.resx">
+      <DependentUpon>201611240802528_MobileNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611241230530_removeValidation.resx">
+      <DependentUpon>201611241230530_removeValidation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

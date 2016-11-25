@@ -15,6 +15,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using Microsoft.Practices.Unity;
+using CarReservation.Core.IService;
 
 namespace CarReservation.API
 {
@@ -45,7 +46,7 @@ namespace CarReservation.API
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/Token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new AuthorizationServerProvider()
+                Provider = new AuthorizationServerProvider(IoC.Resolve<IUserService>())
             };
 
             app.UseOAuthAuthorizationServer(OAuthServerOptions);

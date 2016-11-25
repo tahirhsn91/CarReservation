@@ -1,6 +1,7 @@
 ﻿using CarReservation.Core.Constant;
 using CarReservation.Core.DTO;
 using CarReservation.Core.Infrastructure;
+using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService;
 using CarReservation.Core.Model;
 using CarReservation.Service.Base;
@@ -13,45 +14,44 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace CarReservation.Service
 {
-    public class UserService : BaseService<RegisterDTO, int>, IUserService
+    public class UserService : BaseService<UserDTO, string>, IUserService
     {
-        UserManager<ApplicationUser> manager;
-        public UserService()
+        private UserManager<ApplicationUser> userManager;
+        private RoleManager<IdentityRole> roleManager;
+        private IUnitOfWork _unitOfWork;
+
+        public UserService(IUnitOfWork unitOfWork)
         {
-            manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+            this._unitOfWork = unitOfWork;
+            this._unitOfWork.DBContext.Users.Include(x => x.Roles);
         }
 
-        public async override Task<RegisterDTO> CreateAsync(RegisterDTO dto)
+        public async override Task<UserDTO> CreateAsync(UserDTO dto)
         {
             if (!ValidateRole(dto.Role))
             {
                 Common.Helper.ExceptionHelper.ThrowAPIException(Core.Constant.Message.User_InvalidRole);
             }
 
-            ApplicationUser applicationUser = await manager.FindByEmailAsync(dto.Email);
+            ApplicationUser applicationUser = await userManager.FindByEmailAsync(dto.Email);
 
             if (applicationUser == null)
             {
-                var user = new ApplicationUser()
-                {
-                    UserName = dto.Email,
-                    Email = dto.Email,
-                    EmailConfirmed = true,
-                    FirstName = dto.FirstName,
-                    LastName = dto.LastName,
-                    CreatedOn = DateTime.UtcNow,
-                    LastModifiedOn = DateTime.UtcNow
-                };
-                manager.Create(user, dto.Password);
+                var user = new ApplicationUser();
+                user = dto.ConvertToEntity(user);
+                userManager.Create(user, dto.Password);
 
-                applicationUser = manager.FindByName(dto.Email);
+                applicationUser = userManager.FindByName(dto.Email);
 
                 string role = this.GetAllRoles().First(x => x.Key == dto.Role).Value;
 
-                manager.AddToRoles(applicationUser.Id, new string[] { role });
+                userManager.AddToRoles(applicationUser.Id, new string[] { role });
             }
             else
             {
@@ -61,27 +61,48 @@ namespace CarReservation.Service
             return dto;
         }
 
-        public override Task DeleteAsync(int id)
+        public override Task DeleteAsync(string id)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<IList<RegisterDTO>> GetAllAsync()
+        public async override Task<IList<UserDTO>> GetAllAsync()
+        {
+            List<UserDTO> users = new List<UserDTO>();
+
+            foreach (var user in _unitOfWork.DBContext.Users)
+            {
+                var roles = await roleManager.FindByIdAsync(user.Roles.First().RoleId);
+                users.Add(new UserDTO(user, roles.Name));
+            }
+
+            return users;
+        }
+
+        public override Task<IList<UserDTO>> GetAllAsync(Common.Helper.JsonApiRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<IList<RegisterDTO>> GetAllAsync(Common.Helper.JsonApiRequest request)
+        public async override Task<UserDTO> GetAsync(string id)
         {
-            throw new NotImplementedException();
+            UserDTO user = new UserDTO();
+            ApplicationUser entity = _unitOfWork.DBContext.Set<ApplicationUser>().Include(x => x.Roles).AsQueryable().SingleOrDefault(x => x.Id == id);
+            if (entity != null && entity.Roles != null && entity.Roles.Count > 0)
+            {
+                var role = await roleManager.FindByIdAsync(entity.Roles.First().RoleId);
+                user.ConvertFromEntity(entity, role.Name);
+            }
+            else
+            {
+                user.ConvertFromEntity(entity, string.Empty);
+            }
+
+
+            return user;
         }
 
-        public override Task<RegisterDTO> GetAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Task<RegisterDTO> UpdateAsync(RegisterDTO dtoObject)
+        public override Task<UserDTO> UpdateAsync(UserDTO dtoObject)
         {
             throw new NotImplementedException();
         }

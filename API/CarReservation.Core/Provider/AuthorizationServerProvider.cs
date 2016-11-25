@@ -10,13 +10,19 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using CarReservation.Core.Model;
+using CarReservation.Core.IService;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace CarReservation.Core.Provider
 {
     public class AuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
-        public AuthorizationServerProvider()
+        private IUserService _userService;
+        public AuthorizationServerProvider(IUserService userService)
         {
+            this._userService = userService;
         }
 
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
@@ -50,7 +56,7 @@ namespace CarReservation.Core.Provider
 
             //context.Options.AccessTokenExpireTimeSpan = new TimeSpan(0, 0, AppConfiguration.TokenExpiryTime);
             ClaimsIdentity identity = new ClaimsIdentity(context.Options.AuthenticationType);
-            identity.AddClaim(new Claim("UserId", user.Id));
+            identity.AddClaim(new Claim(Constant.Claim.ClaimsUserId, user.Id));
 
             foreach (var role in user.Roles)
             {
@@ -61,5 +67,23 @@ namespace CarReservation.Core.Provider
             var ticket = new AuthenticationTicket(identity, null);
             context.Validated(ticket);
         }
+
+        public async override Task TokenEndpoint(OAuthTokenEndpointContext context)
+        {
+            var user = await _userService.GetAsync(context.Identity.Claims.Single(x => x.Type == Constant.Claim.ClaimsUserId).Value);
+
+            context.AdditionalResponseParameters.Add("user", convertToJObject(user).ToString());
+            await base.TokenEndpoint(context);
+        }
+
+        #region Private Functions
+        private JObject convertToJObject(object obj)
+        {
+            var serializer = new JsonSerializer();
+            var jo = JObject.FromObject(obj, serializer);
+
+            return jo;
+        }
+        #endregion
     }
 }

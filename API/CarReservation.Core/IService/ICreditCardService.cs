@@ -10,5 +10,6 @@ namespace CarReservation.Core.IService
 {
     public interface ICreditCardService : IBaseService<CreditCardDTO, int>
     {
+        CreditCardDTO Topup(int amount, CreditCardDTO dtoObject, UserDTO user);
     }
 }

@@ -4,6 +4,12 @@ using CarReservation.Common.Attributes;
 using CarReservation.Core.Infrastructure;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
+using CarReservation.Core.Model;
+using System.Security.Claims;
+using System.Linq;
+using System.Threading.Tasks;
+using CarReservation.Core.DTO;
 
 namespace CarReservation.API.Controllers.Base
 {
@@ -28,6 +34,26 @@ namespace CarReservation.API.Controllers.Base
             {
                 return _AppRoleManager ?? Request.GetOwinContext().GetUserManager<ApplicationRoleManager>();
             }
+        }
+
+        protected async Task<UserDTO> GetCurrentUser()
+        {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var userId = principal.Claims.Where(c => c.Type == Core.Constant.Claim.ClaimsUserId).Single().Value;
+
+            ApplicationUser entity = await this.AppUserManager.Users.Include(x => x.Roles).FirstAsync(x => x.Id == userId);
+            UserDTO dto = new UserDTO();
+            if (entity != null && entity.Roles != null && entity.Roles.Count > 0)
+            {
+                var role = await this.AppRoleManager.FindByIdAsync(entity.Roles.First().RoleId);
+                dto.ConvertFromEntity(entity, role.Name);
+            }
+            else
+            {
+                dto.ConvertFromEntity(entity, string.Empty);
+            }
+
+            return dto;
         }
 
         protected IHttpActionResult GetErrorResult(IdentityResult result)

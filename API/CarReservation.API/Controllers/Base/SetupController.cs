@@ -24,7 +24,7 @@ namespace CarReservation.API.Controllers.Base
 
         [HttpGet]
         [Route("")]
-        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
+        [Authorize]
         public virtual Task<IList<TDto>> Get()
         {
             var request = Request.GetJsonApiRequest();
@@ -33,7 +33,7 @@ namespace CarReservation.API.Controllers.Base
 
         [HttpGet]
         [Route("{id}")]
-        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
+        [Authorize]
         public virtual Task<TDto> Get(int id)
         {
             return this._service.GetAsync(id);
