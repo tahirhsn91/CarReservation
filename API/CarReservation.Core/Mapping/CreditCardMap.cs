@@ -8,13 +8,11 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.Mapping
 {
-    public abstract class CurrencyMap : EntityTypeConfiguration<Currency>
+    public class CreditCardMap : EntityTypeConfiguration<CreditCard>
     {
-        public CurrencyMap()
+        public CreditCardMap()
         {
-            //this.HasRequired(t => t.Country)
-            //    .WithMany(t => t.Name)
-            //    .HasForeignKey(t => t.CountryId);
+            //this.HasRequired(t => t.Country).WithMany(t => t.CreditCard).HasForeignKey(t => t.CountryId);
         }
     }
 }

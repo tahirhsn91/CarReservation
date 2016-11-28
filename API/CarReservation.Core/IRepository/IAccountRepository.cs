@@ -10,5 +10,6 @@ namespace CarReservation.Core.IRepository
 {
     public interface IAccountRepository : IBaseRepository<Account, int>
     {
+        Task<Account> GetAccountByUserId(string userId);
     }
 }

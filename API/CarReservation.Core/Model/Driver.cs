@@ -28,7 +28,5 @@ namespace CarReservation.Core.Model
         public ApplicationUser User { get; set; }
 
         public DriverStatus Status { get; set; }
-
-        public Account Account { get; set; }
     }
 }

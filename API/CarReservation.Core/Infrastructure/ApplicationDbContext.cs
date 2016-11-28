@@ -1,4 +1,5 @@
-﻿using CarReservation.Core.Model;
+﻿using CarReservation.Core.Mapping;
+using CarReservation.Core.Model;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;

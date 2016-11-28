@@ -44,17 +44,16 @@ namespace CarReservation.Service.Base
             this._unitOfWork = unitOfWork;
         }
 
-        public async override Task<TDto> CreateAsync(TDto dtoObject)
+        protected async Task<TEntity> Create(TDto dtoObject)
         {
             TEntity entity = dtoObject.ConvertToEntity();
-            var result = await this._repository.Create(entity);
-            try
-            {
-                await this._unitOfWork.SaveAsync();
-            }
-            catch (DbEntityValidationException e)
-            {
-            }
+            return await this._repository.Create(entity);
+        }
+
+        public async override Task<TDto> CreateAsync(TDto dtoObject)
+        {
+            var result = await this.Create(dtoObject);
+            await this._unitOfWork.SaveAsync();
 
             dtoObject.ConvertFromEntity(result);
             return dtoObject;
@@ -86,10 +85,15 @@ namespace CarReservation.Service.Base
             return dto;
         }
 
-        public async override Task<TDto> UpdateAsync(TDto dtoObject)
+        protected async Task<TEntity> Update(TDto dtoObject)
         {
             var entity = dtoObject.ConvertToEntity();
-            var result = await _repository.Update(entity);
+            return await _repository.Update(entity);
+        }
+
+        public async override Task<TDto> UpdateAsync(TDto dtoObject)
+        {
+            var result = await this.Update(dtoObject);
             await _unitOfWork.SaveAsync();
 
             dtoObject.ConvertFromEntity(result);

@@ -146,7 +146,10 @@
     <Compile Include="Constant\Message.cs" />
     <Compile Include="Constant\UserRoles.cs" />
     <Compile Include="Constant\Validations.cs" />
+    <Compile Include="DTO\AccountDTO.cs" />
+    <Compile Include="DTO\AccountLogDTO.cs" />
     <Compile Include="DTO\Base\BaseDTO.cs" />
+    <Compile Include="DTO\Base\ILoggableDTO.cs" />
     <Compile Include="DTO\Base\SetupDTO.cs" />
     <Compile Include="DTO\CityDTO.cs" />
     <Compile Include="DTO\ColorDTO.cs" />
@@ -157,6 +160,7 @@
     <Compile Include="DTO\DistanceUnitDTO.cs" />
     <Compile Include="DTO\DriverStatusDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
+    <Compile Include="DTO\TopupDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\RideStatusDTO.cs" />
     <Compile Include="DTO\StateDTO.cs" />
@@ -200,6 +204,7 @@
     <Compile Include="IRepository\IVehicleTransmissionRepository.cs" />
     <Compile Include="IService\Base\IBaseService.cs" />
     <Compile Include="IService\Base\ISetupService.cs" />
+    <Compile Include="IService\IAccountService.cs" />
     <Compile Include="IService\ICityService.cs" />
     <Compile Include="IService\IColorService.cs" />
     <Compile Include="IService\ICountryService.cs" />
@@ -218,6 +223,7 @@
     <Compile Include="IService\IVehicleMakerService.cs" />
     <Compile Include="IService\IVehicleModelService.cs" />
     <Compile Include="IService\IVehicleTransmissionService.cs" />
+    <Compile Include="Mapping\CreditCardMap.cs" />
     <Compile Include="Mapping\CurrencyMap.cs" />
     <Compile Include="Migrations\201611051621268_InitialCreate.cs" />
     <Compile Include="Migrations\201611051621268_InitialCreate.Designer.cs">
@@ -239,9 +245,9 @@
     <Compile Include="Migrations\201611121456283_AddingUsersTypes.Designer.cs">
       <DependentUpon>201611121456283_AddingUsersTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611251040182_migration.cs" />
-    <Compile Include="Migrations\201611251040182_migration.Designer.cs">
-      <DependentUpon>201611251040182_migration.cs</DependentUpon>
+    <Compile Include="Migrations\201611281306585_migration.cs" />
+    <Compile Include="Migrations\201611281306585_migration.Designer.cs">
+      <DependentUpon>201611281306585_migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Account.cs" />
@@ -314,8 +320,8 @@
     <EmbeddedResource Include="Migrations\201611121456283_AddingUsersTypes.resx">
       <DependentUpon>201611121456283_AddingUsersTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611251040182_migration.resx">
-      <DependentUpon>201611251040182_migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611281306585_migration.resx">
+      <DependentUpon>201611281306585_migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -19,19 +19,19 @@ namespace CarReservation.Core.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Balance = c.Double(nullable: false),
+                        CurrencyId = c.Int(nullable: false),
+                        UserId = c.String(maxLength: 128),
                         CreatedBy = c.String(),
                         CreatedOn = c.DateTime(nullable: false),
                         LastModifiedBy = c.String(),
                         LastModifiedOn = c.DateTime(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
-                        Currency_Id = c.Int(),
-                        User_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Currencies", t => t.Currency_Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
-                .Index(t => t.Currency_Id)
-                .Index(t => t.User_Id);
+                .ForeignKey("dbo.Currencies", t => t.CurrencyId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.CurrencyId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.Currencies",
@@ -74,22 +74,25 @@ namespace CarReservation.Core.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         debit = c.Double(nullable: false),
                         credit = c.Double(nullable: false),
+                        AccountId = c.Int(nullable: false),
+                        UserId = c.String(maxLength: 128),
+                        CurrencyLogId = c.Int(nullable: false),
                         CreatedBy = c.String(),
                         CreatedOn = c.DateTime(nullable: false),
                         LastModifiedBy = c.String(),
                         LastModifiedOn = c.DateTime(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
-                        Account_Id = c.Int(),
                         Currency_Id = c.Int(),
-                        User_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Accounts", t => t.Account_Id)
-                .ForeignKey("dbo.CurrencyLogs", t => t.Currency_Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
-                .Index(t => t.Account_Id)
-                .Index(t => t.Currency_Id)
-                .Index(t => t.User_Id);
+                .ForeignKey("dbo.Accounts", t => t.AccountId, cascadeDelete: true)
+                .ForeignKey("dbo.Currencies", t => t.Currency_Id)
+                .ForeignKey("dbo.CurrencyLogs", t => t.CurrencyLogId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.AccountId)
+                .Index(t => t.UserId)
+                .Index(t => t.CurrencyLogId)
+                .Index(t => t.Currency_Id);
             
             CreateTable(
                 "dbo.CurrencyLogs",
@@ -105,7 +108,7 @@ namespace CarReservation.Core.Migrations
                         IsDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Currencies", t => t.CurrencyId, cascadeDelete: true)
+                .ForeignKey("dbo.Currencies", t => t.CurrencyId, cascadeDelete: false)
                 .Index(t => t.CurrencyId);
             
             CreateTable(
@@ -168,19 +171,19 @@ namespace CarReservation.Core.Migrations
                         ExpirationDate = c.DateTime(nullable: false),
                         CVV = c.String(nullable: false),
                         CardHolderName = c.String(nullable: false),
+                        CountryId = c.Int(nullable: false),
+                        UserId = c.String(nullable: false, maxLength: 128),
                         CreatedBy = c.String(),
                         CreatedOn = c.DateTime(nullable: false),
                         LastModifiedBy = c.String(),
                         LastModifiedOn = c.DateTime(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
-                        Country_Id = c.Int(nullable: false),
-                        User_Id = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Countries", t => t.Country_Id, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.User_Id, cascadeDelete: true)
-                .Index(t => t.Country_Id)
-                .Index(t => t.User_Id);
+                .ForeignKey("dbo.Countries", t => t.CountryId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.CountryId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.Distances",
@@ -676,9 +679,7 @@ namespace CarReservation.Core.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            AddColumn("dbo.Customers", "Account_Id", c => c.Int());
             AddColumn("dbo.AspNetUsers", "MobileNumber", c => c.String());
-            AddColumn("dbo.Drivers", "Account_Id", c => c.Int());
             AddColumn("dbo.Drivers", "ActiveVehicle_Id", c => c.Int(nullable: false));
             AddColumn("dbo.Drivers", "Status_Id", c => c.Int());
             AlterColumn("dbo.Customers", "User_Id", c => c.String(nullable: false, maxLength: 128));
@@ -686,15 +687,11 @@ namespace CarReservation.Core.Migrations
             AlterColumn("dbo.Drivers", "NICNumber", c => c.String(nullable: false, maxLength: 10));
             AlterColumn("dbo.Drivers", "User_Id", c => c.String(nullable: false, maxLength: 128));
             AlterColumn("dbo.Supervisors", "User_Id", c => c.String(nullable: false, maxLength: 128));
-            CreateIndex("dbo.Customers", "Account_Id");
             CreateIndex("dbo.Customers", "User_Id");
-            CreateIndex("dbo.Drivers", "Account_Id");
             CreateIndex("dbo.Drivers", "ActiveVehicle_Id");
             CreateIndex("dbo.Drivers", "Status_Id");
             CreateIndex("dbo.Drivers", "User_Id");
             CreateIndex("dbo.Supervisors", "User_Id");
-            AddForeignKey("dbo.Customers", "Account_Id", "dbo.Accounts", "Id");
-            AddForeignKey("dbo.Drivers", "Account_Id", "dbo.Accounts", "Id");
             AddForeignKey("dbo.Drivers", "ActiveVehicle_Id", "dbo.Vehicles", "Id", cascadeDelete: true);
             AddForeignKey("dbo.Drivers", "Status_Id", "dbo.DriverStatus", "Id");
             AddForeignKey("dbo.Customers", "User_Id", "dbo.AspNetUsers", "Id", cascadeDelete: true);
@@ -754,19 +751,18 @@ namespace CarReservation.Core.Migrations
             DropForeignKey("dbo.Vehicles", "City_Id", "dbo.Cities");
             DropForeignKey("dbo.Vehicles", "BodyType_Id", "dbo.VehicleBodyTypes");
             DropForeignKey("dbo.Vehicles", "Assembly_Id", "dbo.VehicleAssemblies");
-            DropForeignKey("dbo.Drivers", "Account_Id", "dbo.Accounts");
             DropForeignKey("dbo.Distances", "Unit_Id", "dbo.DistanceUnits");
-            DropForeignKey("dbo.Customers", "Account_Id", "dbo.Accounts");
-            DropForeignKey("dbo.CreditCards", "User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.CreditCards", "Country_Id", "dbo.Countries");
+            DropForeignKey("dbo.CreditCards", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.CreditCards", "CountryId", "dbo.Countries");
             DropForeignKey("dbo.Cities", "StateId", "dbo.States");
             DropForeignKey("dbo.States", "CountryId", "dbo.Countries");
-            DropForeignKey("dbo.AccountLogs", "User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AccountLogs", "Currency_Id", "dbo.CurrencyLogs");
+            DropForeignKey("dbo.AccountLogs", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AccountLogs", "CurrencyLogId", "dbo.CurrencyLogs");
             DropForeignKey("dbo.CurrencyLogs", "CurrencyId", "dbo.Currencies");
-            DropForeignKey("dbo.AccountLogs", "Account_Id", "dbo.Accounts");
-            DropForeignKey("dbo.Accounts", "User_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Accounts", "Currency_Id", "dbo.Currencies");
+            DropForeignKey("dbo.AccountLogs", "Currency_Id", "dbo.Currencies");
+            DropForeignKey("dbo.AccountLogs", "AccountId", "dbo.Accounts");
+            DropForeignKey("dbo.Accounts", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Accounts", "CurrencyId", "dbo.Currencies");
             DropForeignKey("dbo.Currencies", "CountryId", "dbo.Countries");
             DropIndex("dbo.Supervisors", new[] { "User_Id" });
             DropIndex("dbo.Rides", new[] { "TotalFare_Id" });
@@ -817,21 +813,20 @@ namespace CarReservation.Core.Migrations
             DropIndex("dbo.Drivers", new[] { "User_Id" });
             DropIndex("dbo.Drivers", new[] { "Status_Id" });
             DropIndex("dbo.Drivers", new[] { "ActiveVehicle_Id" });
-            DropIndex("dbo.Drivers", new[] { "Account_Id" });
             DropIndex("dbo.Distances", new[] { "Unit_Id" });
             DropIndex("dbo.Customers", new[] { "User_Id" });
-            DropIndex("dbo.Customers", new[] { "Account_Id" });
-            DropIndex("dbo.CreditCards", new[] { "User_Id" });
-            DropIndex("dbo.CreditCards", new[] { "Country_Id" });
+            DropIndex("dbo.CreditCards", new[] { "UserId" });
+            DropIndex("dbo.CreditCards", new[] { "CountryId" });
             DropIndex("dbo.States", new[] { "CountryId" });
             DropIndex("dbo.Cities", new[] { "StateId" });
             DropIndex("dbo.CurrencyLogs", new[] { "CurrencyId" });
-            DropIndex("dbo.AccountLogs", new[] { "User_Id" });
             DropIndex("dbo.AccountLogs", new[] { "Currency_Id" });
-            DropIndex("dbo.AccountLogs", new[] { "Account_Id" });
+            DropIndex("dbo.AccountLogs", new[] { "CurrencyLogId" });
+            DropIndex("dbo.AccountLogs", new[] { "UserId" });
+            DropIndex("dbo.AccountLogs", new[] { "AccountId" });
             DropIndex("dbo.Currencies", new[] { "CountryId" });
-            DropIndex("dbo.Accounts", new[] { "User_Id" });
-            DropIndex("dbo.Accounts", new[] { "Currency_Id" });
+            DropIndex("dbo.Accounts", new[] { "UserId" });
+            DropIndex("dbo.Accounts", new[] { "CurrencyId" });
             AlterColumn("dbo.Supervisors", "User_Id", c => c.String(maxLength: 128));
             AlterColumn("dbo.Drivers", "User_Id", c => c.String(maxLength: 128));
             AlterColumn("dbo.Drivers", "NICNumber", c => c.String());
@@ -839,9 +834,7 @@ namespace CarReservation.Core.Migrations
             AlterColumn("dbo.Customers", "User_Id", c => c.String(maxLength: 128));
             DropColumn("dbo.Drivers", "Status_Id");
             DropColumn("dbo.Drivers", "ActiveVehicle_Id");
-            DropColumn("dbo.Drivers", "Account_Id");
             DropColumn("dbo.AspNetUsers", "MobileNumber");
-            DropColumn("dbo.Customers", "Account_Id");
             DropTable("dbo.TimeTrackers");
             DropTable("dbo.RideStatus");
             DropTable("dbo.Rides");

@@ -15,11 +15,11 @@ namespace CarReservation.Core.DTO
         [Required]
         public double Rate { get; set; }
 
-        [IgnoreDataMember]
-        public int CountryId { get; set; }
-
         [Required]
         public CountryDTO Country { get; set; }
+
+        [IgnoreDataMember]
+        public int CountryId { get; set; }
 
         public CurrencyDTO()
             : base()
@@ -44,6 +44,7 @@ namespace CarReservation.Core.DTO
         {
             base.ConvertFromEntity(entity);
             this.Rate = entity.Rate;
+
             this.CountryId = entity.Country == null ? 0 : entity.Country.Id;
             if (entity.Country != null)
             {

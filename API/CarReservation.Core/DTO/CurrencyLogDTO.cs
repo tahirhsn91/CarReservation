@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.DTO
 {
-    public class CurrencyLogDTO : BaseDTO<CurrencyLog, int>
+    public class CurrencyLogDTO : BaseDTO<CurrencyLog, int>, ILoggableDTO<Currency>
     {
         [Required]
         public double Rate { get; set; }
@@ -52,7 +52,7 @@ namespace CarReservation.Core.DTO
             return entity;
         }
 
-        public void ConvertFromCurrency(Currency entity)
+        public void ConvertFromLogEntity(Currency entity)
         {
             this.Rate = entity.Rate;
             this.CurrencyId = entity.Id;

@@ -36,6 +36,9 @@ namespace CarReservation.Core.IRepository.Base
         ICurrencyRepository CurrencyRepository { get; }
         ICurrencyLogRepository CurrencyLogRepository { get; }
 
+        IAccountRepository AccountRepository { get; }
+        IAccountLogRepository AccountLogRepository { get; }
+
         Task<int> SaveAsync();
         int Save();
         DbContextTransaction BeginTransaction();

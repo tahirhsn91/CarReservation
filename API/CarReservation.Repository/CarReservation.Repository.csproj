@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountLogRepository.cs" />
+    <Compile Include="AccountRepository.cs" />
     <Compile Include="Base\AuditableRepository.cs" />
     <Compile Include="Base\BaseRepository.cs" />
     <Compile Include="Base\DeletableRepository.cs" />
@@ -95,7 +97,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

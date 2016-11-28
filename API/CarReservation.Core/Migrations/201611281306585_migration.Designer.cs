@@ -13,7 +13,7 @@ namespace CarReservation.Core.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201611251040182_migration"; }
+            get { return "201611281306585_migration"; }
         }
         
         string IMigrationMetadata.Source

@@ -16,6 +16,11 @@ namespace CarReservation.Core.DTO
         {
         }
 
+        public UserDTO(ApplicationUser entity)
+        {
+            this.ConvertFromEntity(entity, string.Empty);
+        }
+
         public UserDTO(ApplicationUser entity, string role)
         {
             this.ConvertFromEntity(entity, role);
@@ -61,7 +66,7 @@ namespace CarReservation.Core.DTO
 
         public virtual ApplicationUser ConvertToEntity(ApplicationUser entity)
         {
-            entity.Id = this.UserId;
+            entity.Id = this.UserId ?? entity.Id;
             entity.FirstName = this.FirstName;
             entity.LastName = this.LastName;
             entity.MobileNumber = this.MobileNumber;
