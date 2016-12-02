@@ -1,844 +1,162 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="CarReservation.API.FilterConfig" Collapsed="true">
-    <Position X="82.25" Y="13.25" Width="1.5" />
+  <Class Name="CarReservation.API.Controllers.Base.BaseController">
+    <Position X="5.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
-      <FileName>App_Start\FilterConfig.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.RouteConfig" Collapsed="true">
-    <Position X="82.25" Y="15.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
-      <FileName>App_Start\RouteConfig.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.WebApiConfig" Collapsed="true">
-    <Position X="75.25" Y="17.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>App_Start\WebApiConfig.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.WebApiApplication" Collapsed="true">
-    <Position X="73.5" Y="17.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>Global.asax.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Startup" Collapsed="true">
-    <Position X="84" Y="15.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgACAAAAAAAA=</HashCode>
-      <FileName>Startup.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.Base.BaseController" Collapsed="true">
-    <Position X="31.5" Y="11.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAEAAAAAAAAAAAAAAQAQEAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAAACAAAAAQAQEAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\Base\BaseController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CarReservation.API.Controllers.Base.SetupController&lt;TService, TDto, TEntity&gt;" Collapsed="true">
-    <Position X="32.5" Y="13" Width="1.5" />
+  <Class Name="CarReservation.API.Controllers.Base.SetupController&lt;TService, TDto, TEntity&gt;">
+    <Position X="4.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABQAAAAAAAACAEAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Controllers\Base\SetupController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CarReservation.API.Controllers.CityController" Collapsed="true">
-    <Position X="30.25" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\CityController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.ColorController" Collapsed="true">
-    <Position X="34.75" Y="14.5" Width="1.5" />
+  <Class Name="CarReservation.API.Controllers.ColorController">
+    <Position X="2" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\ColorController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CarReservation.API.Controllers.CountryController" Collapsed="true">
-    <Position X="39.25" Y="14.5" Width="1.5" />
+  <Class Name="CarReservation.API.Controllers.CreditCardController">
+    <Position X="2" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\CountryController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.CreditCardController" Collapsed="true">
-    <Position X="41.5" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAEAACAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Controllers\CreditCardController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CarReservation.API.Controllers.DistanceUnitController" Collapsed="true">
-    <Position X="43.75" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\DistanceUnitController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.DriverStatusController" Collapsed="true">
-    <Position X="46" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\DriverStatusController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.RideStatusController" Collapsed="true">
-    <Position X="48.25" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\RideStatusController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.StateController" Collapsed="true">
-    <Position X="16.75" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\StateController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.TravelUnitController" Collapsed="true">
-    <Position X="19" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\TravelUnitController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.UserController" Collapsed="true">
-    <Position X="14.5" Y="13" Width="1.5" />
+  <Class Name="CarReservation.API.Controllers.UserController">
+    <Position X="7.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABQEgAAAAAAAAABAAAAAAAQAAAAAAE=</HashCode>
       <FileName>Controllers\UserController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CarReservation.API.Controllers.VehicleAssemblyController" Collapsed="true">
-    <Position X="21.25" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\VehicleAssemblyController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.VehicleBodyTypeController" Collapsed="true">
-    <Position X="23.5" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\VehicleBodyTypeController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.VehicleFeatureController" Collapsed="true">
-    <Position X="25.75" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\VehicleFeatureController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.VehicleMakerController" Collapsed="true">
-    <Position X="28" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\VehicleMakerController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.VehicleModelController" Collapsed="true">
-    <Position X="32.5" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\VehicleModelController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.API.Controllers.VehicleTransmissionController" Collapsed="true">
-    <Position X="37" Y="14.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\VehicleTransmissionController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CarReservation.Common.Attributes.AuthorizeRolesAttribute" Collapsed="true">
-    <Position X="82.25" Y="12.25" Width="1.5" />
+  <Class Name="CarReservation.Core.DTO.ColorDTO">
+    <Position X="21.75" Y="15.75" Width="1.5" />
     <TypeIdentifier />
   </Class>
-  <Class Name="CarReservation.Common.Attributes.ValidationAttribute" Collapsed="true">
-    <Position X="78.75" Y="16.25" Width="1.5" />
+  <Class Name="CarReservation.Core.DTO.CreditCardDTO">
+    <Position X="19.75" Y="13.25" Width="1.5" />
     <TypeIdentifier />
   </Class>
-  <Class Name="CarReservation.Common.Helper.DateTimeExtension" Collapsed="true">
-    <Position X="75.25" Y="13.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Common.Helper.ExceptionHelper" Collapsed="true">
-    <Position X="80.5" Y="13.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Common.Helper.ErrorMessage" Collapsed="true">
-    <Position X="78.75" Y="13.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Common.Helper.SuccessMessage" Collapsed="true">
-    <Position X="73.5" Y="16.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Common.Helper.JsonApiEFQueryBuilder" Collapsed="true">
-    <Position X="75.25" Y="14.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Common.Helper.JsonApiPagination" Collapsed="true">
-    <Position X="77" Y="14.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Common.Helper.JsonApiRequest" Collapsed="true">
-    <Position X="78.75" Y="14.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Common.Helper.ReleaseResource" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="75.25" Y="15.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Common.Helper.ValidationHelper" Collapsed="true">
-    <Position X="80.5" Y="16.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Common.Provider.CentralizedPrefixProvider" Collapsed="true">
-    <Position X="84" Y="12.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Aspect.AuditLoggingAroundAdvice" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="77" Y="12.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Attributes.AuditOperation" Collapsed="true">
-    <Position X="78.75" Y="12.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Constant.Message" Collapsed="true">
-    <Position X="82.25" Y="14.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Constant.UserRoles" Collapsed="true">
-    <Position X="77" Y="16.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Constant.Validations" Collapsed="true">
-    <Position X="82.25" Y="16.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.Base.BaseDTO&lt;TEntity, TKey&gt;" Collapsed="true">
-    <Position X="55" Y="16.25" Width="1.5" />
+  <Class Name="CarReservation.Core.DTO.Base.BaseDTO&lt;TEntity, TKey&gt;">
+    <Position X="20.75" Y="9.25" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CarReservation.Core.DTO.Base.SetupDTO&lt;TEntity, TKey&gt;" Collapsed="true">
-    <Position X="56" Y="17.5" Width="1.5" />
+  <Class Name="CarReservation.Core.DTO.Base.SetupDTO&lt;TEntity, TKey&gt;">
+    <Position X="21.75" Y="13.25" Width="1.5" />
     <TypeIdentifier />
   </Class>
-  <Class Name="CarReservation.Core.DTO.CityDTO" Collapsed="true">
-    <Position X="41.5" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.ColorDTO" Collapsed="true">
-    <Position X="46" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.CountryDTO" Collapsed="true">
-    <Position X="50.5" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.CreditCardDTO" Collapsed="true">
-    <Position X="39.25" Y="17.5" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.DistanceUnitDTO" Collapsed="true">
-    <Position X="55" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.DriverStatusDTO" Collapsed="true">
-    <Position X="57.25" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.LoginDTO" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="80.5" Y="14.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.RegisterDTO" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="73.5" Y="15.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.RideStatusDTO" Collapsed="true">
-    <Position X="59.5" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.StateDTO" Collapsed="true">
-    <Position X="61.75" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.TravelUnitDTO" Collapsed="true">
-    <Position X="64" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.VehicleAssemblyDTO" Collapsed="true">
-    <Position X="66.25" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.VehicleBodyTypeDTO" Collapsed="true">
-    <Position X="68.5" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.VehicleFeatureDTO" Collapsed="true">
-    <Position X="70.75" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.VehicleMakerDTO" Collapsed="true">
-    <Position X="43.75" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.VehicleModelDTO" Collapsed="true">
-    <Position X="48.25" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.DTO.VehicleTransmissionDTO" Collapsed="true">
-    <Position X="52.75" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Infrastructure.ApplicationDbContext" Collapsed="true">
-    <Position X="82.25" Y="11.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Infrastructure.ApplicationRoleManager" Collapsed="true">
-    <Position X="84" Y="11.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Infrastructure.ApplicationUserManager" Collapsed="true">
-    <Position X="75.25" Y="12.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Infrastructure.RepositoryRequisites" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="77" Y="15.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Orientation="Left" Position="0.362" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Infrastructure.RequestInfo" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="78.75" Y="15.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Infrastructure.UnityHttpControllerActivator" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="75.25" Y="16.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.IoC" Collapsed="true">
-    <Position X="73.5" Y="14.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.InitialCreate" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="84" Y="13.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.DeleteExtraColumns" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="77" Y="13.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.addingRoles" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="75.25" Y="11.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.addingUserAudit" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="77" Y="11.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.AddingUsersTypes" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="78.75" Y="11.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.VehicleAndPackage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="84" Y="16.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.Account" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="73.5" Y="11.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.Ride" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="80.5" Y="15.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.MissingSetupEntities" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="84" Y="14.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.AddingUserValidation" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="80.5" Y="11.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Migrations.CreditCardInfo" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="73.5" Y="13.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Account" Collapsed="true">
-    <Position X="28" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.AccountLog" Collapsed="true">
-    <Position X="34.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.ApplicationUser" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="73.5" Y="12.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="CarReservation.Core.Model.City" Collapsed="true">
-    <Position X="64" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Color" Collapsed="true">
-    <Position X="66.25" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Country" Collapsed="true">
-    <Position X="70.75" Y="7" Width="1.5" />
+  <Class Name="CarReservation.Core.Model.Color">
+    <Position X="13.75" Y="15.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="CarReservation.Core.Model.CreditCard" Collapsed="true">
-    <Position X="50.5" Y="3.25" Width="1.5" />
+    <Position X="16.75" Y="13.25" Width="1.5" />
     <TypeIdentifier />
   </Class>
-  <Class Name="CarReservation.Core.Model.Currency" Collapsed="true">
-    <Position X="77.5" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.CurrencyLog" Collapsed="true">
-    <Position X="77.5" Y="8.5" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Customer" Collapsed="true">
-    <Position X="59.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Distance" Collapsed="true">
-    <Position X="16.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.DistanceUnit" Collapsed="true">
-    <Position X="52.75" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Driver" Collapsed="true">
-    <Position X="23.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.DriverLocation" Collapsed="true">
-    <Position X="25.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.DriverLocationLog" Collapsed="true">
-    <Position X="30.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.DriverStatus" Collapsed="true">
-    <Position X="59.5" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Fare" Collapsed="true">
-    <Position X="39.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.LocationLagLon" Collapsed="true">
-    <Position X="41.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Package" Collapsed="true">
-    <Position X="46" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.PackageTravelUnit" Collapsed="true">
-    <Position X="48.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.PackageVehicleAssembly" Collapsed="true">
-    <Position X="52.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.PackageVehicleBodyType" Collapsed="true">
-    <Position X="55" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.PackageVehicleFeature" Collapsed="true">
-    <Position X="57.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.PackageVehicleModel" Collapsed="true">
-    <Position X="61.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.PackageVehicleTransmission" Collapsed="true">
-    <Position X="19" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Ride" Collapsed="true">
-    <Position X="21.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.RideStatus" Collapsed="true">
-    <Position X="55" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.State" Collapsed="true">
-    <Position X="57.25" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Supervisor" Collapsed="true">
-    <Position X="32.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.TimeTracker" Collapsed="true">
-    <Position X="37" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.TravelUnit" Collapsed="true">
-    <Position X="61.75" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Vehicle" Collapsed="true">
-    <Position X="43.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.VehicleAssembly" Collapsed="true">
-    <Position X="68.5" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.VehicleBodyType" Collapsed="true">
-    <Position X="73" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.VehicleFeature" Collapsed="true">
-    <Position X="75.25" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.VehicleMaker" Collapsed="true">
-    <Position X="79.75" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.VehicleModel" Collapsed="true">
-    <Position X="82" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.VehicleTransmission" Collapsed="true">
-    <Position X="84.25" Y="7" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Core.Model.Base.EntityBase&lt;TKeyType&gt;" Collapsed="true">
-    <Position X="56.25" Y="2" Width="1.5" />
+  <Class Name="CarReservation.Core.Model.Base.EntityBase&lt;TKeyType&gt;">
+    <Position X="15.25" Y="8.75" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CarReservation.Core.Model.Base.EntityBase" Collapsed="true">
-    <Position X="39.25" Y="1.75" Width="1.5" />
+  <Class Name="CarReservation.Core.Model.Base.EntityBase">
+    <Position X="16.75" Y="11.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
-  <Class Name="CarReservation.Core.Model.Base.SetupEntity&lt;TKeyType&gt;" Collapsed="true">
-    <Position X="68.5" Y="1.75" Width="1.5" />
+  <Class Name="CarReservation.Core.Model.Base.SetupEntity&lt;TKeyType&gt;">
+    <Position X="13.75" Y="11.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
-  <Class Name="CarReservation.Core.Model.Base.SetupEntity" Collapsed="true">
-    <Position X="68.5" Y="5.5" Width="1.5" />
+  <Class Name="CarReservation.Core.Model.Base.SetupEntity">
+    <Position X="13.75" Y="13.75" Width="1.5" />
     <TypeIdentifier />
   </Class>
-  <Class Name="CarReservation.Core.Provider.AuthorizationServerProvider" Collapsed="true">
-    <Position X="80.5" Y="12.25" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CarReservation.Service.Base.BaseService&lt;TDTO, TKey&gt;" Collapsed="true">
-    <Position X="31.5" Y="4.5" Width="1.5" />
+  <Class Name="CarReservation.Service.ColorService">
+    <Position X="5.25" Y="16.5" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CarReservation.Service.Base.BaseService&lt;TRepository, TEntity, TDto, TKey&gt;" Collapsed="true">
-    <Position X="32.5" Y="5.75" Width="1.5" />
+  <Class Name="CarReservation.Service.CreditCardService">
+    <Position X="7" Y="17" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CarReservation.Service.CityService" Collapsed="true">
-    <Position X="46" Y="7.25" Width="1.5" />
+  <Class Name="CarReservation.Service.UserService">
+    <Position X="0.75" Y="14.5" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CarReservation.Service.ColorService" Collapsed="true">
-    <Position X="16.75" Y="7.25" Width="1.5" />
+  <Class Name="CarReservation.Service.Base.BaseService&lt;TDTO, TKey&gt;">
+    <Position X="3" Y="11.75" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CarReservation.Service.CountryService" Collapsed="true">
-    <Position X="21.25" Y="7.25" Width="1.5" />
+  <Class Name="CarReservation.Service.Base.BaseService&lt;TRepository, TEntity, TDto, TKey&gt;">
+    <Position X="3" Y="14.75" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CarReservation.Service.CreditCardService" Collapsed="true">
-    <Position X="23.5" Y="7.25" Width="1.5" />
+  <Class Name="CarReservation.Service.Base.LoggableService&lt;TRepository, TLoggableRepository, TEntity, TLoggableEntity, TDto, TLoggableDto, TKey&gt;">
+    <Position X="5.25" Y="13.75" Width="1.5" />
     <TypeIdentifier />
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CarReservation.Service.DistanceUnitService" Collapsed="true">
-    <Position X="25.75" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.DriverStatusService" Collapsed="true">
-    <Position X="28" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.RideStatusService" Collapsed="true">
-    <Position X="30.25" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.StateService" Collapsed="true">
-    <Position X="32.5" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.TravelUnitService" Collapsed="true">
-    <Position X="34.75" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.UserService" Collapsed="true">
-    <Position X="14.5" Y="5.75" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.VehicleAssemblyService" Collapsed="true">
-    <Position X="37" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.VehicleBodyTypeService" Collapsed="true">
-    <Position X="39.25" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.VehicleFeatureService" Collapsed="true">
-    <Position X="41.5" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.VehicleMakerService" Collapsed="true">
-    <Position X="43.75" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.VehicleModelService" Collapsed="true">
-    <Position X="48.25" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="CarReservation.Service.VehicleTransmissionService" Collapsed="true">
-    <Position X="19" Y="7.25" Width="1.5" />
-    <TypeIdentifier />
-    <Lollipop Position="0.2" />
-  </Class>
-  <Interface Name="CarReservation.Core.Infrastructure.Base.IRepositoryRequisites" Collapsed="true">
-    <Position X="75.25" Y="18.5" Width="1.5" />
+  <Interface Name="CarReservation.Core.IRepository.Base.IBaseRepository&lt;TEntity, TKey&gt;">
+    <Position X="24.25" Y="1.75" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.Infrastructure.Base.IRequestInfo" Collapsed="true">
-    <Position X="77" Y="18.5" Width="1.5" />
+  <Interface Name="CarReservation.Core.IRepository.IColorRepository">
+    <Position X="25.25" Y="4" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.Base.IBaseRepository&lt;TEntity, TKey&gt;" Collapsed="true">
-    <Position X="21.25" Y="17.75" Width="1.5" />
+  <Interface Name="CarReservation.Core.IRepository.ICreditCardRepository">
+    <Position X="23.25" Y="4" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.Base.IBaseRepository" Collapsed="true">
-    <Position X="73.5" Y="18.5" Width="1.5" />
+  <Interface Name="CarReservation.Core.IService.Base.IBaseService&lt;TDTO, TKey&gt;">
+    <Position X="24.5" Y="5.25" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.Base.IUnitOfWork" Collapsed="true">
-    <Position X="80.5" Y="18.5" Width="1.5" />
+  <Interface Name="CarReservation.Core.IService.IColorService">
+    <Position X="24.5" Y="7.5" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.ICityRepository" Collapsed="true">
-    <Position X="10" Y="19" Width="1.5" />
+  <Interface Name="CarReservation.Core.IService.ICreditCardService">
+    <Position X="26.75" Y="7.5" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IColorRepository" Collapsed="true">
-    <Position X="14.5" Y="19" Width="1.5" />
+  <Interface Name="CarReservation.Core.IService.IUserService">
+    <Position X="22.25" Y="7.5" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.ICountryRepository" Collapsed="true">
-    <Position X="16.75" Y="19" Width="1.5" />
+  <Interface Name="CarReservation.Core.Model.Base.IAuditModel&lt;TKey&gt;">
+    <Position X="18.5" Y="5" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.ICreditCardRepository" Collapsed="true">
-    <Position X="19" Y="19" Width="1.5" />
+  <Interface Name="CarReservation.Core.Model.Base.IAuditModel">
+    <Position X="20.5" Y="3.75" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IDistanceUnitRepository" Collapsed="true">
-    <Position X="21.25" Y="19" Width="1.5" />
+  <Interface Name="CarReservation.Core.Model.Base.IBase&lt;TKey&gt;">
+    <Position X="17.5" Y="1.5" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IDriverStatusRepository" Collapsed="true">
-    <Position X="23.5" Y="19" Width="1.5" />
+  <Interface Name="CarReservation.Core.Model.Base.IBase">
+    <Position X="17.5" Y="3.25" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IRideStatusRepository" Collapsed="true">
-    <Position X="25.75" Y="19" Width="1.5" />
+  <Interface Name="CarReservation.Core.Model.Base.IDeletable&lt;TKey&gt;">
+    <Position X="15" Y="3.25" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IStateRepository" Collapsed="true">
-    <Position X="28" Y="19" Width="1.5" />
+  <Interface Name="CarReservation.Core.Model.Base.IDeletable">
+    <Position X="20.5" Y="1.25" Width="1.5" />
     <TypeIdentifier />
   </Interface>
-  <Interface Name="CarReservation.Core.IRepository.ITravelUnitRepository" Collapsed="true">
-    <Position X="30.25" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IVehicleAssemblyRepository" Collapsed="true">
-    <Position X="32.5" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IVehicleBodyTypeRepository" Collapsed="true">
-    <Position X="34.75" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IVehicleFeatureRepository" Collapsed="true">
-    <Position X="37" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IVehicleMakerRepository" Collapsed="true">
-    <Position X="5.5" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IVehicleModelRepository" Collapsed="true">
-    <Position X="7.75" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IRepository.IVehicleTransmissionRepository" Collapsed="true">
-    <Position X="12.25" Y="19" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.Base.IBaseService&lt;TDTO, TKey&gt;" Collapsed="true">
-    <Position X="31.5" Y="8.5" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.Base.ISetupService&lt;TRepository&gt;" Collapsed="true">
-    <Position X="78.75" Y="18.5" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.ICityService" Collapsed="true">
-    <Position X="25.75" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IColorService" Collapsed="true">
-    <Position X="30.25" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.ICountryService" Collapsed="true">
-    <Position X="34.75" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.ICreditCardService" Collapsed="true">
-    <Position X="37" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IDistanceUnitService" Collapsed="true">
-    <Position X="39.25" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IDriverStatusService" Collapsed="true">
-    <Position X="41.5" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IRideStatusService" Collapsed="true">
-    <Position X="43.75" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IStateService" Collapsed="true">
-    <Position X="46" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.ITravelUnitService" Collapsed="true">
-    <Position X="48.25" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IUserService" Collapsed="true">
-    <Position X="14.5" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IVehicleAssemblyService" Collapsed="true">
-    <Position X="16.75" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IVehicleBodyTypeService" Collapsed="true">
-    <Position X="19" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IVehicleFeatureService" Collapsed="true">
-    <Position X="21.25" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IVehicleMakerService" Collapsed="true">
-    <Position X="23.5" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IVehicleModelService" Collapsed="true">
-    <Position X="28" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.IService.IVehicleTransmissionService" Collapsed="true">
-    <Position X="32.5" Y="9.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.Model.Base.IAuditModel&lt;TKey&gt;" Collapsed="true">
-    <Position X="68.75" Y="11" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.Model.Base.IAuditModel" Collapsed="true">
-    <Position X="66.25" Y="14" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.Model.Base.IBase&lt;TKey&gt;" Collapsed="true">
-    <Position X="68.25" Y="14" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.Model.Base.IBase" Collapsed="true">
-    <Position X="69.25" Y="12.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.Model.Base.IDeletable&lt;TKey&gt;" Collapsed="true">
-    <Position X="66.25" Y="11.25" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Interface Name="CarReservation.Core.Model.Base.IDeletable" Collapsed="true">
-    <Position X="66.25" Y="12.75" Width="1.5" />
-    <TypeIdentifier />
-  </Interface>
-  <Enum Name="CarReservation.Core.Enums.OperationType" Collapsed="true">
-    <Position X="73.5" Y="19.5" Width="1.5" />
-    <TypeIdentifier />
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

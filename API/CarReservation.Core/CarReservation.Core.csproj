@@ -159,6 +159,8 @@
     <Compile Include="DTO\CurrencyLogDTO.cs" />
     <Compile Include="DTO\DistanceUnitDTO.cs" />
     <Compile Include="DTO\DriverStatusDTO.cs" />
+    <Compile Include="DTO\FavouriteLocationDTO.cs" />
+    <Compile Include="DTO\LocationLagLonDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
     <Compile Include="DTO\TopupDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
@@ -193,6 +195,8 @@
     <Compile Include="IRepository\ICurrencyRepository.cs" />
     <Compile Include="IRepository\IDistanceUnitRepository.cs" />
     <Compile Include="IRepository\IDriverStatusRepository.cs" />
+    <Compile Include="IRepository\IFavouriteLocationRepository.cs" />
+    <Compile Include="IRepository\ILocationLagLonRepository.cs" />
     <Compile Include="IRepository\IRideStatusRepository.cs" />
     <Compile Include="IRepository\IStateRepository.cs" />
     <Compile Include="IRepository\ITravelUnitRepository.cs" />
@@ -212,6 +216,7 @@
     <Compile Include="IService\ICurrencyService.cs" />
     <Compile Include="IService\IDistanceUnitService.cs" />
     <Compile Include="IService\IDriverStatusService.cs" />
+    <Compile Include="IService\IFavouriteLocationService.cs" />
     <Compile Include="IService\IRideStatusService.cs" />
     <Compile Include="IService\IRoleService.cs" />
     <Compile Include="IService\IStateService.cs" />
@@ -249,6 +254,10 @@
     <Compile Include="Migrations\201611281306585_migration.Designer.cs">
       <DependentUpon>201611281306585_migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612011142552_FavouriteLocation.cs" />
+    <Compile Include="Migrations\201612011142552_FavouriteLocation.Designer.cs">
+      <DependentUpon>201612011142552_FavouriteLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountLog.cs" />
@@ -272,6 +281,7 @@
     <Compile Include="Model\DriverLocationLog.cs" />
     <Compile Include="Model\DriverStatus.cs" />
     <Compile Include="Model\Fare.cs" />
+    <Compile Include="Model\FavouriteLocation.cs" />
     <Compile Include="Model\LocationLagLon.cs" />
     <Compile Include="Model\Package.cs" />
     <Compile Include="Model\PackageTravelUnit.cs" />
@@ -322,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611281306585_migration.resx">
       <DependentUpon>201611281306585_migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612011142552_FavouriteLocation.resx">
+      <DependentUpon>201612011142552_FavouriteLocation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

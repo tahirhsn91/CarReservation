@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CarReservation.Repository.ColorRepository" Collapsed="true">
+    <Position X="21.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ColorRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CarReservation.Repository.CreditCardRepository" Collapsed="true">
+    <Position X="19.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CreditCardRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CarReservation.Repository.Base.AuditableRepository&lt;TEntity, TKey&gt;" Collapsed="true">
+    <Position X="20.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAABAAAAEAAACAAAAAABIA=</HashCode>
+      <FileName>Base\AuditableRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarReservation.Repository.Base.BaseRepository&lt;TEntity, TKey&gt;" Collapsed="true">
+    <Position X="20.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEAAAAAAABAABAAEAAAAAAIAEAAEiAAIAIAAIA=</HashCode>
+      <FileName>Base\BaseRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CarReservation.Repository.Base.DeletableRepository&lt;TEntity, TKey&gt;" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAEAAACAAAAAAAIA=</HashCode>
+      <FileName>Base\DeletableRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarReservation.Repository.Base.UnitOfWork">
+    <Position X="24.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIEEAYUBAAAmCIwgAQBCjJABAIJJBAwHQwAAAAAAAQg=</HashCode>
+      <FileName>Base\UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

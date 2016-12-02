@@ -41,6 +41,9 @@ namespace CarReservation.Repository.Base
         private readonly IAccountRepository _accountRepository;
         private readonly IAccountLogRepository _accountLogRepository;
 
+        private readonly IFavouriteLocationRepository _favouriteLocationRepository;
+        private readonly ILocationLagLonRepository _locationLagLonRepository;
+
 
 
         public ApplicationDbContext DBContext { get { return this._requestInfo.Context; } }
@@ -72,6 +75,9 @@ namespace CarReservation.Repository.Base
         public IAccountRepository AccountRepository { get { return _accountRepository; } }
         public IAccountLogRepository AccountLogRepository { get { return _accountLogRepository; } }
 
+        public IFavouriteLocationRepository FavouriteLocationRepository { get { return _favouriteLocationRepository; } }
+        public ILocationLagLonRepository LocationLagLonRepository { get { return _locationLagLonRepository; } }
+
         public UnitOfWork(
             IRequestInfo requestInfo,
 
@@ -98,7 +104,10 @@ namespace CarReservation.Repository.Base
             ICurrencyLogRepository currencyLogRepository,
 
             IAccountRepository accountRepository,
-            IAccountLogRepository accountLogRepository
+            IAccountLogRepository accountLogRepository,
+
+            IFavouriteLocationRepository favouriteLocationRepository,
+            ILocationLagLonRepository locationLagLonRepository
             )
         {
             this._requestInfo = requestInfo;
@@ -127,6 +136,9 @@ namespace CarReservation.Repository.Base
 
             this._accountRepository = accountRepository;
             this._accountLogRepository = accountLogRepository;
+
+            this._favouriteLocationRepository = favouriteLocationRepository;
+            this._locationLagLonRepository = locationLagLonRepository;
         }
 
         public async Task<int> SaveAsync()

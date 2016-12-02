@@ -6,9 +6,9 @@ using System.Data.Entity;
 
 namespace CarReservation.Repository
 {
-    public class ColorRepository : AuditableRepository<Color, int>, IColorRepository
+    public class LocationLagLonRepository: AuditableRepository<LocationLagLon, int>, ILocationLagLonRepository
     {
-        public ColorRepository(IRepositoryRequisites repositoryRequisite)
+        public LocationLagLonRepository(IRepositoryRequisites repositoryRequisite)
             : base(repositoryRequisite)
         {
         }

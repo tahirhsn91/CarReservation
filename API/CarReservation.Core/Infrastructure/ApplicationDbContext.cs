@@ -49,6 +49,7 @@ namespace CarReservation.Core.Infrastructure
         public DbSet<PackageVehicleTransmission> PackageVehicleTransmission { get; set; }
 
         public DbSet<LocationLagLon> LocationLagLon { get; set; }
+        public DbSet<FavouriteLocation> FavouriteLocation { get; set; }
         public DbSet<Fare> Fare { get; set; }
         public DbSet<TravelUnit> TravelUnit { get; set; }
         public DbSet<Package> Package { get; set; }

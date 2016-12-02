@@ -75,6 +75,8 @@
     <Compile Include="CurrencyRepository.cs" />
     <Compile Include="DistanceUnitRepository.cs" />
     <Compile Include="DriverStatusRepository.cs" />
+    <Compile Include="FavouriteLocationRepository.cs" />
+    <Compile Include="LocationLagLonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RideStatusRepository.cs" />
     <Compile Include="StateRepository.cs" />
@@ -97,6 +99,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

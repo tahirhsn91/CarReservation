@@ -39,6 +39,9 @@ namespace CarReservation.Core.IRepository.Base
         IAccountRepository AccountRepository { get; }
         IAccountLogRepository AccountLogRepository { get; }
 
+        IFavouriteLocationRepository FavouriteLocationRepository { get; }
+        ILocationLagLonRepository LocationLagLonRepository { get; }
+
         Task<int> SaveAsync();
         int Save();
         DbContextTransaction BeginTransaction();
