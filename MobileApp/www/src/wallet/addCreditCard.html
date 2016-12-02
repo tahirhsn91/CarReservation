@@ -1,0 +1,43 @@
+<ion-view view-title="Add Credit Card">
+  <ion-content>
+    <form name="creditCardform" novalidate ng-submit="creditCardform.$valid && vm.addCreditCard()">
+      <div class="list padding">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Card Number</span>
+          <input type="text" name="CardNumber" id="CardNumber" placeholder="Card Number"
+              ng-model="vm.creditCard.CardNumber" required>
+          <validations form-name="creditCardform" field-name="CardNumber" label="Card Number" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Expiration Date</span>
+          <input type="text" name="ExpirationDate" id="ExpirationDate" placeholder="Expiration Date"
+              ng-model="vm.creditCard.ExpirationDate" required>
+          <validations form-name="creditCardform" field-name="ExpirationDate" label="Expiration Date" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">CVV</span>
+          <input type="text" name="CVV" id="CVV" placeholder="CVV"
+              ng-model="vm.creditCard.CVV" required>
+          <validations form-name="creditCardform" field-name="CVV" label="CVV" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Card Holder Name</span>
+          <input type="text" name="CardHolderName" id="CardHolderName" placeholder="Card Holder Name"
+              ng-model="vm.creditCard.CardHolderName" required>
+          <validations form-name="creditCardform" field-name="CardHolderName" label="Card Holder Name" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Country</span>
+          <input type="text" name="Country" id="Country" placeholder="Country"
+              ng-model="vm.creditCard.Country" required>
+          <validations form-name="creditCardform" field-name="Country" label="Country" ></validations>
+        </label>
+        <div class="item">
+          <button type="submit" class="button button-block button-positive" >
+            <strong>Add Credit Card</strong>
+          </button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
