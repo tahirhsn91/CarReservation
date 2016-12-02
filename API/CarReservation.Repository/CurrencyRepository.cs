@@ -2,18 +2,14 @@
 using CarReservation.Core.IRepository;
 using CarReservation.Core.Model;
 using CarReservation.Repository.Base;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CarReservation.Repository
 {
-    public class StateRepository : AuditableRepository<State, int>, IStateRepository
+    public class CurrencyRepository : AuditableRepository<Currency, int>, ICurrencyRepository
     {
-        public StateRepository(IRepositoryRequisites repositoryRequisite)
+        public CurrencyRepository(IRepositoryRequisites repositoryRequisite)
             : base(repositoryRequisite)
         {
         }
@@ -26,7 +22,7 @@ namespace CarReservation.Repository
             }
         }
 
-        protected override IQueryable<State> DefaultSingleQuery
+        protected override System.Linq.IQueryable<Currency> DefaultSingleQuery
         {
             get
             {

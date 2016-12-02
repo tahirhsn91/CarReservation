@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace CarReservation.Service
 {
@@ -43,15 +44,21 @@ namespace CarReservation.Service
 
             if (applicationUser == null)
             {
-                var user = new ApplicationUser();
-                user = dto.ConvertToEntity(user);
-                userManager.Create(user, dto.Password);
+                var user = dto.ConvertToEntity();
 
-                applicationUser = userManager.FindByName(dto.Email);
+                try
+                {
+                    userManager.Create(user, dto.Password);
 
-                string role = this.GetAllRoles().First(x => x.Key == dto.Role).Value;
+                    applicationUser = userManager.FindByName(dto.Email);
 
-                userManager.AddToRoles(applicationUser.Id, new string[] { role });
+                    string role = this.GetAllRoles().First(x => x.Key == dto.Role).Value;
+
+                    userManager.AddToRoles(applicationUser.Id, new string[] { role });
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                }
             }
             else
             {

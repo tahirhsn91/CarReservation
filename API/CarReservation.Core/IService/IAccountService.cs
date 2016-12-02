@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IService
 {
-    public interface ICreditCardService : IBaseService<CreditCardDTO, int>
+    public interface IAccountService : IBaseService<AccountDTO, int>
     {
-        Task<CreditCardDTO> Topup(int amount, CreditCardDTO dtoObject, CurrencyDTO currencyDto, UserDTO user);
+        Task<AccountDTO> GetAccountByUserId(string userId);
     }
 }

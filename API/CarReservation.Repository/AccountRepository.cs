@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Repository
 {
-    public class StateRepository : AuditableRepository<State, int>, IStateRepository
+    public class AccountRepository : AuditableRepository<Account, int>, IAccountRepository
     {
-        public StateRepository(IRepositoryRequisites repositoryRequisite)
+        public AccountRepository(IRepositoryRequisites repositoryRequisite)
             : base(repositoryRequisite)
         {
         }
@@ -26,12 +26,17 @@ namespace CarReservation.Repository
             }
         }
 
-        protected override IQueryable<State> DefaultSingleQuery
+        protected override IQueryable<Account> DefaultSingleQuery
         {
             get
             {
-                return base.DefaultSingleQuery.Include(x => x.Country);
+                return base.DefaultSingleQuery.Include(x => x.Currency).Include(x => x.User);
             }
+        }
+
+        public async Task<Account> GetAccountByUserId(string userId)
+        {
+            return await this.DefaultSingleQuery.FirstAsync(x => x.UserId == userId);
         }
     }
 }

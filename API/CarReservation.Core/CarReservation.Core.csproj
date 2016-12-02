@@ -115,6 +115,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
@@ -145,15 +146,21 @@
     <Compile Include="Constant\Message.cs" />
     <Compile Include="Constant\UserRoles.cs" />
     <Compile Include="Constant\Validations.cs" />
+    <Compile Include="DTO\AccountDTO.cs" />
+    <Compile Include="DTO\AccountLogDTO.cs" />
     <Compile Include="DTO\Base\BaseDTO.cs" />
+    <Compile Include="DTO\Base\ILoggableDTO.cs" />
     <Compile Include="DTO\Base\SetupDTO.cs" />
     <Compile Include="DTO\CityDTO.cs" />
     <Compile Include="DTO\ColorDTO.cs" />
     <Compile Include="DTO\CountryDTO.cs" />
     <Compile Include="DTO\CreditCardDTO.cs" />
+    <Compile Include="DTO\CurrencyDTO.cs" />
+    <Compile Include="DTO\CurrencyLogDTO.cs" />
     <Compile Include="DTO\DistanceUnitDTO.cs" />
     <Compile Include="DTO\DriverStatusDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
+    <Compile Include="DTO\TopupDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\RideStatusDTO.cs" />
     <Compile Include="DTO\StateDTO.cs" />
@@ -176,10 +183,14 @@
     <Compile Include="IoC.cs" />
     <Compile Include="IRepository\Base\IBaseRepository.cs" />
     <Compile Include="IRepository\Base\IUnitOfWork.cs" />
+    <Compile Include="IRepository\IAccountLogRepository.cs" />
+    <Compile Include="IRepository\IAccountRepository.cs" />
     <Compile Include="IRepository\ICityRepository.cs" />
     <Compile Include="IRepository\IColorRepository.cs" />
     <Compile Include="IRepository\ICountryRepository.cs" />
     <Compile Include="IRepository\ICreditCardRepository.cs" />
+    <Compile Include="IRepository\ICurrencyLogRepository.cs" />
+    <Compile Include="IRepository\ICurrencyRepository.cs" />
     <Compile Include="IRepository\IDistanceUnitRepository.cs" />
     <Compile Include="IRepository\IDriverStatusRepository.cs" />
     <Compile Include="IRepository\IRideStatusRepository.cs" />
@@ -193,10 +204,12 @@
     <Compile Include="IRepository\IVehicleTransmissionRepository.cs" />
     <Compile Include="IService\Base\IBaseService.cs" />
     <Compile Include="IService\Base\ISetupService.cs" />
+    <Compile Include="IService\IAccountService.cs" />
     <Compile Include="IService\ICityService.cs" />
     <Compile Include="IService\IColorService.cs" />
     <Compile Include="IService\ICountryService.cs" />
     <Compile Include="IService\ICreditCardService.cs" />
+    <Compile Include="IService\ICurrencyService.cs" />
     <Compile Include="IService\IDistanceUnitService.cs" />
     <Compile Include="IService\IDriverStatusService.cs" />
     <Compile Include="IService\IRideStatusService.cs" />
@@ -210,6 +223,8 @@
     <Compile Include="IService\IVehicleMakerService.cs" />
     <Compile Include="IService\IVehicleModelService.cs" />
     <Compile Include="IService\IVehicleTransmissionService.cs" />
+    <Compile Include="Mapping\CreditCardMap.cs" />
+    <Compile Include="Mapping\CurrencyMap.cs" />
     <Compile Include="Migrations\201611051621268_InitialCreate.cs" />
     <Compile Include="Migrations\201611051621268_InitialCreate.Designer.cs">
       <DependentUpon>201611051621268_InitialCreate.cs</DependentUpon>
@@ -230,41 +245,9 @@
     <Compile Include="Migrations\201611121456283_AddingUsersTypes.Designer.cs">
       <DependentUpon>201611121456283_AddingUsersTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611130740454_VehicleAndPackage.cs" />
-    <Compile Include="Migrations\201611130740454_VehicleAndPackage.Designer.cs">
-      <DependentUpon>201611130740454_VehicleAndPackage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611130801448_Account.cs" />
-    <Compile Include="Migrations\201611130801448_Account.Designer.cs">
-      <DependentUpon>201611130801448_Account.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611130820378_Ride.cs" />
-    <Compile Include="Migrations\201611130820378_Ride.Designer.cs">
-      <DependentUpon>201611130820378_Ride.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611141650115_MissingSetupEntities.cs" />
-    <Compile Include="Migrations\201611141650115_MissingSetupEntities.Designer.cs">
-      <DependentUpon>201611141650115_MissingSetupEntities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611221244498_AddingUserValidation.cs" />
-    <Compile Include="Migrations\201611221244498_AddingUserValidation.Designer.cs">
-      <DependentUpon>201611221244498_AddingUserValidation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611231055484_CreditCardInfo.cs" />
-    <Compile Include="Migrations\201611231055484_CreditCardInfo.Designer.cs">
-      <DependentUpon>201611231055484_CreditCardInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611240608388_AddingUserInCreditCard.cs" />
-    <Compile Include="Migrations\201611240608388_AddingUserInCreditCard.Designer.cs">
-      <DependentUpon>201611240608388_AddingUserInCreditCard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611240802528_MobileNumber.cs" />
-    <Compile Include="Migrations\201611240802528_MobileNumber.Designer.cs">
-      <DependentUpon>201611240802528_MobileNumber.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611241230530_removeValidation.cs" />
-    <Compile Include="Migrations\201611241230530_removeValidation.Designer.cs">
-      <DependentUpon>201611241230530_removeValidation.cs</DependentUpon>
+    <Compile Include="Migrations\201611281306585_migration.cs" />
+    <Compile Include="Migrations\201611281306585_migration.Designer.cs">
+      <DependentUpon>201611281306585_migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Account.cs" />
@@ -337,32 +320,8 @@
     <EmbeddedResource Include="Migrations\201611121456283_AddingUsersTypes.resx">
       <DependentUpon>201611121456283_AddingUsersTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611130740454_VehicleAndPackage.resx">
-      <DependentUpon>201611130740454_VehicleAndPackage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611130801448_Account.resx">
-      <DependentUpon>201611130801448_Account.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611130820378_Ride.resx">
-      <DependentUpon>201611130820378_Ride.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611141650115_MissingSetupEntities.resx">
-      <DependentUpon>201611141650115_MissingSetupEntities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611221244498_AddingUserValidation.resx">
-      <DependentUpon>201611221244498_AddingUserValidation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611231055484_CreditCardInfo.resx">
-      <DependentUpon>201611231055484_CreditCardInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611240608388_AddingUserInCreditCard.resx">
-      <DependentUpon>201611240608388_AddingUserInCreditCard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611240802528_MobileNumber.resx">
-      <DependentUpon>201611240802528_MobileNumber.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611241230530_removeValidation.resx">
-      <DependentUpon>201611241230530_removeValidation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611281306585_migration.resx">
+      <DependentUpon>201611281306585_migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using CarReservation.Core.Infrastructure.Base;
+﻿using AutoMapper;
+using CarReservation.Core.Infrastructure.Base;
 using CarReservation.Core.Model.Base;
 using System;
 using System.Collections.Generic;
@@ -41,16 +42,25 @@ namespace CarReservation.Repository.Base
 
         public override async Task<TEntity> Update(TEntity entity)
         {
+            //var dbEntity = await GetAsync(entity.Id);
+
+            //entity.CreatedBy = dbEntity.CreatedBy;
+            //entity.CreatedOn = dbEntity.CreatedOn;
             entity.LastModifiedOn = DateTime.UtcNow;
             entity.LastModifiedBy = RepositoryRequisite.RequestInfo.UserId;
+
+            //Mapper.Map<TEntity, TEntity>(entity, dbEntity);
+
             return await base.Update(entity);
         }
 
         public override async Task DeleteAsync(TKey id)
         {
             var entity = await GetAsync(id);
+
             entity.LastModifiedOn = DateTime.UtcNow;
             entity.LastModifiedBy = RepositoryRequisite.RequestInfo.UserId;
+
             await base.DeleteAsync(id);
         }
 

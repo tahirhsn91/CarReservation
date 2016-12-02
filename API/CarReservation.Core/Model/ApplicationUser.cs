@@ -11,6 +11,11 @@ namespace CarReservation.Core.Model
 {
     public class ApplicationUser : IdentityUser, IAuditModel<string>
     {
+        public ApplicationUser()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+
         [Required]
         public string FirstName { get; set; }
 

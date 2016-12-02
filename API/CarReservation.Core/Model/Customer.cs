@@ -12,7 +12,5 @@ namespace CarReservation.Core.Model
     {
         [Required]
         public ApplicationUser User { get; set; }
-
-        public Account Account { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CarReservation.Core.Model.Base;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarReservation.Core.Model
 {
@@ -18,10 +19,16 @@ namespace CarReservation.Core.Model
         [Required]
         public string CardHolderName { get; set; }
 
-        [Required]
         public Country Country { get; set; }
 
-        [Required]
         public ApplicationUser User { get; set; }
+
+        [Required]
+        [ForeignKey("Country")]
+        public int CountryId { get; set; }
+
+        [Required]
+        [ForeignKey("User")]
+        public string UserId { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace CarReservation.Repository.Base
 {
@@ -34,6 +35,11 @@ namespace CarReservation.Repository.Base
         private readonly IDriverStatusRepository _driverStatusRepository;
 
         private readonly ICreditCardRepository _creditCardRepository;
+        private readonly ICurrencyRepository _currencyRepository;
+        private readonly ICurrencyLogRepository _currencyLogRepository;
+
+        private readonly IAccountRepository _accountRepository;
+        private readonly IAccountLogRepository _accountLogRepository;
 
 
 
@@ -60,28 +66,39 @@ namespace CarReservation.Repository.Base
 
         public ICreditCardRepository CreditCardRepository { get { return _creditCardRepository; } }
 
+        public ICurrencyRepository CurrencyRepository { get { return _currencyRepository; } }
+        public ICurrencyLogRepository CurrencyLogRepository { get { return _currencyLogRepository; } }
+
+        public IAccountRepository AccountRepository { get { return _accountRepository; } }
+        public IAccountLogRepository AccountLogRepository { get { return _accountLogRepository; } }
+
         public UnitOfWork(
             IRequestInfo requestInfo,
 
             IColorRepository colorRepository,
             IRideStatusRepository rideStatusRepository,
-            
+
             ICountryRepository countryRepository,
             IStateRepository stateRepository,
             ICityRepository cityRepository,
-            
+
             IVehicleMakerRepository vehicleMakerRepository,
             IVehicleModelRepository vehicleModelRepository,
             IVehicleBodyTypeRepository vehicleBodyTypeRepository,
             IVehicleFeatureRepository vehicleFeatureRepository,
             IVehicleTransmissionRepository vehicleTransmissionRepository,
             IVehicleAssemblyRepository vehicleAssemblyRepository,
-            
+
             ITravelUnitRepository travelUnitRepository,
             IDistanceUnitRepository distanceUnitRepository,
             IDriverStatusRepository driverStatusRepository,
-            
-            ICreditCardRepository creditCardRepository
+
+            ICreditCardRepository creditCardRepository,
+            ICurrencyRepository currencyRepository,
+            ICurrencyLogRepository currencyLogRepository,
+
+            IAccountRepository accountRepository,
+            IAccountLogRepository accountLogRepository
             )
         {
             this._requestInfo = requestInfo;
@@ -105,6 +122,11 @@ namespace CarReservation.Repository.Base
             this._driverStatusRepository = driverStatusRepository;
 
             this._creditCardRepository = creditCardRepository;
+            this._currencyRepository = currencyRepository;
+            this._currencyLogRepository = currencyLogRepository;
+
+            this._accountRepository = accountRepository;
+            this._accountLogRepository = accountLogRepository;
         }
 
         public async Task<int> SaveAsync()
@@ -113,10 +135,16 @@ namespace CarReservation.Repository.Base
             {
                 return await DBContext.SaveChangesAsync();
             }
+            catch (DbEntityValidationException e)
+            {
+                Common.Helper.ExceptionHelper.ThrowAPIException(e.EntityValidationErrors.First().ToString());
+            }
             catch (Exception ex)
             {
                 throw ex;
             }
+
+            return 0;
         }
 
         public int Save()
