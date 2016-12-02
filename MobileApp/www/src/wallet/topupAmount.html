@@ -1,0 +1,25 @@
+<ion-view view-title="Add Credit Card">
+  <ion-content>
+    <form name="topupform" novalidate ng-submit="topupform.$valid && vm.topupAmount()">
+      <div class="list padding">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Card Number</span>
+          <input type="text" name="CardNumber" id="CardNumber" placeholder="Card Number"
+              ng-model="vm.creditCard.CardNumber" required>
+          <validations form-name="topupform" field-name="CardNumber" label="Card Number" ></validations>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Country</span>
+          <input type="text" name="Amount" id="Amount" placeholder="Amount"
+              ng-model="vm.creditCard.Amount" required>
+          <validations form-name="topupform" field-name="Amount" label="Amount" ></validations>
+        </label>
+        <div class="item">
+          <button type="submit" class="button button-block button-positive" >
+            <strong>Add Credit Card</strong>
+          </button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
