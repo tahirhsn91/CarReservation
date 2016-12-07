@@ -1,19 +1,14 @@
 ﻿using CarReservation.Core.Infrastructure;
+using CarReservation.Core.IService;
+using CarReservation.Core.Model;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using CarReservation.Core.Model;
-using CarReservation.Core.IService;
-using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace CarReservation.Core.Provider
 {

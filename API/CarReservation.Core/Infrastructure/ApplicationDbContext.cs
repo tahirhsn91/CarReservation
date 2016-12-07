@@ -1,12 +1,6 @@
-﻿using CarReservation.Core.Mapping;
-using CarReservation.Core.Model;
+﻿using CarReservation.Core.Model;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarReservation.Core.Infrastructure
 {

@@ -1,27 +1,21 @@
 ﻿using CarReservation.Common.Provider;
 using CarReservation.Core;
 using CarReservation.Core.Infrastructure;
+using CarReservation.Core.IService;
 using CarReservation.Core.Provider;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
-using Newtonsoft.Json.Serialization;
+using Microsoft.Practices.Unity;
 using Owin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
-using Microsoft.Practices.Unity;
-using CarReservation.Core.IService;
 
 namespace CarReservation.API
 {
     public class Startup
     {
-
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration httpConfig = new HttpConfiguration();

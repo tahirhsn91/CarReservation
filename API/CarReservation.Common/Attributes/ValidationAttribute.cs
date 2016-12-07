@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CarReservation.Common.Helper;
 using System.Web.Http.Filters;
-using CarReservation.Common.Helper;
 
 namespace CarReservation.Common.Attributes
 {

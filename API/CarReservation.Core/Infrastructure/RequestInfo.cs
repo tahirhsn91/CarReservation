@@ -1,9 +1,9 @@
-﻿using System;
+﻿using CarReservation.Common.Helper;
+using CarReservation.Core.Infrastructure.Base;
+using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Web;
-using CarReservation.Common.Helper;
-using CarReservation.Core.Infrastructure.Base;
 
 namespace CarReservation.Core.Infrastructure
 {

@@ -50,7 +50,6 @@ namespace CarReservation.Core.Migrations
                 manager.Create(user, "Admin123!@#$");
 
                 var adminUser = manager.FindByName(emailAddress);
-
                 manager.AddToRoles(adminUser.Id, new string[] { UserRoles.SUPER, UserRoles.ADMIN });
             }
         }

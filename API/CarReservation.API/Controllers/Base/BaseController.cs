@@ -1,15 +1,15 @@
-﻿using System.Net.Http;
-using System.Web.Http;
-using CarReservation.Common.Attributes;
+﻿using CarReservation.Common.Attributes;
+using CarReservation.Core.DTO;
 using CarReservation.Core.Infrastructure;
+using CarReservation.Core.Model;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System.Data.Entity;
-using CarReservation.Core.Model;
-using System.Security.Claims;
 using System.Linq;
+using System.Net.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using CarReservation.Core.DTO;
+using System.Web.Http;
 
 namespace CarReservation.API.Controllers.Base
 {

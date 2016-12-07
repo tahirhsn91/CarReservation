@@ -1,5 +1,4 @@
-﻿using CarReservation.Core.Constant;
-using CarReservation.Core.DTO;
+﻿using CarReservation.Core.DTO;
 using CarReservation.Core.Infrastructure;
 using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService;
@@ -9,13 +8,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using System.Data.Entity.Validation;
 
 namespace CarReservation.Service
 {

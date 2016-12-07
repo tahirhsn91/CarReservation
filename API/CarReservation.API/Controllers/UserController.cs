@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
-using CarReservation.API.Controllers.Base;
+﻿using CarReservation.API.Controllers.Base;
 using CarReservation.Common.Attributes;
 using CarReservation.Common.Helper;
 using CarReservation.Core.Constant;
@@ -14,6 +6,14 @@ using CarReservation.Core.DTO;
 using CarReservation.Core.IService;
 using CarReservation.Core.Model;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Http;
 
 namespace CarReservation.API.Controllers
 {

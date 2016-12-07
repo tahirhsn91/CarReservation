@@ -1,10 +1,6 @@
 ﻿using CarReservation.Core.Infrastructure;
 using CarReservation.Core.Infrastructure.Base;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CarReservation.Core.IRepository.Base
