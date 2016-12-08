@@ -247,11 +247,8 @@ ul.alert-dropdown {
 
 /* line 1, ../partials/_auth.scss */
 #login-wrap {
-  background: #76b852;
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8dc26f);
+  background: url("../../images/auth/auth-background-blurred.jpg") center center no-repeat;
+  background-size: cover;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: fixed;
@@ -260,13 +257,13 @@ ul.alert-dropdown {
   right: 0;
   bottom: 0;
 }
-/* line 14, ../partials/_auth.scss */
+/* line 16, ../partials/_auth.scss */
 #login-wrap .login-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
 }
-/* line 18, ../partials/_auth.scss */
+/* line 20, ../partials/_auth.scss */
 #login-wrap .login-page .form {
   position: relative;
   z-index: 1;
@@ -277,21 +274,21 @@ ul.alert-dropdown {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-/* line 27, ../partials/_auth.scss */
+/* line 29, ../partials/_auth.scss */
 #login-wrap .login-page .form button {
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: #387ef5;
   width: 100%;
   color: #fff;
 }
-/* line 34, ../partials/_auth.scss */
+/* line 36, ../partials/_auth.scss */
 #login-wrap .login-page .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 12px;
 }
-/* line 38, ../partials/_auth.scss */
+/* line 40, ../partials/_auth.scss */
 #login-wrap .login-page .form .message a {
   color: #4CAF50;
   text-decoration: none;

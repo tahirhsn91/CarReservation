@@ -1,9 +1,11 @@
 #login-wrap {
-  background: #76b852;
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8dc26f);
+  background: url("../../images/auth/auth-background-blurred.jpg") center center no-repeat;
+  background-size: cover;
+  //background: #387ef5;
+  //background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  //background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  //background: -o-linear-gradient(right, #76b852, #8DC26F);
+  //background: linear-gradient(to left, #76b852, #8dc26f);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: fixed;
@@ -27,7 +29,7 @@
       button {
         text-transform: uppercase;
         outline: 0;
-        background: #4CAF50;
+        background: #387ef5;
         width: 100%;
         color: #fff;
       }
