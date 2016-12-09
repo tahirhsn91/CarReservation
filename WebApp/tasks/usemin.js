@@ -1,3 +1,3 @@
 module.exports = {
-  html: 'dist/index.html'
+  html: '../API/CarReservation.API/index.html'
 }

@@ -8,15 +8,15 @@ module.exports = {
     }]
   },
   styles: {
-    src: ['dist/styles/main.css'],
+    src: ['../styles/main.css'],
     overwrite: true,
     replacements: [{
       from: '../../fonts',
-      to: '../fonts'
+      to: '../API/CarReservation.API/fonts'
     },
       {
         from: '../../images',
-        to: '../images'
+        to: '../API/CarReservation.API/images'
       }]
   }
 };

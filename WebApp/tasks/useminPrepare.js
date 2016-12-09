@@ -1,6 +1,6 @@
 module.exports = {
   html: 'app/index.html',
   options: {
-    dest: 'dist'
+    dest: '../API/CarReservation.API'
   }
 }

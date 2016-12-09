@@ -3,18 +3,18 @@ module.exports = {
     files:[
       {
         src: 'app/index.html',
-        dest: 'dist/index.html'
+        dest: '../API/CarReservation.API/index.html'
       },
       {
         cwd: 'app/fonts',
         src: '**',
-        dest: 'dist/fonts/',
+        dest: '../API/CarReservation.API/fonts/',
         expand: true
       },
       {
         cwd: 'app/images',
         src: '**/*.*',
-        dest: 'dist/images/',
+        dest: '../API/CarReservation.API/images/',
         expand: true
       }
     ]

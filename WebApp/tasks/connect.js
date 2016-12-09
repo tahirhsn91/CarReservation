@@ -8,10 +8,16 @@ module.exports = {
     livereload: 35729
   },
   proxies: [
+    // {
+    //   context: '/api',
+    //   host: '172.16.2.122',
+    //   port: 1401
+    // }
+
     {
       context: '/api',
-      host: '172.16.2.122',
-      port: 1401
+      host: '35.164.206.165',
+      port: 80
     }
   ],
   livereload: {
