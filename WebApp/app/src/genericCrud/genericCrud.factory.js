@@ -43,7 +43,8 @@
       }
 
       function remove(module, id){
-        return Restangular.one(module, id).remove();
+        console.log(id);
+        return Restangular.all(module).remove(id);
       }
     
   }

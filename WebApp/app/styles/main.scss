@@ -1,3 +1,15 @@
+/* Mixins ---------------------------------------- */
+@import 'partials/_mixins';
+
+/* Variables ---------------------------------------- */
+@import 'partials/veriables';
+
+/* global ---------------------------------------- */
+@import 'partials/global';
+@import 'partials/loader';
+@import 'partials/spinner';
+
+
 @import 'partials/skin';
 @import 'partials/theme';
 @import 'partials/auth';

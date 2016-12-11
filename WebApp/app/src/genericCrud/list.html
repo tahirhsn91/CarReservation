@@ -5,7 +5,7 @@
             <span ng-bind="vm.pageTitle"></span>
             <small>Module</small>
         </h1>
-        <ol class="breadcrumb">
+        <ol class="breadcrumb col-xs-10">
             <li>
                 <i class="fa fa-dashboard"></i>
                 <a ui-sref="shell">Dashboard</a>
@@ -15,6 +15,9 @@
                 <span ng-bind="vm.pageTitle"></span> Module
             </li>
         </ol>
+        <div class="col-xs-2">
+            <button class="btn-success pull-right" ng-click="vm.create()">Create {{vm.pageTitle}}</button>
+        </div>
     </div>
 </div>
 <!-- /.row -->

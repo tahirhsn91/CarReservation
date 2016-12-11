@@ -13,9 +13,9 @@
         .controller('ShellCtrl', ShellCtrl);
 
     /* @ngInject */
-    function ShellCtrl() {
+    function ShellCtrl(authFactory) {
         var vm = this;
-        
+        authFactory.navigateToDashboard();
     }
 
 }());

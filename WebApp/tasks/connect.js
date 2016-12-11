@@ -5,7 +5,8 @@ module.exports = {
     port: 7030,
     // Change this to '0.0.0.0' to access the server from outside.
     hostname: 'localhost',
-    livereload: 35729
+    livereload: 35729,
+    base: "."
   },
   proxies: [
     // {
@@ -14,10 +15,16 @@ module.exports = {
     //   port: 1401
     // }
 
-    {
+    // {
+    //   context: '/api',
+    //   host: '35.164.206.165',
+    //   port: 80
+    // }
+
+     {
       context: '/api',
-      host: '35.164.206.165',
-      port: 80
+      host: 'localhost',
+      port: 46363
     }
   ],
   livereload: {

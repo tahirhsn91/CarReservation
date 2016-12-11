@@ -20,7 +20,7 @@
   }
 
   /* @ngInject */
-  function routingEvents($rootScope, store, $state){
+  function routingEvents($rootScope, store, $state, authFactory){
     //on routing error
     $rootScope.$on('$stateNotFound', function(event, unfoundState, fromState, fromParams){
       //do some logging and toasting
@@ -33,12 +33,15 @@
     });
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-        // if((store.get('user') === null && toState.role !== appUserRole.All)){
-      console.log($state.current.name);
-        if($state.current.name!=="authShell.login" && store.get('user') === null){
-            event.preventDefault();
-            $state.go('authShell.login');
-        }
+      var loginState = 'authShell.login';
+      if(store.get('user') === null && toState.name !== loginState){
+        event.preventDefault();
+        authFactory.navigateToLogin();
+      }
+      else if(store.get('user') !== null && toState.name === loginState){
+        event.preventDefault();
+        authFactory.navigateToDashboard();
+      }
     });
   }
 

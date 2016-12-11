@@ -1,0 +1,87 @@
+@mixin placeholderColor($placeholderColorValue) {
+    input::-webkit-input-placeholder {
+        color: $placeholderColorValue;
+    }
+    input:-moz-placeholder {
+        /* Firefox 18- */
+        color: $placeholderColorValue;
+    }
+    input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: $placeholderColorValue;
+    }
+    input:-ms-input-placeholder {
+        color: $placeholderColorValue;
+    }
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin box-shadow($inset-shadow-value) {
+    -webkit-box-shadow: $inset-shadow-value;
+    -moz-box-shadow: $inset-shadow-value;
+    box-shadow: $inset-shadow-value;
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin transition($time) {
+    -webkit-transition: all $time;
+    -moz-transition: all $time;
+    -o-transition: all $time;
+    transition: all $time;
+}
+
+@mixin rotate($angle) {
+    -ms-transform: rotate($angle);
+    -webkit-transform: rotate($angle);
+    transform: rotate($angle);
+}
+
+@mixin background-opacity($color, $opacity: 1, $important: "") {
+    background: $color unquote($important);
+    background: rgba($color, $opacity) unquote($important);
+}
+
+@mixin translate($Xvalue, $Yvalue, $important: ""){
+    -webkit-transform: translate($Xvalue, $Yvalue) unquote($important);
+    -ms-transform: translate($Xvalue, $Yvalue) unquote($important);
+    -o-transform: translate($Xvalue, $Yvalue) unquote($important);
+    transform: translate($Xvalue, $Yvalue) unquote($important);
+}
+
+@mixin centralizedImage($width, $height){
+    width: $width;
+    height: $height;
+    position: relative;
+    img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+@mixin pixelated {
+    -ms-interpolation-mode: nearest-neighbor;  // IE 7+ (non-standard property)
+    image-rendering: -webkit-optimize-contrast; // Safari 6, UC Browser 9.9
+    image-rendering: -webkit-crisp-edges; // Safari 7+
+    image-rendering: -moz-crisp-edges; // Firefox 3.6+
+    image-rendering: -o-crisp-edges; // Opera 12
+    image-rendering: pixelated; // Chrome 41+ and Opera 26+
+}

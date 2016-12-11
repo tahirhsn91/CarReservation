@@ -1,0 +1,36 @@
+
+.ng-toast {
+    margin-top: 0;
+    z-index: 10;
+    &.ng-toast--top {
+        top: 27px !important;
+        bottom: auto;
+    }
+    .ng-toast__list {
+        top: 20px !important;
+        bottom: auto;
+        //@media (max-width: 768px) {
+        //    display: none;
+        //}
+        .alert {
+            color: $color-white;
+            text-align: center;
+            opacity: 0.8;
+            border: 0;
+            &.toast-warning {
+                @include background-opacity($color-dark-red, 0.9);
+            }
+            &.toast-success {
+                // @include background-opacity($color-dark-green, 0.9);
+                color: $color-white;
+            }
+            &.toast-info {
+                color: $color-blue;
+                a {
+                    color: $color-blue;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

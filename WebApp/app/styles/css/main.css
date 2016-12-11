@@ -1,3 +1,143 @@
+/* Mixins ---------------------------------------- */
+/* Variables ---------------------------------------- */
+/*Font Colors*/
+/*borders - color */
+/*font families */
+/*Font sizes*/
+/*Font Weight*/
+/*Sprites background image size*/
+/* global ---------------------------------------- */
+/* line 2, ../partials/_global.scss */
+.ng-toast {
+  margin-top: 0;
+  z-index: 10;
+}
+/* line 5, ../partials/_global.scss */
+.ng-toast.ng-toast--top {
+  top: 27px !important;
+  bottom: auto;
+}
+/* line 9, ../partials/_global.scss */
+.ng-toast .ng-toast__list {
+  top: 20px !important;
+  bottom: auto;
+}
+/* line 15, ../partials/_global.scss */
+.ng-toast .ng-toast__list .alert {
+  color: #fff;
+  text-align: center;
+  opacity: 0.8;
+  border: 0;
+}
+/* line 20, ../partials/_global.scss */
+.ng-toast .ng-toast__list .alert.toast-warning {
+  background: #a5252b ;
+  background: rgba(165, 37, 43, 0.9) ;
+}
+/* line 23, ../partials/_global.scss */
+.ng-toast .ng-toast__list .alert.toast-success {
+  color: #fff;
+}
+/* line 27, ../partials/_global.scss */
+.ng-toast .ng-toast__list .alert.toast-info {
+  color: #006699;
+}
+/* line 29, ../partials/_global.scss */
+.ng-toast .ng-toast__list .alert.toast-info a {
+  color: #006699;
+  text-decoration: underline;
+}
+
+/* line 1, ../partials/_loader.scss */
+#site-loader {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1080;
+  padding-left: 0px;
+  background: #000 ;
+  background: rgba(0, 0, 0, 0.5) ;
+}
+@media (max-width: 1199px) {
+  /* line 1, ../partials/_loader.scss */
+  #site-loader {
+    padding-left: 0;
+  }
+}
+/* line 14, ../partials/_loader.scss */
+#site-loader .spinner-loader {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin: -0.5em 0 0 -0.5em;
+}
+/* line 20, ../partials/_loader.scss */
+#site-loader.full {
+  z-index: 99;
+}
+/* line 22, ../partials/_loader.scss */
+#site-loader.full .spinner-loader {
+  position: absolute;
+}
+
+@-moz-keyframes spinner-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spinner-loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* :not(:required) hides this rule from IE9 and below */
+/* line 39, ../partials/_spinner.scss */
+.spinner-loader:not(:required) {
+  -moz-animation: spinner-loader 1500ms infinite linear;
+  -webkit-animation: spinner-loader 1500ms infinite linear;
+  animation: spinner-loader 1500ms infinite linear;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -moz-box-shadow: white 1.5em 0 0 0, white 1.1em 1.1em 0 0, white 0 1.5em 0 0, white -1.1em 1.1em 0 0, white -1.5em 0 0 0, white -1.1em -1.1em 0 0, white 0 -1.5em 0 0, white 1.1em -1.1em 0 0;
+  -webkit-box-shadow: white 1.5em 0 0 0, white 1.1em 1.1em 0 0, white 0 1.5em 0 0, white -1.1em 1.1em 0 0, white -1.5em 0 0 0, white -1.1em -1.1em 0 0, white 0 -1.5em 0 0, white 1.1em -1.1em 0 0;
+  box-shadow: white 1.5em 0 0 0, white 1.1em 1.1em 0 0, white 0 1.5em 0 0, white -1.1em 1.1em 0 0, white -1.5em 0 0 0, white -1.1em -1.1em 0 0, white 0 -1.5em 0 0, white 1.1em -1.1em 0 0;
+  display: inline-block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin: 1.5em;
+  overflow: hidden;
+  text-indent: 100%;
+}
+
 /* line 1, ../partials/_theme.scss */
 #wrapper {
   padding-left: 0;
@@ -34,18 +174,26 @@
     float: left;
   }
 }
-/* line 34, ../partials/_theme.scss */
+/* line 33, ../partials/_theme.scss */
+.navbar-header > a > img {
+  margin-top: -15px;
+  margin-left: -15px;
+  margin-right: 15px;
+  height: 51px;
+}
+
+/* line 40, ../partials/_theme.scss */
 .top-nav {
   padding: 0 15px;
 }
 
-/* line 38, ../partials/_theme.scss */
+/* line 44, ../partials/_theme.scss */
 .top-nav > li {
   display: inline-block;
   float: left;
 }
 
-/* line 43, ../partials/_theme.scss */
+/* line 49, ../partials/_theme.scss */
 .top-nav > li > a {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -53,7 +201,7 @@
   color: #999;
 }
 
-/* line 50, ../partials/_theme.scss */
+/* line 56, ../partials/_theme.scss */
 .top-nav > li > a:hover,
 .top-nav > li > a:focus,
 .top-nav > .open > a,
@@ -63,7 +211,7 @@
   background-color: #000;
 }
 
-/* line 59, ../partials/_theme.scss */
+/* line 65, ../partials/_theme.scss */
 .top-nav > .open > .dropdown-menu {
   float: left;
   position: absolute;
@@ -76,12 +224,12 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }
 
-/* line 71, ../partials/_theme.scss */
+/* line 77, ../partials/_theme.scss */
 .top-nav > .open > .dropdown-menu > li > a {
   white-space: normal;
 }
 
-/* line 75, ../partials/_theme.scss */
+/* line 81, ../partials/_theme.scss */
 ul.message-dropdown {
   padding: 0;
   max-height: 250px;
@@ -89,31 +237,31 @@ ul.message-dropdown {
   overflow-y: auto;
 }
 
-/* line 82, ../partials/_theme.scss */
+/* line 88, ../partials/_theme.scss */
 li.message-preview {
   width: 275px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-/* line 87, ../partials/_theme.scss */
+/* line 93, ../partials/_theme.scss */
 li.message-preview > a {
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-/* line 92, ../partials/_theme.scss */
+/* line 98, ../partials/_theme.scss */
 li.message-footer {
   margin: 5px 0;
 }
 
-/* line 96, ../partials/_theme.scss */
+/* line 102, ../partials/_theme.scss */
 ul.alert-dropdown {
   width: 200px;
 }
 
 /* Side Navigation */
 @media (min-width: 768px) {
-  /* line 103, ../partials/_theme.scss */
+  /* line 109, ../partials/_theme.scss */
   .side-nav {
     position: fixed;
     top: 51px;
@@ -123,124 +271,124 @@ ul.alert-dropdown {
     border: none;
     border-radius: 0;
     overflow-y: auto;
-    background-color: #222;
+    background-color: #387ef5;
     bottom: 0;
     overflow-x: hidden;
-    height: 1000px;
+    height: 100%;
     padding-bottom: 40px;
   }
 
-  /* line 119, ../partials/_theme.scss */
+  /* line 125, ../partials/_theme.scss */
   .side-nav > li > a {
     width: 225px;
   }
 
-  /* line 123, ../partials/_theme.scss */
+  /* line 129, ../partials/_theme.scss */
   .side-nav li a:hover,
   .side-nav li a:focus {
     outline: none;
-    background-color: #000 !important;
+    background-color: #224CF9 !important;
   }
 }
-/* line 130, ../partials/_theme.scss */
+/* line 136, ../partials/_theme.scss */
 .side-nav > li > ul {
   padding: 0;
 }
 
-/* line 134, ../partials/_theme.scss */
-.side-nav > li > ul > li > a {
+/* line 140, ../partials/_theme.scss */
+.side-nav > li > a {
   display: block;
   padding: 10px 15px 10px 38px;
   text-decoration: none;
-  color: #999;
+  color: #B9D2FC !important;
 }
 
-/* line 141, ../partials/_theme.scss */
-.side-nav > li > ul > li > a:hover {
-  color: #fff;
+/* line 147, ../partials/_theme.scss */
+.side-nav > li > a:hover {
+  color: #fff !important;
 }
 
 /* Flot Chart Containers */
-/* line 147, ../partials/_theme.scss */
+/* line 153, ../partials/_theme.scss */
 .flot-chart {
   display: block;
   height: 400px;
 }
 
-/* line 152, ../partials/_theme.scss */
+/* line 158, ../partials/_theme.scss */
 .flot-chart-content {
   width: 100%;
   height: 100%;
 }
 
 /* Custom Colored Panels */
-/* line 159, ../partials/_theme.scss */
+/* line 165, ../partials/_theme.scss */
 .huge {
   font-size: 40px;
 }
 
-/* line 163, ../partials/_theme.scss */
+/* line 169, ../partials/_theme.scss */
 .panel-green {
   border-color: #5cb85c;
 }
 
-/* line 167, ../partials/_theme.scss */
+/* line 173, ../partials/_theme.scss */
 .panel-green > .panel-heading {
   border-color: #5cb85c;
   color: #fff;
   background-color: #5cb85c;
 }
 
-/* line 173, ../partials/_theme.scss */
+/* line 179, ../partials/_theme.scss */
 .panel-green > a {
   color: #5cb85c;
 }
 
-/* line 177, ../partials/_theme.scss */
+/* line 183, ../partials/_theme.scss */
 .panel-green > a:hover {
   color: #3d8b3d;
 }
 
-/* line 181, ../partials/_theme.scss */
+/* line 187, ../partials/_theme.scss */
 .panel-red {
   border-color: #d9534f;
 }
 
-/* line 185, ../partials/_theme.scss */
+/* line 191, ../partials/_theme.scss */
 .panel-red > .panel-heading {
   border-color: #d9534f;
   color: #fff;
   background-color: #d9534f;
 }
 
-/* line 191, ../partials/_theme.scss */
+/* line 197, ../partials/_theme.scss */
 .panel-red > a {
   color: #d9534f;
 }
 
-/* line 195, ../partials/_theme.scss */
+/* line 201, ../partials/_theme.scss */
 .panel-red > a:hover {
   color: #b52b27;
 }
 
-/* line 199, ../partials/_theme.scss */
+/* line 205, ../partials/_theme.scss */
 .panel-yellow {
   border-color: #f0ad4e;
 }
 
-/* line 203, ../partials/_theme.scss */
+/* line 209, ../partials/_theme.scss */
 .panel-yellow > .panel-heading {
   border-color: #f0ad4e;
   color: #fff;
   background-color: #f0ad4e;
 }
 
-/* line 209, ../partials/_theme.scss */
+/* line 215, ../partials/_theme.scss */
 .panel-yellow > a {
   color: #f0ad4e;
 }
 
-/* line 213, ../partials/_theme.scss */
+/* line 219, ../partials/_theme.scss */
 .panel-yellow > a:hover {
   color: #df8a13;
 }
@@ -294,7 +442,7 @@ ul.alert-dropdown {
   text-decoration: none;
 }
 
-/* line 5, ../main.scss */
+/* line 17, ../main.scss */
 body {
   margin-top: 50px;
   background-color: #222;

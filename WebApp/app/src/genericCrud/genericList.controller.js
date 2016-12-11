@@ -12,14 +12,12 @@
     .controller('GenericListCtrl', GenericListCtrl);
 
   /* @ngInject */
-  function GenericListCtrl($stateParams, genericCrudFactory, appModules){
+  function GenericListCtrl($stateParams, $state, genericCrudFactory, appModules){
     var vm = this;
 
     vm.module = $stateParams.moduleName;
     vm.pageTitle = genericCrudFactory.getModuleName(vm.module);
     vm.fields = appModules[vm.module];
-
-    vm.deleteRecord = deleteRecord;
 
     function init() {
       genericCrudFactory.getAll(vm.module).then(function(result){
@@ -29,7 +27,11 @@
 
     init();
 
-    function deleteRecord(record){
+    vm.create = function(){
+      $state.go('shell.genericCrud.genericCrudCreate', {'moduleName': vm.module})
+    }
+
+    vm.deleteRecord = function(record){
       genericCrudFactory.remove(vm.module, record.Id).then(function(){
         toast.success(vm.module + 'module record ' + vm.data.Name + ' deleted successfully');
         var index = vm.data.indexOf(record);

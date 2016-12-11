@@ -13,7 +13,7 @@
         .controller('Login', Login);
 
     /* @ngInject */
-    function Login(authFactory, store, appRegex, $state) {
+    function Login(authFactory, store, appRegex, $state, $location) {
         var vm = this;
         
         vm.regex = appRegex;
@@ -26,8 +26,11 @@
                     token_type: result.token_type,
                     expires_in: result.expires_in
                 });
-                store.set('user', JSON.parse(result.user));
-                $state.go('shell');
+                var user = JSON.parse(result.user);
+                user.FullName = user.FirstName + ' '+ user.LastName;
+                store.set('user', user);
+
+                authFactory.navigateToDashboard();
             });
         }
 
