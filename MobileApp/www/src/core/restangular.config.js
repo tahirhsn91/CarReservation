@@ -14,7 +14,15 @@
   /* @ngInject */
   function configuration(RestangularProvider){
 
-    RestangularProvider.setBaseUrl('http://172.16.2.122:1401/api');
+    RestangularProvider.setDefaultHeaders({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    RestangularProvider.setDefaultHeaders({"Access-Control-Allow-Origin":"*"});
+    RestangularProvider.setDefaultHeaders({"Access-Control-Allow-core":"*"});
+
+    RestangularProvider.setBaseUrl('http://35.164.206.165:80/api');
+    // RestangularProvider.setBaseUrl('http://localhost:46363/api');
 
   }
 

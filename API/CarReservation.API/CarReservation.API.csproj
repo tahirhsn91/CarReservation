@@ -124,6 +124,10 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
       <Private>True</Private>
@@ -233,6 +237,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\auth\auth-background-blurred.jpg" />
+    <Content Include="images\caride-logo-crop.png" />
+    <Content Include="images\caride-logo.png" />
     <Content Include="images\welcome\super-logo.jpg" />
     <Content Include="index.html" />
     <Content Include="scripts\app.js" />

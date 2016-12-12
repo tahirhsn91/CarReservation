@@ -10,6 +10,7 @@ using Owin;
 using System;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Dispatcher;
 
 namespace CarReservation.API
@@ -49,6 +50,8 @@ namespace CarReservation.API
 
         private void ConfigureWebApi(HttpConfiguration config)
         {
+            config.EnableCors();
+
             config.MapHttpAttributeRoutes(new CentralizedPrefixProvider("api"));
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
