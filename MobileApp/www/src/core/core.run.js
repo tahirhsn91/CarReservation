@@ -12,7 +12,7 @@
     .run(runFunciton);
 
   /* @ngInject */
-  function runFunciton($ionicPlatform, Restangular, $ionicLoading, httpStatus, store, $cordovaToast) {
+  function runFunciton($ionicPlatform, Restangular, $ionicLoading, httpStatus, store, $cordovaToast, authFactory) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -33,7 +33,7 @@
                 operation : operation,
                 route : route,
                 url : url,
-                headers: headers, //_.extend(headers, {'X-XSRF-Token': auth.getTokenFromLocalStorage()}),
+                headers: headers, //_.extend(headers, {'X-XSRF-Token': authFactory.setToken()}),
                 params: params,
                 httpConfig: httpConfig
             };
@@ -50,12 +50,7 @@
                 store.remove('user');
                 $state.go('login');
             } else {
-                console.log(response);
-                // $cordovaToast.show('Uamir', 'long', 'top').then( function (success) {
-                //   console.log(success);
-                // }, function (error) {
-                //   console.log(error);
-                // });
+                alert(response.data.Error);
             }
             return deferred.reject(response);
         });

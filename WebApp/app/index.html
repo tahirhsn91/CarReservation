@@ -11,9 +11,13 @@
   <link rel="stylesheet" href="styles/css/main.css"/>
   <!-- endbuild -->
 </head>
-
   <body>
+    <toast></toast>
     <div ui-view></div>
+    
+    <div id="site-loader" ng-show="siteLoader">
+		  <div class="spinner-loader"></div>
+	  </div>
   </body>
 
   <!-- build:js scripts/app.js -->

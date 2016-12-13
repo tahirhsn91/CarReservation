@@ -14,11 +14,12 @@
 
     /* @ngInject */
 
-    function TopNavBarCtrl(authFactory) {
+    function TopNavBarCtrl(authFactory, store) {
         var vm = this;
-
-        function logOut() {
-            //authFactory.logout();
+        vm.currentUser = store.get('user');
+        
+        vm.logOut = function () {
+            authFactory.logout();
         }
     }
 

@@ -12,9 +12,10 @@
     .run(runFunciton);
 
   /* @ngInject */
-  function runFunciton(Restangular, httpStatus, store, authFactory) {
+  function runFunciton(Restangular, httpStatus, store, authFactory, toast, $rootScope) {
 
     Restangular.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig){
+        $rootScope.siteLoader = true;
             //Loader show here
             return {
                 element: element,
@@ -29,16 +30,18 @@
         //Restangular.setFullResponse(true);
         Restangular.addResponseInterceptor(function (data, operation, what, url) {
             //Loader hide here
+            toggleLoader('');
             return data;
         });
         Restangular.setErrorInterceptor(function (response, deferred, responseHandler) {
             //Loader hide here
-            if (response.status === httpStatus.UNAUTHORIZED) {
-                console.log(response);
-            } else {
-                console.log(response);
-            }
+            toast.error(response.data.Error);
+            toggleLoader('');
             return deferred.reject(response);
         });
+
+        function toggleLoader(route){
+            $rootScope.siteLoader = false;
+        }
   }
 }());

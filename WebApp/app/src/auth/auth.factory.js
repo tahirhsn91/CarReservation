@@ -13,7 +13,7 @@
         .factory('authFactory', authFactory);
 
     /* @ngInject */
-    function authFactory(Restangular, store) {
+    function authFactory(Restangular, store, $state, $location) {
 
         return {
             login: login,
@@ -21,7 +21,9 @@
             resetPassword: resetPassword,
             logout: logout,
             register: register,
-            setToken: setToken
+            setToken: setToken,
+            navigateToLogin: navigateToLogin,
+            navigateToDashboard: navigateToDashboard
         };
 
         function forgetPass(data) {
@@ -41,7 +43,9 @@
         }
 
         function logout() {
-            return Restangular.all('User/Logout').post();
+            store.remove('token');
+            store.remove('user');
+            $state.reload();
         }
 
         function setToken(){
@@ -54,6 +58,14 @@
                 defaultHeaders.Authorization = token.token_type + ' ' + token.access_token;
             }
             Restangular.setDefaultHeaders(defaultHeaders);
+        }
+
+        function navigateToLogin(){
+            $state.go('authShell.login');
+        }
+
+        function navigateToDashboard(){
+            $location.path('/module/City');
         }
     }
 

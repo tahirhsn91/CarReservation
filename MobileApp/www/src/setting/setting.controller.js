@@ -12,9 +12,9 @@
     .controller('SettingCtrl', SettingCtrl);
 
   /* @ngInject */
-  function SettingCtrl(){
+  function SettingCtrl(store){
     var vm = this;
-
+    vm.user = store.get('user');
   }
 
 }());

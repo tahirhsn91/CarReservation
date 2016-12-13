@@ -56,7 +56,7 @@ namespace CarReservation.API.Controllers.Base
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("")]
         [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
         public virtual Task Delete(int id)
         {
