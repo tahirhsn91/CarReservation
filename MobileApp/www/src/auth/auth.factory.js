@@ -17,7 +17,7 @@
     return {
       login: login,
       register: register
-    }
+    };
 
     function login(data){
       return Restangular.all('User/Login').post(data);
