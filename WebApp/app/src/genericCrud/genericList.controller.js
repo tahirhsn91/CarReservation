@@ -19,6 +19,9 @@
     vm.pageTitle = genericCrudFactory.getModuleName(vm.module);
     vm.fields = appModules[vm.module];
 
+    vm.checkString = checkString;
+    vm.getFieldName = getFieldName;
+
     function init() {
       genericCrudFactory.getAll(vm.module).then(function(result){
         vm.data = result;
@@ -37,6 +40,14 @@
         var index = vm.data.indexOf(record);
         vm.data.splice(index, 1);
       });
+    }
+
+    function checkString(data){
+      return genericCrudFactory.checkString(data);
+    }
+
+    function getFieldName(data){
+      return genericCrudFactory.getFieldName(data);
     }
     
   }

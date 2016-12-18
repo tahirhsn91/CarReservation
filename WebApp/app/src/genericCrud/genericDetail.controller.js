@@ -27,6 +27,9 @@
         vm.data = result;
       });
     }
+    
+    vm.checkString = checkString;
+    vm.getFieldName = getFieldName;
 
     init();
 
@@ -35,6 +38,14 @@
         toast.success(vm.module + 'module record ' + vm.data.Name + ' deleted successfully');
         $state.go('shell.genericCrud.genericCrudList', {'moduleName': vm.module});
       });
+    }
+
+    function checkString(data){
+      return genericCrudFactory.checkString(data);
+    }
+
+    function getFieldName(data){
+      return genericCrudFactory.getFieldName(data);
     }
 
   }

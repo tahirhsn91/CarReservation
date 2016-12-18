@@ -28,8 +28,8 @@
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th ng-repeat="field in vm.fields">
-                            <span ng-bind="field"></span>
+                        <th ng-if="vm.checkString(field)" ng-repeat="field in vm.fields">
+                            <span  ng-bind="field"></span>
                         </th>
                         <th>Details</th>
                         <th>Actions</th>
@@ -37,7 +37,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="data in vm.data">
-                        <td ng-repeat="field in vm.fields">
+                        <td ng-if="vm.checkString(field)" ng-repeat="field in vm.fields">
                             <span ng-bind="data[field]"></span>
                         </td>
                         <td>

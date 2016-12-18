@@ -13,11 +13,17 @@
         RideStatus: ['Name', 'Code'],
         DriverStatus: ['Name', 'Code'],
         DistanceUnit: ['Name', 'Code'],
-        Currency: ['Name', 'Code', 'Rate'],
+        Currency: ['Name', 'Code', 'Rate',{
+            'Field':'Country'
+            }],
         Color: ['Name', 'Code'],
         Country: ['Name', 'Code'],
-        State: ['Name', 'Code', 'Country'],
-        City: ['Name', 'Code', 'State']
+        State: ['Name', 'Code', {
+            'Field':'Country'
+            }],
+        City: ['Name', 'Code', {
+            'Field':'State'
+            }]
     };
 
     angular

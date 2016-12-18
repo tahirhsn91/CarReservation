@@ -38,10 +38,12 @@
                 <tbody>
                     <tr ng-repeat="field in vm.fields">
                         <td>
-                            <span ng-bind="field"></span>
+                            <span ng-if="vm.checkString(field)" ng-bind="field"></span>
+                            <span ng-if="!vm.checkString(field)" ng-bind="field.Field"></span>
                         </td>
                         <td>
-                            <span ng-bind="vm.data[field]"></span>
+                            <span ng-if="vm.checkString(field)" ng-bind="vm.data[field]"></span>
+                            <span ng-if="!vm.checkString(field)" ng-bind="vm.data[field.Field].Name"></span>
                         </td>
                     </tr>
                     <tr>

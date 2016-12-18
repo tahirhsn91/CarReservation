@@ -1,0 +1,18 @@
+<ui-select
+        ng-model="$parent.model"
+        theme="bootstrap"
+        ng-required="{{isRequired}}"
+        reset-search-input="true"
+        ng-readonly="true"
+        on-select = "valChange($item)"
+        name="{{name}}"
+        class="cp-cusAuthSelect">
+    <ui-select-match  placeholder="{{placeHolder ? placeHolder : 'Select'}}" allow-clear="{{($parent.model !== undefined )&&($parent.model !== '')}}">
+        {{$select.selected[bind || 'name']}}
+    </ui-select-match>
+    <ui-select-choices
+            repeat="choice[val]
+            as choice in choices | selectFilter: $select.search: bind || 'name'">
+        <div ng-bind-html="choice[bind] | highlight: $select.search"></div>
+    </ui-select-choices>
+</ui-select>

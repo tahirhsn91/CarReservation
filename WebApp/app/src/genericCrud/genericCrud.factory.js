@@ -11,14 +11,17 @@
     .factory('genericCrudFactory', genericCrudFactory);
 
   /* @ngInject */
-  function genericCrudFactory(Restangular){
+  function genericCrudFactory(Restangular, lodash){
 
       return {
         getModuleName: getModuleName,
         getAll: getAll,
         getSingle: getSingle,
         save: save,
-        remove: remove
+        remove: remove,
+        checkString: checkString,
+        getFieldName: getFieldName,
+        fillChoices: fillChoices
       };
 
       function getModuleName(name){
@@ -36,15 +39,37 @@
 
       function save(module, data){
         if(data.Id){
-          return Restangular.all(module).put(data); 
+          return Restangular.all(module).customPUT(data); 
         } else {
           return Restangular.all(module).post(data);
         }
       }
 
       function remove(module, id){
-        console.log(id);
         return Restangular.all(module).remove(id);
+      }
+
+      function checkString(data){
+          if (typeof data === 'string' || data instanceof String){
+            return true;
+          }
+          else{
+            return false;
+          }
+      }
+
+      function getFieldName(obj){
+        return obj.Field;
+      }
+
+      function fillChoices(obj, choices) {
+        lodash.forEach(obj, function(value){
+          if(!checkString(value)){
+            getAll(value.Field).then(function(res){
+              choices[value.Field] = res;
+            });
+          }
+        });
       }
     
   }

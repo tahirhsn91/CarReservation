@@ -14,10 +14,16 @@
   /* @ngInject */
   function configuration(RestangularProvider){
 
-    RestangularProvider.setBaseUrl('/api');
-    var defaultHeaders = {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'};
-    RestangularProvider.setDefaultHeaders(defaultHeaders);
+    // var defaultHeaders = {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'};
+    // RestangularProvider.setDefaultHeaders(defaultHeaders);
+    RestangularProvider.setDefaultHeaders({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    RestangularProvider.setDefaultHeaders({"Access-Control-Allow-Origin":"*"});
+    RestangularProvider.setDefaultHeaders({"Access-Control-Allow-core":"*"});
 
+    RestangularProvider.setBaseUrl('/api');
   }
 
 }());
