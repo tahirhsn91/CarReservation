@@ -12,8 +12,7 @@
     .factory('authFactory', authFactory);
 
   /* @ngInject */
-  function authFactory(Restangular, store, $state, $location) {
-
+  function authFactory(Restangular, store, $state){
         return {
             login: login,
             forgetPass: forgetPass,
