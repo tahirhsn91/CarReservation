@@ -64,7 +64,6 @@
     }
 
     function getChoices(obj){
-      console.log(vm.choices[obj.Field]);
       return vm.choices[obj.Field];
     }
   }

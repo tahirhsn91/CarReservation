@@ -26,7 +26,7 @@
 
       function getModuleName(name){
         return name.replace(/([A-Z])/g, ' $1')
-                .replace(/^./, function(str){ return str.toUpperCase(); })
+                .replace(/^./, function(str){ return str.toUpperCase(); });
       }
 
       function getAll(module){

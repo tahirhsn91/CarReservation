@@ -20,7 +20,7 @@
         
         vm.logOut = function () {
             authFactory.logout();
-        }
+        };
     }
 
 

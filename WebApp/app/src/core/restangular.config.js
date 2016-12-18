@@ -20,8 +20,8 @@
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest'
     });
-    RestangularProvider.setDefaultHeaders({"Access-Control-Allow-Origin":"*"});
-    RestangularProvider.setDefaultHeaders({"Access-Control-Allow-core":"*"});
+    RestangularProvider.setDefaultHeaders({'Access-Control-Allow-Origin':'*'});
+    RestangularProvider.setDefaultHeaders({'Access-Control-Allow-core':'*'});
 
     RestangularProvider.setBaseUrl('/api');
   }

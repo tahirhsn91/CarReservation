@@ -12,7 +12,7 @@
     .controller('GenericDetailCtrl', GenericDetailCtrl);
 
   /* @ngInject */
-  function GenericDetailCtrl($stateParams, genericCrudFactory, appModules, toast){
+  function GenericDetailCtrl($stateParams, $state, genericCrudFactory, appModules, toast){
     var vm = this;
 
     vm.module = $stateParams.moduleName;
