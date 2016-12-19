@@ -17,11 +17,11 @@ module.exports = function (grunt) {
     'concurrent:dev'
   ]);
 
-  grunt.registerTask('test', ['karma:test']);
+  // grunt.registerTask('test', ['karma:test']);
 
   grunt.registerTask('build', [
     'jshint',
-    'karma:dist',
+    // 'karma:dist',
     'ngdocs',
     'clean:dist',
     'html2js',

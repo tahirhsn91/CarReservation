@@ -5,7 +5,7 @@
   "curly": true,
   "eqeqeq": true,
   "freeze": true,
-  "maxparams": 5,
+  "maxparams": 20,
   "immed": true,
   "indent": 2,
   "newcap": true,
