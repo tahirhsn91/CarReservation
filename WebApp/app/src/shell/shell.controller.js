@@ -13,8 +13,9 @@
         .controller('ShellCtrl', ShellCtrl);
 
     /* @ngInject */
-    function ShellCtrl(authFactory) {
+    function ShellCtrl(authFactory, $rootScope) {
         var vm = this;
+        $rootScope.pageTitle = 'Caride';
         authFactory.navigateToDashboard();
     }
 

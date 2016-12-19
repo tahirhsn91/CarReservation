@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IService.Base
 {
-    public interface ISetupService<TRepository>
+    public interface ISetupService<TRepository, TEntity, TDto, TKey> : IBaseService<TRepository, TEntity, TDto, TKey>
     {
     }
 }

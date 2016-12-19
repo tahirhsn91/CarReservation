@@ -6,24 +6,35 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IService.Base
 {
-    public interface IBaseService<TDTO, TKey>
+    public interface IBaseService
+    {
+    }
+
+    public interface IBaseService<TDto, TKey> : IBaseService
     {
         [AuditOperation(OperationType.Read)]
-        Task<TDTO> GetAsync(TKey id);
+        Task<TDto> GetAsync(TKey id);
 
         [AuditOperation(OperationType.Read)]
-        Task<IList<TDTO>> GetAllAsync();
+        Task<int> GetCount();
 
         [AuditOperation(OperationType.Read)]
-        Task<IList<TDTO>> GetAllAsync(JsonApiRequest request);
+        Task<IList<TDto>> GetAllAsync();
+
+        [AuditOperation(OperationType.Read)]
+        Task<IList<TDto>> GetAllAsync(JsonApiRequest request);
 
         [AuditOperation(OperationType.Create)]
-        Task<TDTO> CreateAsync(TDTO dtoObject);
+        Task<TDto> CreateAsync(TDto dtoObject);
 
         [AuditOperation(OperationType.Update)]
-        Task<TDTO> UpdateAsync(TDTO dtoObject);
+        Task<TDto> UpdateAsync(TDto dtoObject);
 
         [AuditOperation(OperationType.Delete)]
         Task DeleteAsync(TKey id);
+    }
+
+    public interface IBaseService<TRepository, TEntity, TDto, TKey> : IBaseService<TDto, TKey>
+    {
     }
 }

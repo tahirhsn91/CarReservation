@@ -1,14 +1,11 @@
 ﻿using CarReservation.Core.DTO;
+using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CarReservation.Core.Model;
 
 namespace CarReservation.Core.IService
 {
-    public interface IVehicleModelService : IBaseService<VehicleModelDTO, int>
+    public interface IVehicleModelService : ISetupService<IBaseRepository<VehicleModel, int>, VehicleModel, VehicleModelDTO, int>
     {
     }
 }

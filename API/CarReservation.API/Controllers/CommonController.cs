@@ -10,6 +10,7 @@ namespace CarReservation.API.Controllers
     public class CommonController : BaseController
     {
         [HttpGet]
+        [AllowAnonymous]
         public HttpResponseMessage Angular()
         {
             var response = new HttpResponseMessage();

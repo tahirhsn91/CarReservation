@@ -1,9 +1,15 @@
 ﻿using CarReservation.Common.Attributes;
+using CarReservation.Common.Helper;
+using CarReservation.Core.Constant;
 using CarReservation.Core.DTO;
+using CarReservation.Core.DTO.Base;
 using CarReservation.Core.Infrastructure;
+using CarReservation.Core.IService.Base;
 using CarReservation.Core.Model;
+using CarReservation.Core.Model.Base;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net.Http;
@@ -13,7 +19,7 @@ using System.Web.Http;
 
 namespace CarReservation.API.Controllers.Base
 {
-    //[Authorize]
+    [Authorize]
     [ValidationAttribute]
     public class BaseController : ApiController
     {
@@ -83,6 +89,60 @@ namespace CarReservation.API.Controllers.Base
             }
 
             return null;
+        }
+    }
+
+    public abstract class BaseController<TService, TDto, TEntity> : BaseController
+        where TEntity : EntityBase<int>, new()
+        where TDto : BaseDTO<TEntity, int>, new()
+        where TService : IBaseService<TDto, int>
+    {
+        protected TService _service;
+
+        public BaseController(TService service)
+        {
+            this._service = service;
+        }
+
+        [HttpGet]
+        [Route("")]
+        [Authorize]
+        public virtual Task<IList<TDto>> Get()
+        {
+            var request = Request.GetJsonApiRequest();
+            return this._service.GetAllAsync(request);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        [Authorize]
+        public virtual Task<TDto> Get(int id)
+        {
+            return this._service.GetAsync(id);
+        }
+
+        [HttpPost]
+        [Route("")]
+        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
+        public virtual Task<TDto> Post(TDto dtoObject)
+        {
+            return this._service.CreateAsync(dtoObject);
+        }
+
+        [HttpPut]
+        [Route("")]
+        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
+        public virtual Task<TDto> Put(TDto dtoObject)
+        {
+            return this._service.UpdateAsync(dtoObject);
+        }
+
+        [HttpDelete]
+        [Route("")]
+        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
+        public virtual Task Delete(int id)
+        {
+            return this._service.DeleteAsync(id);
         }
     }
 }

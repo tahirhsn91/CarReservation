@@ -16,7 +16,7 @@ using System.Web.Http;
 namespace CarReservation.API.Controllers
 {
     [RoutePrefix("CreditCard")]
-    public class CreditCardController : SetupController<ICreditCardService, CreditCardDTO, CreditCard>
+    public class CreditCardController : BaseController<ICreditCardService, CreditCardDTO, CreditCard>
     {
         public CreditCardController(ICreditCardService service)
             : base(service)

@@ -71,6 +71,11 @@ namespace CarReservation.Service
             throw new NotImplementedException();
         }
 
+        public async override Task<int> GetCount()
+        {
+            return await this.userManager.Users.CountAsync();
+        }
+
         public async override Task<IList<UserDTO>> GetAllAsync()
         {
             List<UserDTO> users = new List<UserDTO>();

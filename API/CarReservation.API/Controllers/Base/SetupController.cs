@@ -7,60 +7,18 @@ using CarReservation.Core.Constant;
 using CarReservation.Core.DTO.Base;
 using CarReservation.Core.IService.Base;
 using CarReservation.Core.Model.Base;
+using CarReservation.Core.IRepository.Base;
 
 namespace CarReservation.API.Controllers.Base
 {
-    public abstract class SetupController<TService, TDto, TEntity> : BaseController
-        where TEntity : EntityBase<int>, new()
-        where TDto : BaseDTO<TEntity, int>, new()
-        where TService : IBaseService<TDto, int>
+    public abstract class SetupController<TService, TDto, TEntity> : BaseController<TService, TDto, TEntity>
+        where TEntity : SetupEntity<int>, new()
+        where TDto : SetupDTO<TEntity, int>, new()
+        where TService : ISetupService<IBaseRepository<TEntity, int>, TEntity, TDto, int>
     {
-        protected TService _service;
-
         public SetupController(TService service)
+            : base(service)
         {
-            this._service = service;
-        }
-
-        [HttpGet]
-        [Route("")]
-        [Authorize]
-        public virtual Task<IList<TDto>> Get()
-        {
-            var request = Request.GetJsonApiRequest();
-            return this._service.GetAllAsync(request);
-        }
-
-        [HttpGet]
-        [Route("{id}")]
-        [Authorize]
-        public virtual Task<TDto> Get(int id)
-        {
-            return this._service.GetAsync(id);
-        }
-
-        [HttpPost]
-        [Route("")]
-        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
-        public virtual Task<TDto> Post(TDto dtoObject)
-        {
-            return this._service.CreateAsync(dtoObject);
-        }
-
-        [HttpPut]
-        [Route("")]
-        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
-        public virtual Task<TDto> Put(TDto dtoObject)
-        {
-            return this._service.UpdateAsync(dtoObject);
-        }
-
-        [HttpDelete]
-        [Route("")]
-        [AuthorizeRoles(UserRoles.SUPER, UserRoles.ADMIN)]
-        public virtual Task Delete(int id)
-        {
-            return this._service.DeleteAsync(id);
         }
     }
 }

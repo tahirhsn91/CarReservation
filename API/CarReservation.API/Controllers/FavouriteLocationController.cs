@@ -15,7 +15,7 @@ using System.Web.Http;
 namespace CarReservation.API.Controllers
 {
     [RoutePrefix("FavouriteLocation")]
-    public class FavouriteLocationController : SetupController<IFavouriteLocationService, FavouriteLocationDTO, FavouriteLocation>
+    public class FavouriteLocationController : BaseController<IFavouriteLocationService, FavouriteLocationDTO, FavouriteLocation>
     {
         public FavouriteLocationController(IFavouriteLocationService service)
             : base(service)
