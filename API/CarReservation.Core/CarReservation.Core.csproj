@@ -157,6 +157,7 @@
     <Compile Include="DTO\CreditCardDTO.cs" />
     <Compile Include="DTO\CurrencyDTO.cs" />
     <Compile Include="DTO\CurrencyLogDTO.cs" />
+    <Compile Include="DTO\DashboardDTO.cs" />
     <Compile Include="DTO\DistanceUnitDTO.cs" />
     <Compile Include="DTO\DriverStatusDTO.cs" />
     <Compile Include="DTO\FavouriteLocationDTO.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="IService\IAccountService.cs" />
     <Compile Include="IService\ICityService.cs" />
     <Compile Include="IService\IColorService.cs" />
+    <Compile Include="IService\ICommonService.cs" />
     <Compile Include="IService\ICountryService.cs" />
     <Compile Include="IService\ICreditCardService.cs" />
     <Compile Include="IService\ICurrencyService.cs" />

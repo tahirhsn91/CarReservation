@@ -1,6 +1,7 @@
 ﻿using CarReservation.Common.Helper;
 using CarReservation.Core.Attributes;
 using CarReservation.Core.Enums;
+using CarReservation.Core.IRepository.Base;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ namespace CarReservation.Core.IService.Base
 {
     public interface IBaseService
     {
+        IUnitOfWork _unitOfWork { get; set; }
     }
 
     public interface IBaseService<TDto, TKey> : IBaseService
@@ -36,5 +38,6 @@ namespace CarReservation.Core.IService.Base
 
     public interface IBaseService<TRepository, TEntity, TDto, TKey> : IBaseService<TDto, TKey>
     {
+        //TRepository _repository { get; set; }
     }
 }

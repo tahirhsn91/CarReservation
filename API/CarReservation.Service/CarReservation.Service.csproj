@@ -62,6 +62,7 @@
     <Compile Include="Base\SetupService.cs" />
     <Compile Include="CityService.cs" />
     <Compile Include="ColorService.cs" />
+    <Compile Include="CommonService.cs" />
     <Compile Include="CountryService.cs" />
     <Compile Include="CreditCardService.cs" />
     <Compile Include="CurrencyService.cs" />

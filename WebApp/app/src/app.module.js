@@ -16,7 +16,8 @@
   **/
     'app.auth',
     'app.shell',
-    'app.genericCrud'
+    'app.genericCrud',
+    'app.dashboard'
   ]);
 
 }());

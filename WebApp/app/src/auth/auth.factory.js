@@ -65,7 +65,7 @@
         }
 
         function navigateToDashboard(){
-            $location.path('/module/City');
+            $state.go('shell.dashboard');
         }
     }
 

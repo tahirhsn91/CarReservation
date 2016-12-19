@@ -21,9 +21,9 @@ namespace CarReservation.Service
     {
         private UserManager<ApplicationUser> userManager;
         private RoleManager<IdentityRole> roleManager;
-        private IUnitOfWork _unitOfWork;
 
         public UserService(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
             userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));

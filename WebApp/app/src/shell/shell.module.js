@@ -17,6 +17,7 @@
         $stateProvider
             .state('shell', {
                 url: '/',
+                pageTitle: 'Caride',
                 role: appUserRole.All,
                 views: {
                     '@': {
