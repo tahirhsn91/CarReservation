@@ -8,11 +8,11 @@
         <ol class="breadcrumb">
             <li>
                 <i class="fa fa-dashboard"></i>
-                <a ui-sref="shell">Dashboard</a>
+                <a ng-click="vm.redirect('dashboard')">Dashboard</a>
             </li>
             <li>
                 <i class="fa fa-dashboard"></i>
-                <a ui-sref="shell.genericCrud.genericCrudList({'moduleName': vm.module})">
+                <a ng-click="vm.redirect('genericCrud.genericCrudList', {'moduleName': vm.module})">
                     <span ng-bind="vm.pageTitle"></span> Module
                 </a>
             </li>
@@ -43,13 +43,18 @@
                         </td>
                         <td>
                             <span ng-if="vm.checkString(field)" ng-bind="vm.data[field]"></span>
-                            <span ng-if="!vm.checkString(field)" ng-bind="vm.data[field.Field].Name"></span>
+                            <div ng-if="!vm.checkString(field) && vm.data[field.Field]">
+                                <span ng-if="field.Type ==='DropDown'" ng-bind="vm.data[field.Field].Name"></span>
+                                <span ng-if="field.Type ==='Number' || field.Type==='MultiDropDown'" ng-bind="vm.data[field.Field]"></span>
+                                <span ng-if="field.Type==='Date'" ng-bind="vm.data[field.Field] |  date: vm.appFormats.Date"></span>
+                            </div>
+                            
                         </td>
                     </tr>
                     <tr>
                         <td>Actions</td>
                         <td>
-                            <a ui-sref="shell.genericCrud.genericCrudEdit({'moduleName': vm.module, 'id': vm.data.Id})">
+                            <a ng-click="vm.redirect('genericCrud.genericCrudEdit', {'moduleName': vm.module, 'id': vm.data.Id})">
                                 Edit
                             </a>
                             <a ng-click="vm.deleteRecord()">Delete</a>

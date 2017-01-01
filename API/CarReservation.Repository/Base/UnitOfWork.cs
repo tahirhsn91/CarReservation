@@ -26,6 +26,8 @@ namespace CarReservation.Repository.Base
         private readonly IVehicleFeatureRepository _vehicleFeatureRepository;
         private readonly IVehicleTransmissionRepository _vehicleTransmissionRepository;
         private readonly IVehicleAssemblyRepository _vehicleAssemblyRepository;
+        private readonly IVehicleVehicleFeatureRepository _vehicleVehicleFeatureRepository;
+        private readonly IVehicleRepository _vehicleRepository;
 
         private readonly ITravelUnitRepository _travelUnitRepository;
         private readonly IDistanceUnitRepository _distanceUnitRepository;
@@ -59,6 +61,8 @@ namespace CarReservation.Repository.Base
         public IVehicleFeatureRepository VehicleFeatureRepository { get { return _vehicleFeatureRepository; } }
         public IVehicleTransmissionRepository VehicleTransmissionRepository { get { return _vehicleTransmissionRepository; } }
         public IVehicleAssemblyRepository VehicleAssemblyRepository { get { return _vehicleAssemblyRepository; } }
+        public IVehicleVehicleFeatureRepository VehicleVehicleFeatureRepository { get { return _vehicleVehicleFeatureRepository; } }
+        public IVehicleRepository VehicleRepository { get { return _vehicleRepository; } }
 
         public ITravelUnitRepository TravelUnitRepository { get { return _travelUnitRepository; } }
         public IDistanceUnitRepository DistanceUnitRepository { get { return _distanceUnitRepository; } }
@@ -91,6 +95,8 @@ namespace CarReservation.Repository.Base
             IVehicleFeatureRepository vehicleFeatureRepository,
             IVehicleTransmissionRepository vehicleTransmissionRepository,
             IVehicleAssemblyRepository vehicleAssemblyRepository,
+            IVehicleVehicleFeatureRepository vehicleVehicleFeatureRepository,
+            IVehicleRepository vehicleRepository,
 
             ITravelUnitRepository travelUnitRepository,
             IDistanceUnitRepository distanceUnitRepository,
@@ -122,6 +128,8 @@ namespace CarReservation.Repository.Base
             this._vehicleFeatureRepository = vehicleFeatureRepository;
             this._vehicleTransmissionRepository = vehicleTransmissionRepository;
             this._vehicleAssemblyRepository = vehicleAssemblyRepository;
+            this._vehicleVehicleFeatureRepository = vehicleVehicleFeatureRepository;
+            this._vehicleRepository = vehicleRepository;
 
             this._travelUnitRepository = travelUnitRepository;
             this._distanceUnitRepository = distanceUnitRepository;

@@ -79,6 +79,7 @@
     <Compile Include="VehicleFeatureService.cs" />
     <Compile Include="VehicleMakerService.cs" />
     <Compile Include="VehicleModelService.cs" />
+    <Compile Include="VehicleService.cs" />
     <Compile Include="VehicleTransmissionService.cs" />
   </ItemGroup>
   <ItemGroup>

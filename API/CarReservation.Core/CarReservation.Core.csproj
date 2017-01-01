@@ -160,9 +160,11 @@
     <Compile Include="DTO\DashboardDTO.cs" />
     <Compile Include="DTO\DistanceUnitDTO.cs" />
     <Compile Include="DTO\DriverStatusDTO.cs" />
+    <Compile Include="DTO\FareDTO.cs" />
     <Compile Include="DTO\FavouriteLocationDTO.cs" />
     <Compile Include="DTO\LocationLagLonDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
+    <Compile Include="DTO\PackageDTO.cs" />
     <Compile Include="DTO\TopupDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\RideStatusDTO.cs" />
@@ -170,6 +172,7 @@
     <Compile Include="DTO\TravelUnitDTO.cs" />
     <Compile Include="DTO\VehicleAssemblyDTO.cs" />
     <Compile Include="DTO\VehicleBodyTypeDTO.cs" />
+    <Compile Include="DTO\VehicleDTO.cs" />
     <Compile Include="DTO\VehicleFeatureDTO.cs" />
     <Compile Include="DTO\VehicleMakerDTO.cs" />
     <Compile Include="DTO\VehicleModelDTO.cs" />
@@ -206,7 +209,9 @@
     <Compile Include="IRepository\IVehicleFeatureRepository.cs" />
     <Compile Include="IRepository\IVehicleMakerRepository.cs" />
     <Compile Include="IRepository\IVehicleModelRepository.cs" />
+    <Compile Include="IRepository\IVehicleRepository.cs" />
     <Compile Include="IRepository\IVehicleTransmissionRepository.cs" />
+    <Compile Include="IRepository\IVehicleVehicleFeatureRepository.cs" />
     <Compile Include="IService\Base\IBaseService.cs" />
     <Compile Include="IService\Base\ISetupService.cs" />
     <Compile Include="IService\IAccountService.cs" />
@@ -229,6 +234,7 @@
     <Compile Include="IService\IVehicleFeatureService.cs" />
     <Compile Include="IService\IVehicleMakerService.cs" />
     <Compile Include="IService\IVehicleModelService.cs" />
+    <Compile Include="IService\IVehicleService.cs" />
     <Compile Include="IService\IVehicleTransmissionService.cs" />
     <Compile Include="Mapping\CreditCardMap.cs" />
     <Compile Include="Mapping\CurrencyMap.cs" />
@@ -259,6 +265,18 @@
     <Compile Include="Migrations\201612011142552_FavouriteLocation.cs" />
     <Compile Include="Migrations\201612011142552_FavouriteLocation.Designer.cs">
       <DependentUpon>201612011142552_FavouriteLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612211550497_VehicleModel.cs" />
+    <Compile Include="Migrations\201612211550497_VehicleModel.Designer.cs">
+      <DependentUpon>201612211550497_VehicleModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612221148029_VehicleFeature.cs" />
+    <Compile Include="Migrations\201612221148029_VehicleFeature.Designer.cs">
+      <DependentUpon>201612221148029_VehicleFeature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612222227086_VehiclePackage.cs" />
+    <Compile Include="Migrations\201612222227086_VehiclePackage.Designer.cs">
+      <DependentUpon>201612222227086_VehiclePackage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Account.cs" />
@@ -307,6 +325,7 @@
     <Compile Include="Model\VehicleModel.cs" />
     <Compile Include="Model\VehicleMaker.cs" />
     <Compile Include="Model\VehicleTransmission.cs" />
+    <Compile Include="Model\VehicleVehicleFeature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\AuthorizationServerProvider.cs" />
   </ItemGroup>
@@ -337,6 +356,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612011142552_FavouriteLocation.resx">
       <DependentUpon>201612011142552_FavouriteLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612211550497_VehicleModel.resx">
+      <DependentUpon>201612211550497_VehicleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612221148029_VehicleFeature.resx">
+      <DependentUpon>201612221148029_VehicleFeature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612222227086_VehiclePackage.resx">
+      <DependentUpon>201612222227086_VehiclePackage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

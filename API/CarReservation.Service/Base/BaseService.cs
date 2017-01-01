@@ -18,6 +18,7 @@ namespace CarReservation.Service.Base
             this._unitOfWork = unitOfWork;
         }
     }
+
     public abstract class BaseService<TDto, TKey> : BaseService, IBaseService<TDto, TKey>
     {
         public BaseService(IUnitOfWork unitOfWork)
@@ -25,7 +26,33 @@ namespace CarReservation.Service.Base
         {
         }
 
+        public async Task<IList<TDto>> CreateAsync(IList<TDto> dtoObjects)
+        {
+            IList<TDto> result = new List<TDto>();
+
+            if (dtoObjects != null)
+            {
+                foreach (TDto dto in dtoObjects)
+                {
+                    result.Add(await this.CreateAsync(dto));
+                }
+            }
+
+            return result;
+        }
+
         public abstract Task<TDto> CreateAsync(TDto dtoObject);
+
+        public async Task DeleteAsync(IList<TKey> ids)
+        {
+            if (ids != null)
+            {
+                foreach (TKey id in ids)
+                {
+                    await this.DeleteAsync(id);
+                }
+            }
+        }
 
         public abstract Task DeleteAsync(TKey id);
 
@@ -36,6 +63,21 @@ namespace CarReservation.Service.Base
         public abstract Task<IList<TDto>> GetAllAsync(JsonApiRequest request);
 
         public abstract Task<TDto> GetAsync(TKey id);
+
+        public async Task<IList<TDto>> UpdateAsync(IList<TDto> dtoObjects)
+        {
+            IList<TDto> result = new List<TDto>();
+
+            if (dtoObjects != null)
+            {
+                foreach (TDto dto in dtoObjects)
+                {
+                    result.Add(await this.UpdateAsync(dto));
+                }
+            }
+
+            return result;
+        }
 
         public abstract Task<TDto> UpdateAsync(TDto dtoObject);
     }

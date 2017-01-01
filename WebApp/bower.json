@@ -10,6 +10,7 @@
     "restangular": "~1.4.0",
     "bootstrap": "~3.2.0",
     "angular-bootstrap": "~0.14.3",
+    "bootstrap-datepicker": "~1.5.0",
     "lodash": "~3.10.1",
     "angular-messages": "~1.4.7",
     "a0-angular-storage": "^0.0.15",

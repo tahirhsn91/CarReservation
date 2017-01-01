@@ -11,7 +11,7 @@
     .factory('genericCrudFactory', genericCrudFactory);
 
   /* @ngInject */
-  function genericCrudFactory(Restangular, lodash){
+  function genericCrudFactory(Restangular, lodash, store, appModules, $state){
 
       return {
         getModuleName: getModuleName,
@@ -21,7 +21,8 @@
         remove: remove,
         checkString: checkString,
         getFieldName: getFieldName,
-        fillChoices: fillChoices
+        fillChoices: fillChoices,
+        redirect: redirect
       };
 
       function getModuleName(name){
@@ -29,8 +30,12 @@
                 .replace(/^./, function(str){ return str.toUpperCase(); });
       }
 
-      function getAll(module){
-        return Restangular.one(module).get();
+      function getAll(module, param){
+        var url = module;
+        if(param){
+          url += param;
+        }
+        return Restangular.one(url).get();
       }
 
       function getSingle(module, id){
@@ -65,13 +70,28 @@
       function fillChoices(obj, choices) {
         lodash.forEach(obj, function(value){
           if(!checkString(value)){
-            getAll(value.Field).then(function(res){
-              choices[value.Field] = res;
-            });
+            if(value.Type ==='DropDown' || value.Type ==='MultiDropDown'){
+              getAll(value.Field).then(function(res){
+                choices[value.Field] = res;
+              });
+            }
           }
         });
       }
-    
+
+      function redirect(url, obj){
+        var currentUser = store.get('user');
+        var baseRoute = appModules.BaseRoute[currentUser.Role];
+
+        if(baseRoute){
+          url =  'shell.' + baseRoute + '.' + url;
+        }
+        else{
+          url = 'shell.' + url;
+        }
+
+        $state.go(url, obj);
+      }
   }
 
 }());

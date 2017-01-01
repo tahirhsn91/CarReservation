@@ -24,6 +24,9 @@ namespace CarReservation.Core.IRepository.Base
         IVehicleTransmissionRepository VehicleTransmissionRepository { get; }
         IVehicleAssemblyRepository VehicleAssemblyRepository { get; }
 
+        IVehicleVehicleFeatureRepository VehicleVehicleFeatureRepository { get; }
+        IVehicleRepository VehicleRepository { get; }
+
         ITravelUnitRepository TravelUnitRepository { get; }
         IDistanceUnitRepository DistanceUnitRepository { get; }
         IDriverStatusRepository DriverStatusRepository { get; }

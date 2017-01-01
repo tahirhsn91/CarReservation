@@ -224,6 +224,7 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VehicleAssemblyController.cs" />
     <Compile Include="Controllers\VehicleBodyTypeController.cs" />
+    <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Controllers\VehicleFeatureController.cs" />
     <Compile Include="Controllers\VehicleMakerController.cs" />
     <Compile Include="Controllers\VehicleModelController.cs" />
@@ -294,7 +295,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>46363</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

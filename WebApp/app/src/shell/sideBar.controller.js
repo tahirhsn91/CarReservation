@@ -13,10 +13,11 @@
         .controller('SideBarCtrl', SideBarCtrl);
 
     /* @ngInject */
-    function SideBarCtrl(appModules){
+    function SideBarCtrl(appModules, store){
         var vm = this;
         
-        vm.appModules = appModules;
+        vm.currentUser = store.get('user');
+        vm.appModules = appModules[vm.currentUser.Role];
     }
 
 }());

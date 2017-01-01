@@ -86,7 +86,9 @@
     <Compile Include="VehicleFeatureRepository.cs" />
     <Compile Include="VehicleMakerRepository.cs" />
     <Compile Include="VehicleModelRepository.cs" />
+    <Compile Include="VehicleRepository.cs" />
     <Compile Include="VehicleTransmissionRepository.cs" />
+    <Compile Include="VehicleVehicleFeatureRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarReservation.Common\CarReservation.Common.csproj">

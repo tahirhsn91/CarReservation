@@ -8,11 +8,11 @@
         <ol class="breadcrumb">
             <li>
                 <i class="fa fa-dashboard"></i>
-                <a ui-sref="shell">Dashboard</a>
+                <a ng-click="vm.redirect('dashboard')">Dashboard</a>
             </li>
             <li>
                 <i class="fa fa-dashboard"></i>
-                <a ui-sref="shell.genericCrud.genericCrudList({'moduleName': vm.module})">
+                <a ng-click="vm.redirect('genericCrud.genericCrudList', {'moduleName': vm.module})">
                     <span ng-bind="vm.pageTitle"></span> Module
                 </a>
             </li>
@@ -58,7 +58,16 @@
                                     allow-clear='true'
                                     >
                                 </super-select>-->
-                                <ui-select ng-model="vm.data[field.Field]">
+                                <input  id="{{field.Field}}" 
+                                        ng-if="field.Type ==='Number'"
+                                        name="{{field.Field}}" 
+                                        type="number"
+                                        ng-model="vm.data[field.Field]" 
+                                        class="form-control">
+
+                                <ui-select  ng-if="field.Type ==='DropDown'" 
+                                            ng-model="vm.data[field.Field]"
+                                            on-select = "vm.onSelect(field)">
                                     <ui-select-match>
                                         <span ng-bind="$select.selected.Name"></span>
                                     </ui-select-match>
@@ -66,6 +75,26 @@
                                         <span ng-bind="item.Name"></span>
                                     </ui-select-choices>
                                 </ui-select>
+
+                                <ui-select multiple ng-if="field.Type ==='MultiDropDown'" ng-model="vm.data[field.Field]">
+                                    <ui-select-match>
+                                        <span ng-bind="$select.selected.Name"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (vm.getChoices(field) | filter: $select.search) track by item.Id">
+                                        <span ng-bind="item.Name"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <cap-date-picker ng-if="field.Type === 'Date'" 
+                                                flat="false"
+                                                name="field.Field"
+                                                form-name="form"
+                                                date-name="field.Field"
+                                                val-name="field.Field"
+                                                date-model="vm.data[field.Field]"
+                                                required="true"
+                                                max-date="vm.maxDate">
+                                </cap-date-picker>
                             </td>
                         </tr>
                     </tbody>

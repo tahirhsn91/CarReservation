@@ -1,9 +1,6 @@
 ﻿using CarReservation.Core.Model.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarReservation.Core.Model
 {
@@ -31,8 +28,33 @@ namespace CarReservation.Core.Model
 
         public VehicleModel Model { get; set; }
 
-        public List<VehicleFeature> Features { get; set; }
-
         public Package Package { get; set; }
+
+        [ForeignKey("Country")]
+        public int CountryId { get; set; }
+
+        [ForeignKey("State")]
+        public int StateId { get; set; }
+
+        [ForeignKey("City")]
+        public int CityId { get; set; }
+
+        [ForeignKey("Color")]
+        public int ColorId { get; set; }
+
+        [ForeignKey("BodyType")]
+        public int BodyTypeId { get; set; }
+
+        [ForeignKey("Assembly")]
+        public int AssemblyId { get; set; }
+
+        [ForeignKey("Transmission")]
+        public int TransmissionId { get; set; }
+
+        [ForeignKey("Model")]
+        public int ModelId { get; set; }
+
+        [ForeignKey("Package")]
+        public int? PackageID { get; set; }
     }
 }

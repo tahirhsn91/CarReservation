@@ -4,12 +4,7 @@ using CarReservation.Core.Constant;
 using CarReservation.Core.DTO;
 using CarReservation.Core.IService;
 using CarReservation.Core.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 

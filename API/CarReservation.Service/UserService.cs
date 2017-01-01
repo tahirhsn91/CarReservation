@@ -50,7 +50,7 @@ namespace CarReservation.Service
 
                     applicationUser = userManager.FindByName(dto.Email);
 
-                    string role = this.GetAllRoles().First(x => x.Key == dto.Role).Value;
+                    string role = this.GetAllRoles().First(x => x.Value == dto.Role).Value;
 
                     userManager.AddToRoles(applicationUser.Id, new string[] { role });
                 }
@@ -129,7 +129,7 @@ namespace CarReservation.Service
         #region Private Functions
         private bool ValidateRole(string role)
         {
-            return this.GetAllRoles().Keys.Contains(role);
+            return this.GetAllRoles().Values.Contains(role);
         }
         #endregion
     }

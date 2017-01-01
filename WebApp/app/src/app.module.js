@@ -17,7 +17,8 @@
     'app.auth',
     'app.shell',
     'app.genericCrud',
-    'app.dashboard'
+    'app.dashboard',
+    'app.supervisor'
   ]);
 
 }());

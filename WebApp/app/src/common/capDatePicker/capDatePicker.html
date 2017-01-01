@@ -1,0 +1,33 @@
+<div class="input-group cp-customCalenderWrap">
+    <input ng-if="true"
+         type="text"
+         id="{{dateName}}"
+         name="{{dateName}}"
+         ng-model="$parent.dateModel"
+         class="form-control calendar"
+         show-weeks="false"
+         show-button-bar="false"
+         uib-datepicker-popup="{{to.datepickerOptions.format}}"
+         is-open="$parent.datepicker.opened"
+         ng-disabled="$parent.disable"
+         ng-readonly = "true"
+         ng-required="{{required}}"
+         close-text="Close"
+         min-date="$parent.minDate"
+         max-date="$parent.maxDate"
+    />
+    <span ng-if="true" class="input-group-addon">
+        <a  ng-show="$parent.dateModel !== undefined" ng-click="clearDate()"
+            class="btn btn-xs btn-link pull-right select-services-close">
+          <i class="glyphicon glyphicon-remove" aria-hidden="true"></i>
+        </a>
+        <input tabindex="-1" class="calendar-icon datepicker" ng-click="datepicker.open($event)" ng-readonly="true" />
+    </span>
+</div>
+<div ng-if="required" ng-show="(formName.$submitted) && !dateModel">
+  <p class="validation" ng-bind="valName + errorMessages.default.required"> </p>
+</div>
+<script>
+  var x = document.getElementsByClassName("text-muted").parentElement;
+  $(".text-muted").parent().addClass("textMutedParentWrap");
+</script>

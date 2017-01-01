@@ -1,0 +1,19 @@
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+	<ul class="nav navbar-nav side-nav">
+		<li ng-repeat="(key, value) in vm.appModules" class="dropdown">
+			<a ui-sref="shell.supervisor.genericCrud.genericCrudList({'moduleName': key})"
+				data-toggle="dropdown" class="dropdown-toggle">
+				<i class="fa fa-fw fa-edit"></i>
+				<span ng-bind="key"></span>
+			</a>
+			<!--<ul id="demo" class="dropdown-menu">
+				<li>
+					<a ui-sref="shell.genericCrud.genericCrudList({'moduleName': key})">List</a>	
+				</li>
+				<li>
+					<a ui-sref="shell.genericCrud.genericCrudCreate({'moduleName': key})">Create New</a>
+				</li>
+			</ul>-->
+		</li>
+	</ul>
+</div>

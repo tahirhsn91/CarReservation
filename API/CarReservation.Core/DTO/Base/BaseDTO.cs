@@ -80,9 +80,9 @@ namespace CarReservation.Core.DTO.Base
 
         public static IList<TEntity> ConvertDTOListToEntity(IEnumerable<BaseDTO<TEntity, TKey>> dtoList, IEnumerable<TEntity> entityList)
         {
-
             var result = new List<TEntity>();
             if (dtoList != null)
+            {
                 foreach (var dto in dtoList)
                 {
                     var entityFromDb = entityList.SingleOrDefault(x => x.Id.Equals(dto.Id));
@@ -95,6 +95,7 @@ namespace CarReservation.Core.DTO.Base
                         result.Add(dto.ConvertToEntity());
                     }
                 }
+            }
             foreach (var entity in entityList.Where(x => !dtoList.Any(y => y.Id.Equals(x.Id))))
             {
                 entity.IsDeleted = true;
@@ -107,10 +108,12 @@ namespace CarReservation.Core.DTO.Base
         {
             var result = new List<TEntity>();
             if (dtoList != null)
+            {
                 foreach (var dto in dtoList)
                 {
                     result.Add(dto.ConvertToEntity());
                 }
+            }
             return result;
         }
     }

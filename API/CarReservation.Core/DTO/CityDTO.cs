@@ -26,10 +26,10 @@ namespace CarReservation.Core.DTO
         public override void ConvertFromEntity(City entity)
         {
             base.ConvertFromEntity(entity);
-
-            this.StateId = entity.State == null ? 0 : entity.State.Id;
+            
             if (entity.State != null)
             {
+                this.StateId = entity.State.Id;
                 this.State = new StateDTO(entity.State);
             }
         }

@@ -30,8 +30,7 @@
       'Access-Control-Allow-Origin':'*',
       'Access-Control-Allow-core':'*',
       'Access-Control-Allow-Headers':'Accept, X-Requested-With',
-      'Access-Control-Allow-Credentials':'true',
-      'Access-Control-Allow-core':'*'
+      'Access-Control-Allow-Credentials':'true'
     });
 
     RestangularProvider.setBaseUrl('/api');

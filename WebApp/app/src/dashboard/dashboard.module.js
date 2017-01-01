@@ -18,7 +18,7 @@
     $stateProvider
      .state('shell.dashboard', {
       url:'dashboard',
-      role: appUserRole.All,
+      role: appUserRole.Admin,
       views: {
           'content@shell': {
               templateUrl:'src/dashboard/dashboard.html',

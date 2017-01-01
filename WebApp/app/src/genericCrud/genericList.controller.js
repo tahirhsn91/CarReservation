@@ -12,15 +12,18 @@
     .controller('GenericListCtrl', GenericListCtrl);
 
   /* @ngInject */
-  function GenericListCtrl($stateParams, $state, genericCrudFactory, appModules, toast){
+  function GenericListCtrl($stateParams, $state, store, genericCrudFactory, appModules, toast){
     var vm = this;
 
+    vm.currentUser = store.get('user');
     vm.module = $stateParams.moduleName;
     vm.pageTitle = genericCrudFactory.getModuleName(vm.module);
-    vm.fields = appModules[vm.module];
+    vm.fields = appModules[vm.currentUser.Role][vm.module];
+    
 
     vm.checkString = checkString;
     vm.getFieldName = getFieldName;
+    vm.redirect = redirect;
 
     function init() {
       genericCrudFactory.getAll(vm.module).then(function(result){
@@ -31,7 +34,7 @@
     init();
 
     vm.create = function(){
-      $state.go('shell.genericCrud.genericCrudCreate', {'moduleName': vm.module});
+      redirect('genericCrud.genericCrudCreate', {'moduleName': vm.module});
     };
 
     vm.deleteRecord = function(record){
@@ -48,6 +51,10 @@
 
     function getFieldName(data){
       return genericCrudFactory.getFieldName(data);
+    }
+
+    function redirect(url, obj){
+      genericCrudFactory.redirect(url, obj);
     }
     
   }
