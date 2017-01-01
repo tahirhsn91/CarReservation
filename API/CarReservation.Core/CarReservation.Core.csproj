@@ -201,6 +201,13 @@
     <Compile Include="IRepository\IDriverStatusRepository.cs" />
     <Compile Include="IRepository\IFavouriteLocationRepository.cs" />
     <Compile Include="IRepository\ILocationLagLonRepository.cs" />
+    <Compile Include="IRepository\IPackageRepository.cs" />
+    <Compile Include="IRepository\IPackageTravelUnitRepository.cs" />
+    <Compile Include="IRepository\IPackageVehicleAssemblyRepository.cs" />
+    <Compile Include="IRepository\IPackageVehicleBodyTypeRepository.cs" />
+    <Compile Include="IRepository\IPackageVehicleFeatureRepository.cs" />
+    <Compile Include="IRepository\IPackageVehicleModelRepository.cs" />
+    <Compile Include="IRepository\IPackageVehicleTransmissionRepository.cs" />
     <Compile Include="IRepository\IRideStatusRepository.cs" />
     <Compile Include="IRepository\IStateRepository.cs" />
     <Compile Include="IRepository\ITravelUnitRepository.cs" />
@@ -224,6 +231,7 @@
     <Compile Include="IService\IDistanceUnitService.cs" />
     <Compile Include="IService\IDriverStatusService.cs" />
     <Compile Include="IService\IFavouriteLocationService.cs" />
+    <Compile Include="IService\IPackageService.cs" />
     <Compile Include="IService\IRideStatusService.cs" />
     <Compile Include="IService\IRoleService.cs" />
     <Compile Include="IService\IStateService.cs" />

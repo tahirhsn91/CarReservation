@@ -15,7 +15,6 @@ namespace CarReservation.Service.Base
         public SetupService(IUnitOfWork unitOfWork, TRepository repository)
             : base(unitOfWork, repository)
         {
-
         }
     }
 }

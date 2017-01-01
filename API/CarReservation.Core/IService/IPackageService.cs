@@ -3,7 +3,7 @@ using CarReservation.Core.IService.Base;
 
 namespace CarReservation.Core.IService
 {
-    public interface IVehicleService : IBaseService<VehicleDTO, int>
+    public interface IPackageService : IBaseService<PackageDTO, int>
     {
     }
 }

@@ -66,6 +66,7 @@
     <Compile Include="Base\AuditableRepository.cs" />
     <Compile Include="Base\BaseRepository.cs" />
     <Compile Include="Base\DeletableRepository.cs" />
+    <Compile Include="Base\TernaryRepository.cs" />
     <Compile Include="Base\UnitOfWork.cs" />
     <Compile Include="CityRepository.cs" />
     <Compile Include="ColorRepository.cs" />
@@ -77,6 +78,13 @@
     <Compile Include="DriverStatusRepository.cs" />
     <Compile Include="FavouriteLocationRepository.cs" />
     <Compile Include="LocationLagLonRepository.cs" />
+    <Compile Include="PackageRepository.cs" />
+    <Compile Include="PackageTravelUnitRepository.cs" />
+    <Compile Include="PackageVehicleAssemblyRepository.cs" />
+    <Compile Include="PackageVehicleBodyTypeRepository.cs" />
+    <Compile Include="PackageVehicleFeatureRepository.cs" />
+    <Compile Include="PackageVehicleModelRepository.cs" />
+    <Compile Include="PackageVehicleTransmissionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RideStatusRepository.cs" />
     <Compile Include="StateRepository.cs" />

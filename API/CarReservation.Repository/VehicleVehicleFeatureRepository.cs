@@ -34,14 +34,14 @@ namespace CarReservation.Repository
             }
         }
 
-        public async Task<IEnumerable<VehicleFeature>> GetAsyncByVehicle(Vehicle vehicle)
+        public async Task<IEnumerable<VehicleFeature>> GetAsyncByEntity(Vehicle vehicle)
         {
-            return await this.GetAsyncByVehicle(vehicle.Id);
+            return await this.GetAsyncByEntity(vehicle.Id);
         }
 
-        public async Task<IEnumerable<VehicleFeature>> GetAsyncByVehicle(int vehicleId)
+        public async Task<IEnumerable<VehicleFeature>> GetAsyncByEntity(int vehicleId)
         {
-            IList<VehicleVehicleFeature> entities = await this.DefaultSingleQuery.Where(x => x.VehicleId == vehicleId).ToListAsync();
+            IList<VehicleVehicleFeature> entities = await this.DefaultSingleQuery.Where(x => x.VehicleId.Equals(vehicleId)).ToListAsync();
             return entities.Select(x => x.VehicleFeature);
         }
 

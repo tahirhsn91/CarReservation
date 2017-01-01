@@ -157,6 +157,7 @@ namespace CarReservation.Core.DTO
             entity.TransmissionId = this.VehicleTransmission.Id;
 
             entity.ModelId = this.VehicleModel.Id;
+
             if (this.Package != null)
             {
                 entity.PackageID = this.Package.Id;

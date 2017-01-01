@@ -69,6 +69,7 @@
     <Compile Include="DistanceUnitService.cs" />
     <Compile Include="DriverStatusService.cs" />
     <Compile Include="FavouriteLocationService.cs" />
+    <Compile Include="PackageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RideStatusService.cs" />
     <Compile Include="StateService.cs" />

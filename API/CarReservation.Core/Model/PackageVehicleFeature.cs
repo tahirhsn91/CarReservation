@@ -1,9 +1,5 @@
 ﻿using CarReservation.Core.Model.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarReservation.Core.Model
 {
@@ -12,5 +8,11 @@ namespace CarReservation.Core.Model
         public Package Package { get; set; }
 
         public VehicleFeature VehicleFeature { get; set; }
+
+        [ForeignKey("Package")]
+        public int PackageId { get; set; }
+
+        [ForeignKey("VehicleFeature")]
+        public int VehicleFeatureId { get; set; }
     }
 }

@@ -7,9 +7,9 @@ namespace CarReservation.Core.IRepository
 {
     public interface IVehicleVehicleFeatureRepository : IBaseRepository<VehicleVehicleFeature, int>
     {
-        Task<IEnumerable<VehicleFeature>> GetAsyncByVehicle(Vehicle vehicle);
+        Task<IEnumerable<VehicleFeature>> GetAsyncByEntity(Vehicle vehicle);
 
-        Task<IEnumerable<VehicleFeature>> GetAsyncByVehicle(int vehicleId);
+        Task<IEnumerable<VehicleFeature>> GetAsyncByEntity(int vehicleId);
 
         Task<IList<VehicleVehicleFeature>> Create(IList<VehicleFeature> features, Vehicle vehicle);
 

@@ -41,6 +41,14 @@ namespace CarReservation.Core.IRepository.Base
         IFavouriteLocationRepository FavouriteLocationRepository { get; }
         ILocationLagLonRepository LocationLagLonRepository { get; }
 
+        IPackageRepository PackageRepository { get; }
+        IPackageTravelUnitRepository PackageTravelUnitRepository { get; }
+        IPackageVehicleAssemblyRepository PackageVehicleAssemblyRepository { get; }
+        IPackageVehicleBodyTypeRepository PackageVehicleBodyTypeRepository { get; }
+        IPackageVehicleFeatureRepository PackageVehicleFeatureRepository { get; }
+        IPackageVehicleModelRepository PackageVehicleModelRepository { get; }
+        IPackageVehicleTransmissionRepository PackageVehicleTransmissionRepository { get; }
+
         Task<int> SaveAsync();
         int Save();
         DbContextTransaction BeginTransaction();

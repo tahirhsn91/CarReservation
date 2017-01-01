@@ -18,7 +18,7 @@ namespace CarReservation.Service
         public override async Task<VehicleDTO> GetAsync(int id)
         {
             VehicleDTO dto = await base.GetAsync(id);
-            IEnumerable<VehicleFeature> featureEntity = await this._unitOfWork.VehicleVehicleFeatureRepository.GetAsyncByVehicle(dto.Id);
+            IEnumerable<VehicleFeature> featureEntity = await this._unitOfWork.VehicleVehicleFeatureRepository.GetAsyncByEntity(dto.Id);
 
             dto.VehicleFeature = VehicleFeatureDTO.ConvertEntityListToDTOList<VehicleFeatureDTO>(featureEntity);
 
@@ -29,7 +29,7 @@ namespace CarReservation.Service
         {
             VehicleDTO result = await base.CreateAsync(dtoObject);
 
-            await this._unitOfWork.VehicleVehicleFeatureRepository.Create(VehicleFeatureDTO.ConvertDTOListToEntity(dtoObject.VehicleFeature), result.ConvertToEntity());
+            await this.saveDetails(dtoObject, result); 
             await this._unitOfWork.SaveAsync();
 
             return result;
@@ -40,10 +40,17 @@ namespace CarReservation.Service
             await this._unitOfWork.VehicleVehicleFeatureRepository.DeleteAsync(dtoObject.ConvertToEntity());
 
             VehicleDTO result = await base.UpdateAsync(dtoObject);
-            await this._unitOfWork.VehicleVehicleFeatureRepository.Create(VehicleFeatureDTO.ConvertDTOListToEntity(dtoObject.VehicleFeature), result.ConvertToEntity());
+            await this.saveDetails(dtoObject, result); 
             await this._unitOfWork.SaveAsync();
 
             return result;
         }
+
+        #region Private Fucntion
+        private async Task saveDetails(VehicleDTO dtoObject, VehicleDTO result)
+        {
+            await this._unitOfWork.VehicleVehicleFeatureRepository.Create(VehicleFeatureDTO.ConvertDTOListToEntity(dtoObject.VehicleFeature), result.ConvertToEntity());
+        }
+        #endregion
     }
 }

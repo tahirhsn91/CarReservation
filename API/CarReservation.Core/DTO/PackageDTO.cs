@@ -16,6 +16,18 @@ namespace CarReservation.Core.DTO
         [IgnoreDataMember]
         public int StartFareId { get; set; }
 
+        public List<TravelUnitDTO> TravelUnit { get; set; }
+        
+        public List<VehicleAssemblyDTO> VehicleAssembly { get; set; }
+        
+        public List<VehicleBodyTypeDTO> VehicleBodyType { get; set; }
+        
+        public List<VehicleFeatureDTO> VehicleFeature { get; set; }
+        
+        public List<VehicleModelDTO> VehicleModel { get; set; }
+        
+        public List<VehicleTransmissionDTO> VehicleTransmission{ get; set; }
+
         public PackageDTO()
             : base()
         {
