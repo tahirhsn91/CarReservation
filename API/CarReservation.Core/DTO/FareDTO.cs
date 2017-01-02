@@ -24,7 +24,6 @@ namespace CarReservation.Core.DTO
         public FareDTO(Fare fare)
             : base(fare)
         {
-
         }
 
         public override void ConvertFromEntity(Fare entity)

@@ -166,6 +166,7 @@
     <Compile Include="DTO\LocationLagLonDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
     <Compile Include="DTO\PackageDTO.cs" />
+    <Compile Include="DTO\PackageTravelUnitDTO.cs" />
     <Compile Include="DTO\TopupDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\RideStatusDTO.cs" />
@@ -287,6 +288,10 @@
     <Compile Include="Migrations\201612222227086_VehiclePackage.Designer.cs">
       <DependentUpon>201612222227086_VehiclePackage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701020703107_packages.cs" />
+    <Compile Include="Migrations\201701020703107_packages.Designer.cs">
+      <DependentUpon>201701020703107_packages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountLog.cs" />
@@ -374,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612222227086_VehiclePackage.resx">
       <DependentUpon>201612222227086_VehiclePackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701020703107_packages.resx">
+      <DependentUpon>201701020703107_packages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

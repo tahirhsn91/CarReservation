@@ -14,7 +14,7 @@ namespace CarReservation.Core
         {
             var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "unity.config");
             var fileMap = new ExeConfigurationFileMap { ExeConfigFilename = filePath };
-            Configuration configuration = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
+            System.Configuration.Configuration configuration = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
             var unitySection = (UnityConfigurationSection)configuration.GetSection("unity");
             _container = new UnityContainer();
             _container.LoadConfiguration(unitySection);

@@ -88,6 +88,11 @@ namespace CarReservation.Core.Infrastructure
             .HasRequired(c => c.City)
             .WithMany()
             .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PackageTravelUnit>()
+            .HasRequired(c => c.Package)
+            .WithMany()
+            .WillCascadeOnDelete(false);
         }
     }
 }

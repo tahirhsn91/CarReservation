@@ -34,15 +34,15 @@ namespace CarReservation.Repository
             }
         }
 
-        public async Task<IEnumerable<TravelUnit>> GetAsyncByEntity(Package entity)
+        public async Task<IEnumerable<PackageTravelUnit>> GetAsyncByEntity(Package entity)
         {
             return await this.GetAsyncByEntity(entity.Id);
         }
 
-        public async Task<IEnumerable<TravelUnit>> GetAsyncByEntity(int id)
+        public async Task<IEnumerable<PackageTravelUnit>> GetAsyncByEntity(int id)
         {
             IList<PackageTravelUnit> entities = await this.DefaultSingleQuery.Where(x => x.PackageId.Equals(id)).ToListAsync();
-            return entities.Select(x => x.TravelUnit);
+            return entities;
         }
 
         public async Task<IList<PackageTravelUnit>> Create(IList<TravelUnit> models, Package package)
@@ -61,6 +61,16 @@ namespace CarReservation.Repository
             }
 
             return await this.Create(entity);
+        }
+
+        public async Task<IList<PackageTravelUnit>> Create(IList<PackageTravelUnit> models, Package package)
+        {
+            if (models != null && package != null)
+            {
+                models.ToList().ForEach(x => x.PackageId = package.Id);
+            }
+
+            return await this.Create(models);
         }
 
         public async Task DeleteAsync(Package entity)
