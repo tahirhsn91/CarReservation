@@ -16,7 +16,7 @@ namespace CarReservation.Common.Helper
     {
         public static void ThrowAPIException(string content)
         {
-            ThrowAPIException(HttpStatusCode.BadGateway, string.Empty, content);
+            ThrowAPIException(HttpStatusCode.BadRequest, string.Empty, content);
         }
 
         public static void ThrowAPIException(HttpStatusCode code, string content)
@@ -31,8 +31,6 @@ namespace CarReservation.Common.Helper
             ErrorMessage error = new ErrorMessage() { Error = content };
 
             resp.Content = new ObjectContent(error.GetType(), error, new JsonMediaTypeFormatter());
-            //resp.Content = new StringContent(content);
-            //resp.ReasonPhrase = reasonPhrase;
 
             throw new HttpResponseException(resp);
         }

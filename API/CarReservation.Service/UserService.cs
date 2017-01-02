@@ -60,7 +60,7 @@ namespace CarReservation.Service
             }
             else
             {
-                Common.Helper.ExceptionHelper.ThrowAPIException(HttpStatusCode.BadRequest, Core.Constant.Message.User_InvalidUserName);
+                Common.Helper.ExceptionHelper.ThrowAPIException(Core.Constant.Message.User_InvalidUserName);
             }
 
             return dto;
