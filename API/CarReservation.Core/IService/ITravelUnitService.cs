@@ -1,5 +1,7 @@
 ﻿using CarReservation.Core.DTO;
+using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService.Base;
+using CarReservation.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IService
 {
-    public interface ITravelUnitService : IBaseService<TravelUnitDTO, int>
+    public interface ITravelUnitService : ISetupService<IBaseRepository<TravelUnit, int>, TravelUnit, TravelUnitDTO, int>
     {
     }
 }

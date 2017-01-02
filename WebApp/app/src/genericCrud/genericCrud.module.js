@@ -15,11 +15,11 @@
     $stateProvider
       .state('shell.genericCrud', {
         url:'module',
-        role: appUserRole.All
+        role: appUserRole.Admin
       })
       .state('shell.genericCrud.genericCrudList', {
         url:'/:moduleName',
-        role: appUserRole.All,
+        role: appUserRole.Admin,
         views: {
             'content@shell': {
                 templateUrl:'src/genericCrud/list.html',
@@ -29,7 +29,7 @@
       })
       .state('shell.genericCrud.genericCrudDetail', {
         url:'/:moduleName/detail/:id',
-        role: appUserRole.All,
+        role: appUserRole.Admin,
         views: {
             'content@shell': {
                 templateUrl:'src/genericCrud/detail.html',

@@ -24,6 +24,9 @@ namespace CarReservation.Core.IRepository.Base
         IVehicleTransmissionRepository VehicleTransmissionRepository { get; }
         IVehicleAssemblyRepository VehicleAssemblyRepository { get; }
 
+        IVehicleVehicleFeatureRepository VehicleVehicleFeatureRepository { get; }
+        IVehicleRepository VehicleRepository { get; }
+
         ITravelUnitRepository TravelUnitRepository { get; }
         IDistanceUnitRepository DistanceUnitRepository { get; }
         IDriverStatusRepository DriverStatusRepository { get; }
@@ -37,6 +40,14 @@ namespace CarReservation.Core.IRepository.Base
 
         IFavouriteLocationRepository FavouriteLocationRepository { get; }
         ILocationLagLonRepository LocationLagLonRepository { get; }
+
+        IPackageRepository PackageRepository { get; }
+        IPackageTravelUnitRepository PackageTravelUnitRepository { get; }
+        IPackageVehicleAssemblyRepository PackageVehicleAssemblyRepository { get; }
+        IPackageVehicleBodyTypeRepository PackageVehicleBodyTypeRepository { get; }
+        IPackageVehicleFeatureRepository PackageVehicleFeatureRepository { get; }
+        IPackageVehicleModelRepository PackageVehicleModelRepository { get; }
+        IPackageVehicleTransmissionRepository PackageVehicleTransmissionRepository { get; }
 
         Task<int> SaveAsync();
         int Save();

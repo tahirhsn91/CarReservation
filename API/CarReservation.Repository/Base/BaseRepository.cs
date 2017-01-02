@@ -55,6 +55,11 @@ namespace CarReservation.Repository.Base
             return await DefaultSingleQuery.SingleOrDefaultAsync(x => x.Id.Equals(id));
         }
 
+        public virtual async Task<int> GetCount()
+        {
+            return await this.DefaultListQuery.CountAsync();
+        }
+
         public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
             return await DefaultListQuery.ToListAsync();

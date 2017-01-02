@@ -3,6 +3,9 @@
     'use strict';
 
     var appUserRole = {
+        SuperAdmin: 'SuperAdministrator',
+        Admin: 'Administrator',
+        Supervisor: 'Supervisor',
         Driver: 'Driver',
         Customer: 'Customer',
         All: 'All'

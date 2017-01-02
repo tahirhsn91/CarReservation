@@ -13,6 +13,11 @@
     line-height: normal;
 }
 
+/* Fix line break when there's at least one item selected with the Selectize theme */
+.selectize-control.multi > .selectize-input > input {
+  margin: 0 !important;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 225px;

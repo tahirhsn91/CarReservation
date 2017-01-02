@@ -206,6 +206,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AngularController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\Base\SetupController.cs" />
     <Compile Include="Controllers\CityController.cs" />
@@ -217,12 +218,14 @@
     <Compile Include="Controllers\DistanceUnitController.cs" />
     <Compile Include="Controllers\DriverStatusController.cs" />
     <Compile Include="Controllers\FavouriteLocationController.cs" />
+    <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\RideStatusController.cs" />
     <Compile Include="Controllers\StateController.cs" />
     <Compile Include="Controllers\TravelUnitController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VehicleAssemblyController.cs" />
     <Compile Include="Controllers\VehicleBodyTypeController.cs" />
+    <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Controllers\VehicleFeatureController.cs" />
     <Compile Include="Controllers\VehicleMakerController.cs" />
     <Compile Include="Controllers\VehicleModelController.cs" />
@@ -243,7 +246,9 @@
     <Content Include="index.html" />
     <Content Include="scripts\app.js" />
     <Content Include="styles\main.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -291,7 +296,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>46363</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

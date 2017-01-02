@@ -21,9 +21,9 @@ namespace CarReservation.Service
     {
         private UserManager<ApplicationUser> userManager;
         private RoleManager<IdentityRole> roleManager;
-        private IUnitOfWork _unitOfWork;
 
         public UserService(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
             userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
@@ -50,7 +50,7 @@ namespace CarReservation.Service
 
                     applicationUser = userManager.FindByName(dto.Email);
 
-                    string role = this.GetAllRoles().First(x => x.Key == dto.Role).Value;
+                    string role = this.GetAllRoles().First(x => x.Value == dto.Role).Value;
 
                     userManager.AddToRoles(applicationUser.Id, new string[] { role });
                 }
@@ -69,6 +69,11 @@ namespace CarReservation.Service
         public override Task DeleteAsync(string id)
         {
             throw new NotImplementedException();
+        }
+
+        public async override Task<int> GetCount()
+        {
+            return await this.userManager.Users.CountAsync();
         }
 
         public async override Task<IList<UserDTO>> GetAllAsync()
@@ -124,7 +129,7 @@ namespace CarReservation.Service
         #region Private Functions
         private bool ValidateRole(string role)
         {
-            return this.GetAllRoles().Keys.Contains(role);
+            return this.GetAllRoles().Values.Contains(role);
         }
         #endregion
     }

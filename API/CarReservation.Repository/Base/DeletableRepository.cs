@@ -1,6 +1,7 @@
 ﻿using CarReservation.Core.Infrastructure.Base;
 using CarReservation.Core.Model.Base;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -35,10 +36,36 @@ namespace CarReservation.Repository.Base
 
         }
 
+        public async Task<IList<TEntity>> Create(IList<TEntity> entities)
+        {
+            IList<TEntity> result = new List<TEntity>();
+            
+            if (entities != null)
+            {
+                foreach (TEntity entity in entities)
+                {
+                    result.Add(await this.Create(entity));
+                }
+            }
+
+            return result;
+        }
+
         public override async Task<TEntity> Create(TEntity entity)
         {
             entity.IsDeleted = false;
             return await base.Create(entity);
+        }
+
+        public async Task DeleteAsync(IList<TKey> ids)
+        {
+            if (ids != null)
+            {
+                foreach (TKey id in ids)
+                {
+                    await this.DeleteAsync(id);
+                }
+            }
         }
 
         public override async Task DeleteAsync(TKey id)

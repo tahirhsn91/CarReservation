@@ -10,7 +10,7 @@ using CarReservation.Service.Base;
 
 namespace CarReservation.Service
 {
-    public class ColorService : BaseService<IBaseRepository<Color, int>, Color, ColorDTO, int>, IColorService
+    public class ColorService : SetupService<IBaseRepository<Color, int>, Color, ColorDTO, int>, IColorService
     {
         public ColorService(IUnitOfWork unitOfWork)
             : base(unitOfWork, unitOfWork.ColorRepository)

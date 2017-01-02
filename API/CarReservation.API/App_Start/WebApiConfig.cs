@@ -10,7 +10,7 @@ namespace CarReservation.API
             config.Routes.MapHttpRoute(
                 name: "Angular",
                 routeTemplate: "{*anything}",
-                defaults: new { controller = "Common", action = "Angular" }
+                defaults: new { controller = "Angular", action = "Angular" }
             );
         }
     }

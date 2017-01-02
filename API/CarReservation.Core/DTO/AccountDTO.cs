@@ -1,11 +1,6 @@
 ﻿using CarReservation.Core.DTO.Base;
 using CarReservation.Core.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarReservation.Core.DTO
 {
@@ -16,8 +11,8 @@ namespace CarReservation.Core.DTO
         {
         }
 
-        public AccountDTO(Account Account)
-            : base(Account)
+        public AccountDTO(Account account)
+            : base(account)
         {
 
         }
@@ -49,15 +44,15 @@ namespace CarReservation.Core.DTO
             base.ConvertFromEntity(entity);
             this.Balance = entity.Balance;
 
-            this.CurrencyId = entity.Currency == null ? 0 : entity.Currency.Id;
             if (entity.Currency != null)
             {
+                this.CurrencyId = entity.Currency.Id;
                 this.Currency = new CurrencyDTO(entity.Currency);
             }
 
-            this.UserId = entity.User == null ? string.Empty : entity.User.Id;
             if (entity.User != null)
             {
+                this.UserId = entity.User.Id;
                 this.User = new UserDTO(entity.User);
             }
         }

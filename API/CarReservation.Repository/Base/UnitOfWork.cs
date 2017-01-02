@@ -26,6 +26,8 @@ namespace CarReservation.Repository.Base
         private readonly IVehicleFeatureRepository _vehicleFeatureRepository;
         private readonly IVehicleTransmissionRepository _vehicleTransmissionRepository;
         private readonly IVehicleAssemblyRepository _vehicleAssemblyRepository;
+        private readonly IVehicleVehicleFeatureRepository _vehicleVehicleFeatureRepository;
+        private readonly IVehicleRepository _vehicleRepository;
 
         private readonly ITravelUnitRepository _travelUnitRepository;
         private readonly IDistanceUnitRepository _distanceUnitRepository;
@@ -40,6 +42,14 @@ namespace CarReservation.Repository.Base
 
         private readonly IFavouriteLocationRepository _favouriteLocationRepository;
         private readonly ILocationLagLonRepository _locationLagLonRepository;
+
+        private readonly IPackageRepository _packageRepository;
+        private readonly IPackageTravelUnitRepository _packageTravelUnitRepository;
+        private readonly IPackageVehicleAssemblyRepository _packageVehicleAssemblyRepository;
+        private readonly IPackageVehicleBodyTypeRepository _packageVehicleBodyTypeRepository;
+        private readonly IPackageVehicleFeatureRepository _packageVehicleFeatureRepository;
+        private readonly IPackageVehicleModelRepository _packageVehicleModelRepository;
+        private readonly IPackageVehicleTransmissionRepository _packageVehicleTransmissionRepository;
 
 
 
@@ -59,6 +69,8 @@ namespace CarReservation.Repository.Base
         public IVehicleFeatureRepository VehicleFeatureRepository { get { return _vehicleFeatureRepository; } }
         public IVehicleTransmissionRepository VehicleTransmissionRepository { get { return _vehicleTransmissionRepository; } }
         public IVehicleAssemblyRepository VehicleAssemblyRepository { get { return _vehicleAssemblyRepository; } }
+        public IVehicleVehicleFeatureRepository VehicleVehicleFeatureRepository { get { return _vehicleVehicleFeatureRepository; } }
+        public IVehicleRepository VehicleRepository { get { return _vehicleRepository; } }
 
         public ITravelUnitRepository TravelUnitRepository { get { return _travelUnitRepository; } }
         public IDistanceUnitRepository DistanceUnitRepository { get { return _distanceUnitRepository; } }
@@ -74,6 +86,14 @@ namespace CarReservation.Repository.Base
 
         public IFavouriteLocationRepository FavouriteLocationRepository { get { return _favouriteLocationRepository; } }
         public ILocationLagLonRepository LocationLagLonRepository { get { return _locationLagLonRepository; } }
+
+        public IPackageRepository PackageRepository { get { return _packageRepository; } }
+        public IPackageTravelUnitRepository PackageTravelUnitRepository { get { return _packageTravelUnitRepository; } }
+        public IPackageVehicleAssemblyRepository PackageVehicleAssemblyRepository { get { return _packageVehicleAssemblyRepository; } }
+        public IPackageVehicleBodyTypeRepository PackageVehicleBodyTypeRepository { get { return _packageVehicleBodyTypeRepository; } }
+        public IPackageVehicleFeatureRepository PackageVehicleFeatureRepository { get { return _packageVehicleFeatureRepository; } }
+        public IPackageVehicleModelRepository PackageVehicleModelRepository { get { return _packageVehicleModelRepository; } }
+        public IPackageVehicleTransmissionRepository PackageVehicleTransmissionRepository { get { return _packageVehicleTransmissionRepository; } }
 
         public UnitOfWork(
             IRequestInfo requestInfo,
@@ -91,6 +111,8 @@ namespace CarReservation.Repository.Base
             IVehicleFeatureRepository vehicleFeatureRepository,
             IVehicleTransmissionRepository vehicleTransmissionRepository,
             IVehicleAssemblyRepository vehicleAssemblyRepository,
+            IVehicleVehicleFeatureRepository vehicleVehicleFeatureRepository,
+            IVehicleRepository vehicleRepository,
 
             ITravelUnitRepository travelUnitRepository,
             IDistanceUnitRepository distanceUnitRepository,
@@ -104,7 +126,15 @@ namespace CarReservation.Repository.Base
             IAccountLogRepository accountLogRepository,
 
             IFavouriteLocationRepository favouriteLocationRepository,
-            ILocationLagLonRepository locationLagLonRepository
+            ILocationLagLonRepository locationLagLonRepository,
+
+            IPackageRepository packageRepository,
+            IPackageTravelUnitRepository packageTravelUnitRepository,
+            IPackageVehicleAssemblyRepository packageVehicleAssemblyRepository,
+            IPackageVehicleBodyTypeRepository packageVehicleBodyTypeRepository,
+            IPackageVehicleFeatureRepository packageVehicleFeatureRepository,
+            IPackageVehicleModelRepository packageVehicleModelRepository,
+            IPackageVehicleTransmissionRepository packageVehicleTransmissionRepository
             )
         {
             this._requestInfo = requestInfo;
@@ -122,6 +152,8 @@ namespace CarReservation.Repository.Base
             this._vehicleFeatureRepository = vehicleFeatureRepository;
             this._vehicleTransmissionRepository = vehicleTransmissionRepository;
             this._vehicleAssemblyRepository = vehicleAssemblyRepository;
+            this._vehicleVehicleFeatureRepository = vehicleVehicleFeatureRepository;
+            this._vehicleRepository = vehicleRepository;
 
             this._travelUnitRepository = travelUnitRepository;
             this._distanceUnitRepository = distanceUnitRepository;
@@ -136,6 +168,14 @@ namespace CarReservation.Repository.Base
 
             this._favouriteLocationRepository = favouriteLocationRepository;
             this._locationLagLonRepository = locationLagLonRepository;
+
+            this._packageRepository = packageRepository;
+            this._packageTravelUnitRepository = packageTravelUnitRepository;
+            this._packageVehicleAssemblyRepository = packageVehicleAssemblyRepository;
+            this._packageVehicleBodyTypeRepository = packageVehicleBodyTypeRepository;
+            this._packageVehicleFeatureRepository = packageVehicleFeatureRepository;
+            this._packageVehicleModelRepository = packageVehicleModelRepository;
+            this._packageVehicleTransmissionRepository = packageVehicleTransmissionRepository;
         }
 
         public async Task<int> SaveAsync()

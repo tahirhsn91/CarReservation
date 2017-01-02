@@ -54,18 +54,17 @@ namespace CarReservation.API.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<JObject> Register(UserDTO register)
+        public async Task<JObject> Register(UserDTO user)
         {
-            register = await this._service.CreateAsync(register);
-
-            LoginDTO login = new LoginDTO()
+            if (user.Role == UserRoles.CUSTOMER || user.Role == UserRoles.DRIVER || user.Role == UserRoles.SUPERVISOR)
             {
-                Email = register.Email,
-                Password = register.Password
-            };
-
-            return await this.LoginUser(login);
-
+                return await this.RegisterUser(user);
+            }
+            else
+            {
+                Common.Helper.ExceptionHelper.ThrowAPIException(Core.Constant.Message.User_InvalidRole);
+                return null;
+            }
         }
 
         #region Private Functions
@@ -103,6 +102,19 @@ namespace CarReservation.API.Controllers
             {
                 return response;
             }
+        }
+
+        public async Task<JObject> RegisterUser(UserDTO user)
+        {
+            user = await this._service.CreateAsync(user);
+
+            LoginDTO login = new LoginDTO()
+            {
+                Email = user.Email,
+                Password = user.Password
+            };
+
+            return await this.LoginUser(login);
         }
         #endregion
     }

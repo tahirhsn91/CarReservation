@@ -9,33 +9,89 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Service.Base
 {
-    public abstract class BaseService<TDTO, TKey> : IBaseService<TDTO, TKey>
+    public abstract class BaseService : IBaseService
     {
-        public abstract Task<TDTO> CreateAsync(TDTO dtoObject);
+        public IUnitOfWork _unitOfWork { get; set; }
+
+        public BaseService(IUnitOfWork unitOfWork)
+        {
+            this._unitOfWork = unitOfWork;
+        }
+    }
+
+    public abstract class BaseService<TDto, TKey> : BaseService, IBaseService<TDto, TKey>
+    {
+        public BaseService(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
+        {
+        }
+
+        public async Task<IList<TDto>> CreateAsync(IList<TDto> dtoObjects)
+        {
+            IList<TDto> result = new List<TDto>();
+
+            if (dtoObjects != null)
+            {
+                foreach (TDto dto in dtoObjects)
+                {
+                    result.Add(await this.CreateAsync(dto));
+                }
+            }
+
+            return result;
+        }
+
+        public abstract Task<TDto> CreateAsync(TDto dtoObject);
+
+        public async Task DeleteAsync(IList<TKey> ids)
+        {
+            if (ids != null)
+            {
+                foreach (TKey id in ids)
+                {
+                    await this.DeleteAsync(id);
+                }
+            }
+        }
 
         public abstract Task DeleteAsync(TKey id);
 
-        public abstract Task<IList<TDTO>> GetAllAsync();
+        public abstract Task<int> GetCount();
 
-        public abstract Task<IList<TDTO>> GetAllAsync(JsonApiRequest request);
+        public abstract Task<IList<TDto>> GetAllAsync();
 
-        public abstract Task<TDTO> GetAsync(TKey id);
+        public abstract Task<IList<TDto>> GetAllAsync(JsonApiRequest request);
 
-        public abstract Task<TDTO> UpdateAsync(TDTO dtoObject);
+        public abstract Task<TDto> GetAsync(TKey id);
+
+        public async Task<IList<TDto>> UpdateAsync(IList<TDto> dtoObjects)
+        {
+            IList<TDto> result = new List<TDto>();
+
+            if (dtoObjects != null)
+            {
+                foreach (TDto dto in dtoObjects)
+                {
+                    result.Add(await this.UpdateAsync(dto));
+                }
+            }
+
+            return result;
+        }
+
+        public abstract Task<TDto> UpdateAsync(TDto dtoObject);
     }
 
-    public abstract class BaseService<TRepository, TEntity, TDto, TKey> : BaseService<TDto, TKey>, ISetupService<TRepository>
+    public abstract class BaseService<TRepository, TEntity, TDto, TKey> : BaseService<TDto, TKey>, IBaseService<TRepository, TEntity, TDto, TKey>
         where TEntity : EntityBase<TKey>, new()
         where TDto : BaseDTO<TEntity, TKey>, new()
         where TRepository : IBaseRepository<TEntity, TKey>
         where TKey : IEquatable<TKey>
     {
-
-        protected IUnitOfWork _unitOfWork;
         protected TRepository _repository;
 
         public BaseService(IUnitOfWork unitOfWork, TRepository repository)
-            : base()
+            : base(unitOfWork)
         {
             this._repository = repository;
             this._unitOfWork = unitOfWork;
@@ -60,6 +116,11 @@ namespace CarReservation.Service.Base
         {
             await this._repository.DeleteAsync(id);
             await this._unitOfWork.SaveAsync();
+        }
+
+        public async override Task<int> GetCount()
+        {
+            return await this._repository.GetCount();
         }
 
         public async override Task<IList<TDto>> GetAllAsync()

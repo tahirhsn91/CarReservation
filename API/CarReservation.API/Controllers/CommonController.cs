@@ -1,7 +1,7 @@
 ﻿using CarReservation.API.Controllers.Base;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
+using CarReservation.Core.DTO;
+using CarReservation.Core.IService;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace CarReservation.API.Controllers
@@ -9,13 +9,18 @@ namespace CarReservation.API.Controllers
     [RoutePrefix("Common")]
     public class CommonController : BaseController
     {
-        [HttpGet]
-        public HttpResponseMessage Angular()
+        private ICommonService _service;
+
+        public CommonController(ICommonService service)
         {
-            var response = new HttpResponseMessage();
-            response.Content = new StringContent(File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath("~/index.html")));
-            response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
-            return response;
+            this._service = service;
+        }
+
+        [HttpGet]
+        [Route("Dashboard")]
+        public async Task<DashboardDTO> GetDashboard()
+        {
+            return await this._service.GetDashboard();
         }
     }
 }

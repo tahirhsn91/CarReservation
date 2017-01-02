@@ -13,15 +13,16 @@
         .controller('Register', Register);
 
     /* @ngInject */
-    function Register(authFactory, store, appRegex) {
+    function Register(authFactory, store, appRegex, appUserRole) {
         var vm = this;
         
         vm.regex = appRegex;
         vm.register = register;
         
         function register() {
-            authFactory.register(vm.cred).then(function (res) {
-                
+            vm.user.Role = appUserRole.Supervisor;
+            authFactory.register(vm.user).then(function (result) {
+                authFactory.loginSuccess(result);
             });
         }
 

@@ -13,7 +13,7 @@
         .factory('authFactory', authFactory);
 
     /* @ngInject */
-    function authFactory(Restangular, store, $state, $location) {
+    function authFactory(Restangular, store, appUserRole, $state, $location) {
 
         return {
             login: login,
@@ -23,7 +23,8 @@
             register: register,
             setToken: setToken,
             navigateToLogin: navigateToLogin,
-            navigateToDashboard: navigateToDashboard
+            navigateToDashboard: navigateToDashboard,
+            loginSuccess: loginSuccess
         };
 
         function forgetPass(data) {
@@ -64,8 +65,26 @@
             $state.go('authShell.login');
         }
 
-        function navigateToDashboard(){
-            $location.path('/module/City');
+        function navigateToDashboard(user){
+            if(user.Role === appUserRole.Admin){
+                $state.go('shell.dashboard');
+            }
+            else if(user.Role === appUserRole.Supervisor){
+                $state.go('shell.supervisor');
+            }
+        }
+
+        function loginSuccess(data){
+            store.set('token', {
+                access_token: data.access_token,
+                token_type: data.token_type,
+                expires_in: data.expires_in
+            });
+            var user = JSON.parse(data.user);
+            user.FullName = user.FirstName.toCapitalizeCase() + ' '+ user.LastName.toCapitalizeCase();
+            store.set('user', user);
+
+            navigateToDashboard(user);
         }
     }
 

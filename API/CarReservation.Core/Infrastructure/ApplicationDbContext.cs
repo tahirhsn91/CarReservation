@@ -33,6 +33,7 @@ namespace CarReservation.Core.Infrastructure
         public DbSet<VehicleFeature> VehicleFeature { get; set; }
         public DbSet<VehicleMaker> VehicleMaker { get; set; }
         public DbSet<VehicleModel> VehicleModel { get; set; }
+        public DbSet<VehicleVehicleFeature> VehicleVehicleFeature { get; set; }
         public DbSet<Vehicle> Vehicle { get; set; }
 
         public DbSet<PackageTravelUnit> PackageTravelUnit { get; set; }
@@ -67,6 +68,26 @@ namespace CarReservation.Core.Infrastructure
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Vehicle>()
+            .HasRequired(c => c.Country)
+            .WithMany()
+            .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Vehicle>()
+            .HasRequired(c => c.State)
+            .WithMany()
+            .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Vehicle>()
+            .HasRequired(c => c.City)
+            .WithMany()
+            .WillCascadeOnDelete(false);
         }
     }
 }
