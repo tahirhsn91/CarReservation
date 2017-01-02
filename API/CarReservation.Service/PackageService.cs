@@ -18,25 +18,31 @@ namespace CarReservation.Service
         public override async Task<PackageDTO> GetAsync(int id)
         {
             PackageDTO dto = await base.GetAsync(id);
-            IEnumerable<PackageTravelUnit> travelUnitEntity = await this._unitOfWork.PackageTravelUnitRepository.GetAsyncByEntity(dto.Id);
-            IEnumerable<VehicleAssembly> assemblyEntity = await this._unitOfWork.PackageVehicleAssemblyRepository.GetAsyncByEntity(dto.Id);
-            IEnumerable<VehicleBodyType> bodytypeEntity = await this._unitOfWork.PackageVehicleBodyTypeRepository.GetAsyncByEntity(dto.Id);
-            IEnumerable<VehicleFeature> featureEntity = await this._unitOfWork.PackageVehicleFeatureRepository.GetAsyncByEntity(dto.Id);
-            IEnumerable<VehicleModel> modelEntity = await this._unitOfWork.PackageVehicleModelRepository.GetAsyncByEntity(dto.Id);
-            IEnumerable<VehicleTransmission> transmissionEntity = await this._unitOfWork.PackageVehicleTransmissionRepository.GetAsyncByEntity(dto.Id);
 
-            dto.TravelUnit = PackageTravelUnitDTO.ConvertEntityListToDTOList<PackageTravelUnitDTO>(travelUnitEntity);
-            dto.VehicleAssembly = VehicleAssemblyDTO.ConvertEntityListToDTOList<VehicleAssemblyDTO>(assemblyEntity);
-            dto.VehicleBodyType = VehicleBodyTypeDTO.ConvertEntityListToDTOList<VehicleBodyTypeDTO>(bodytypeEntity);
-            dto.VehicleFeature = VehicleFeatureDTO.ConvertEntityListToDTOList<VehicleFeatureDTO>(featureEntity);
-            dto.VehicleModel = VehicleModelDTO.ConvertEntityListToDTOList<VehicleModelDTO>(modelEntity);
-            dto.VehicleTransmission = VehicleTransmissionDTO.ConvertEntityListToDTOList<VehicleTransmissionDTO>(transmissionEntity);
+            if (dto != null)
+            {
+                IEnumerable<PackageTravelUnit> travelUnitEntity = await this._unitOfWork.PackageTravelUnitRepository.GetAsyncByEntity(dto.Id);
+                IEnumerable<VehicleAssembly> assemblyEntity = await this._unitOfWork.PackageVehicleAssemblyRepository.GetAsyncByEntity(dto.Id);
+                IEnumerable<VehicleBodyType> bodytypeEntity = await this._unitOfWork.PackageVehicleBodyTypeRepository.GetAsyncByEntity(dto.Id);
+                IEnumerable<VehicleFeature> featureEntity = await this._unitOfWork.PackageVehicleFeatureRepository.GetAsyncByEntity(dto.Id);
+                IEnumerable<VehicleModel> modelEntity = await this._unitOfWork.PackageVehicleModelRepository.GetAsyncByEntity(dto.Id);
+                IEnumerable<VehicleTransmission> transmissionEntity = await this._unitOfWork.PackageVehicleTransmissionRepository.GetAsyncByEntity(dto.Id);
+
+                dto.TravelUnit = PackageTravelUnitDTO.ConvertEntityListToDTOList<PackageTravelUnitDTO>(travelUnitEntity);
+                dto.VehicleAssembly = VehicleAssemblyDTO.ConvertEntityListToDTOList<VehicleAssemblyDTO>(assemblyEntity);
+                dto.VehicleBodyType = VehicleBodyTypeDTO.ConvertEntityListToDTOList<VehicleBodyTypeDTO>(bodytypeEntity);
+                dto.VehicleFeature = VehicleFeatureDTO.ConvertEntityListToDTOList<VehicleFeatureDTO>(featureEntity);
+                dto.VehicleModel = VehicleModelDTO.ConvertEntityListToDTOList<VehicleModelDTO>(modelEntity);
+                dto.VehicleTransmission = VehicleTransmissionDTO.ConvertEntityListToDTOList<VehicleTransmissionDTO>(transmissionEntity);
+            }
 
             return dto;
         }
 
         public override async Task<PackageDTO> CreateAsync(PackageDTO dtoObject)
         {
+            dtoObject.StartFare.ConvertFromEntity(await this._unitOfWork.FareRepository.Create(dtoObject.StartFare.ConvertToEntity()));
+
             PackageDTO result = await base.CreateAsync(dtoObject);
 
             await this.saveDetails(dtoObject, result);
@@ -48,7 +54,9 @@ namespace CarReservation.Service
         public override async Task<PackageDTO> UpdateAsync(PackageDTO dtoObject)
         {
             await this.deleteDetails(dtoObject);
+            await this._unitOfWork.FareRepository.DeleteAsync(dtoObject.StartFare.Id);
 
+            dtoObject.StartFare.ConvertFromEntity(await this._unitOfWork.FareRepository.Create(dtoObject.StartFare.ConvertToEntity()));
             PackageDTO result = await base.UpdateAsync(dtoObject);
             await this.saveDetails(dtoObject, result);
             await this._unitOfWork.SaveAsync();

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.Model
 {
-    public class Package : EntityBase
+    public class Package : SetupEntity
     {
         public Fare StartFare { get; set; }
 

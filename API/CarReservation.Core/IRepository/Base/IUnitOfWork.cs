@@ -41,6 +41,7 @@ namespace CarReservation.Core.IRepository.Base
         IFavouriteLocationRepository FavouriteLocationRepository { get; }
         ILocationLagLonRepository LocationLagLonRepository { get; }
 
+        IFareRepository FareRepository { get; }
         IPackageRepository PackageRepository { get; }
         IPackageTravelUnitRepository PackageTravelUnitRepository { get; }
         IPackageVehicleAssemblyRepository PackageVehicleAssemblyRepository { get; }

@@ -43,6 +43,7 @@ namespace CarReservation.Repository.Base
         private readonly IFavouriteLocationRepository _favouriteLocationRepository;
         private readonly ILocationLagLonRepository _locationLagLonRepository;
 
+        private readonly IFareRepository _fareRepository;
         private readonly IPackageRepository _packageRepository;
         private readonly IPackageTravelUnitRepository _packageTravelUnitRepository;
         private readonly IPackageVehicleAssemblyRepository _packageVehicleAssemblyRepository;
@@ -87,6 +88,7 @@ namespace CarReservation.Repository.Base
         public IFavouriteLocationRepository FavouriteLocationRepository { get { return _favouriteLocationRepository; } }
         public ILocationLagLonRepository LocationLagLonRepository { get { return _locationLagLonRepository; } }
 
+        public IFareRepository FareRepository { get { return _fareRepository; } }
         public IPackageRepository PackageRepository { get { return _packageRepository; } }
         public IPackageTravelUnitRepository PackageTravelUnitRepository { get { return _packageTravelUnitRepository; } }
         public IPackageVehicleAssemblyRepository PackageVehicleAssemblyRepository { get { return _packageVehicleAssemblyRepository; } }
@@ -128,6 +130,7 @@ namespace CarReservation.Repository.Base
             IFavouriteLocationRepository favouriteLocationRepository,
             ILocationLagLonRepository locationLagLonRepository,
 
+            IFareRepository fareRepository,
             IPackageRepository packageRepository,
             IPackageTravelUnitRepository packageTravelUnitRepository,
             IPackageVehicleAssemblyRepository packageVehicleAssemblyRepository,
@@ -169,6 +172,7 @@ namespace CarReservation.Repository.Base
             this._favouriteLocationRepository = favouriteLocationRepository;
             this._locationLagLonRepository = locationLagLonRepository;
 
+            this._fareRepository = fareRepository;
             this._packageRepository = packageRepository;
             this._packageTravelUnitRepository = packageTravelUnitRepository;
             this._packageVehicleAssemblyRepository = packageVehicleAssemblyRepository;

@@ -1,0 +1,179 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">
+            <span ng-bind="vm.pageTitle"></span>
+            <small>{{vm.data.Name}} Edit</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-click="vm.redirect('dashboard')">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-click="vm.redirect('shell.supervisor.package')">
+                    <span ng-bind="vm.pageTitle"></span> Module
+                </a>
+            </li>
+            <li class="active">
+                <i class="fa fa-file"></i>
+                <span ng-bind="vm.data.Name"></span> Edit
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <form role="form" name="form" novalidate ng-submit="form.$valid && vm.submit()">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr ng-repeat="field in vm.fields" ng-if="field.Type !== 'Ignore'">
+                            <td ng-if="vm.checkString(field)" class="col-xs-3">
+                                <label for="{{field}}">{{field}}</label>
+                            </td>
+                            <td ng-if="vm.checkString(field)" class="col-xs-9">
+                                <input  id="{{field}}" 
+                                        name="{{field}}" 
+                                        type="text"
+                                        ng-model="vm.data[field]" 
+                                        class="form-control">
+                            </td>
+
+                            <td ng-if="!vm.checkString(field)" class="col-xs-3">
+                                <label for="{{vm.getFieldName(field)}}">{{vm.getFieldName(field)}}</label>
+                            </td>
+                            <td ng-if="!vm.checkString(field)" class="col-xs-9">
+                                <input  id="{{field.Field}}" 
+                                        ng-if="field.Type ==='Number'"
+                                        name="{{field.Field}}" 
+                                        type="number"
+                                        ng-model="vm.data[field.Field]" 
+                                        class="form-control">
+
+                                <ui-select  ng-if="field.Type ==='DropDown'" 
+                                            ng-model="vm.data[field.Field]"
+                                            on-select = "vm.onSelect(field)">
+                                    <ui-select-match>
+                                        <span ng-bind="$select.selected.Name"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (vm.getChoices(field) | filter: $select.search) track by item.Id">
+                                        <span ng-bind="item.Name"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <ui-select multiple ng-if="field.Type ==='MultiDropDown'" ng-model="vm.data[field.Field]">
+                                    <ui-select-match>
+                                        <span ng-bind="$select.selected.Name"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (vm.getChoices(field) | filter: $select.search) track by item.Id">
+                                        <span ng-bind="item.Name"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+
+                                <cap-date-picker ng-if="field.Type === 'Date'" 
+                                                flat="false"
+                                                name="field.Field"
+                                                form-name="form"
+                                                date-name="field.Field"
+                                                val-name="field.Field"
+                                                date-model="vm.data[field.Field]"
+                                                required="true"
+                                                max-date="vm.maxDate">
+                                </cap-date-picker>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-3">
+                                <label for="StartFare">StartFare</label>
+                            </td>
+                            <td class="col-xs-9">
+                                <div class="col-xs-3">
+                                    <input  id="StartFare" 
+                                            name="StartFare" 
+                                            type="number"
+                                            ng-model="vm.data.StartFare.TotalFare" 
+                                            class="form-control">
+                                </div>
+
+                                <ui-select class="col-xs-9" ng-model="vm.data.StartFare.Currency">
+                                    <ui-select-match>
+                                        <span ng-bind="$select.selected.Name"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (vm.getChoices({ 'Field':'Currency'}) | filter: $select.search) track by item.Id">
+                                        <span ng-bind="item.Name"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <td colspan="12">
+                                <button type="button" ng-click="vm.addDetails()">Add</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="col-xs-4">
+                                Rate
+                            </th>
+                            <th class="col-xs-4">
+                                Currency
+                            </th>
+                            <th class="col-xs-4">
+                                TravelUnit
+                            </th>
+                        </tr>
+                        <tr ng-repeat="value in vm.data.TravelUnit">
+                            <td>
+                                <input  id="TravelUnit" 
+                                        name="TravelUnit" 
+                                        type="number"
+                                        ng-model="value.Rate" 
+                                        class="form-control">
+                            </td>
+                            <td class="col-xs-4">
+                                <ui-select ng-model="value.Currency">
+                                    <ui-select-match>
+                                        <span ng-bind="$select.selected.Name"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (vm.getChoices({ 'Field':'Currency'}) | filter: $select.search) track by item.Id">
+                                        <span ng-bind="item.Name"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </td>
+                            <td class="col-xs-4">
+                                <ui-select ng-model="value.TravelUnit">
+                                    <ui-select-match>
+                                        <span ng-bind="$select.selected.Name"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (vm.getChoices({ 'Field':'TravelUnit'}) | filter: $select.search) track by item.Id">
+                                        <span ng-bind="item.Name"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+            <button type="submit" class="btn btn-success">Submit Button</button>
+            <button type="reset" class="btn btn-info">Reset Button</button>
+        </form>
+    </div>
+</div>

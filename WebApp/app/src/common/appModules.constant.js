@@ -43,6 +43,17 @@
                             { 'Field':'VehicleFeature', 'Type': 'MultiDropDown'}
                             
                         ],
+                Package: [  'Name',
+                            'Code', 
+                            { 'Field':'TravelUnit', 'Type': 'Ignore'},
+                            { 'Field':'Currency', 'Type': 'Ignore'},
+                            { 'Field':'VehicleAssembly', 'Type': 'MultiDropDown'},
+                            { 'Field':'VehicleBodyType', 'Type': 'MultiDropDown'},
+                            { 'Field':'VehicleFeature', 'Type': 'MultiDropDown'},
+                            { 'Field':'VehicleModel', 'Type': 'MultiDropDown'},
+                            { 'Field':'VehicleTransmission', 'Type': 'MultiDropDown'}
+                            
+                        ]
             },
             BaseRoute: {
                 Administrator: '',

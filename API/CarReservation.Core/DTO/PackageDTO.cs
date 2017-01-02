@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.DTO
 {
-    public class PackageDTO : BaseDTO<Package, int>
+    public class PackageDTO : SetupDTO<Package, int>
     {
         public FareDTO StartFare { get; set; }
 

@@ -72,8 +72,11 @@ namespace CarReservation.Core.DTO
             entity = base.ConvertToEntity(entity);
             entity.Rate = this.Rate;
             entity.CurrencyId = this.Currency.Id;
-            entity.PackageId = this.Package.Id;
             entity.TravelUnitId= this.TravelUnit.Id;
+            if (this.Package != null)
+            {
+                entity.PackageId = this.Package.Id;
+            }
 
             return entity;
         }

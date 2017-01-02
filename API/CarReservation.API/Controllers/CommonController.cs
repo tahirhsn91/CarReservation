@@ -1,4 +1,6 @@
 ﻿using CarReservation.API.Controllers.Base;
+using CarReservation.Common.Attributes;
+using CarReservation.Core.Constant;
 using CarReservation.Core.DTO;
 using CarReservation.Core.IService;
 using System.Threading.Tasks;
@@ -18,6 +20,7 @@ namespace CarReservation.API.Controllers
 
         [HttpGet]
         [Route("Dashboard")]
+        [AuthorizeRoles(UserRoles.ADMIN)]
         public async Task<DashboardDTO> GetDashboard()
         {
             return await this._service.GetDashboard();

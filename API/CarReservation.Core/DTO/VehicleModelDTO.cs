@@ -31,7 +31,10 @@ namespace CarReservation.Core.DTO
         public override VehicleModel ConvertToEntity(VehicleModel entity)
         {
             entity = base.ConvertToEntity(entity);
-            entity.VehicleMakerId = this.VehicleMaker.Id;
+            if (this.VehicleMaker != null)
+            {
+                entity.VehicleMakerId = this.VehicleMaker.Id;
+            }
 
             return entity;
         }

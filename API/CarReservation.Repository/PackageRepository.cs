@@ -3,6 +3,7 @@ using CarReservation.Core.IRepository;
 using CarReservation.Core.Model;
 using CarReservation.Repository.Base;
 using System.Data.Entity;
+using System.Linq;
 
 namespace CarReservation.Repository
 {
@@ -28,6 +29,16 @@ namespace CarReservation.Repository
                 return base.DefaultSingleQuery
                     .Include(x => x.StartFare);
             }
+        }
+
+        public override async System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Package>> GetAll()
+        {
+            return await this.DefaultListQuery.Where(x => x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId)).ToListAsync();
+        }
+
+        public override async System.Threading.Tasks.Task<Package> GetAsync(int id)
+        {
+            return await this.DefaultSingleQuery.SingleOrDefaultAsync(x=>x.Id.Equals(id) && x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId));
         }
     }
 }

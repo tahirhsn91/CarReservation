@@ -201,6 +201,7 @@
     <Compile Include="IRepository\ICurrencyRepository.cs" />
     <Compile Include="IRepository\IDistanceUnitRepository.cs" />
     <Compile Include="IRepository\IDriverStatusRepository.cs" />
+    <Compile Include="IRepository\IFareRepository.cs" />
     <Compile Include="IRepository\IFavouriteLocationRepository.cs" />
     <Compile Include="IRepository\ILocationLagLonRepository.cs" />
     <Compile Include="IRepository\IPackageRepository.cs" />
@@ -292,6 +293,10 @@
     <Compile Include="Migrations\201701020703107_packages.Designer.cs">
       <DependentUpon>201701020703107_packages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701021930153_convertPackageToSetupEntity.cs" />
+    <Compile Include="Migrations\201701021930153_convertPackageToSetupEntity.Designer.cs">
+      <DependentUpon>201701021930153_convertPackageToSetupEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountLog.cs" />
@@ -382,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701020703107_packages.resx">
       <DependentUpon>201701020703107_packages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021930153_convertPackageToSetupEntity.resx">
+      <DependentUpon>201701021930153_convertPackageToSetupEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
