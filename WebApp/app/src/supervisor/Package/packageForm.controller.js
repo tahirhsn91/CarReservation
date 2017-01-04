@@ -23,8 +23,6 @@
     vm.fields = appModules[vm.currentUser.Role][vm.module];
     vm.choices = {};
     vm.data = {};
-
-    console.log(vm.fields);
     
     vm.submit = submit;
     vm.checkString = checkString;

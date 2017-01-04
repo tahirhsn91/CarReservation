@@ -27,7 +27,8 @@ namespace CarReservation.Repository
             get
             {
                 return base.DefaultSingleQuery
-                    .Include(x => x.StartFare);
+                    .Include(x => x.StartFare)
+                    .Include(x => x.StartFare.Currency);
             }
         }
 
@@ -38,7 +39,7 @@ namespace CarReservation.Repository
 
         public override async System.Threading.Tasks.Task<Package> GetAsync(int id)
         {
-            return await this.DefaultSingleQuery.SingleOrDefaultAsync(x=>x.Id.Equals(id) && x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId));
+            return await this.DefaultSingleQuery.SingleOrDefaultAsync(x => x.Id.Equals(id) && x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId));
         }
     }
 }

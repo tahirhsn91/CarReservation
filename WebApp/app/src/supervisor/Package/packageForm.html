@@ -65,25 +65,32 @@
                                     </ui-select-choices>
                                 </ui-select>
 
-                                <ui-select multiple ng-if="field.Type ==='MultiDropDown'" ng-model="vm.data[field.Field]">
-                                    <ui-select-match>
-                                        <span ng-bind="$select.selected.Name"></span>
-                                    </ui-select-match>
+                                <ui-select multiple ng-if="field.Type ==='MultiDropDown'"
+                                           ng-model="vm.data[field.Field]"
+                                           theme="bootstrap" sortable="true" close-on-select="false">
+                                    <ui-select-match placeholder="">{{$item.Name}}</ui-select-match>
                                     <ui-select-choices repeat="item in (vm.getChoices(field) | filter: $select.search) track by item.Id">
                                         <span ng-bind="item.Name"></span>
                                     </ui-select-choices>
                                 </ui-select>
 
-                                <cap-date-picker ng-if="field.Type === 'Date'" 
-                                                flat="false"
-                                                name="field.Field"
-                                                form-name="form"
-                                                date-name="field.Field"
-                                                val-name="field.Field"
-                                                date-model="vm.data[field.Field]"
-                                                required="true"
-                                                max-date="vm.maxDate">
-                                </cap-date-picker>
+                                <div class="input-group" ng-if="field.Type === 'Date'">
+                                    <input type="text"
+                                           is-open="show[field.Field]"
+                                           class="form-control"
+                                           uib-datepicker-popup="dd-MMM-yyyy"
+                                           ng-model="vm.data[field.Field]"
+                                           is-open="false"
+                                           datepicker-options=""
+                                           ng-required="true"
+                                           close-text="Close"
+                                           alt-input-formats="altInputFormats" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="show[field.Field] = true">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                        </button>
+                                    </span>
+                                </div>
                             </td>
                         </tr>
                         <tr>

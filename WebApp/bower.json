@@ -15,7 +15,6 @@
     "angular-messages": "~1.4.7",
     "a0-angular-storage": "^0.0.15",
     "ngToast": "ngtoast#^2.0.0",
-    "ui-select": "angular-ui-select#~0.13.2",
     "angular-ui-select": "~0.19.6"
   },
   "devDependencies": {

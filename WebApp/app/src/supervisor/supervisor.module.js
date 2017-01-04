@@ -87,7 +87,7 @@
             }
         }
       })
-      .state('shell.supervisor.package.detail', {
+      .state('shell.supervisor.package.viewdetail', {
         url:'/detail/:id',
         role: appUserRole.Supervisor,
         views: {

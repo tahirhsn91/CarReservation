@@ -20,5 +20,14 @@ namespace CarReservation.Repository
                 return RepositoryRequisite.RequestInfo.Context;
             }
         }
+
+        protected override System.Linq.IQueryable<Fare> DefaultSingleQuery
+        {
+            get
+            {
+                return base.DefaultSingleQuery
+                    .Include(x => x.Currency);
+            }
+        }
     }
 }

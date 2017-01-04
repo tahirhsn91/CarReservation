@@ -36,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="field in vm.fields">
+                    <tr ng-repeat="field in vm.fields" ng-if="field.Type !== 'Ignore'">
                         <td>
                             <span ng-if="vm.checkString(field)" ng-bind="field"></span>
                             <span ng-if="!vm.checkString(field)" ng-bind="field.Field"></span>
@@ -54,7 +54,7 @@
                     <tr>
                         <td>Actions</td>
                         <td>
-                            <a ng-click="vm.redirect('genericCrud.genericCrudEdit', {'moduleName': vm.module, 'id': vm.data.Id})">
+                            <a ng-click="vm.redirect('shell.supervisor.package.edit', {'id': vm.data.Id})">
                                 Edit
                             </a>
                             <a ng-click="vm.deleteRecord()">Delete</a>

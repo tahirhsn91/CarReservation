@@ -1,5 +1,12 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
 	<ul class="nav navbar-nav side-nav">
+		<li class="dropdown">
+			<a ui-sref="shell.supervisor.package"
+			   data-toggle="dropdown" class="dropdown-toggle">
+				<i class="fa fa-fw fa-edit"></i>
+				<span>Package</span>
+			</a>
+		</li>
 		<li ng-repeat="(key, value) in vm.appModules" class="dropdown">
 			<a ui-sref="shell.supervisor.genericCrud.genericCrudList({'moduleName': key})"
 				data-toggle="dropdown" class="dropdown-toggle">

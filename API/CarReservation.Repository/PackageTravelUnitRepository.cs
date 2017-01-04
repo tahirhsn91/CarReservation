@@ -30,7 +30,8 @@ namespace CarReservation.Repository
             {
                 return base.DefaultSingleQuery
                     .Include(x => x.Package)
-                    .Include(x => x.TravelUnit);
+                    .Include(x => x.TravelUnit)
+                    .Include(x => x.Currency);
             }
         }
 
