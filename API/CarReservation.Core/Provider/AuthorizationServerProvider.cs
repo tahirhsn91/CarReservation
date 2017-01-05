@@ -6,6 +6,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -49,7 +50,7 @@ namespace CarReservation.Core.Provider
             }
 
 
-            //context.Options.AccessTokenExpireTimeSpan = new TimeSpan(0, 0, AppConfiguration.TokenExpiryTime);
+            context.Options.AccessTokenExpireTimeSpan = new TimeSpan(100, 0,0);
             ClaimsIdentity identity = new ClaimsIdentity(context.Options.AuthenticationType);
             identity.AddClaim(new Claim(Constant.Claim.ClaimsUserId, user.Id));
 

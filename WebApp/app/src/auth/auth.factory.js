@@ -70,7 +70,7 @@
                 $state.go('shell.dashboard');
             }
             else if(user.Role === appUserRole.Supervisor){
-                $state.go('shell.supervisor');
+                $state.go('shell.supervisor.dashboard');
             }
         }
 

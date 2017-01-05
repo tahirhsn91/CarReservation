@@ -25,5 +25,13 @@ namespace CarReservation.API.Controllers
         {
             return await this._service.GetDashboard();
         }
+
+        [HttpGet]
+        [Route("SupervisorDashboard")]
+        [AuthorizeRoles(UserRoles.SUPERVISOR)]
+        public async Task<SupervisorDashboardDTO> GetSupervisorDashboard()
+        {
+            return await this._service.GetSupervisorDashboard();
+        }
     }
 }

@@ -35,7 +35,20 @@
         });
         Restangular.setErrorInterceptor(function (response, deferred, responseHandler) {
             //Loader hide here
-            toast.error(response.data.Error);
+            console.log(response);
+            console.log(httpStatus);
+            if(response.status === httpStatus.UNAUTHORIZED){
+                toast.error(response.data.Message);
+                authFactory.logout();
+            }
+            else {
+                if (response.data.Error) {
+                    toast.error(response.data.Error);
+                }
+                else if (response.data.Message) {
+                    toast.error(response.data.Message);
+                }
+            }
             toggleLoader('');
             return deferred.reject(response);
         });

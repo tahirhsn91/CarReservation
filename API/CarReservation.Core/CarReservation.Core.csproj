@@ -167,6 +167,7 @@
     <Compile Include="DTO\LoginDTO.cs" />
     <Compile Include="DTO\PackageDTO.cs" />
     <Compile Include="DTO\PackageTravelUnitDTO.cs" />
+    <Compile Include="DTO\SupervisorDashboardDTO.cs" />
     <Compile Include="DTO\TopupDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\RideStatusDTO.cs" />

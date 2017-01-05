@@ -41,5 +41,16 @@ namespace CarReservation.Service
 
             return dto;
         }
+
+        public async Task<SupervisorDashboardDTO> GetSupervisorDashboard()
+        {
+            SupervisorDashboardDTO dto = new SupervisorDashboardDTO();
+
+            dto.Package = await this._unitOfWork.PackageRepository.GetCount();
+            dto.Vehicle = await this._unitOfWork.VehicleRepository.GetCount();
+            dto.Driver = 0;
+
+            return dto;
+        }
     }
 }

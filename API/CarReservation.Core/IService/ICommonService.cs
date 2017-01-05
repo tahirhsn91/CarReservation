@@ -7,5 +7,7 @@ namespace CarReservation.Core.IService
     public interface ICommonService : IBaseService
     {
         Task<DashboardDTO> GetDashboard();
+
+        Task<SupervisorDashboardDTO> GetSupervisorDashboard();
     }
 }
