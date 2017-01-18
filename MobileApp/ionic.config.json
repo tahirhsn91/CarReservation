@@ -1,4 +1,10 @@
 {
   "name": "ionicLeftMenu",
-  "app_id": ""
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/signalr/",
+      "proxyUrl": "http://cors.api.com/signalr/"
+    }
+  ]
 }

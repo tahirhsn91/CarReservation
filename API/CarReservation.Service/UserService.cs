@@ -42,20 +42,25 @@ namespace CarReservation.Service
 
             if (applicationUser == null)
             {
-                var user = dto.ConvertToEntity();
-
                 try
                 {
-                    userManager.Create(user, dto.Password);
+                    ApplicationUser user = dto.ConvertToEntity();
+                    IdentityResult result = await userManager.CreateAsync(user, dto.Password);
+                    if (result.Succeeded)
+                    {
+                        applicationUser = await userManager.FindByEmailAsync(dto.Email);
 
-                    applicationUser = userManager.FindByName(dto.Email);
-
-                    string role = this.GetAllRoles().First(x => x.Value == dto.Role).Value;
-
-                    userManager.AddToRoles(applicationUser.Id, new string[] { role });
+                        string role = this.GetAllRoles().First(x => x.Value == dto.Role).Value;
+                        userManager.AddToRoles(applicationUser.Id, new string[] { role });
+                    }
+                    else
+                    {
+                        Common.Helper.ExceptionHelper.ThrowAPIException(result.Errors.First());
+                    }
                 }
                 catch (DbEntityValidationException dbEx)
                 {
+                    Common.Helper.ExceptionHelper.ThrowAPIException(dbEx.Message);
                 }
             }
             else

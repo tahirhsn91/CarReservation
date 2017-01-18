@@ -25,7 +25,6 @@ namespace CarReservation.API
             ConfigureWebApi(httpConfig);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(httpConfig);
-
         }
 
         private void ConfigureOAuthTokenGeneration(IAppBuilder app)

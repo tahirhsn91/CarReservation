@@ -21,11 +21,16 @@ module.exports = {
     //   port: 80
     // }
 
-     {
-      context: '/api',
-      host: 'localhost',
-      port: 46363
-    }
+       {
+        context: '/api',
+        host: 'localhost',
+        port: 46363
+      },
+      {
+          context: '/signalr',
+          host: 'localhost',
+          port: 46363
+      }
   ],
   livereload: {
     options: {
