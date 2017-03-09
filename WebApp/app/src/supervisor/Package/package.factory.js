@@ -7,7 +7,7 @@
 (function(){
 
   angular
-    .module('app.auth')
+    .module('app.supervisor')
     .factory('packageFactory', packageFactory);
 
   /* @ngInject */
@@ -54,7 +54,7 @@
         return Restangular.all(module).remove(id);
       }
 
-      function checkString(data){
+      function checkString(data) {
           if (typeof data === 'string' || data instanceof String){
             return true;
           }

@@ -35,8 +35,6 @@
         });
         Restangular.setErrorInterceptor(function (response, deferred, responseHandler) {
             //Loader hide here
-            console.log(response);
-            console.log(httpStatus);
             if(response.status === httpStatus.UNAUTHORIZED){
                 toast.error(response.data.Message);
                 authFactory.logout();

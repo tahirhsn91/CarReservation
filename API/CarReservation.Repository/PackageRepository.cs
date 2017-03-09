@@ -37,9 +37,19 @@ namespace CarReservation.Repository
             return await this.DefaultListQuery.Where(x => x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId)).ToListAsync();
         }
 
+        public override async System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Package>> GetAll(Common.Helper.JsonApiRequest request)
+        {
+            return await this.GetAllQueryable(request).Where(x => x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId)).ToListAsync();
+        }
+
         public override async System.Threading.Tasks.Task<Package> GetAsync(int id)
         {
             return await this.DefaultSingleQuery.SingleOrDefaultAsync(x => x.Id.Equals(id) && x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId));
+        }
+
+        public override async System.Threading.Tasks.Task<int> GetCount()
+        {
+            return await this.DefaultListQuery.Where(x => x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId)).CountAsync();
         }
     }
 }

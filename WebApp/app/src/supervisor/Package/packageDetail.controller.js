@@ -8,11 +8,11 @@
 
   'use strict';
 
-  angular.module('app.genericCrud')
-    .controller('GenericDetailCtrl', GenericDetailCtrl);
+  angular.module('app.supervisor')
+    .controller('PackageDetailCtrl', PackageDetailCtrl);
 
   /* @ngInject */
-  function GenericDetailCtrl($stateParams, $state, store, packageFactory, appModules, toast, appFormats, lodash){
+  function PackageDetailCtrl($stateParams, $state, store, packageFactory, appModules, toast, appFormats, lodash){
     var vm = this;
 
     vm.currentUser = store.get('user');
@@ -66,7 +66,6 @@
     }
 
     function redirect(url, obj){
-      console.log(obj);
       packageFactory.redirect(url, obj);
     }
 

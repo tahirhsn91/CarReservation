@@ -8,7 +8,7 @@
 
   'use strict';
 
-  angular.module('app.genericCrud')
+  angular.module('app.supervisor')
     .controller('PackageListCtrl', PackageListCtrl);
 
   /* @ngInject */

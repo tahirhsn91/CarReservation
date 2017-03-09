@@ -32,7 +32,7 @@
         views: {
             'content@shell.supervisor': {
                 templateUrl:'src/supervisor/Package/packageDetail.html',
-                controller: 'GenericDetailCtrl as vm'
+                controller: 'PackageDetailCtrl as vm'
             }
         }
       })
@@ -42,7 +42,7 @@
         views: {
             'content@shell.supervisor': {
                 templateUrl:'src/supervisor/Package/packageForm.html',
-                controller: 'GenericFormCtrl as vm'
+                controller: 'PackageFormCtrl as vm'
             }
         }
       })
@@ -52,7 +52,7 @@
         views: {
             'content@shell.supervisor': {
                 templateUrl:'src/supervisor/Package/packageForm.html',
-                controller: 'GenericFormCtrl as vm'
+                controller: 'PackageFormCtrl as vm'
             }
         }
       });

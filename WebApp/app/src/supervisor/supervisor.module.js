@@ -38,7 +38,7 @@
         url:'/module',
         role: appUserRole.Supervisor
       })
-      .state('shell.supervisor.genericCrud.genericCrudList', {
+     .state('shell.supervisor.genericCrud.genericCrudList', {
         url:'/:moduleName',
         role: appUserRole.Supervisor,
         views: {
@@ -47,8 +47,8 @@
                 controller: 'GenericListCtrl as vm'
             }
         }
-      })
-      .state('shell.supervisor.genericCrud.genericCrudDetail', {
+     })
+     .state('shell.supervisor.genericCrud.genericCrudDetail', {
         url:'/:moduleName/detail/:id',
         role: appUserRole.Supervisor,
         views: {
@@ -57,8 +57,8 @@
                 controller: 'GenericDetailCtrl as vm'
             }
         }
-      })
-      .state('shell.supervisor.genericCrud.genericCrudCreate', {
+     })
+     .state('shell.supervisor.genericCrud.genericCrudCreate', {
         url:'/:moduleName/new',
         role: appUserRole.Supervisor,
         views: {
@@ -67,8 +67,8 @@
                 controller: 'GenericFormCtrl as vm'
             }
         }
-      })
-      .state('shell.supervisor.genericCrud.genericCrudEdit', {
+     })
+     .state('shell.supervisor.genericCrud.genericCrudEdit', {
         url:'/:moduleName/edit/:id',
         role: appUserRole.Supervisor,
         views: {
@@ -77,7 +77,8 @@
                 controller: 'GenericFormCtrl as vm'
             }
         }
-      }).state('shell.supervisor.package', {
+     })
+     .state('shell.supervisor.package', {
         url:'/package',
         role: appUserRole.Supervisor,
         views: {
@@ -86,18 +87,18 @@
                 controller: 'PackageListCtrl as vm'
             }
         }
-      })
-      .state('shell.supervisor.package.viewdetail', {
+     })
+     .state('shell.supervisor.package.viewdetail', {
         url:'/detail/:id',
         role: appUserRole.Supervisor,
         views: {
             'content@shell.supervisor': {
                 templateUrl:'src/supervisor/Package/packageDetail.html',
-                controller: 'GenericDetailCtrl as vm'
+                controller: 'PackageDetailCtrl as vm'
             }
         }
-      })
-      .state('shell.supervisor.package.create', {
+     })
+     .state('shell.supervisor.package.create', {
         url:'/new',
         role: appUserRole.Supervisor,
         views: {
@@ -106,8 +107,8 @@
                 controller: 'PackageFormCtrl as vm'
             }
         }
-      })
-      .state('shell.supervisor.package.edit', {
+     })
+     .state('shell.supervisor.package.edit', {
         url:'/edit/:id',
         role: appUserRole.Supervisor,
         views: {
@@ -116,7 +117,7 @@
                 controller: 'PackageFormCtrl as vm'
             }
         }
-      });
+     });
   }
 
 }());
