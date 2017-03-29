@@ -114,7 +114,7 @@
         'Rate': 1,
         'Currency': {},
         'TravelUnit': {}
-      })
+      });
     }
     
   }

@@ -25,7 +25,6 @@
     vm.deleteRecord = deleteRecord;
   
     function init() {
-      debugger;
       genericCrudFactory.getSingle(vm.module, vm.recordId).then(function(result){
         vm.data = result;
         processFields();

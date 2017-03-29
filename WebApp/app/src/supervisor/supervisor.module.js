@@ -14,7 +14,6 @@
 
   /* @ngInject */
   function configuration($stateProvider, appUserRole){
-
     $stateProvider
      .state('shell.supervisor', {
       url:'supervisor',
@@ -33,6 +32,16 @@
               controller: 'SupSideBarCtrl as vm'
           }
       }
+     })
+     .state('shell.supervisor.dashboard', {
+        url:'/dashboard',
+        role: appUserRole.Supervisor,
+        views: {
+            'content@shell.supervisor': {
+                templateUrl:'src/dashboard/dashboard.html',
+                controller: 'SupervisorDashboardCtrl as vm'
+            }
+        }
      })
      .state('shell.supervisor.genericCrud', {
         url:'/module',
@@ -77,47 +86,47 @@
                 controller: 'GenericFormCtrl as vm'
             }
         }
-     })
-     .state('shell.supervisor.package', {
-        url:'/package',
-        role: appUserRole.Supervisor,
-        views: {
-            'content@shell.supervisor': {
-                templateUrl:'src/supervisor/Package/packageList.html',
-                controller: 'PackageListCtrl as vm'
-            }
-        }
-     })
-     .state('shell.supervisor.package.viewdetail', {
-        url:'/detail/:id',
-        role: appUserRole.Supervisor,
-        views: {
-            'content@shell.supervisor': {
-                templateUrl:'src/supervisor/Package/packageDetail.html',
-                controller: 'PackageDetailCtrl as vm'
-            }
-        }
-     })
-     .state('shell.supervisor.package.create', {
-        url:'/new',
-        role: appUserRole.Supervisor,
-        views: {
-            'content@shell.supervisor': {
-                templateUrl:'src/supervisor/Package/packageForm.html',
-                controller: 'PackageFormCtrl as vm'
-            }
-        }
-     })
-     .state('shell.supervisor.package.edit', {
-        url:'/edit/:id',
-        role: appUserRole.Supervisor,
-        views: {
-            'content@shell.supervisor': {
-                templateUrl:'src/supervisor/Package/packageForm.html',
-                controller: 'PackageFormCtrl as vm'
-            }
-        }
      });
+     // .state('shell.supervisor.package', {
+     //    url:'/package',
+     //    role: appUserRole.Supervisor,
+     //    views: {
+     //        'content@shell.supervisor': {
+     //            templateUrl:'src/supervisor/Package/packageList.html',
+     //            controller: 'PackageListCtrl as vm'
+     //        }
+     //    }
+     // })
+     // .state('shell.supervisor.package.viewdetail', {
+     //    url:'/detail/:id',
+     //    role: appUserRole.Supervisor,
+     //    views: {
+     //        'content@shell.supervisor': {
+     //            templateUrl:'src/supervisor/Package/packageDetail.html',
+     //            controller: 'PackageDetailCtrl as vm'
+     //        }
+     //    }
+     // })
+     // .state('shell.supervisor.package.create', {
+     //    url:'/new',
+     //    role: appUserRole.Supervisor,
+     //    views: {
+     //        'content@shell.supervisor': {
+     //            templateUrl:'src/supervisor/Package/packageForm.html',
+     //            controller: 'PackageFormCtrl as vm'
+     //        }
+     //    }
+     // })
+     // .state('shell.supervisor.package.edit', {
+     //    url:'/edit/:id',
+     //    role: appUserRole.Supervisor,
+     //    views: {
+     //        'content@shell.supervisor': {
+     //            templateUrl:'src/supervisor/Package/packageForm.html',
+     //            controller: 'PackageFormCtrl as vm'
+     //        }
+     //    }
+     // });
   }
 
 }());

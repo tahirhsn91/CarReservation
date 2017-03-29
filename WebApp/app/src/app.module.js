@@ -11,14 +11,12 @@
   angular.module('app', [
     'app.core',
     'app.common',
-  /**
-    * Application modules
-  **/
     'app.auth',
     'app.shell',
     'app.genericCrud',
     'app.dashboard',
-    'app.supervisor'
+    'app.supervisor',
+    'app.package'
   ]);
 
 }());

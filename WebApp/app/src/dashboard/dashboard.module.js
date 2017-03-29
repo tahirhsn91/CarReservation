@@ -25,17 +25,17 @@
                       controller: 'DashboardCtrl as vm'
                   }
               }
-             })
-            .state('shell.supervisor.dashboard', {
-                url:'/dashboard',
-                role: appUserRole.Supervisor,
-                views: {
-                    'content@shell.supervisor': {
-                        templateUrl:'src/dashboard/dashboard.html',
-                        controller: 'SupervisorDashboardCtrl as vm'
-                    }
-                }
-            });
+             });
+            // .state('shell.supervisor.dashboard', {
+            //     url:'/dashboard',
+            //     role: appUserRole.Supervisor,
+            //     views: {
+            //         'content@supervisorShell': {
+            //             templateUrl:'src/dashboard/dashboard.html',
+            //             controller: 'SupervisorDashboardCtrl as vm'
+            //         }
+            //     }
+            // });
   }
 
 }());

@@ -9,7 +9,7 @@
   'use strict';
 
   angular
-    .module('app.supervisor', [])
+    .module('app.package', [])
     .config(configuration);
 
   /* @ngInject */

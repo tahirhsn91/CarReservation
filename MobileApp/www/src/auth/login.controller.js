@@ -30,7 +30,7 @@
             user.FullName = user.FirstName + ' '+ user.LastName;
             store.set('user', user);
 
-            authFactory.navigateToDashboard();
+            authFactory.navigateToDashboard(user);
         });
     }
   }

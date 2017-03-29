@@ -12,7 +12,7 @@
     .factory('authFactory', authFactory);
 
   /* @ngInject */
-  function authFactory(Restangular, store, $state){
+  function authFactory(Restangular, store, appUserRole, $state){
         return {
             login: login,
             forgetPass: forgetPass,
@@ -62,8 +62,14 @@
             $state.go('authShell.login');
         }
 
-        function navigateToDashboard(){
-            $state.go('shell.customerDashboard');
+        function navigateToDashboard(user){
+            debugger;
+            if(user.Role === appUserRole.Customer) {
+                $state.go('shell.customerDashboard');
+            }
+            else if(user.Role === appUserRole.Driver){
+                $state.go('shell.driverDashboard');
+            }
         }
     }
 

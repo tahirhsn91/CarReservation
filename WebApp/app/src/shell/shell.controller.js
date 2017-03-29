@@ -14,7 +14,7 @@
 
     /* @ngInject */
     function ShellCtrl(authFactory, $rootScope) {
-        var vm = this;
+        // var vm = this;
         $rootScope.pageTitle = 'Caride';
     }
 

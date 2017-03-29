@@ -83,6 +83,7 @@
       var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
       geocodeLatLng(latlng);
     });
+
     google.maps.event.addListener(vm.map, 'zoom_changed', function () {
       var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
       geocodeLatLng(latlng);
