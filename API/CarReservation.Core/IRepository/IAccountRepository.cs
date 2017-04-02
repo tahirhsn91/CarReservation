@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IRepository
 {
-    public interface IAccountRepository : IBaseRepository<Account, int>
+    public interface IAccountRepository : IBaseRepository<Account>
     {
         Task<Account> GetAccountByUserId(string userId);
     }

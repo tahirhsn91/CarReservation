@@ -5,7 +5,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.Core.IService
 {
-    public interface IVehicleMakerService : ISetupService<IBaseRepository<VehicleMaker, int>, VehicleMaker, VehicleMakerDTO, int>
+    public interface IVehicleMakerService : ISetupService<IBaseRepository<VehicleMaker>, VehicleMaker, VehicleMakerDTO, int>
     {
     }
 }

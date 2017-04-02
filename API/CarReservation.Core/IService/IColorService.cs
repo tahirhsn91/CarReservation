@@ -5,7 +5,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.Core.IService
 {
-    public interface IColorService : ISetupService<IBaseRepository<Color, int>, Color, ColorDTO, int>
+    public interface IColorService : ISetupService<IBaseRepository<Color>, Color, ColorDTO, int>
     {
     }
 }

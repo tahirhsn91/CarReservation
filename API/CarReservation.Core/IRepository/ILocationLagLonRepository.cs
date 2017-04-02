@@ -3,7 +3,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.Core.IRepository
 {
-    public interface ILocationLagLonRepository : IBaseRepository<LocationLagLon, int>
+    public interface ILocationLagLonRepository : IBaseRepository<LocationLagLon>
     {
     }
 }

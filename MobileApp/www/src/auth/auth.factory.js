@@ -71,6 +71,10 @@
                 $state.go('shell.driverDashboard');
             }
         }
+
+        function checkDriverAssociation(){
+            return Restangular.one('DriverStatus/GetDriverAssociation').get();
+        }
     }
 
 }());

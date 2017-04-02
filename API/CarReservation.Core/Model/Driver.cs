@@ -1,10 +1,6 @@
 ﻿using CarReservation.Core.Model.Base;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarReservation.Core.Model
 {
@@ -19,14 +15,20 @@ namespace CarReservation.Core.Model
         [MaxLength(10)]
         public string NICNumber { get; set; }
 
-        public List<Vehicle> Vehicles { get; set; }
-
-        [Required]
-        public Vehicle ActiveVehicle { get; set; }
-
-        [Required]
         public ApplicationUser User { get; set; }
 
         public DriverStatus Status { get; set; }
+
+        public Supervisor Supervisor { get; set; }
+
+        [ForeignKey("User")]
+        [Required]
+        public string UserId { get; set; }
+
+        [ForeignKey("Status")]
+        public int StatusId { get; set; }
+
+        [ForeignKey("Supervisor")]
+        public int? SupervisorId { get; set; }
     }
 }

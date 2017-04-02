@@ -52,6 +52,9 @@ namespace CarReservation.Repository.Base
         private readonly IPackageVehicleModelRepository _packageVehicleModelRepository;
         private readonly IPackageVehicleTransmissionRepository _packageVehicleTransmissionRepository;
 
+        private readonly ISupervisorRepository _supervisorRepository;
+        private readonly IDriverRepository _driverRepository;
+
 
 
         public ApplicationDbContext DBContext { get { return this._requestInfo.Context; } }
@@ -97,6 +100,9 @@ namespace CarReservation.Repository.Base
         public IPackageVehicleModelRepository PackageVehicleModelRepository { get { return _packageVehicleModelRepository; } }
         public IPackageVehicleTransmissionRepository PackageVehicleTransmissionRepository { get { return _packageVehicleTransmissionRepository; } }
 
+        public ISupervisorRepository SupervisorRepository { get { return _supervisorRepository; } }
+        public IDriverRepository DriverRepository { get { return _driverRepository; } }
+
         public UnitOfWork(
             IRequestInfo requestInfo,
 
@@ -137,7 +143,10 @@ namespace CarReservation.Repository.Base
             IPackageVehicleBodyTypeRepository packageVehicleBodyTypeRepository,
             IPackageVehicleFeatureRepository packageVehicleFeatureRepository,
             IPackageVehicleModelRepository packageVehicleModelRepository,
-            IPackageVehicleTransmissionRepository packageVehicleTransmissionRepository
+            IPackageVehicleTransmissionRepository packageVehicleTransmissionRepository,
+
+            ISupervisorRepository supervisorRepository,
+            IDriverRepository driverRepository
             )
         {
             this._requestInfo = requestInfo;
@@ -180,6 +189,9 @@ namespace CarReservation.Repository.Base
             this._packageVehicleFeatureRepository = packageVehicleFeatureRepository;
             this._packageVehicleModelRepository = packageVehicleModelRepository;
             this._packageVehicleTransmissionRepository = packageVehicleTransmissionRepository;
+
+            this._supervisorRepository = supervisorRepository;
+            this._driverRepository = driverRepository;
         }
 
         public async Task<int> SaveAsync()

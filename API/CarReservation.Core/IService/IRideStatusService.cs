@@ -5,7 +5,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.Core.IService
 {
-    public interface IRideStatusService : ISetupService<IBaseRepository<RideStatus, int>, RideStatus, RideStatusDTO, int>
+    public interface IRideStatusService : ISetupService<IBaseRepository<RideStatus>, RideStatus, RideStatusDTO, int>
     {
     }
 }

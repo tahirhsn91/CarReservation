@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IRepository
 {
-    public interface ICurrencyRepository : IBaseRepository<Currency, int>
+    public interface ICurrencyRepository : IBaseRepository<Currency>
     {
     }
 }

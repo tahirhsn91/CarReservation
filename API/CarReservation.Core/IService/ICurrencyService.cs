@@ -5,7 +5,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.Core.IService
 {
-    public interface ICurrencyService : ISetupService<IBaseRepository<Currency, int>, Currency, CurrencyDTO, int>
+    public interface ICurrencyService : ISetupService<IBaseRepository<Currency>, Currency, CurrencyDTO, int>
     {
     }
 }

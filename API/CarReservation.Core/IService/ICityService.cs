@@ -5,7 +5,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.Core.IService
 {
-    public interface ICityService : ISetupService<IBaseRepository<City, int>, City, CityDTO, int>
+    public interface ICityService : ISetupService<IBaseRepository<City>, City, CityDTO, int>
     {
     }
 }

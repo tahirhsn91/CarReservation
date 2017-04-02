@@ -50,6 +50,9 @@ namespace CarReservation.Core.IRepository.Base
         IPackageVehicleModelRepository PackageVehicleModelRepository { get; }
         IPackageVehicleTransmissionRepository PackageVehicleTransmissionRepository { get; }
 
+        ISupervisorRepository SupervisorRepository { get; }
+        IDriverRepository DriverRepository { get; }
+
         Task<int> SaveAsync();
         int Save();
         DbContextTransaction BeginTransaction();

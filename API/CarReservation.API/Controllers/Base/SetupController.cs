@@ -14,7 +14,7 @@ namespace CarReservation.API.Controllers.Base
     public abstract class SetupController<TService, TDto, TEntity> : BaseController<TService, TDto, TEntity>
         where TEntity : SetupEntity<int>, new()
         where TDto : SetupDTO<TEntity, int>, new()
-        where TService : ISetupService<IBaseRepository<TEntity, int>, TEntity, TDto, int>
+        where TService : ISetupService<IBaseRepository<TEntity>, TEntity, TDto, int>
     {
         public SetupController(TService service)
             : base(service)

@@ -12,6 +12,8 @@ namespace CarReservation.Core.Model
 
         public int PassengerCapacity { get; set; }
 
+        public bool IsActive { get; set; }
+
         public Country Country { get; set; }
 
         public State State { get; set; }
@@ -29,6 +31,8 @@ namespace CarReservation.Core.Model
         public VehicleModel Model { get; set; }
 
         public Package Package { get; set; }
+
+        public Driver Driver { get; set; }
 
         [ForeignKey("Country")]
         public int CountryId { get; set; }
@@ -56,5 +60,8 @@ namespace CarReservation.Core.Model
 
         [ForeignKey("Package")]
         public int? PackageID { get; set; }
+
+        [ForeignKey("Driver")]
+        public int? DriverID { get; set; }
     }
 }

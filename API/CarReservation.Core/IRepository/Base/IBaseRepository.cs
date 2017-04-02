@@ -4,7 +4,11 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IRepository.Base
 {
-    public interface IBaseRepository<TEntity, TKey>
+    public interface IBaseRepository
+    {
+    }
+
+    public interface IBaseRepository<TEntity, TKey> : IBaseRepository
     {
         Task<TEntity> GetAsync(TKey id);
         Task<TEntity> GetEntityOnly(TKey id);
@@ -16,7 +20,7 @@ namespace CarReservation.Core.IRepository.Base
         Task DeleteAsync(TKey id);
     }
 
-    public interface IBaseRepository
+    public interface IBaseRepository<TEntity> : IBaseRepository<TEntity, int>
     {
     }
 }

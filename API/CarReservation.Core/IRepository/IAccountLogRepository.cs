@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IRepository
 {
-    public interface IAccountLogRepository : IBaseRepository<AccountLog, int>
+    public interface IAccountLogRepository : IBaseRepository<AccountLog>
     {
     }
 }

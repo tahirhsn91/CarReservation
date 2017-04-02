@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IRepository
 {
-    public interface IPackageVehicleModelRepository : IBaseRepository<PackageVehicleModel, int>
+    public interface IPackageVehicleModelRepository : IBaseRepository<PackageVehicleModel>
     {
         Task<IEnumerable<VehicleModel>> GetAsyncByEntity(Package entity);
 

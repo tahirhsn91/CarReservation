@@ -1,4 +1,5 @@
 ﻿using CarReservation.Core.DTO;
+using CarReservation.Core.IRepository;
 using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService;
 using CarReservation.Core.Model;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 namespace CarReservation.Service
 {
     public class AccountService : LoggableService<
-        IBaseRepository<Account, int>,
-        IBaseRepository<AccountLog, int>,
+        IAccountRepository,
+        IBaseRepository<AccountLog>,
         Account,
         AccountLog,
         AccountDTO,

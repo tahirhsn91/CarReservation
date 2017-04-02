@@ -162,6 +162,7 @@
     <Compile Include="DTO\CurrencyLogDTO.cs" />
     <Compile Include="DTO\DashboardDTO.cs" />
     <Compile Include="DTO\DistanceUnitDTO.cs" />
+    <Compile Include="DTO\DriverDTO.cs" />
     <Compile Include="DTO\DriverStatusDTO.cs" />
     <Compile Include="DTO\FareDTO.cs" />
     <Compile Include="DTO\FavouriteLocationDTO.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="DTO\PackageDTO.cs" />
     <Compile Include="DTO\PackageTravelUnitDTO.cs" />
     <Compile Include="DTO\SupervisorDashboardDTO.cs" />
+    <Compile Include="DTO\SupervisorDTO.cs" />
     <Compile Include="DTO\TopupDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\RideStatusDTO.cs" />
@@ -203,6 +205,7 @@
     <Compile Include="IRepository\ICurrencyLogRepository.cs" />
     <Compile Include="IRepository\ICurrencyRepository.cs" />
     <Compile Include="IRepository\IDistanceUnitRepository.cs" />
+    <Compile Include="IRepository\IDriverRepository.cs" />
     <Compile Include="IRepository\IDriverStatusRepository.cs" />
     <Compile Include="IRepository\IFareRepository.cs" />
     <Compile Include="IRepository\IFavouriteLocationRepository.cs" />
@@ -216,6 +219,7 @@
     <Compile Include="IRepository\IPackageVehicleTransmissionRepository.cs" />
     <Compile Include="IRepository\IRideStatusRepository.cs" />
     <Compile Include="IRepository\IStateRepository.cs" />
+    <Compile Include="IRepository\ISupervisorRepository.cs" />
     <Compile Include="IRepository\ITravelUnitRepository.cs" />
     <Compile Include="IRepository\IVehicleAssemblyRepository.cs" />
     <Compile Include="IRepository\IVehicleBodyTypeRepository.cs" />
@@ -235,12 +239,14 @@
     <Compile Include="IService\ICreditCardService.cs" />
     <Compile Include="IService\ICurrencyService.cs" />
     <Compile Include="IService\IDistanceUnitService.cs" />
+    <Compile Include="IService\IDriverService.cs" />
     <Compile Include="IService\IDriverStatusService.cs" />
     <Compile Include="IService\IFavouriteLocationService.cs" />
     <Compile Include="IService\IPackageService.cs" />
     <Compile Include="IService\IRideStatusService.cs" />
     <Compile Include="IService\IRoleService.cs" />
     <Compile Include="IService\IStateService.cs" />
+    <Compile Include="IService\ISupervisorService.cs" />
     <Compile Include="IService\ITravelUnitService.cs" />
     <Compile Include="IService\IUserService.cs" />
     <Compile Include="IService\IVehicleAssemblyService.cs" />

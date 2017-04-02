@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IService
 {
-    public interface ITravelUnitService : ISetupService<IBaseRepository<TravelUnit, int>, TravelUnit, TravelUnitDTO, int>
+    public interface ITravelUnitService : ISetupService<IBaseRepository<TravelUnit>, TravelUnit, TravelUnitDTO, int>
     {
     }
 }

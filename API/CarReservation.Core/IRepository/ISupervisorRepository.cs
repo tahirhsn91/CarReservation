@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IRepository
 {
-    public interface IVehicleModelRepository : IBaseRepository<VehicleModel>
+    public interface ISupervisorRepository : IBaseRepository<Supervisor>
     {
     }
 }

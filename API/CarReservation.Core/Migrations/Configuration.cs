@@ -14,7 +14,7 @@ namespace CarReservation.Core.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(CarReservation.Core.Infrastructure.ApplicationDbContext context)

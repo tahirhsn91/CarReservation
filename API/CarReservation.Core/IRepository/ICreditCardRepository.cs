@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IRepository
 {
-    public interface ICreditCardRepository : IBaseRepository<CreditCard, int>
+    public interface ICreditCardRepository : IBaseRepository<CreditCard>
     {
     }
 }

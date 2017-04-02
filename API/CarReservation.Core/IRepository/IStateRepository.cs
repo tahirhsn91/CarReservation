@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.IRepository
 {
-    public interface IStateRepository : IBaseRepository<State, int>
+    public interface IStateRepository : IBaseRepository<State>
     {
     }
 }
