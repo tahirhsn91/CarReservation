@@ -7,7 +7,7 @@ using System.Web.Http;
 namespace CarReservation.API.Controllers
 {
     [RoutePrefix("RideStatus")]
-    public class RideStatusController : SetupController<IRideStatusService, RideStatusDTO, RideStatus>
+    public class RideStatusController : BaseController<IRideStatusService, RideStatusDTO, RideStatus>
     {
         public RideStatusController(IRideStatusService service)
             : base(service)

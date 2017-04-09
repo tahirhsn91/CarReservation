@@ -13,14 +13,10 @@
   function configuration($stateProvider){
 
     $stateProvider
-      .state('shell.driverAssociation', {
+      .state('driverAssociation', {
         url:'/driverAssociationError',
-        views: {
-          'menuContent': {
-            templateUrl:'src/errorPages/driverAssociation.html',
-            controller: 'DriverAssociationCtrl as vm',
-          }
-        }
+        templateUrl:'src/errorPage/driverAssociation.html',
+        controller: 'DriverAssociationCtrl as vm'
       });
   }
 

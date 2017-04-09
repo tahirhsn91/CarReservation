@@ -1,4 +1,5 @@
 ﻿using CarReservation.Core.DTO;
+using CarReservation.Core.IRepository;
 using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService;
 using CarReservation.Core.Model;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Service
 {
-    public class FavouriteLocationService : BaseService<IBaseRepository<FavouriteLocation, int>, FavouriteLocation, FavouriteLocationDTO, int>, IFavouriteLocationService
+    public class FavouriteLocationService : BaseService<IFavouriteLocationRepository, FavouriteLocation, FavouriteLocationDTO, int>, IFavouriteLocationService
     {
         public FavouriteLocationService(IUnitOfWork unitOfWork)
             : base(unitOfWork, unitOfWork.FavouriteLocationRepository)
@@ -17,7 +18,7 @@ namespace CarReservation.Service
         public override async Task<FavouriteLocationDTO> CreateAsync(FavouriteLocationDTO dtoObject)
         {
             var locationEntity = dtoObject.Location.ConvertToEntity();
-            var locationResult = await this._unitOfWork.LocationLagLonRepository.Create(locationEntity);
+            var locationResult = await this.UnitOfWork.LocationLagLonRepository.Create(locationEntity);
             dtoObject.Location = new LocationLagLonDTO(locationResult);
 
             return await base.CreateAsync(dtoObject);
@@ -25,17 +26,17 @@ namespace CarReservation.Service
 
         public override async Task<FavouriteLocationDTO> UpdateAsync(FavouriteLocationDTO dtoObject)
         {
-            var oldEntity = await this._unitOfWork.FavouriteLocationRepository.GetAsync(dtoObject.Id);
-            var locationEntity = await this._unitOfWork.LocationLagLonRepository.GetAsync(oldEntity.LocationId);
+            var oldEntity = await this.UnitOfWork.FavouriteLocationRepository.GetAsync(dtoObject.Id);
+            var locationEntity = await this.UnitOfWork.LocationLagLonRepository.GetAsync(oldEntity.LocationId);
 
             dtoObject.Location.Id = oldEntity.LocationId;
             locationEntity = dtoObject.Location.ConvertToEntity(locationEntity);
-            var locationResult = await this._unitOfWork.LocationLagLonRepository.Update(locationEntity);
+            var locationResult = await this.UnitOfWork.LocationLagLonRepository.Update(locationEntity);
 
             oldEntity = dtoObject.ConvertToEntity(oldEntity);
-            var result = await this._unitOfWork.FavouriteLocationRepository.Update(oldEntity);
+            var result = await this.UnitOfWork.FavouriteLocationRepository.Update(oldEntity);
 
-            await _unitOfWork.SaveAsync();
+            await UnitOfWork.SaveAsync();
             dtoObject.ConvertFromEntity(result);
 
             return dtoObject;

@@ -30,7 +30,7 @@ namespace CarReservation.Service.Base
             dtoObject.ConvertFromEntity(result);
             var loggableResult = await this.LogEntity(dtoObject);
 
-            await this._unitOfWork.SaveAsync();
+            await this.UnitOfWork.SaveAsync();
 
             return dtoObject;
         }
@@ -41,7 +41,7 @@ namespace CarReservation.Service.Base
             dtoObject.ConvertFromEntity(result);
             var loggableResult = await this.LogEntity(dtoObject);
 
-            await this._unitOfWork.SaveAsync();
+            await this.UnitOfWork.SaveAsync();
 
             return dtoObject;
         }

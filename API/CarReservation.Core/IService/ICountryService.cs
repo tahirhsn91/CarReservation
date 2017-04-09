@@ -1,11 +1,12 @@
 ﻿using CarReservation.Core.DTO;
+using CarReservation.Core.IRepository;
 using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService.Base;
 using CarReservation.Core.Model;
 
 namespace CarReservation.Core.IService
 {
-    public interface ICountryService : ISetupService<IBaseRepository<Country>, Country, CountryDTO, int>
+    public interface ICountryService : ISetupService<ICountryRepository, Country, CountryDTO, int>
     {
     }
 }

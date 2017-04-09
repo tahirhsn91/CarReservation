@@ -39,7 +39,7 @@ namespace CarReservation.Repository
 
         public override async System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Package>> GetAll(Common.Helper.JsonApiRequest request)
         {
-            return await this.GetAllQueryable(request).Where(x => x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId)).ToListAsync();
+            return await this.GetAllQueryable(request).Include(x => x.StartFare).Where(x => x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId)).ToListAsync();
         }
 
         public override async System.Threading.Tasks.Task<Package> GetAsync(int id)

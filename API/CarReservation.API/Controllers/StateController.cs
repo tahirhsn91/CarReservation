@@ -7,7 +7,7 @@ using CarReservation.Core.Model;
 namespace CarReservation.API.Controllers
 {
     [RoutePrefix("State")]
-    public class StateController : SetupController<IStateService, StateDTO, State>
+    public class StateController : BaseController<IStateService, StateDTO, State>
     {
         public StateController(IStateService service)
             : base(service)

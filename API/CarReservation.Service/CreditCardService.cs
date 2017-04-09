@@ -1,4 +1,5 @@
 ﻿using CarReservation.Core.DTO;
+using CarReservation.Core.IRepository;
 using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService;
 using CarReservation.Core.Model;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Service
 {
-    public class CreditCardService : BaseService<IBaseRepository<CreditCard, int>, CreditCard, CreditCardDTO, int>, ICreditCardService
+    public class CreditCardService : BaseService<ICreditCardRepository, CreditCard, CreditCardDTO, int>, ICreditCardService
     {
         private IAccountService _accountService;
 

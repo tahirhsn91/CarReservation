@@ -11,9 +11,6 @@
   angular.module('app', [
     'app.core',
     'app.common',
-  /**
-    * Application modules
-  **/
     'app.shell',
     'app.auth',
     'app.customerDashboard',
@@ -21,7 +18,8 @@
     'app.rides',
     'app.wallet',
     'app.setting',
-    'app.staticPages'
+    'app.staticPages',
+    'app.errorPages'
   ]);
 
 }());

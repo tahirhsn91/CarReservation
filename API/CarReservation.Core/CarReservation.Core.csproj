@@ -258,54 +258,6 @@
     <Compile Include="IService\IVehicleTransmissionService.cs" />
     <Compile Include="Mapping\CreditCardMap.cs" />
     <Compile Include="Mapping\CurrencyMap.cs" />
-    <Compile Include="Migrations\201611051621268_InitialCreate.cs" />
-    <Compile Include="Migrations\201611051621268_InitialCreate.Designer.cs">
-      <DependentUpon>201611051621268_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611051624195_DeleteExtraColumns.cs" />
-    <Compile Include="Migrations\201611051624195_DeleteExtraColumns.Designer.cs">
-      <DependentUpon>201611051624195_DeleteExtraColumns.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611121314528_addingRoles.cs" />
-    <Compile Include="Migrations\201611121314528_addingRoles.Designer.cs">
-      <DependentUpon>201611121314528_addingRoles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611121405354_addingUserAudit.cs" />
-    <Compile Include="Migrations\201611121405354_addingUserAudit.Designer.cs">
-      <DependentUpon>201611121405354_addingUserAudit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611121456283_AddingUsersTypes.cs" />
-    <Compile Include="Migrations\201611121456283_AddingUsersTypes.Designer.cs">
-      <DependentUpon>201611121456283_AddingUsersTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611281306585_migration.cs" />
-    <Compile Include="Migrations\201611281306585_migration.Designer.cs">
-      <DependentUpon>201611281306585_migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612011142552_FavouriteLocation.cs" />
-    <Compile Include="Migrations\201612011142552_FavouriteLocation.Designer.cs">
-      <DependentUpon>201612011142552_FavouriteLocation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612211550497_VehicleModel.cs" />
-    <Compile Include="Migrations\201612211550497_VehicleModel.Designer.cs">
-      <DependentUpon>201612211550497_VehicleModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612221148029_VehicleFeature.cs" />
-    <Compile Include="Migrations\201612221148029_VehicleFeature.Designer.cs">
-      <DependentUpon>201612221148029_VehicleFeature.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612222227086_VehiclePackage.cs" />
-    <Compile Include="Migrations\201612222227086_VehiclePackage.Designer.cs">
-      <DependentUpon>201612222227086_VehiclePackage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701020703107_packages.cs" />
-    <Compile Include="Migrations\201701020703107_packages.Designer.cs">
-      <DependentUpon>201701020703107_packages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701021930153_convertPackageToSetupEntity.cs" />
-    <Compile Include="Migrations\201701021930153_convertPackageToSetupEntity.Designer.cs">
-      <DependentUpon>201701021930153_convertPackageToSetupEntity.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountLog.cs" />
@@ -362,44 +314,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611051621268_InitialCreate.resx">
-      <DependentUpon>201611051621268_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611051624195_DeleteExtraColumns.resx">
-      <DependentUpon>201611051624195_DeleteExtraColumns.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611121314528_addingRoles.resx">
-      <DependentUpon>201611121314528_addingRoles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611121405354_addingUserAudit.resx">
-      <DependentUpon>201611121405354_addingUserAudit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611121456283_AddingUsersTypes.resx">
-      <DependentUpon>201611121456283_AddingUsersTypes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611281306585_migration.resx">
-      <DependentUpon>201611281306585_migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612011142552_FavouriteLocation.resx">
-      <DependentUpon>201612011142552_FavouriteLocation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612211550497_VehicleModel.resx">
-      <DependentUpon>201612211550497_VehicleModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612221148029_VehicleFeature.resx">
-      <DependentUpon>201612221148029_VehicleFeature.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612222227086_VehiclePackage.resx">
-      <DependentUpon>201612222227086_VehiclePackage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701020703107_packages.resx">
-      <DependentUpon>201701020703107_packages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701021930153_convertPackageToSetupEntity.resx">
-      <DependentUpon>201701021930153_convertPackageToSetupEntity.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarReservation.Common\CarReservation.Common.csproj">

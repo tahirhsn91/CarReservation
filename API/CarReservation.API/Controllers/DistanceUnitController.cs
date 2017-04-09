@@ -7,7 +7,7 @@ using CarReservation.Core.Model;
 namespace CarReservation.API.Controllers
 {
     [RoutePrefix("DistanceUnit")]
-    public class DistanceUnitController : SetupController<IDistanceUnitService, DistanceUnitDTO, DistanceUnit>
+    public class DistanceUnitController : BaseController<IDistanceUnitService, DistanceUnitDTO, DistanceUnit>
     {
         public DistanceUnitController(IDistanceUnitService service)
             : base(service)

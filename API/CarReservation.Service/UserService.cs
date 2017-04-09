@@ -27,8 +27,7 @@ namespace CarReservation.Service
         {
             userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
-            this._unitOfWork = unitOfWork;
-            this._unitOfWork.DBContext.Users.Include(x => x.Roles);
+            this.UnitOfWork.DBContext.Users.Include(x => x.Roles);
         }
 
         public async override Task<UserDTO> CreateAsync(UserDTO dto)
@@ -85,7 +84,7 @@ namespace CarReservation.Service
         {
             List<UserDTO> users = new List<UserDTO>();
 
-            foreach (var user in _unitOfWork.DBContext.Users)
+            foreach (var user in this.UnitOfWork.DBContext.Users)
             {
                 var roles = await roleManager.FindByIdAsync(user.Roles.First().RoleId);
                 users.Add(new UserDTO(user, roles.Name));
@@ -102,7 +101,7 @@ namespace CarReservation.Service
         public async override Task<UserDTO> GetAsync(string id)
         {
             UserDTO user = new UserDTO();
-            ApplicationUser entity = _unitOfWork.DBContext.Set<ApplicationUser>().Include(x => x.Roles).AsQueryable().SingleOrDefault(x => x.Id == id);
+            ApplicationUser entity = this.UnitOfWork.DBContext.Set<ApplicationUser>().Include(x => x.Roles).AsQueryable().SingleOrDefault(x => x.Id == id);
             if (entity != null && entity.Roles != null && entity.Roles.Count > 0)
             {
                 var role = await roleManager.FindByIdAsync(entity.Roles.First().RoleId);
@@ -129,6 +128,26 @@ namespace CarReservation.Service
              .Where(f => f.FieldType == typeof(string))
              .ToDictionary(f => f.Name,
                            f => (string)f.GetValue(null));
+        }
+
+        public override Task<IList<UserDTO>> CreateAsync(IList<UserDTO> dtoObject)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Task<IList<UserDTO>> GetAllAsync(IList<string> keys)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Task<IList<UserDTO>> GetAllAsync(IList<string> keys, Common.Helper.JsonApiRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Task<IList<UserDTO>> UpdateAsync(IList<UserDTO> dtoObject)
+        {
+            throw new NotImplementedException();
         }
 
         #region Private Functions

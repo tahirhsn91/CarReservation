@@ -21,23 +21,23 @@ namespace CarReservation.Service
         {
             DashboardDTO dto = new DashboardDTO();
 
-            dto.VehicleTransmission = await this._unitOfWork.VehicleTransmissionRepository.GetCount();
-            dto.VehicleModel = await this._unitOfWork.VehicleModelRepository.GetCount();
-            dto.VehicleMaker = await this._unitOfWork.VehicleMakerRepository.GetCount();
-            dto.VehicleFeature = await this._unitOfWork.VehicleFeatureRepository.GetCount();
-            dto.VehicleBodyType = await this._unitOfWork.VehicleBodyTypeRepository.GetCount();
-            dto.VehicleAssembly = await this._unitOfWork.VehicleAssemblyRepository.GetCount();
+            dto.VehicleTransmission = await this.UnitOfWork.VehicleTransmissionRepository.GetCount();
+            dto.VehicleModel = await this.UnitOfWork.VehicleModelRepository.GetCount();
+            dto.VehicleMaker = await this.UnitOfWork.VehicleMakerRepository.GetCount();
+            dto.VehicleFeature = await this.UnitOfWork.VehicleFeatureRepository.GetCount();
+            dto.VehicleBodyType = await this.UnitOfWork.VehicleBodyTypeRepository.GetCount();
+            dto.VehicleAssembly = await this.UnitOfWork.VehicleAssemblyRepository.GetCount();
 
-            dto.TravelUnit = await this._unitOfWork.TravelUnitRepository.GetCount();
-            dto.RideStatus = await this._unitOfWork.RideStatusRepository.GetCount();
-            dto.DriverStatus = await this._unitOfWork.DriverStatusRepository.GetCount();
-            dto.DistanceUnit = await this._unitOfWork.DistanceUnitRepository.GetCount();
-            dto.Currency = await this._unitOfWork.CurrencyRepository.GetCount();
-            dto.ColorCount = await this._unitOfWork.ColorRepository.GetCount();
+            dto.TravelUnit = await this.UnitOfWork.TravelUnitRepository.GetCount();
+            dto.RideStatus = await this.UnitOfWork.RideStatusRepository.GetCount();
+            dto.DriverStatus = await this.UnitOfWork.DriverStatusRepository.GetCount();
+            dto.DistanceUnit = await this.UnitOfWork.DistanceUnitRepository.GetCount();
+            dto.Currency = await this.UnitOfWork.CurrencyRepository.GetCount();
+            dto.ColorCount = await this.UnitOfWork.ColorRepository.GetCount();
 
-            dto.Country = await this._unitOfWork.CountryRepository.GetCount();
-            dto.State = await this._unitOfWork.StateRepository.GetCount();
-            dto.City = await this._unitOfWork.CityRepository.GetCount();
+            dto.Country = await this.UnitOfWork.CountryRepository.GetCount();
+            dto.State = await this.UnitOfWork.StateRepository.GetCount();
+            dto.City = await this.UnitOfWork.CityRepository.GetCount();
 
             return dto;
         }
@@ -46,8 +46,8 @@ namespace CarReservation.Service
         {
             SupervisorDashboardDTO dto = new SupervisorDashboardDTO();
 
-            dto.Package = await this._unitOfWork.PackageRepository.GetCount();
-            dto.Vehicle = await this._unitOfWork.VehicleRepository.GetCount();
+            dto.Package = await this.UnitOfWork.PackageRepository.GetCount();
+            dto.Vehicle = await this.UnitOfWork.VehicleRepository.GetCount();
             dto.Driver = 0;
 
             return dto;

@@ -10,7 +10,7 @@ namespace CarReservation.Service
 {
     public class AccountService : LoggableService<
         IAccountRepository,
-        IBaseRepository<AccountLog>,
+        IAccountLogRepository,
         Account,
         AccountLog,
         AccountDTO,
@@ -33,7 +33,7 @@ namespace CarReservation.Service
 
         public async Task<AccountDTO> GetAccountByUserId(string userId)
         {
-            return new AccountDTO(await this._unitOfWork.AccountRepository.GetAccountByUserId(userId));
+            return new AccountDTO(await this.UnitOfWork.AccountRepository.GetAccountByUserId(userId));
         }
     }
 }

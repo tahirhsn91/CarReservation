@@ -7,7 +7,7 @@ using CarReservation.Core.Model;
 namespace CarReservation.API.Controllers
 {
     [RoutePrefix("VehicleAssembly")]
-    public class VehicleAssemblyController : SetupController<IVehicleAssemblyService, VehicleAssemblyDTO, VehicleAssembly>
+    public class VehicleAssemblyController : BaseController<IVehicleAssemblyService, VehicleAssemblyDTO, VehicleAssembly>
     {
         public VehicleAssemblyController(IVehicleAssemblyService service)
             : base(service)

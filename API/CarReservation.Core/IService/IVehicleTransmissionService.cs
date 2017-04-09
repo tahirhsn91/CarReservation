@@ -1,11 +1,12 @@
 ﻿using CarReservation.Core.DTO;
+using CarReservation.Core.IRepository;
 using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService.Base;
 using CarReservation.Core.Model;
 
 namespace CarReservation.Core.IService
 {
-    public interface IVehicleTransmissionService : ISetupService<IBaseRepository<VehicleTransmission>, VehicleTransmission, VehicleTransmissionDTO, int>
+    public interface IVehicleTransmissionService : ISetupService<IVehicleTransmissionRepository, VehicleTransmission, VehicleTransmissionDTO, int>
     {
     }
 }

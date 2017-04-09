@@ -23,7 +23,7 @@ namespace CarReservation.Service
 
         public async Task<bool> GetDriverAssociation()
         {
-            IEnumerable<Driver> result = await this._unitOfWork.DriverRepository.GetByUserId(this.requestInfo.UserId);
+            IEnumerable<Driver> result = await this.UnitOfWork.DriverRepository.GetByUserId(this.requestInfo.UserId);
 
             return (result != null && result.Count() > 0);
         }

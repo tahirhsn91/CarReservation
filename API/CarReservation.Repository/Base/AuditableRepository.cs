@@ -8,46 +8,46 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Repository.Base
 {
-    public abstract class AuditableRepository<TEntity, TKey> : DeletableRepository<TEntity, TKey>
+    public abstract class AuditableRepository<TEntity, TKey> : BaseRepository<TEntity, TKey>
         where TEntity : class, IAuditModel<TKey>
         where TKey : IEquatable<TKey>
     {
         public AuditableRepository(IRepositoryRequisites repositoryRequisite)
             : base(repositoryRequisite)
         {
-
         }
 
         protected override IQueryable<TEntity> DefaultListQuery
         {
             get
             {
-                if (RepositoryRequisite.RequestInfo.LastRead == null)
-                    return base.DefaultListQuery;
-                else
-                    return base.DefaultListQuery.Where(x => x.LastModifiedOn > RepositoryRequisite.RequestInfo.LastRead);
+                return base.DefaultListQuery.Where(x => !x.IsDeleted);
+            }
+        }
+
+        protected override IQueryable<TEntity> DefaultSingleQuery
+        {
+            get
+            {
+                return base.DefaultSingleQuery.Where(x => !x.IsDeleted);
             }
         }
 
         public override async Task<TEntity> Create(TEntity entity)
         {
-            entity.CreatedBy = RepositoryRequisite.RequestInfo.UserId;
+            entity.CreatedBy = string.IsNullOrEmpty(this.RepositoryRequisite.RequestInfo.UserId) ? null : this.RepositoryRequisite.RequestInfo.UserId;
             entity.CreatedOn = DateTime.UtcNow;
-            entity.LastModifiedBy = RepositoryRequisite.RequestInfo.UserId;
+            entity.LastModifiedBy = string.IsNullOrEmpty(this.RepositoryRequisite.RequestInfo.UserId) ? null : this.RepositoryRequisite.RequestInfo.UserId;
             entity.LastModifiedOn = DateTime.UtcNow;
+            entity.IsDeleted = false;
+
             return await base.Create(entity);
         }
 
         public override async Task<TEntity> Update(TEntity entity)
         {
-            //var dbEntity = await GetAsync(entity.Id);
-
-            //entity.CreatedBy = dbEntity.CreatedBy;
-            //entity.CreatedOn = dbEntity.CreatedOn;
             entity.LastModifiedOn = DateTime.UtcNow;
-            entity.LastModifiedBy = RepositoryRequisite.RequestInfo.UserId;
-
-            //Mapper.Map<TEntity, TEntity>(entity, dbEntity);
+            entity.LastModifiedBy = string.IsNullOrEmpty(this.RepositoryRequisite.RequestInfo.UserId) ? null : this.RepositoryRequisite.RequestInfo.UserId;
 
             return await base.Update(entity);
         }
@@ -56,17 +56,13 @@ namespace CarReservation.Repository.Base
         {
             var entity = await GetAsync(id);
 
-            entity.LastModifiedOn = DateTime.UtcNow;
-            entity.LastModifiedBy = RepositoryRequisite.RequestInfo.UserId;
-
-            await base.DeleteAsync(id);
-        }
-
-        protected void UpdateChildrenWithoutLog<TChildEntity>(ICollection<TChildEntity> childEntities) where TChildEntity : class, IBase<int>
-        {
-            foreach (var entity in childEntities)
+            if (entity != null)
             {
-                UpdateChildrenWithOutLog(entity);
+                entity.LastModifiedOn = DateTime.UtcNow;
+                entity.LastModifiedBy = string.IsNullOrEmpty(this.RepositoryRequisite.RequestInfo.UserId) ? null : this.RepositoryRequisite.RequestInfo.UserId;
+                entity.IsDeleted = true;
+
+                await base.Update(entity);
             }
         }
 
@@ -80,6 +76,23 @@ namespace CarReservation.Repository.Base
             {
                 DBContext.Entry(childEntity).State = EntityState.Added;
             }
+        }
+
+        protected void UpdateChildrenWithoutLog<TChildEntity>(ICollection<TChildEntity> childEntities) where TChildEntity : class, IBase<int>
+        {
+            foreach (var entity in childEntities)
+            {
+                this.UpdateChildrenWithOutLog(entity);
+            }
+        }
+    }
+
+    public abstract class AuditableRepository<TEntity> : AuditableRepository<TEntity, int>
+        where TEntity : class, IAuditModel<int>
+    {
+        public AuditableRepository(IRepositoryRequisites repositoryRequisite)
+            : base(repositoryRequisite)
+        {
         }
     }
 }

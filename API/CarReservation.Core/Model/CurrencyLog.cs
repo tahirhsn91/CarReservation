@@ -15,8 +15,8 @@ namespace CarReservation.Core.Model
         public double Rate { get; set; }
 
         [ForeignKey("Currency")]
-        public int CurrencyId { get; set; }
+        public int? CurrencyId { get; set; }
 
-        public virtual Currency Currency { get; set; }
+        public Currency Currency { get; set; }
     }
 }

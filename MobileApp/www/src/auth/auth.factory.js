@@ -63,16 +63,24 @@
         }
 
         function navigateToDashboard(user){
-            debugger;
             if(user.Role === appUserRole.Customer) {
                 $state.go('shell.customerDashboard');
             }
-            else if(user.Role === appUserRole.Driver){
-                $state.go('shell.driverDashboard');
+            else if(user.Role === appUserRole.Driver) {
+                checkDriverAssociation().then(function(result) {
+                    if (result) {
+                        $state.go('shell.driverDashboard');
+                    }
+                    else {
+                        if (alert('Please add Association with supervisor')) {
+                            logout();
+                        }
+                    }
+                });
             }
         }
 
-        function checkDriverAssociation(){
+        function checkDriverAssociation() {
             return Restangular.one('DriverStatus/GetDriverAssociation').get();
         }
     }

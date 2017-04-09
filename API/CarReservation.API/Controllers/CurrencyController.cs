@@ -7,7 +7,7 @@ using CarReservation.Core.Model;
 namespace CarReservation.API.Controllers
 {
     [RoutePrefix("Currency")]
-    public class CurrencyController : SetupController<ICurrencyService, CurrencyDTO, Currency>
+    public class CurrencyController : BaseController<ICurrencyService, CurrencyDTO, Currency>
     {
         public CurrencyController(ICurrencyService service)
             : base(service)

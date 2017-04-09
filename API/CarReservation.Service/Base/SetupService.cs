@@ -17,4 +17,15 @@ namespace CarReservation.Service.Base
         {
         }
     }
+
+    public abstract class SetupService<TRepository, TEntity, TDto> : BaseService<TRepository, TEntity, TDto, int>, ISetupService<TRepository, TEntity, TDto, int>
+        where TEntity : EntityBase<int>, new()
+        where TDto : BaseDTO<TEntity, int>, new()
+        where TRepository : IBaseRepository<TEntity, int>
+    {
+        public SetupService(IUnitOfWork unitOfWork, TRepository repository)
+            : base(unitOfWork, repository)
+        {
+        }
+    }
 }

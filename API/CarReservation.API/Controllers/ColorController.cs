@@ -7,7 +7,7 @@ using System.Web.Http;
 namespace CarReservation.API.Controllers
 {
     [RoutePrefix("Color")]
-    public class ColorController : SetupController<IColorService, ColorDTO, Color>
+    public class ColorController : BaseController<IColorService, ColorDTO, Color>
     {
         public ColorController(IColorService service)
             : base(service)

@@ -33,7 +33,7 @@
                 operation : operation,
                 route : route,
                 url : url,
-                headers: headers, //_.extend(headers, {'X-XSRF-Token': authFactory.setToken()}),
+                headers: _.extend(headers, {'X-XSRF-Token': authFactory.setToken()}),
                 params: params,
                 httpConfig: httpConfig
             };

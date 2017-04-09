@@ -47,7 +47,7 @@
     function submit(){
       packageFactory.save(vm.module, vm.data).then(function(){
         toast.success(vm.module + ' module record ' + vm.data.Name + ' updated successfully');
-        redirect('genericCrud.genericCrudList', {'moduleName': vm.module});
+        redirect('shell.supervisor.package', {'moduleName': vm.module});
       });
     }
 
