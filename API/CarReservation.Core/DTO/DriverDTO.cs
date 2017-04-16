@@ -39,7 +39,7 @@ namespace CarReservation.Core.DTO
         [Required]
         public string UserId { get; set; }
 
-        public int StatusId { get; set; }
+        public int? StatusId { get; set; }
 
         public int? SupervisorId { get; set; }
 

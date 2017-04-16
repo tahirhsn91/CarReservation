@@ -102,14 +102,40 @@ namespace CarReservation.Service
         {
             UserDTO user = new UserDTO();
             ApplicationUser entity = this.UnitOfWork.DBContext.Set<ApplicationUser>().Include(x => x.Roles).AsQueryable().SingleOrDefault(x => x.Id == id);
-            if (entity != null && entity.Roles != null && entity.Roles.Count > 0)
+
+            if (entity != null)
             {
-                var role = await roleManager.FindByIdAsync(entity.Roles.First().RoleId);
-                user.ConvertFromEntity(entity, role.Name);
+                if (entity.Roles != null && entity.Roles.Count > 0)
+                {
+                    var role = await roleManager.FindByIdAsync(entity.Roles.First().RoleId);
+                    user.ConvertFromEntity(entity, role.Name);
+                }
+                else
+                {
+                    user.ConvertFromEntity(entity, string.Empty);
+                }
             }
-            else
+
+
+            return user;
+        }
+
+        public async Task<UserDTO> GetByUserName(string userName)
+        {
+            UserDTO user = new UserDTO();
+            ApplicationUser entity = this.UnitOfWork.DBContext.Set<ApplicationUser>().Include(x => x.Roles).AsQueryable().SingleOrDefault(x => x.UserName == userName);
+
+            if (entity != null)
             {
-                user.ConvertFromEntity(entity, string.Empty);
+                if (entity.Roles != null && entity.Roles.Count > 0)
+                {
+                    var role = await roleManager.FindByIdAsync(entity.Roles.First().RoleId);
+                    user.ConvertFromEntity(entity, role.Name);
+                }
+                else
+                {
+                    user.ConvertFromEntity(entity, string.Empty);
+                }
             }
 
 

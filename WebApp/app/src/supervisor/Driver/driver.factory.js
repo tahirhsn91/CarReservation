@@ -7,11 +7,11 @@
 (function(){
 
   angular
-    .module('app.package')
-    .factory('packageFactory', packageFactory);
+    .module('app.driver')
+    .factory('driverFactory', driverFactory);
 
   /* @ngInject */
-  function packageFactory(Restangular, lodash, store, appModules, $state){
+  function driverFactory(Restangular, lodash, store, appModules, $state){
 
       return {
         getModuleName: getModuleName,
@@ -22,7 +22,8 @@
         checkString: checkString,
         getFieldName: getFieldName,
         fillChoices: fillChoices,
-        redirect: redirect
+        redirect: redirect,
+        checkDriver: checkDriver
       };
 
       function getModuleName(name){
@@ -44,8 +45,9 @@
 
       function save(module, data){
         if(data.Id){
-          return Restangular.all(module).customPUT(data); 
+          return Restangular.all('Driver').customPUT(data);
         } else {
+          data.UserId = '12345';
           return Restangular.all(module).post(data);
         }
       }
@@ -82,6 +84,12 @@
       function redirect(url, obj){
         $state.go(url, obj);
       }
-  }
 
+      function checkDriver(driver) {
+          var obj = {
+              Email: driver.User.Email
+          }
+          return Restangular.all('Supervisor/CheckDriver/').post(obj);
+      }
+  }
 }());

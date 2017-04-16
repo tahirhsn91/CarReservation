@@ -1,0 +1,100 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">
+            <span ng-bind="vm.pageTitle"></span>
+            <small>{{vm.data.Name}} Details</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-click="vm.redirect('shell.supervisor.dashboard')">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-click="vm.redirect('genericCrud.genericCrudList', {'moduleName': vm.module})">
+                    <span ng-bind="vm.pageTitle"></span> Module
+                </a>
+            </li>
+            <li class="active">
+                <i class="fa fa-file"></i>
+                <span ng-bind="vm.data.Name"></span>
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span>First Name</span>
+                        </td>
+                        <td>
+                            <span ng-bind="vm.data.User.FirstName"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Last Name</span>
+                        </td>
+                        <td>
+                            <span ng-bind="vm.data.User.LastName"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Address</span>
+                        </td>
+                        <td>
+                            <span ng-bind="vm.data.Address"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>CNIC</span>
+                        </td>
+                        <td>
+                            <span ng-bind="vm.data.NICNumber"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Status Name</span>
+                        </td>
+                        <td>
+                            <span ng-bind="vm.data.Status.Name"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Status Code</span>
+                        </td>
+                        <td>
+                            <span ng-bind="vm.data.Status.Code"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Actions</td>
+                        <td>
+                            <a ng-click="vm.redirect('shell.supervisor.driver.edit', {'id': vm.data.Id})">
+                                Edit
+                            </a>
+                            <a ng-click="vm.deleteRecord()">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -16,7 +16,8 @@
     'app.genericCrud',
     'app.dashboard',
     'app.supervisor',
-    'app.package'
+    'app.package',
+    'app.driver'
   ]);
 
 }());

@@ -10,5 +10,6 @@ namespace CarReservation.Core.IRepository
 {
     public interface ISupervisorRepository : IBaseRepository<Supervisor>
     {
+        Task<Supervisor> GetByUserId(string userId);
     }
 }

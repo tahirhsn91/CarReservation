@@ -154,6 +154,7 @@
     <Compile Include="DTO\Base\BaseDTO.cs" />
     <Compile Include="DTO\Base\ILoggableDTO.cs" />
     <Compile Include="DTO\Base\SetupDTO.cs" />
+    <Compile Include="DTO\CheckDriverDTO.cs" />
     <Compile Include="DTO\CityDTO.cs" />
     <Compile Include="DTO\ColorDTO.cs" />
     <Compile Include="DTO\CountryDTO.cs" />

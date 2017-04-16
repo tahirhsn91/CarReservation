@@ -12,7 +12,6 @@ namespace CarReservation.API.Controllers
         public CityController(ICityService service)
             : base(service)
         {
-            this._service = service;
         }
     }
 }

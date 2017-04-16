@@ -1,0 +1,72 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">
+            <span ng-bind="vm.pageTitle"></span>
+            <small>Module</small>
+        </h1>
+        <ol class="breadcrumb col-xs-10">
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-click="vm.redirect('shell.supervisor.dashboard')">Dashboard</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-file"></i>
+                <span ng-bind="vm.pageTitle"></span> List
+            </li>
+        </ol>
+        <div class="col-xs-2">
+            <button class="form-control btn btn-success pull-right" ng-click="vm.create()">Add {{vm.pageTitle}}</button>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <div ng-if="vm.data.length" class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Driver Name</th>
+                        <th>Address</th>
+                        <th>CNIC</th>
+                        <th>Username</th>
+                        <th>Details</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in vm.data track by $index">
+                        <td>
+                            <span ng-bind="data.User.FirstName + ' ' + data.User.LastName"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="data.Address"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="data.NICNumber"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="data.User.Email"></span>
+                        </td>
+                        <td>
+                            <a ng-click="vm.redirect('shell.supervisor.driver.detail', {'id': data.Id})">
+                                View Details
+                            </a>
+                        </td>
+                        <td>
+                            <a ng-click="vm.redirect('shell.supervisor.driver.edit', {'id': data.Id})">
+                                Edit
+                            </a>
+                            <a ng-click="vm.deleteRecord(data)">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-if="!vm.data.length" class="text-center">
+            Sorry no {{vm.module}} data found
+        </div>
+    </div>
+</div>

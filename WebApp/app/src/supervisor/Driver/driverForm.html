@@ -1,0 +1,79 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">
+            <span ng-bind="vm.pageTitle"></span>
+            <small>{{vm.data.Name}} Edit</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-click="vm.redirect('shell.supervisor.dashboard')">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-click="vm.redirect('shell.supervisor.driver')">
+                    <span ng-bind="vm.pageTitle"></span> Module
+                </a>
+            </li>
+            <li class="active">
+                <i class="fa fa-file"></i>
+                <span ng-bind="vm.data.Name"></span> Edit
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <form role="form" name="form" novalidate ng-submit="form.$valid && vm.submit()">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <td class="col-xs-3">
+                                <label for="Address">Address</label>
+                            </td>
+                            <td class="col-xs-9">
+                                <input  id="Address"
+                                        name="address"
+                                        type="text"
+                                        ng-model="vm.data.Address"
+                                        class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-3">
+                                <label for="CNIC">CNIC</label>
+                            </td>
+                            <td class="col-xs-9">
+                                <input  id="CNIC"
+                                        name="cnic"
+                                        type="text"
+                                        ng-model="vm.data.NICNumber"
+                                        class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-3">
+                                <label for="driver">Driver</label>
+                            </td>
+                            <td class="col-xs-9">
+                                <input  id="Driver"
+                                        ng-disabled="vm.data.Id"
+                                        name="driver"
+                                        type="text"
+                                        ng-blur="vm.checkDriver()"
+                                        ng-model="vm.data.User.Email"
+                                        class="form-control">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="submit" class="btn btn-success">Submit Button</button>
+            <button type="reset" class="btn btn-info">Reset Button</button>
+        </form>
+    </div>
+</div>
