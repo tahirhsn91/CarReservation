@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Data.Entity;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
@@ -44,6 +45,7 @@ namespace CarReservation.Common.Helper
 
     public static class JsonApiEFQueryBuilder
     {
+        private const string IncludeQueryParamKey = "include";
         private const string SortQueryParamKey = "sort";
         private const int DefaultPageSize = 100;
         private const string PageNumberQueryParam = "page.number";
@@ -56,6 +58,7 @@ namespace CarReservation.Common.Helper
 
         public static IQueryable<T> GenerateQuery<T>(this IQueryable<T> query, JsonApiRequest request)
         {
+            query = query.GenerateIncludeQuery<T>(request.Include);
             query = query.GenerateFilterQuery<T>(request.Filters);
             query = query.GenerateSortQuery<T>(request.Sort);
             query = query.GeneratePagination<T>(request.Pagination);
@@ -125,6 +128,40 @@ namespace CarReservation.Common.Helper
 
             IOrderedQueryable<T> workingQuery = firstSelector.ApplyInitially(query);
             query = selectors.Skip(1).Aggregate(workingQuery, (current, selector) => selector.ApplySubsequently(current));
+            return query;
+        }
+
+        public static IQueryable<T> GenerateIncludeQuery<T>(this IQueryable<T> query, List<string> includeExpressions)
+        {
+            if (includeExpressions == null || includeExpressions.Count == 0)
+            {
+                return query;
+            }
+
+            var usedProperties = new Dictionary<PropertyInfo, object>();
+
+            foreach (var includeExpression in includeExpressions)
+            {
+                if (string.IsNullOrEmpty(includeExpression))
+                {
+                    throw new Exception("One of the include expressions is empty.");
+                }
+
+                var property = typeof(T).GetJsonApiProperty(includeExpression);
+                if (property == null)
+                {
+                    continue;
+                }
+
+                if (usedProperties.ContainsKey(property))
+                {
+                    continue;
+                }
+
+                usedProperties[property] = null;
+                query = query.Include(property.PropertyType.Name);
+            }
+
             return query;
         }
 
@@ -424,6 +461,7 @@ namespace CarReservation.Common.Helper
             if (request != null)
             {
                 JsonApiRequest jsonAPIRequest = new JsonApiRequest();
+                jsonAPIRequest.Include = request.ExtractIncludeExpressions();
                 jsonAPIRequest.Sort = request.ExtractSortExpressions();
                 jsonAPIRequest.Filters = request.ExtractFilters();
                 jsonAPIRequest.Pagination = request.ExtractPagination();
@@ -522,6 +560,14 @@ namespace CarReservation.Common.Helper
             if (sortParam.Key != SortQueryParamKey) return new List<string>();
             return sortParam.Value.Split(',').ToList();
         }
+
+        public static List<string> ExtractIncludeExpressions(this HttpRequestMessage requestMessage)
+        {
+            var queryParams = requestMessage.GetQueryNameValuePairs();
+            var sortParam = queryParams.FirstOrDefault(kvp => kvp.Key == IncludeQueryParamKey);
+            if (sortParam.Key != IncludeQueryParamKey) return new List<string>();
+            return sortParam.Value.Split(',').ToList();
+        }
     }
 
     public class JsonApiPagination
@@ -537,6 +583,8 @@ namespace CarReservation.Common.Helper
         {
             this.Filters = new Dictionary<string, string>();
         }
+
+        public List<string> Include { get; set; }
 
         public List<string> Sort { get; set; }
 
