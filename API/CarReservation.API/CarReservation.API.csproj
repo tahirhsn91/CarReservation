@@ -219,6 +219,7 @@
     <Compile Include="Controllers\CurrencyController.cs" />
     <Compile Include="Controllers\DistanceUnitController.cs" />
     <Compile Include="Controllers\DriverController.cs" />
+    <Compile Include="Controllers\DriverLocationController.cs" />
     <Compile Include="Controllers\DriverStatusController.cs" />
     <Compile Include="Controllers\FavouriteLocationController.cs" />
     <Compile Include="Controllers\PackageController.cs" />

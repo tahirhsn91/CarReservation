@@ -164,6 +164,8 @@
     <Compile Include="DTO\DashboardDTO.cs" />
     <Compile Include="DTO\DistanceUnitDTO.cs" />
     <Compile Include="DTO\DriverDTO.cs" />
+    <Compile Include="DTO\DriverLocationDTO.cs" />
+    <Compile Include="DTO\DriverLocationLogDTO.cs" />
     <Compile Include="DTO\DriverStatusDTO.cs" />
     <Compile Include="DTO\FareDTO.cs" />
     <Compile Include="DTO\FavouriteLocationDTO.cs" />
@@ -206,6 +208,8 @@
     <Compile Include="IRepository\ICurrencyLogRepository.cs" />
     <Compile Include="IRepository\ICurrencyRepository.cs" />
     <Compile Include="IRepository\IDistanceUnitRepository.cs" />
+    <Compile Include="IRepository\IDriverLocationLogRepository.cs" />
+    <Compile Include="IRepository\IDriverLocationRepository.cs" />
     <Compile Include="IRepository\IDriverRepository.cs" />
     <Compile Include="IRepository\IDriverStatusRepository.cs" />
     <Compile Include="IRepository\IFareRepository.cs" />
@@ -232,6 +236,7 @@
     <Compile Include="IRepository\IVehicleVehicleFeatureRepository.cs" />
     <Compile Include="IService\Base\IBaseService.cs" />
     <Compile Include="IService\Base\ISetupService.cs" />
+    <Compile Include="IService\IDriverLocationService.cs" />
     <Compile Include="IService\IAccountService.cs" />
     <Compile Include="IService\ICityService.cs" />
     <Compile Include="IService\IColorService.cs" />

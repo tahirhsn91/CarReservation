@@ -44,34 +44,6 @@
       });
     }
 
-    function fillChoices(obj) {
-      lodash.forEach(vm.fields, function(value){
-        if(!checkString(value)){
-          if(value.Type ==='Date'){
-            vm.data[value.Field] = vm.maxDate;
-          }
-          else if(value.Type ==='DropDown'){
-            vm.data[value.Field] = {};
-            vm.choices[value.Field] = [];
-          }
-          else if (value.Type ==='Number'){
-            vm.data[value.Field] = 1;
-          }
-        }
-      });
-      driverFactory.fillChoices(obj, vm.choices);
-    }
-
-    function processFields(){
-      lodash.forEach(vm.fields, function(value){
-        if(!checkString(value)){
-          if(value.Type ==='Date'){
-            vm.data[value.Field] = new Date(vm.data[value.Field]);
-          }
-        }
-      });
-    }
-
     function getChoices(obj){
       return vm.choices[obj.Field];
     }
@@ -105,7 +77,7 @@
     function checkDriver() {
       driverFactory.checkDriver(vm.data).then(function (result) {
           if(!result){
-              toast.error("Driver not found or Associated with another supervisor");
+              toast.error('Driver not found or Associated with another supervisor');
               vm.data.User.Email = '';
           }
       }, function (error) {

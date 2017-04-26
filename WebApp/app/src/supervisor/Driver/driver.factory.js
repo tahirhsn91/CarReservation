@@ -88,7 +88,7 @@
       function checkDriver(driver) {
           var obj = {
               Email: driver.User.Email
-          }
+          };
           return Restangular.all('Supervisor/CheckDriver/').post(obj);
       }
   }

@@ -1,6 +1,8 @@
 ﻿using CarReservation.Core.DTO;
+using CarReservation.Core.Infrastructure.Base;
 using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService;
+using CarReservation.Core.Model;
 using CarReservation.Service.Base;
 using System;
 using System.Collections.Generic;
@@ -12,9 +14,12 @@ namespace CarReservation.Service
 {
     public class CommonService : BaseService, ICommonService
     {
-        public CommonService(IUnitOfWork unitOfWork)
+        private IRequestInfo requestInfo;
+
+        public CommonService(IUnitOfWork unitOfWork, IRequestInfo requestInfo)
             : base(unitOfWork)
         {
+            this.requestInfo = requestInfo;
         }
 
         public async Task<DashboardDTO> GetDashboard()
@@ -46,9 +51,11 @@ namespace CarReservation.Service
         {
             SupervisorDashboardDTO dto = new SupervisorDashboardDTO();
 
+            Supervisor supervisor = await this.UnitOfWork.SupervisorRepository.GetByUserId(this.requestInfo.UserId);
+
             dto.Package = await this.UnitOfWork.PackageRepository.GetCount();
             dto.Vehicle = await this.UnitOfWork.VehicleRepository.GetCount();
-            dto.Driver = 0;
+            dto.Driver = await this.UnitOfWork.DriverRepository.GetCount(supervisor.Id);
 
             return dto;
         }

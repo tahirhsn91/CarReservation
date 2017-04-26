@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarReservation.Core.DTO
 {
-    public class LocationLagLonDTO : BaseDTO<LocationLagLon, int>
+    public class    LocationLagLonDTO : BaseDTO<LocationLagLon, int>
     {
         [Required]
         public double Latitude { get; set; }

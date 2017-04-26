@@ -37,6 +37,11 @@ namespace CarReservation.Repository
             }
         }
 
+        public async Task<int> GetCount(int supervisorId)
+        {
+            return await this.DefaultListQuery.Where(x => x.SupervisorId == supervisorId).CountAsync();
+        }
+
         public async Task<IEnumerable<Driver>> GetByUserId(string userId)
         {
             return await this.DefaultListQuery.Where(x => x.UserId == userId).ToListAsync();

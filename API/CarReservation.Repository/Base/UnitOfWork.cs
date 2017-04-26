@@ -55,6 +55,9 @@ namespace CarReservation.Repository.Base
         private readonly ISupervisorRepository _supervisorRepository;
         private readonly IDriverRepository _driverRepository;
 
+        private readonly IDriverLocationRepository _driverLocationRepository;
+        private readonly IDriverLocationLogRepository _driverLocationLogRepository;
+
 
 
         public ApplicationDbContext DBContext { get { return this._requestInfo.Context; } }
@@ -103,6 +106,9 @@ namespace CarReservation.Repository.Base
         public ISupervisorRepository SupervisorRepository { get { return _supervisorRepository; } }
         public IDriverRepository DriverRepository { get { return _driverRepository; } }
 
+        public IDriverLocationRepository DriverLocationRepository { get { return _driverLocationRepository; } }
+        public IDriverLocationLogRepository DriverLocationLogRepository { get { return _driverLocationLogRepository; } }
+
         public UnitOfWork(
             IRequestInfo requestInfo,
 
@@ -146,7 +152,10 @@ namespace CarReservation.Repository.Base
             IPackageVehicleTransmissionRepository packageVehicleTransmissionRepository,
 
             ISupervisorRepository supervisorRepository,
-            IDriverRepository driverRepository
+            IDriverRepository driverRepository,
+
+            IDriverLocationRepository driverLocationRepository,
+            IDriverLocationLogRepository driverLocationLogRepository
             )
         {
             this._requestInfo = requestInfo;
@@ -192,6 +201,9 @@ namespace CarReservation.Repository.Base
 
             this._supervisorRepository = supervisorRepository;
             this._driverRepository = driverRepository;
+
+            this._driverLocationRepository = driverLocationRepository;
+            this._driverLocationLogRepository = driverLocationLogRepository;
         }
 
         public async Task<int> SaveAsync()

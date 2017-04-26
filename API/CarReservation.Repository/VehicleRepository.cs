@@ -3,6 +3,8 @@ using CarReservation.Core.IRepository;
 using CarReservation.Core.Model;
 using CarReservation.Repository.Base;
 using System.Data.Entity;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace CarReservation.Repository
 {

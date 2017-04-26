@@ -7,6 +7,8 @@ namespace CarReservation.Core.IRepository
 {
     public interface IDriverRepository : IBaseRepository<Driver>
     {
+        Task<int> GetCount(int supervisorId);
+
         Task<IEnumerable<Driver>> GetByUserId(string userId);
 
         Task<IEnumerable<Driver>> GetByUserName(string userName);

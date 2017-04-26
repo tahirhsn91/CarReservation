@@ -19,7 +19,7 @@
         vm.currentUser = store.get('user');
         vm.appModules = angular.copy(appModules[vm.currentUser.Role]);
 
-        delete vm.appModules['Package'];
+        delete vm.appModules.Package;
     }
 
 }());

@@ -77,6 +77,8 @@
     <Compile Include="CurrencyLogRepository.cs" />
     <Compile Include="CurrencyRepository.cs" />
     <Compile Include="DistanceUnitRepository.cs" />
+    <Compile Include="DriverLocationLogRepository.cs" />
+    <Compile Include="DriverLocationRepository.cs" />
     <Compile Include="DriverRepository.cs" />
     <Compile Include="DriverStatusRepository.cs" />
     <Compile Include="FareRepository.cs" />

@@ -69,6 +69,7 @@
     <Compile Include="CreditCardService.cs" />
     <Compile Include="CurrencyService.cs" />
     <Compile Include="DistanceUnitService.cs" />
+    <Compile Include="DriverLocationService.cs" />
     <Compile Include="DriverService.cs" />
     <Compile Include="DriverStatusService.cs" />
     <Compile Include="FavouriteLocationService.cs" />
