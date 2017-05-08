@@ -26,11 +26,9 @@
     vm.checkDriver = checkDriver;
 
     function init() {
-      fillChoices(vm.fields);
       if(vm.recordId){
         driverFactory.getSingle(vm.module, vm.recordId).then(function(result){
           vm.data = result;
-          processFields();
         });
       }
     }
