@@ -12,7 +12,7 @@
     .controller('CustomerDashboardCtrl', CustomerDashboardCtrl);
 
   /* @ngInject */
-  function CustomerDashboardCtrl(){
+  function CustomerDashboardCtrl($cordovaGeolocation){
     var vm = this;
 
     vm.getCurrectLoction = getCurrectLoction;
@@ -48,11 +48,11 @@
           };
           vm.map.setCenter(pos);
         }, function() {
-          handleLocationError(true, infoWindow, vm.map.getCenter());
+          // handleLocationError(true, infoWindow, vm.map.getCenter());
         });
       } else {
         // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, vm.map.getCenter());
+        // handleLocationError(false, infoWindow, vm.map.getCenter());
       }
     }
 

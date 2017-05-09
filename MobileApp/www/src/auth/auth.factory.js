@@ -21,7 +21,8 @@
             register: register,
             setToken: setToken,
             navigateToLogin: navigateToLogin,
-            navigateToDashboard: navigateToDashboard
+            navigateToDashboard: navigateToDashboard,
+            loginSuccess: loginSuccess
         };
 
         function forgetPass(data) {
@@ -83,6 +84,19 @@
         function checkDriverAssociation() {
             return Restangular.one('DriverStatus/GetDriverAssociation').get();
         }
+
+      function loginSuccess(data){
+          store.set('token', {
+              access_token: data.access_token,
+              token_type: data.token_type,
+              expires_in: data.expires_in
+          });
+          var user = JSON.parse(data.user);
+          user.FullName = user.FirstName.toCapitalizeCase() + ' '+ user.LastName.toCapitalizeCase();
+          store.set('user', user);
+
+          navigateToDashboard(user);
+      }
     }
 
 }());

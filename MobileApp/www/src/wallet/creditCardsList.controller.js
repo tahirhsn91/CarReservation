@@ -16,9 +16,9 @@
     var vm = this;
 
     function init() {
-      // creditCardFactory.getAllCreditCards().then(function(result){
-      //   vm.creditCards = result;
-      // });
+      creditCardFactory.getAllCreditCards().then(function(result){
+        vm.creditCards = result;
+      });
     }
 
     init();

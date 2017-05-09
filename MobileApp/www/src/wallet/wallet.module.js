@@ -18,7 +18,7 @@
         views: {
           'menuContent': {
             templateUrl:'src/wallet/wallet.html',
-            controller: 'WalletCtrl as vm',
+            controller: 'WalletCtrl as vm'
           }
         }
       })
@@ -27,7 +27,7 @@
         views: {
           'menuContent': {
             templateUrl:'src/wallet/addCreditCard.html',
-            controller: 'AddCreditCardCtrl as vm',
+            controller: 'AddCreditCardCtrl as vm'
           }
         }
       })
@@ -36,7 +36,7 @@
         views: {
           'menuContent': {
             templateUrl:'src/wallet/creditCardsList.html',
-            controller: 'CreditCardListCtrl as vm',
+            controller: 'CreditCardListCtrl as vm'
           }
         }
       })
@@ -45,7 +45,7 @@
         views: {
           'menuContent': {
             templateUrl:'src/wallet/topupAmount.html',
-            controller: 'TopupAmountCtrl as vm',
+            controller: 'TopupAmountCtrl as vm'
           }
         }
       });

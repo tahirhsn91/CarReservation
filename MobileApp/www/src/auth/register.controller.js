@@ -20,15 +20,8 @@
     vm.regex = appRegex;
 
     function register() {
-      authFactory.register(vm.user).then(function(result){
-        store.set('token', result);
-        store.set('user', 'Umair');
-        var user = 'Umair';
-        if(user === 'Umair'){
-          $state.go('shell.customerDashboard');
-        } else {
-          $state.go('shell.driverDashboard');
-        }
+      authFactory.register(vm.user).then(function(result) {
+          authFactory.loginSuccess(result);
       });
     }
 

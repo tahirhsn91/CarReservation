@@ -12,7 +12,7 @@
     .controller('DriverDashboardCtrl', DriverDashboardCtrl);
 
   /* @ngInject */
-  function DriverDashboardCtrl(){
+  function DriverDashboardCtrl(locationFactory){
     var vm = this;
 
       vm.getCurrectLoction = getCurrectLoction;
@@ -27,6 +27,7 @@
           vm.geocoder = new google.maps.Geocoder;
           vm.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
           getCurrectLoction();
+          locationFactory.saveCurrectLoction();
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -81,7 +82,6 @@
           var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
           geocodeLatLng(latlng);
       });
-
   }
 
 }());

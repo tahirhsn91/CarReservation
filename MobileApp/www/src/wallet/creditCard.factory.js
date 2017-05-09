@@ -17,7 +17,7 @@
     return {
       addCreditCard: addCreditCard,
       getAllCreditCards: getAllCreditCards
-    }
+    };
 
     function getAllCreditCards(data){
       return Restangular.one('CreditCard').get(data);

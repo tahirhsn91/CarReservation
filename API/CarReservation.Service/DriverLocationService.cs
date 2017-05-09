@@ -1,4 +1,5 @@
 ﻿using CarReservation.Core.DTO;
+using CarReservation.Core.Infrastructure.Base;
 using CarReservation.Core.IRepository;
 using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.IService;
@@ -22,9 +23,18 @@ namespace CarReservation.Service
         int>,
         IDriverLocationService
     {
-        public DriverLocationService(IUnitOfWork unitOfWork)
+        private IRequestInfo requestInfo;
+
+        public DriverLocationService(IUnitOfWork unitOfWork, IRequestInfo requestInfo)
             : base(unitOfWork, unitOfWork.DriverLocationRepository, unitOfWork.DriverLocationLogRepository)
         {
+            this.requestInfo = requestInfo;
+        }
+
+        public override async Task<DriverLocationDTO> CreateAsync(DriverLocationDTO dtoObject)
+        {
+            dtoObject.Driver = new DriverDTO((await this.UnitOfWork.DriverRepository.GetByUserId(this.requestInfo.UserId)).First());
+            return await base.CreateAsync(dtoObject);
         }
     }
 }
