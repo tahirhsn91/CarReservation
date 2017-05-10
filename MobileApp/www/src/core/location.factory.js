@@ -12,32 +12,55 @@
     .factory('locationFactory', locationFactory);
 
   /* @ngInject */
-  function locationFactory(Restangular){
+  function locationFactory(Restangular, $timeout, $cordovaGeolocation, authFactory){
     
     return {
         postDriverLocation: postDriverLocation,
-        saveCurrectLoction: saveCurrectLoction
+        saveCurrentLoction: saveCurrentLoction,
+        logCurrentLocation: logCurrentLocation
     };
 
     function postDriverLocation(data){
-      return Restangular.all('DriverLocation').post(data);
+      return Restangular.all('DriverLocation/HeartBeat').post(data);
     }
 
-    function saveCurrectLoction() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                    Location: {
-                        Latitude: position.coords.latitude,
-                        Longitude: position.coords.longitude
-                    }
-                };
-                postDriverLocation(pos);
-            });
-        } else {
-            // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, vm.map.getCenter());
-        }
+    function logCurrentLocation() {
+        $timeout(function () {
+            if (authFactory.getUser()) {
+                saveCurrentLoction();
+                logCurrentLocation();
+            }
+        }, 2000)
+    }
+
+    function saveCurrentLoction() {
+        var posOptions = {timeout: 10000, enableHighAccuracy: false};
+        $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+            var pos = {
+                Location: {
+                    Latitude: position.coords.latitude,
+                    Longitude: position.coords.longitude
+                }
+            };
+            postDriverLocation(pos);
+        }, function(err) {
+            // error
+        });
+
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(function(position) {
+        //         var pos = {
+        //             Location: {
+        //                 Latitude: position.coords.latitude,
+        //                 Longitude: position.coords.longitude
+        //             }
+        //         };
+        //         postDriverLocation(pos);
+        //     });
+        // } else {
+        //     // Browser doesn't support Geolocation
+        //     handleLocationError(false, infoWindow, vm.map.getCenter());
+        // }
     }
   }
 

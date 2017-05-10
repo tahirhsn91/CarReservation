@@ -52,6 +52,15 @@ namespace CarReservation.Core.Migrations
                 var adminUser = manager.FindByName(emailAddress);
                 manager.AddToRoles(adminUser.Id, new string[] { UserRoles.SUPER, UserRoles.ADMIN });
             }
+
+            if (context.DriverStatus.Count() == 0)
+            {
+                //roleManager.Create(new IdentityRole { Name = UserRoles.SUPER });
+                //roleManager.Create(new IdentityRole { Name = UserRoles.ADMIN });
+                //roleManager.Create(new IdentityRole { Name = UserRoles.SUPERVISOR });
+                //roleManager.Create(new IdentityRole { Name = UserRoles.DRIVER });
+                //roleManager.Create(new IdentityRole { Name = UserRoles.CUSTOMER });
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ namespace CarReservation.Core.DTO
 
         public int LocationId { get; set; }
 
-        public int StatusId { get; set; }
+        public int? StatusId { get; set; }
 
         public DriverDTO Driver { get; set; }
 

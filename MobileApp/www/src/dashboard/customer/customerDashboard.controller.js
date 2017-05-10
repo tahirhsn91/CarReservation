@@ -39,21 +39,35 @@
     }
 
     function getCurrectLoction() {
-      // Try HTML5 geolocation.
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+      var posOptions = {timeout: 10000, enableHighAccuracy: false};
+      $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+          // var lat  = position.coords.latitude;
+          // var long = position.coords.longitude;
           var pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
           vm.map.setCenter(pos);
-        }, function() {
-          // handleLocationError(true, infoWindow, vm.map.getCenter());
-        });
-      } else {
-        // Browser doesn't support Geolocation
-        // handleLocationError(false, infoWindow, vm.map.getCenter());
-      }
+      }, function(err) {
+          // error
+      });
+
+
+      // // Try HTML5 geolocation.
+      // if (navigator.geolocation) {
+      //   navigator.geolocation.getCurrentPosition(function(position) {
+      //     var pos = {
+      //       lat: position.coords.latitude,
+      //       lng: position.coords.longitude
+      //     };
+      //     vm.map.setCenter(pos);
+      //   }, function() {
+      //     // handleLocationError(true, infoWindow, vm.map.getCenter());
+      //   });
+      // } else {
+      //   // Browser doesn't support Geolocation
+      //   // handleLocationError(false, infoWindow, vm.map.getCenter());
+      // }
     }
 
     function rideNow(){

@@ -10,5 +10,6 @@ namespace CarReservation.Core.IService
 {
     public interface IDriverLocationService : IBaseService<DriverLocationDTO, int>
     {
+        Task<DriverLocationDTO> GetByDriverId(int id);
     }
 }

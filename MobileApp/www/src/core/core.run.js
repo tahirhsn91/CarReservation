@@ -25,34 +25,36 @@
         }
     });
     Restangular.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig){
+        if (url.indexOf('HeartBeat') < 0) {
             $ionicLoading.show({
-              template: '<ion-spinner class="spinner-light" icon="android"></ion-spinner>'
-            })
-            return {
-                element: element,
-                operation : operation,
-                route : route,
-                url : url,
-                headers: _.extend(headers, {'X-XSRF-Token': authFactory.setToken()}),
-                params: params,
-                httpConfig: httpConfig
-            };
-        });
-        //Restangular.setFullResponse(true);
-        Restangular.addResponseInterceptor(function (data, operation, what, url) {
-            $ionicLoading.hide();
-            return data;
-        });
-        Restangular.setErrorInterceptor(function (response, deferred, responseHandler) {
-            $ionicLoading.hide();
-            if (response.status === httpStatus.UNAUTHORIZED) {
-                store.remove('token');
-                store.remove('user');
-                $state.go('login');
-            } else {
-                alert(response.data.Error);
-            }
-            return deferred.reject(response);
-        });
+                template: '<ion-spinner class="spinner-light" icon="android"></ion-spinner>'
+            });
+        }
+        return {
+            element: element,
+            operation : operation,
+            route : route,
+            url : url,
+            headers: _.extend(headers, {'X-XSRF-Token': authFactory.setToken()}),
+            params: params,
+            httpConfig: httpConfig
+        };
+    });
+    //Restangular.setFullResponse(true);
+    Restangular.addResponseInterceptor(function (data, operation, what, url) {
+        $ionicLoading.hide();
+        return data;
+    });
+    Restangular.setErrorInterceptor(function (response, deferred, responseHandler) {
+        $ionicLoading.hide();
+        if (response.status === httpStatus.UNAUTHORIZED) {
+            store.remove('token');
+            store.remove('user');
+            $state.go('login');
+        } else {
+            alert(response.data.Error);
+        }
+        return deferred.reject(response);
+    });
   }
 }());

@@ -12,7 +12,7 @@
     .controller('DriverDashboardCtrl', DriverDashboardCtrl);
 
   /* @ngInject */
-  function DriverDashboardCtrl(locationFactory){
+  function DriverDashboardCtrl(locationFactory, $cordovaGeolocation){
     var vm = this;
 
       vm.getCurrectLoction = getCurrectLoction;
@@ -27,7 +27,7 @@
           vm.geocoder = new google.maps.Geocoder;
           vm.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
           getCurrectLoction();
-          locationFactory.saveCurrectLoction();
+          locationFactory.logCurrentLocation();
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -39,21 +39,35 @@
       }
 
       function getCurrectLoction() {
+          var posOptions = {timeout: 10000, enableHighAccuracy: false};
+          $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+              // var lat  = position.coords.latitude;
+              // var long = position.coords.longitude;
+              var pos = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+              };
+              vm.map.setCenter(pos);
+          }, function(err) {
+              // error
+          });
+
+
           // Try HTML5 geolocation.
-          if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(function(position) {
-                  var pos = {
-                      lat: position.coords.latitude,
-                      lng: position.coords.longitude
-                  };
-                  vm.map.setCenter(pos);
-              }, function() {
-                  handleLocationError(true, infoWindow, vm.map.getCenter());
-              });
-          } else {
-              // Browser doesn't support Geolocation
-              handleLocationError(false, infoWindow, vm.map.getCenter());
-          }
+          // if (navigator.geolocation) {
+          //     navigator.geolocation.getCurrentPosition(function(position) {
+          //         var pos = {
+          //             lat: position.coords.latitude,
+          //             lng: position.coords.longitude
+          //         };
+          //         vm.map.setCenter(pos);
+          //     }, function() {
+          //         handleLocationError(true, infoWindow, vm.map.getCenter());
+          //     });
+          // } else {
+          //     // Browser doesn't support Geolocation
+          //     handleLocationError(false, infoWindow, vm.map.getCenter());
+          // }
       }
 
       function geocodeLatLng(latlng) {

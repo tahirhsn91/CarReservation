@@ -17,22 +17,25 @@
     </ion-header-bar>
     <ion-content class="app-sidebar">
       <ion-list>
-        <ion-item menu-close ui-sref="shell.customerDashboard">
+        <ion-item menu-close ng-if="vm.isCustomer" ui-sref="shell.customerDashboard">
           Home
         </ion-item>
-        <ion-item menu-close ui-sref="shell.rides">
+        <ion-item menu-close ng-if="!vm.isCustomer" ui-sref="shell.driverDashboard">
+          Home
+        </ion-item>
+        <ion-item menu-close ng-if="vm.isCustomer" ui-sref="shell.rides">
           My Rides
         </ion-item>
-        <ion-item menu-close ui-sref="shell.wallet">
+        <ion-item menu-close ng-if="vm.isCustomer" ui-sref="shell.wallet">
           My Wallet
         </ion-item>
         <ion-item menu-close ui-sref="shell.setting">
           Settings
         </ion-item>
-        <ion-item menu-close ui-sref="shell.contactusPage">
+        <ion-item menu-close ng-if="vm.isCustomer" ui-sref="shell.contactusPage">
           Contact Us
         </ion-item>
-        <ion-item menu-close ui-sref="shell.helpPage">
+        <ion-item menu-close ng-if="vm.isCustomer" ui-sref="shell.helpPage">
           Help
         </ion-item>
         <ion-item menu-close ng-click="vm.logout()">

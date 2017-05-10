@@ -19,6 +19,7 @@
             resetPassword: resetPassword,
             logout: logout,
             register: register,
+            getUser: getUser,
             setToken: setToken,
             navigateToLogin: navigateToLogin,
             navigateToDashboard: navigateToDashboard,
@@ -45,6 +46,10 @@
             store.remove('token');
             store.remove('user');
             $state.reload();
+        }
+
+        function getUser() {
+            return store.get('user');
         }
 
         function setToken(){

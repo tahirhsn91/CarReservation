@@ -33,8 +33,48 @@ namespace CarReservation.Service
 
         public override async Task<DriverLocationDTO> CreateAsync(DriverLocationDTO dtoObject)
         {
-            dtoObject.Driver = new DriverDTO((await this.UnitOfWork.DriverRepository.GetByUserId(this.requestInfo.UserId)).First());
-            return await base.CreateAsync(dtoObject);
+            using (var trans = this.UnitOfWork.DBContext.Database.BeginTransaction())
+            {
+                DriverLocation driverLocationEntity = await this.Repository.GetByUserId(this.requestInfo.UserId);
+
+                if (driverLocationEntity == null)
+                {
+                    var locationEntity = await this.UnitOfWork.LocationLagLonRepository.Create(dtoObject.Location.ConvertToEntity());
+                    await this.UnitOfWork.SaveAsync();
+
+                    dtoObject.Driver = new DriverDTO((await this.UnitOfWork.DriverRepository.GetByUserId(this.requestInfo.UserId)).First());
+
+                    dtoObject.Location = new LocationLagLonDTO(locationEntity);
+                    var result = await base.CreateAsync(dtoObject);
+
+                    trans.Commit();
+                    return result;
+                }
+                else
+                {
+                    if (driverLocationEntity.Location != null && driverLocationEntity.Location.Longitude != dtoObject.Location.Longitude && driverLocationEntity.Location.Latitude != dtoObject.Location.Latitude)
+                    {
+                        var locationEntity = await this.UnitOfWork.LocationLagLonRepository.Create(dtoObject.Location.ConvertToEntity());
+                        await this.UnitOfWork.SaveAsync();
+
+                        dtoObject = new DriverLocationDTO(driverLocationEntity);
+                        dtoObject.Location = new LocationLagLonDTO(locationEntity);
+                        var result = await base.UpdateAsync(dtoObject);
+
+                        trans.Commit();
+                        return result;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+
+        public async Task<DriverLocationDTO> GetByDriverId(int id)
+        {
+            return new DriverLocationDTO(await this.Repository.GetByDriverId(id));
         }
     }
 }

@@ -23,7 +23,8 @@
         getFieldName: getFieldName,
         fillChoices: fillChoices,
         redirect: redirect,
-        checkDriver: checkDriver
+        checkDriver: checkDriver,
+        getDriverLocation: getDriverLocation
       };
 
       function getModuleName(name){
@@ -90,6 +91,10 @@
               Email: driver.User.Email
           };
           return Restangular.all('Supervisor/CheckDriver/').post(obj);
+      }
+
+      function getDriverLocation(id) {
+          return Restangular.one('DriverLocation/GetByDriverId/' + id).get();
       }
   }
 }());

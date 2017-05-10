@@ -224,3 +224,16 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+
+#center-marker{
+    position:absolute;
+    background:url(http://maps.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png) no-repeat;
+    top:50%;
+    left:50%;
+    z-index:1;
+    margin-left: -50px;/*-16px*/
+    margin-top: -16px;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+}

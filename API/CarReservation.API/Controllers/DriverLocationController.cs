@@ -1,4 +1,6 @@
 ﻿using CarReservation.API.Controllers.Base;
+using CarReservation.Common.Attributes;
+using CarReservation.Core.Constant;
 using CarReservation.Core.DTO;
 using CarReservation.Core.IService;
 using CarReservation.Core.Model;
@@ -7,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace CarReservation.API.Controllers
@@ -17,6 +20,22 @@ namespace CarReservation.API.Controllers
         public DriverLocationController(IDriverLocationService service)
             : base(service)
         {
+        }
+
+        [HttpPost]
+        [AuthorizeRoles(UserRoles.DRIVER)]
+        [Route("HeartBeat")]
+        public async Task<DriverLocationDTO> HeartBeat(DriverLocationDTO dtoObject)
+        {
+            return await base.Post(dtoObject);
+        }
+
+        [HttpGet]
+        [AuthorizeRoles(UserRoles.SUPERVISOR)]
+        [Route("GetByDriverId/{id}")]
+        public async Task<DriverLocationDTO> GetByDriverId(int id)
+        {
+            return await this._service.GetByDriverId(id);
         }
     }
 }

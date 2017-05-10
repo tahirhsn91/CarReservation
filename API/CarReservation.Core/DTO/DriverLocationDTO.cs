@@ -23,7 +23,7 @@ namespace CarReservation.Core.DTO
 
         public int LocationId { get; set; }
 
-        public int StatusId { get; set; }
+        public int? StatusId { get; set; }
 
         public DriverDTO Driver { get; set; }
 
@@ -65,17 +65,17 @@ namespace CarReservation.Core.DTO
 
             if (this.Driver != null)
             {
-                this.DriverId = entity.Driver.Id;
+                entity.DriverId = this.Driver.Id;
             }
 
             if (this.Location != null)
             {
-                this.LocationId = entity.Location.Id;
+                entity.LocationId = this.Location.Id;
             }
 
             if (this.Status != null)
             {
-                this.StatusId = entity.Status.Id;
+                entity.StatusId = this.Status.Id;
             }
 
             return entity;

@@ -28,6 +28,18 @@
       driverFactory.getSingle(vm.module, vm.recordId).then(function(result){
         vm.data = result;
       });
+      driverFactory.getDriverLocation(vm.recordId).then(function (result) {
+          var mapOptions = {
+              zoom: 14,
+              center: new google.maps.LatLng(result.Location.Latitude, result.Location.Longitude),
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              disableDefaultUI: true,
+              draggable: false,
+              scrollwheel: false
+          };
+          vm.geocoder = new google.maps.Geocoder;
+          vm.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+      });
     }
 
     vm.redirect = redirect;

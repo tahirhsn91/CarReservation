@@ -17,7 +17,7 @@ namespace CarReservation.Core.Model
         public int LocationId { get; set; }
 
         [ForeignKey("Status")]
-        public int StatusId { get; set; }
+        public int? StatusId { get; set; }
 
         public Driver Driver { get; set; }
 

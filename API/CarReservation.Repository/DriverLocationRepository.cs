@@ -25,5 +25,23 @@ namespace CarReservation.Repository
                 return RepositoryRequisite.RequestInfo.Context;
             }
         }
+
+        public async Task<DriverLocation> GetByUserId(string userId)
+        {
+            return await this.DefaultSingleQuery
+                .Include(x => x.Driver)
+                .Include(x => x.Location)
+                .Include(x => x.Status)
+                .Where(x => x.Driver.UserId == userId).SingleOrDefaultAsync();
+        }
+
+        public async Task<DriverLocation> GetByDriverId(int id)
+        {
+            return await this.DefaultSingleQuery
+                .Include(x => x.Driver)
+                .Include(x => x.Location)
+                .Include(x => x.Status)
+                .Where(x => x.DriverId == id).SingleOrDefaultAsync();
+        }
     }
 }
