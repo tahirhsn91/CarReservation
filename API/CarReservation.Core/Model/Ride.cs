@@ -1,14 +1,43 @@
 ﻿using CarReservation.Core.Model.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarReservation.Core.Model
 {
     public class Ride : EntityBase
     {
+        [ForeignKey("Source")]
+        public int? SourceId { get; set; }
+
+        [ForeignKey("Destination")]
+        public int? DestinationId { get; set; }
+
+        [ForeignKey("RideDistance")]
+        public int? RideDistanceId { get; set; }
+
+        [ForeignKey("TimeTaken")]
+        public int? TimeTakenId { get; set; }
+
+        [ForeignKey("TotalFare")]
+        public int? TotalFareId { get; set; }
+
+        [ForeignKey("ApproximateFare")]
+        public int? ApproximateFareId { get; set; }
+
+        [ForeignKey("Customer")]
+        public int? CustomerId { get; set; }
+
+        [ForeignKey("Driver")]
+        public int? DriverId { get; set; }
+
+        [ForeignKey("Package")]
+        public int? PackageId { get; set; }
+
+        [ForeignKey("RideStatus")]
+        public int? RideStatusId { get; set; }
+
+        [ForeignKey("ParentRide")]
+        public int? ParentRideId { get; set; }
+
         public LocationLagLon Source { get; set; }
 
         public LocationLagLon Destination { get; set; }
@@ -27,10 +56,10 @@ namespace CarReservation.Core.Model
 
         public Package Package { get; set; }
 
-        public List<TravelUnit> TravelUnits { get; set; }
-
+        //public List<TravelUnit> TravelUnits { get; set; }
+        
         public RideStatus RideStatus { get; set; }
 
-        public List<Ride> SharedRides { get; set; }
+        public Ride ParentRide { get; set; }
     }
 }

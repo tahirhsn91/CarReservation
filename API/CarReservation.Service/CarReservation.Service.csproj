@@ -75,6 +75,7 @@
     <Compile Include="FavouriteLocationService.cs" />
     <Compile Include="PackageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RideService.cs" />
     <Compile Include="RideStatusService.cs" />
     <Compile Include="SetupService.cs" />
     <Compile Include="StateService.cs" />

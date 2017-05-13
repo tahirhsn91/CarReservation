@@ -12,10 +12,11 @@
     .controller('DriverDashboardCtrl', DriverDashboardCtrl);
 
   /* @ngInject */
-  function DriverDashboardCtrl(locationFactory, $cordovaGeolocation){
+  function DriverDashboardCtrl(locationFactory, Restangular, $cordovaGeolocation){
     var vm = this;
 
       vm.getCurrectLoction = getCurrectLoction;
+      vm.toggleAvailable = toggleAvailable;
 
       function initialize() {
           var mapOptions = {
@@ -70,16 +71,22 @@
           // }
       }
 
+      function toggleAvailable() {
+          Restangular.all('DriverStatus/ToggleAvailable').post({}).then(function () {
+              alert('Your Available is Toggle');
+          });
+      }
+
       function geocodeLatLng(latlng) {
           vm.geocoder.geocode({'location': latlng}, function(results, status) {
               if (status === 'OK') {
                   if (results[1]) {
-                      alert(results[1].formatted_address);
+                      // alert(results[1].formatted_address);
                   } else {
-                      alert('No results found');
+                      // alert('No results found');
                   }
               } else {
-                  alert('Geocoder failed due to: ' + status);
+                  // alert('Geocoder failed due to: ' + status);
               }
           });
       }

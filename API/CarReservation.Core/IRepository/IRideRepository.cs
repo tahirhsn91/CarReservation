@@ -3,7 +3,7 @@ using CarReservation.Core.Model;
 
 namespace CarReservation.Core.IRepository
 {
-    public interface ICreditCardRepository : IBaseRepository<CreditCard>
+    public interface IRideRepository : IBaseRepository<Ride>
     {
     }
 }

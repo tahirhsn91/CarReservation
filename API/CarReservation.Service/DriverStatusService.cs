@@ -27,5 +27,29 @@ namespace CarReservation.Service
 
             return (result != null && result.Count() > 0);
         }
+
+        public async Task ToggleAvailable()
+        {
+            var driver = (await this.UnitOfWork.DriverRepository.GetByUserId(this.requestInfo.UserId)).FirstOrDefault();
+            if (driver != null)
+            {
+                DriverStatus status = null;
+                if (driver.Status == null || driver.Status.Name == Core.Constant.DriverStatus.UnAvailable)
+                {
+                    status = await this.UnitOfWork.DriverStatusRepository.GetByCode(Core.Constant.DriverStatus.Available);
+                }
+                else
+                {
+                    status = await this.UnitOfWork.DriverStatusRepository.GetByCode(Core.Constant.DriverStatus.UnAvailable);
+                }
+
+                if (status != null)
+                {
+                    driver.StatusId = status.Id;
+                    await this.UnitOfWork.DriverRepository.Update(driver);
+                    await this.UnitOfWork.SaveAsync();
+                }
+            }
+        }
     }
 }

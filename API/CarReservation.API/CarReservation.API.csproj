@@ -223,6 +223,7 @@
     <Compile Include="Controllers\DriverStatusController.cs" />
     <Compile Include="Controllers\FavouriteLocationController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
+    <Compile Include="Controllers\RideController.cs" />
     <Compile Include="Controllers\RideStatusController.cs" />
     <Compile Include="Controllers\StateController.cs" />
     <Compile Include="Controllers\SupervisorController.cs" />

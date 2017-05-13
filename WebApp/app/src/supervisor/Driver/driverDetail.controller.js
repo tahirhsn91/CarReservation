@@ -29,6 +29,7 @@
         vm.data = result;
       });
       driverFactory.getDriverLocation(vm.recordId).then(function (result) {
+          var myLatLng = {lat: result.Location.Latitude, lng: result.Location.Longitude};
           var mapOptions = {
               zoom: 14,
               center: new google.maps.LatLng(result.Location.Latitude, result.Location.Longitude),
@@ -39,6 +40,12 @@
           };
           vm.geocoder = new google.maps.Geocoder;
           vm.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+          var marker = new google.maps.Marker({
+              position: myLatLng,
+              map: vm.map,
+              title: 'Driver Location'
+          });
       });
     }
 

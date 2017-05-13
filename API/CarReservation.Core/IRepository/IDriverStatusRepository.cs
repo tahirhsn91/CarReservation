@@ -10,5 +10,8 @@ namespace CarReservation.Core.IRepository
 {
     public interface IDriverStatusRepository : IBaseRepository<DriverStatus>
     {
+        Task<DriverStatus> GetByName(string name);
+
+        Task<DriverStatus> GetByCode(string code);
     }
 }

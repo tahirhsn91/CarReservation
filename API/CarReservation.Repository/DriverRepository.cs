@@ -2,11 +2,9 @@
 using CarReservation.Core.IRepository;
 using CarReservation.Core.Model;
 using CarReservation.Repository.Base;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CarReservation.Repository
@@ -44,7 +42,12 @@ namespace CarReservation.Repository
 
         public async Task<IEnumerable<Driver>> GetByUserId(string userId)
         {
-            return await this.DefaultListQuery.Where(x => x.UserId == userId).ToListAsync();
+            return await this.DefaultListQuery
+                .Include(x => x.Supervisor)
+                .Include(x => x.User)
+                .Include(x => x.Status)
+                .Where(x => x.UserId == userId)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Driver>> GetByUserName(string userName)

@@ -43,7 +43,7 @@ namespace CarReservation.Core.Migrations
                     EmailConfirmed = true,
                     FirstName = "tahir",
                     LastName = "hassan",
-                    MobileNumber="0000000000",
+                    MobileNumber = "0000000000",
                     CreatedOn = DateTime.UtcNow,
                     LastModifiedOn = DateTime.UtcNow
                 };
@@ -55,11 +55,10 @@ namespace CarReservation.Core.Migrations
 
             if (context.DriverStatus.Count() == 0)
             {
-                //roleManager.Create(new IdentityRole { Name = UserRoles.SUPER });
-                //roleManager.Create(new IdentityRole { Name = UserRoles.ADMIN });
-                //roleManager.Create(new IdentityRole { Name = UserRoles.SUPERVISOR });
-                //roleManager.Create(new IdentityRole { Name = UserRoles.DRIVER });
-                //roleManager.Create(new IdentityRole { Name = UserRoles.CUSTOMER });
+                context.DriverStatus.Add(new Core.Model.DriverStatus { Name = Core.Constant.DriverStatus.UnAvailable, Code = Core.Constant.DriverStatus.UnAvailable, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.DriverStatus.Add(new Core.Model.DriverStatus { Name = Core.Constant.DriverStatus.Available, Code = Core.Constant.DriverStatus.Available, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.DriverStatus.Add(new Core.Model.DriverStatus { Name = Core.Constant.DriverStatus.GoingToPick, Code = Core.Constant.DriverStatus.GoingToPick, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.DriverStatus.Add(new Core.Model.DriverStatus { Name = Core.Constant.DriverStatus.Riding, Code = Core.Constant.DriverStatus.Riding, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
             }
         }
     }

@@ -12,7 +12,7 @@
     .controller('CustomerDashboardCtrl', CustomerDashboardCtrl);
 
   /* @ngInject */
-  function CustomerDashboardCtrl($cordovaGeolocation){
+  function CustomerDashboardCtrl($cordovaGeolocation, customerDashboardFactory){
     var vm = this;
 
     vm.getCurrectLoction = getCurrectLoction;
@@ -71,21 +71,34 @@
     }
 
     function rideNow(){
-      console.log(vm.map.getCenter().lat(), vm.map.getCenter().lng());
-      var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
-      geocodeLatLng(latlng);
+      // var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
+      // geocodeLatLng(latlng);
+        var posOptions = {timeout: 10000, enableHighAccuracy: false};
+        $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+            var ride = {
+                Source: {
+                    Latitude: position.coords.latitude,
+                    Longitude: position.coords.longitude
+                },
+                Destination: {
+                    Latitude: vm.map.getCenter().lat(),
+                    Longitude: vm.map.getCenter().lng()
+                }
+            };
+            customerDashboardFactory.rideNow(ride);
+        });
     }
 
     function geocodeLatLng(latlng) {
       vm.geocoder.geocode({'location': latlng}, function(results, status) {
         if (status === 'OK') {
           if (results[1]) {
-            alert(results[1].formatted_address);
+            // alert(results[1].formatted_address);
           } else {
-            alert('No results found');
+            // alert('No results found');
           }
         } else {
-          alert('Geocoder failed due to: ' + status);
+          // alert('Geocoder failed due to: ' + status);
         }
       });
     }

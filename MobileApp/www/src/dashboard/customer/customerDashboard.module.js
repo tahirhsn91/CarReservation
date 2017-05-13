@@ -18,7 +18,7 @@
         views: {
           'menuContent': {
             templateUrl:'src/dashboard/customer/customerDashboard.html',
-            controller: 'CustomerDashboardCtrl as vm',
+            controller: 'CustomerDashboardCtrl as vm'
           }
         }
       });

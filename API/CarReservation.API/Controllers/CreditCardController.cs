@@ -16,7 +16,6 @@ namespace CarReservation.API.Controllers
         public CreditCardController(ICreditCardService service)
             : base(service)
         {
-            this._service = service;
         }
 
         public override Task<IList<CreditCardDTO>> Get()

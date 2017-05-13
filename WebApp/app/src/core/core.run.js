@@ -40,11 +40,14 @@
                 authFactory.logout();
             }
             else {
-                if (response.data.Error) {
+                if (response.data && response.data.Error) {
                     toast.error(response.data.Error);
                 }
-                else if (response.data.Message) {
+                else if (response.data && response.data.Message) {
                     toast.error(response.data.Message);
+                }
+                else {
+                    toast.error(response);
                 }
             }
             toggleLoader('');

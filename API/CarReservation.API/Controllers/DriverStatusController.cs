@@ -1,16 +1,15 @@
-﻿using System.Web.Http;
-using CarReservation.API.Controllers.Base;
-using CarReservation.Core.DTO;
-using CarReservation.Core.IService;
-using CarReservation.Core.Model;
-using System.Threading.Tasks;
+﻿using CarReservation.API.Controllers.Base;
 using CarReservation.Common.Attributes;
 using CarReservation.Core.Constant;
+using CarReservation.Core.DTO;
+using CarReservation.Core.IService;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace CarReservation.API.Controllers
 {
     [RoutePrefix("DriverStatus")]
-    public class DriverStatusController : BaseController<IDriverStatusService, DriverStatusDTO, DriverStatus>
+    public class DriverStatusController : BaseController<IDriverStatusService, DriverStatusDTO, Core.Model.DriverStatus>
     {
         public DriverStatusController(IDriverStatusService service)
             : base(service)
@@ -18,12 +17,20 @@ namespace CarReservation.API.Controllers
             this._service = service;
         }
 
+        [HttpPost]
+        [Route("ToggleAvailable")]
+        [AuthorizeRoles(UserRoles.DRIVER)]
+        public async Task ToggleAvailable()
+        {
+            await this._service.ToggleAvailable();
+        }
+
         [HttpGet]
         [Route("GetDriverAssociation")]
         [AuthorizeRoles(UserRoles.DRIVER)]
-        public Task<bool> GetDriverAssociation()
+        public async Task<bool> GetDriverAssociation()
         {
-            return this._service.GetDriverAssociation();
+            return await this._service.GetDriverAssociation();
         }
     }
 }

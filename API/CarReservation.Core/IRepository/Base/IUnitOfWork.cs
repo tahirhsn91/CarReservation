@@ -56,6 +56,11 @@ namespace CarReservation.Core.IRepository.Base
         IDriverLocationRepository DriverLocationRepository { get; }
         IDriverLocationLogRepository DriverLocationLogRepository { get; }
 
+        IDistanceRepository DistanceRepository { get; }
+        ITimeTrackerRepository TimeTrackerRepository { get; }
+        ICustomerRepository CustomerRepository { get; }
+        IRideRepository RideRepository { get; }
+
         Task<int> SaveAsync();
         int Save();
         DbContextTransaction BeginTransaction();

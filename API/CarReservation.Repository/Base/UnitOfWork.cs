@@ -58,6 +58,11 @@ namespace CarReservation.Repository.Base
         private readonly IDriverLocationRepository _driverLocationRepository;
         private readonly IDriverLocationLogRepository _driverLocationLogRepository;
 
+        private readonly IDistanceRepository _distanceRepository;
+        private readonly ITimeTrackerRepository _timeTrackerRepository;
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IRideRepository _rideRepository;
+
 
 
         public ApplicationDbContext DBContext { get { return this._requestInfo.Context; } }
@@ -109,6 +114,11 @@ namespace CarReservation.Repository.Base
         public IDriverLocationRepository DriverLocationRepository { get { return _driverLocationRepository; } }
         public IDriverLocationLogRepository DriverLocationLogRepository { get { return _driverLocationLogRepository; } }
 
+        public IDistanceRepository DistanceRepository { get { return _distanceRepository; } }
+        public ITimeTrackerRepository TimeTrackerRepository { get { return _timeTrackerRepository; } }
+        public ICustomerRepository CustomerRepository { get { return _customerRepository; } }
+        public IRideRepository RideRepository { get { return _rideRepository; } }
+
         public UnitOfWork(
             IRequestInfo requestInfo,
 
@@ -155,7 +165,12 @@ namespace CarReservation.Repository.Base
             IDriverRepository driverRepository,
 
             IDriverLocationRepository driverLocationRepository,
-            IDriverLocationLogRepository driverLocationLogRepository
+            IDriverLocationLogRepository driverLocationLogRepository,
+
+            IDistanceRepository distanceRepository,
+            ITimeTrackerRepository timeTrackerRepository,
+            ICustomerRepository customerRepository,
+            IRideRepository rideRepository
             )
         {
             this._requestInfo = requestInfo;
@@ -204,6 +219,11 @@ namespace CarReservation.Repository.Base
 
             this._driverLocationRepository = driverLocationRepository;
             this._driverLocationLogRepository = driverLocationLogRepository;
+
+            this._distanceRepository = distanceRepository;
+            this._timeTrackerRepository = timeTrackerRepository;
+            this._customerRepository = customerRepository;
+            this._rideRepository = rideRepository;
         }
 
         public async Task<int> SaveAsync()
