@@ -43,5 +43,14 @@ namespace CarReservation.Repository
                 .Include(x => x.Status)
                 .Where(x => x.DriverId == id).SingleOrDefaultAsync();
         }
+
+        public async Task<IEnumerable<DriverLocation>> GetByDriverId(IList<int> driverIds)
+        {
+            return await this.DefaultListQuery
+                .Include(x => x.Location)
+                .Include(x => x.Driver)
+                .Where(x => driverIds.Contains(x.DriverId))
+                .ToListAsync();
+        }
     }
 }

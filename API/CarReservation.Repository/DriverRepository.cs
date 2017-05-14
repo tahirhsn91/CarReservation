@@ -71,5 +71,13 @@ namespace CarReservation.Repository
 
             return (driver == null || (driver.SupervisorId == null || driver.SupervisorId == 0));
         }
+
+        public async Task<IEnumerable<Driver>> GetAvaiableDrivers()
+        {
+            return await this.DefaultListQuery
+                .Include(x => x.Status)
+                .Where(x => x.Status != null && x.Status.Name == Core.Constant.DriverStatus.Available)
+                .ToListAsync();
+        }
     }
 }

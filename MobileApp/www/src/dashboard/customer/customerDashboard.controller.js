@@ -17,6 +17,7 @@
 
     vm.getCurrectLoction = getCurrectLoction;
     vm.rideNow = rideNow;
+    vm.activeRide = {};
 
     function initialize() {
       var mapOptions = {
@@ -28,6 +29,8 @@
       vm.geocoder = new google.maps.Geocoder;
       vm.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
       getCurrectLoction();
+
+      vm.activeRide = customerDashboardFactory.activeRide;
     }
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {

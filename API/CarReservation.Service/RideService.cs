@@ -8,6 +8,7 @@ using CarReservation.Core.Model;
 using CarReservation.Service.Base;
 using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,18 +29,6 @@ namespace CarReservation.Service
         {
             using (var trans = this.UnitOfWork.DBContext.Database.BeginTransaction())
             {
-                LocationLagLon sourceEntity = null;
-                LocationLagLon destinationEntity = null;
-                if (dtoObject.Source != null)
-                {
-                    sourceEntity = await this.UnitOfWork.LocationLagLonRepository.Create(dtoObject.Source.ConvertToEntity());
-                }
-
-                if (dtoObject.Destination != null)
-                {
-                    destinationEntity = await this.UnitOfWork.LocationLagLonRepository.Create(dtoObject.Destination.ConvertToEntity());
-                }
-
                 Customer customer = await this.UnitOfWork.CustomerRepository.GetByUserId(this.requestInfo.UserId);
                 if (customer == null)
                 {
@@ -49,17 +38,126 @@ namespace CarReservation.Service
                     });
                 }
 
-                await this.UnitOfWork.SaveAsync();
-                dtoObject.SourceId = sourceEntity.Id;
-                dtoObject.DestinationId = sourceEntity.Id;
-                dtoObject.CustomerId = customer.Id;
+                IEnumerable<Ride> rideEntities = await this.Repository.GetByCustomerId(customer.Id);
 
-                dtoObject = await base.CreateAsync(dtoObject);
+                if (rideEntities.Where(x => x.IsActive).Count() == 0)
+                {
+                    LocationLagLon sourceEntity = null;
+                    LocationLagLon destinationEntity = null;
+                    if (dtoObject.Source != null)
+                    {
+                        sourceEntity = await this.UnitOfWork.LocationLagLonRepository.Create(dtoObject.Source.ConvertToEntity());
+                    }
 
-                trans.Commit();
+                    if (dtoObject.Destination != null)
+                    {
+                        destinationEntity = await this.UnitOfWork.LocationLagLonRepository.Create(dtoObject.Destination.ConvertToEntity());
+                    }
 
-                return dtoObject;
+                    await this.UnitOfWork.SaveAsync();
+                    dtoObject.SourceId = sourceEntity.Id;
+                    dtoObject.DestinationId = sourceEntity.Id;
+                    dtoObject.CustomerId = customer.Id;
+                    dtoObject.IsActive = true;
+
+                    dtoObject = await base.CreateAsync(dtoObject);
+
+                    trans.Commit();
+
+                    return dtoObject;
+                }
+                else
+                {
+                    var activeRide = rideEntities.Where(x => x.IsActive).FirstOrDefault();
+                    if (activeRide != null)
+                    {
+                        if (activeRide.Driver == null)
+                        {
+                            Driver nearestDriver = await GetNearestDriver(activeRide.Source.Latitude, activeRide.Source.Longitude);
+                            if (nearestDriver != null)
+                            {
+                                activeRide.Driver = nearestDriver;
+                                activeRide.DriverId = nearestDriver.Id;
+
+                                await this.Repository.Update(activeRide);
+                                await this.UnitOfWork.SaveAsync();
+                                trans.Commit();
+                            }
+                        }
+
+                        return new RideDTO(activeRide);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
             }
         }
+
+        public async Task<RideDTO> GetCustomerActiveRide()
+        {
+            var customer = await this.UnitOfWork.CustomerRepository.GetByUserId(this.requestInfo.UserId);
+            IEnumerable<Ride> rideEntities = await this.Repository.GetByCustomerId(customer.Id);
+
+            if (rideEntities != null && rideEntities.Count() > 0)
+            {
+                return new RideDTO(rideEntities.First());
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        #region Private Functions
+        private async Task<Driver> GetNearestDriver(double latitude, double longitude)
+        {
+            IEnumerable<Driver> availableDrivers = await this.UnitOfWork.DriverRepository.GetAvaiableDrivers();
+
+            IEnumerable<DriverLocation> availableDriverLocations = await this.UnitOfWork.DriverLocationRepository.GetByDriverId(availableDrivers.Select(x => x.Id).ToList());
+
+            return await GetNearestDriver(latitude, longitude, availableDriverLocations);
+        }
+
+        private async Task<Driver> GetNearestDriver(double latitude, double longitude, IEnumerable<DriverLocation> driverLocations)
+        {
+            if (driverLocations == null || driverLocations.Count() == 0)
+            {
+                return null;
+            }
+
+            DriverLocation nearestDriverLocation = null;
+            double? nearestDistance = 0;
+
+            foreach (DriverLocation driverLocation in driverLocations)
+            {
+                double distance = await CalculateDistance(driverLocation.Location.Latitude, driverLocation.Location.Longitude, latitude, longitude);
+                if (nearestDriverLocation == null)
+                {
+                    nearestDriverLocation = driverLocation;
+                    nearestDistance = distance;
+                }
+                else
+                {
+                    if (nearestDistance > distance)
+                    {
+                        nearestDistance = distance;
+                        nearestDriverLocation = driverLocation;
+                    }
+                }
+            }
+
+            return nearestDriverLocation.Driver;
+        }
+
+        private async Task<double> CalculateDistance(double latitude, double longitude, double startLatitude, double startLongitude)
+        {
+            var sCoord = new GeoCoordinate(startLatitude, startLongitude);
+            var eCoord = new GeoCoordinate(latitude, longitude);
+
+            return sCoord.GetDistanceTo(eCoord);
+        }
+        #endregion
     }
 }

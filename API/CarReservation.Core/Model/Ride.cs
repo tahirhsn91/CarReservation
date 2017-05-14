@@ -38,6 +38,8 @@ namespace CarReservation.Core.Model
         [ForeignKey("ParentRide")]
         public int? ParentRideId { get; set; }
 
+        public bool IsActive { get; set; }
+
         public LocationLagLon Source { get; set; }
 
         public LocationLagLon Destination { get; set; }
@@ -57,7 +59,7 @@ namespace CarReservation.Core.Model
         public Package Package { get; set; }
 
         //public List<TravelUnit> TravelUnits { get; set; }
-        
+
         public RideStatus RideStatus { get; set; }
 
         public Ride ParentRide { get; set; }

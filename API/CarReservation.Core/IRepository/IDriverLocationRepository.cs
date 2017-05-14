@@ -1,5 +1,6 @@
 ﻿using CarReservation.Core.IRepository.Base;
 using CarReservation.Core.Model;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CarReservation.Core.IRepository
@@ -9,5 +10,7 @@ namespace CarReservation.Core.IRepository
         Task<DriverLocation> GetByUserId(string userId);
 
         Task<DriverLocation> GetByDriverId(int id);
+
+        Task<IEnumerable<DriverLocation>> GetByDriverId(IList<int> driverIds);
     }
 }

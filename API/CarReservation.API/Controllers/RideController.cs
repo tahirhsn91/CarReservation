@@ -27,5 +27,21 @@ namespace CarReservation.API.Controllers
         {
             return base.Post(dtoObject);
         }
+
+        [HttpPost]
+        [AuthorizeRoles(UserRoles.CUSTOMER)]
+        [Route("RideNow/HeartBeat")]
+        public Task<RideDTO> RideNow(RideDTO dtoObject)
+        {
+            return base.Post(dtoObject);
+        }
+
+        [HttpGet]
+        [AuthorizeRoles(UserRoles.CUSTOMER)]
+        [Route("GetActiveRide/HeartBeat")]
+        public async Task<RideDTO> GetActiveRide()
+        {
+            return await this._service.GetCustomerActiveRide();
+        }
     }
 }

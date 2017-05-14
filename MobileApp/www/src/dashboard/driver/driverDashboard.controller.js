@@ -28,7 +28,6 @@
           vm.geocoder = new google.maps.Geocoder;
           vm.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
           getCurrectLoction();
-          locationFactory.logCurrentLocation();
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {

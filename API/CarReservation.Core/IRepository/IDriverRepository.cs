@@ -16,5 +16,7 @@ namespace CarReservation.Core.IRepository
         Task<IEnumerable<Driver>> GetBySupervisorId(string supervisorId);
 
         Task<bool> CheckByUserName(string userName);
+
+        Task<IEnumerable<Driver>> GetAvaiableDrivers();
     }
 }

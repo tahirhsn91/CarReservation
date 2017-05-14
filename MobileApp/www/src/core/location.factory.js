@@ -13,11 +13,14 @@
 
   /* @ngInject */
   function locationFactory(Restangular, $timeout, $cordovaGeolocation, authFactory){
-    
+    var currentRide = null;
+    logCurrentLocation();
+
     return {
         postDriverLocation: postDriverLocation,
         saveCurrentLoction: saveCurrentLoction,
-        logCurrentLocation: logCurrentLocation
+        logCurrentLocation: logCurrentLocation,
+        currentRide: currentRide
     };
 
     function postDriverLocation(data){
@@ -26,9 +29,8 @@
 
     function logCurrentLocation() {
         $timeout(function () {
-            if (authFactory.getUser()) {
+            if (authFactory.getUser() && authFactory.getUser().Role === 'Driver') {
                 saveCurrentLoction();
-                logCurrentLocation();
             }
         }, 2000)
     }
@@ -42,25 +44,12 @@
                     Longitude: position.coords.longitude
                 }
             };
-            postDriverLocation(pos);
+            postDriverLocation(pos).then(function (result) {
+                currentRide = result;
+                logCurrentLocation();
+            });
         }, function(err) {
-            // error
         });
-
-        // if (navigator.geolocation) {
-        //     navigator.geolocation.getCurrentPosition(function(position) {
-        //         var pos = {
-        //             Location: {
-        //                 Latitude: position.coords.latitude,
-        //                 Longitude: position.coords.longitude
-        //             }
-        //         };
-        //         postDriverLocation(pos);
-        //     });
-        // } else {
-        //     // Browser doesn't support Geolocation
-        //     handleLocationError(false, infoWindow, vm.map.getCenter());
-        // }
     }
   }
 

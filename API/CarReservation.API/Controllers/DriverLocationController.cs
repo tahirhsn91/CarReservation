@@ -4,11 +4,6 @@ using CarReservation.Core.Constant;
 using CarReservation.Core.DTO;
 using CarReservation.Core.IService;
 using CarReservation.Core.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -25,9 +20,9 @@ namespace CarReservation.API.Controllers
         [HttpPost]
         [AuthorizeRoles(UserRoles.DRIVER)]
         [Route("HeartBeat")]
-        public async Task<DriverLocationDTO> HeartBeat(DriverLocationDTO dtoObject)
+        public async Task<RideDTO> HeartBeat(DriverLocationDTO dtoObject)
         {
-            return await base.Post(dtoObject);
+            return await this._service.SaveAsync(dtoObject);
         }
 
         [HttpGet]

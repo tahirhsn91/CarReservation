@@ -41,6 +41,8 @@ namespace CarReservation.Core.DTO
 
         public int? ParentRideId { get; set; }
 
+        public bool IsActive { get; set; }
+
         public LocationLagLonDTO Source { get; set; }
 
         public LocationLagLonDTO Destination { get; set; }
@@ -80,6 +82,7 @@ namespace CarReservation.Core.DTO
             this.PackageId = entity.PackageId;
             this.RideStatusId = entity.RideStatusId;
             this.ParentRideId = entity.ParentRideId;
+            this.IsActive = entity.IsActive;
 
             if (entity.Source != null)
             {
@@ -152,6 +155,7 @@ namespace CarReservation.Core.DTO
             entity.PackageId = this.PackageId;
             entity.RideStatusId = this.RideStatusId;
             entity.ParentRideId = this.ParentRideId;
+            entity.IsActive = this.IsActive;
 
             return entity;
         }

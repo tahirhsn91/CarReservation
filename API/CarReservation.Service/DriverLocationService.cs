@@ -31,7 +31,7 @@ namespace CarReservation.Service
             this.requestInfo = requestInfo;
         }
 
-        public override async Task<DriverLocationDTO> CreateAsync(DriverLocationDTO dtoObject)
+        public async Task<RideDTO> SaveAsync(DriverLocationDTO dtoObject)
         {
             using (var trans = this.UnitOfWork.DBContext.Database.BeginTransaction())
             {
@@ -48,7 +48,7 @@ namespace CarReservation.Service
                     var result = await base.CreateAsync(dtoObject);
 
                     trans.Commit();
-                    return result;
+                    return await this.GetDriverActiveRide(dtoObject.Driver.Id);
                 }
                 else
                 {
@@ -62,7 +62,7 @@ namespace CarReservation.Service
                         var result = await base.UpdateAsync(dtoObject);
 
                         trans.Commit();
-                        return result;
+                        return await this.GetDriverActiveRide(driverLocationEntity.DriverId);
                     }
                     else
                     {
@@ -76,5 +76,21 @@ namespace CarReservation.Service
         {
             return new DriverLocationDTO(await this.Repository.GetByDriverId(id));
         }
+
+        #region Private Functions
+        private async Task<RideDTO> GetDriverActiveRide(int driverId)
+        {
+            var activeRides = await this.UnitOfWork.RideRepository.GetActiveRideByDriverId(driverId);
+
+            if (activeRides != null && activeRides.Count() > 0)
+            {
+                return new RideDTO(activeRides.First());
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
     }
 }
