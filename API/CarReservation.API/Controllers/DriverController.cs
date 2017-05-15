@@ -4,6 +4,7 @@ using CarReservation.Core.Constant;
 using CarReservation.Core.DTO;
 using CarReservation.Core.IService;
 using CarReservation.Core.Model;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace CarReservation.API.Controllers
@@ -26,6 +27,14 @@ namespace CarReservation.API.Controllers
         public override System.Threading.Tasks.Task Delete(int id)
         {
             return base.Delete(id);
+        }
+
+        [HttpGet]
+        [AuthorizeRoles(UserRoles.DRIVER)]
+        [Route("GetCurrentDriver")]
+        public async Task<DriverDTO> GetCurrentDriver()
+        {
+            return await this._service.GetCurrentDriver();
         }
     }
 }

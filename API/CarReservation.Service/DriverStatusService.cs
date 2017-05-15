@@ -28,9 +28,9 @@ namespace CarReservation.Service
             return (result != null && result.Count() > 0);
         }
 
-        public async Task ToggleAvailable()
+        public async Task<DriverDTO> ToggleAvailable()
         {
-            var driver = (await this.UnitOfWork.DriverRepository.GetByUserId(this.requestInfo.UserId)).FirstOrDefault();
+            Driver driver = (await this.UnitOfWork.DriverRepository.GetByUserId(this.requestInfo.UserId)).FirstOrDefault();
             if (driver != null)
             {
                 DriverStatus status = null;
@@ -49,6 +49,12 @@ namespace CarReservation.Service
                     await this.UnitOfWork.DriverRepository.Update(driver);
                     await this.UnitOfWork.SaveAsync();
                 }
+
+                return new DriverDTO(driver);
+            }
+            else
+            {
+                return null;
             }
         }
     }

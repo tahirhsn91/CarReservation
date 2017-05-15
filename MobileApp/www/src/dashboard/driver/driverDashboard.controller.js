@@ -13,8 +13,10 @@
 
   /* @ngInject */
   function DriverDashboardCtrl(locationFactory, Restangular, $cordovaGeolocation){
-    var vm = this;
+      var vm = this;
 
+      vm.locationFactory = locationFactory;
+      vm.currentDriver = {};
       vm.getCurrectLoction = getCurrectLoction;
       vm.toggleAvailable = toggleAvailable;
 
@@ -26,8 +28,9 @@
               disableDefaultUI: true
           };
           vm.geocoder = new google.maps.Geocoder;
-          vm.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+          locationFactory.driverMap.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
           getCurrectLoction();
+          getCurrentDriverObj();
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -47,32 +50,16 @@
                   lat: position.coords.latitude,
                   lng: position.coords.longitude
               };
-              vm.map.setCenter(pos);
+              locationFactory.driverMap.map.setCenter(pos);
           }, function(err) {
               // error
           });
-
-
-          // Try HTML5 geolocation.
-          // if (navigator.geolocation) {
-          //     navigator.geolocation.getCurrentPosition(function(position) {
-          //         var pos = {
-          //             lat: position.coords.latitude,
-          //             lng: position.coords.longitude
-          //         };
-          //         vm.map.setCenter(pos);
-          //     }, function() {
-          //         handleLocationError(true, infoWindow, vm.map.getCenter());
-          //     });
-          // } else {
-          //     // Browser doesn't support Geolocation
-          //     handleLocationError(false, infoWindow, vm.map.getCenter());
-          // }
       }
 
       function toggleAvailable() {
-          Restangular.all('DriverStatus/ToggleAvailable').post({}).then(function () {
+          Restangular.all('DriverStatus/ToggleAvailable').post({}).then(function (result) {
               alert('Your Available is Toggle');
+              vm.currentDriver = result;
           });
       }
 
@@ -90,16 +77,22 @@
           });
       }
 
+      function getCurrentDriverObj() {
+          Restangular.one('Driver/GetCurrentDriver').get().then(function (result) {
+              vm.currentDriver = result;
+          })
+      }
+
       //google.maps.event.addDomListener(window, 'load', initialize);
       initialize();
 
-      google.maps.event.addListener(vm.map, 'dragend', function () {
-          var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
+      google.maps.event.addListener(locationFactory.driverMap.map, 'dragend', function () {
+          var latlng = {lat: locationFactory.driverMap.map.getCenter().lat(), lng: locationFactory.driverMap.map.getCenter().lng()};
           geocodeLatLng(latlng);
       });
 
-      google.maps.event.addListener(vm.map, 'zoom_changed', function () {
-          var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
+      google.maps.event.addListener(locationFactory.driverMap.map, 'zoom_changed', function () {
+          var latlng = {lat: locationFactory.driverMap.map.getCenter().lat(), lng: locationFactory.driverMap.map.getCenter().lng()};
           geocodeLatLng(latlng);
       });
   }

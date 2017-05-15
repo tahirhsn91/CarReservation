@@ -10,6 +10,6 @@ namespace CarReservation.Core.IService
     {
         Task<bool> GetDriverAssociation();
 
-        Task ToggleAvailable();
+        Task<DriverDTO> ToggleAvailable();
     }
 }

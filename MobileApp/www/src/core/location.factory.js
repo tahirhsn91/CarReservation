@@ -12,15 +12,17 @@
     .factory('locationFactory', locationFactory);
 
   /* @ngInject */
-  function locationFactory(Restangular, $timeout, $cordovaGeolocation, authFactory){
-    var currentRide = null;
+  function locationFactory(Restangular, $timeout, $cordovaGeolocation, authFactory) {
+    var currentRide = {};
+    var driverMap = {};
     logCurrentLocation();
 
     return {
         postDriverLocation: postDriverLocation,
-        saveCurrentLoction: saveCurrentLoction,
+        saveCurrentLocation: saveCurrentLocation,
         logCurrentLocation: logCurrentLocation,
-        currentRide: currentRide
+        currentRide: currentRide,
+        driverMap: driverMap
     };
 
     function postDriverLocation(data){
@@ -30,12 +32,15 @@
     function logCurrentLocation() {
         $timeout(function () {
             if (authFactory.getUser() && authFactory.getUser().Role === 'Driver') {
-                saveCurrentLoction();
+                saveCurrentLocation();
+            }
+            else {
+                logCurrentLocation();
             }
         }, 2000)
     }
 
-    function saveCurrentLoction() {
+    function saveCurrentLocation() {
         var posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
             var pos = {
@@ -45,12 +50,19 @@
                 }
             };
             postDriverLocation(pos).then(function (result) {
-                currentRide = result;
+                currentRide.data = result;
+
+                var myLatLng = {lat: result.Source.Latitude, lng: result.Source.Longitude};
+                new google.maps.Marker({
+                    position: myLatLng,
+                    map: driverMap.map,
+                    title: 'Customer Location'
+                });
+
                 logCurrentLocation();
             });
         }, function(err) {
         });
     }
   }
-
 }());

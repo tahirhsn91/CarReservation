@@ -62,12 +62,9 @@ namespace CarReservation.Service
                         var result = await base.UpdateAsync(dtoObject);
 
                         trans.Commit();
-                        return await this.GetDriverActiveRide(driverLocationEntity.DriverId);
                     }
-                    else
-                    {
-                        return null;
-                    }
+
+                    return await this.GetDriverActiveRide(driverLocationEntity.DriverId);
                 }
             }
         }

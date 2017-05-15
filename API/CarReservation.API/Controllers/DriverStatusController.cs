@@ -20,9 +20,9 @@ namespace CarReservation.API.Controllers
         [HttpPost]
         [Route("ToggleAvailable")]
         [AuthorizeRoles(UserRoles.DRIVER)]
-        public async Task ToggleAvailable()
+        public async Task<DriverDTO> ToggleAvailable()
         {
-            await this._service.ToggleAvailable();
+            return await this._service.ToggleAvailable();
         }
 
         [HttpGet]
