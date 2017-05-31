@@ -84,6 +84,21 @@ namespace CarReservation.Service
                                 trans.Commit();
                             }
                         }
+                        else
+                        {
+                            RideDTO dto = new RideDTO(activeRide);
+                            DriverLocation driverLocation = await this.UnitOfWork.DriverLocationRepository.GetByDriverId(activeRide.DriverId.Value);
+
+                            if (driverLocation != null)
+                            {
+                                dto.Driver.DriverLocation = new DriverLocationDTO(driverLocation);
+                                return dto;
+                            }
+                            else
+                            {
+                                return dto;
+                            }
+                        }
 
                         return new RideDTO(activeRide);
                     }

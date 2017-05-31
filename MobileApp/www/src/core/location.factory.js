@@ -41,7 +41,7 @@
     }
 
     function saveCurrentLocation() {
-        var posOptions = {timeout: 10000, enableHighAccuracy: false};
+        var posOptions = {timeout: 10000, enableHighAccuracy: true};
         $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
             var pos = {
                 Location: {
@@ -60,8 +60,11 @@
                 });
 
                 logCurrentLocation();
+            }, function (error) {
+                logCurrentLocation();
             });
         }, function(err) {
+            logCurrentLocation();
         });
     }
   }

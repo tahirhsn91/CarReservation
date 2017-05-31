@@ -36,6 +36,8 @@ namespace CarReservation.Core.DTO
 
         public SupervisorDTO Supervisor { get; set; }
 
+        public DriverLocationDTO DriverLocation { get; set; }
+
         [Required]
         public string UserId { get; set; }
 

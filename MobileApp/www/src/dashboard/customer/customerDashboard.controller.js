@@ -17,7 +17,6 @@
 
     vm.getCurrectLoction = getCurrectLoction;
     vm.rideNow = rideNow;
-    vm.activeRide = {};
 
     function initialize() {
       var mapOptions = {
@@ -27,10 +26,9 @@
         disableDefaultUI: true
       };
       vm.geocoder = new google.maps.Geocoder;
-      vm.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-      getCurrectLoction();
-
+      customerDashboardFactory.customerMap.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
       vm.activeRide = customerDashboardFactory.activeRide;
+      getCurrectLoction();
     }
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -50,42 +48,22 @@
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
-          vm.map.setCenter(pos);
+          customerDashboardFactory.customerMap.map.setCenter(pos);
       }, function(err) {
           // error
       });
-
-
-      // // Try HTML5 geolocation.
-      // if (navigator.geolocation) {
-      //   navigator.geolocation.getCurrentPosition(function(position) {
-      //     var pos = {
-      //       lat: position.coords.latitude,
-      //       lng: position.coords.longitude
-      //     };
-      //     vm.map.setCenter(pos);
-      //   }, function() {
-      //     // handleLocationError(true, infoWindow, vm.map.getCenter());
-      //   });
-      // } else {
-      //   // Browser doesn't support Geolocation
-      //   // handleLocationError(false, infoWindow, vm.map.getCenter());
-      // }
     }
 
     function rideNow(){
-      // var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
-      // geocodeLatLng(latlng);
-        var posOptions = {timeout: 10000, enableHighAccuracy: false};
-        $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             var ride = {
                 Source: {
                     Latitude: position.coords.latitude,
                     Longitude: position.coords.longitude
                 },
                 Destination: {
-                    Latitude: vm.map.getCenter().lat(),
-                    Longitude: vm.map.getCenter().lng()
+                    Latitude: customerDashboardFactory.customerMap.map.getCenter().lat(),
+                    Longitude: customerDashboardFactory.customerMap.map.getCenter().lng()
                 }
             };
             customerDashboardFactory.rideNow(ride);
@@ -109,13 +87,13 @@
     //google.maps.event.addDomListener(window, 'load', initialize);
     initialize();
 
-    google.maps.event.addListener(vm.map, 'dragend', function () {
-      var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
+    google.maps.event.addListener(customerDashboardFactory.customerMap.map, 'dragend', function () {
+      var latlng = {lat: customerDashboardFactory.customerMap.map.getCenter().lat(), lng: customerDashboardFactory.customerMap.map.getCenter().lng()};
       geocodeLatLng(latlng);
     });
 
-    google.maps.event.addListener(vm.map, 'zoom_changed', function () {
-      var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
+    google.maps.event.addListener(customerDashboardFactory.customerMap.map, 'zoom_changed', function () {
+      var latlng = {lat: customerDashboardFactory.customerMap.map.getCenter().lat(), lng: customerDashboardFactory.customerMap.map.getCenter().lng()};
       geocodeLatLng(latlng);
     });
     

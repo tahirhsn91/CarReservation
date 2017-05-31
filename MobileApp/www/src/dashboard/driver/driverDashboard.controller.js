@@ -42,7 +42,7 @@
       }
 
       function getCurrectLoction() {
-          var posOptions = {timeout: 10000, enableHighAccuracy: false};
+          var posOptions = {timeout: 10000, enableHighAccuracy: true};
           $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
               // var lat  = position.coords.latitude;
               // var long = position.coords.longitude;
@@ -87,12 +87,12 @@
       initialize();
 
       google.maps.event.addListener(locationFactory.driverMap.map, 'dragend', function () {
-          var latlng = {lat: locationFactory.driverMap.map.getCenter().lat(), lng: locationFactory.driverMap.map.getCenter().lng()};
+          var latlng = {lat: vm.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
           geocodeLatLng(latlng);
       });
 
       google.maps.event.addListener(locationFactory.driverMap.map, 'zoom_changed', function () {
-          var latlng = {lat: locationFactory.driverMap.map.getCenter().lat(), lng: locationFactory.driverMap.map.getCenter().lng()};
+          var latlng = {lat: locationFactory.driverMap.map.getCenter().lat(), lng: vm.map.getCenter().lng()};
           geocodeLatLng(latlng);
       });
   }

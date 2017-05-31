@@ -15,12 +15,14 @@
   function customerDashboardFactory(Restangular, $timeout, $cordovaGeolocation, authFactory){
 
     var activeRide = {};
+    var customerMap = {};
     init();
     
     return {
         rideNow: rideNow,
         GetActiveRide: GetActiveRide,
-        activeRide: activeRide
+        activeRide: activeRide,
+        customerMap: customerMap
     };
 
     function init(){
@@ -31,7 +33,7 @@
         $timeout(function () {
             if (authFactory.getUser() && authFactory.getUser().Role === 'Customer') {
                 if (activeRide.ride) {
-                    var posOptions = {timeout: 10000, enableHighAccuracy: false};
+                    var posOptions = {timeout: 10000, enableHighAccuracy: true};
                     $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
                         var ride = {
                             Source: {
@@ -41,16 +43,25 @@
                         };
                         rideNow(ride).then(function (result) {
                             activeRide.ride = result;
+                            addDriverMarker();
                             rideHeartBeat();
                         });
+                    }, function (error) {
+                        rideHeartBeat();
                     });
                 }
                 else {
                     GetActiveRide().then(function (result) {
                         activeRide.ride = result;
+                        addDriverMarker();
+                        rideHeartBeat();
+                    }, function (error) {
                         rideHeartBeat();
                     });
                 }
+            }
+            else {
+                rideHeartBeat();
             }
         }, 2000);
     }
@@ -61,6 +72,17 @@
 
     function GetActiveRide() {
         return Restangular.one('Ride/GetActiveRide/HeartBeat').get();
+    }
+
+    function addDriverMarker() {
+        if (activeRide.ride.Driver && activeRide.ride.Driver.DriverLocation && activeRide.ride.Driver.DriverLocation.Location) {
+            var myLatLng = {lat: activeRide.ride.Driver.DriverLocation.Location.Latitude, lng: activeRide.ride.Driver.DriverLocation.Location.Longitude};
+            new google.maps.Marker({
+                position: myLatLng,
+                map: customerMap.map,
+                title: 'Customer Location'
+            });
+        }
     }
   }
 

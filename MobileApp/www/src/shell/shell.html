@@ -38,6 +38,9 @@
         <ion-item menu-close ng-if="vm.isCustomer" ui-sref="shell.helpPage">
           Help
         </ion-item>
+        <ion-item menu-close ng-click="window.location.reload();">
+          Refresh
+        </ion-item>
         <ion-item menu-close ng-click="vm.logout()">
           Logout
         </ion-item>

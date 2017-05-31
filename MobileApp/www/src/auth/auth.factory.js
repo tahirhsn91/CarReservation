@@ -45,7 +45,7 @@
         function logout() {
             store.remove('token');
             store.remove('user');
-            $state.reload();
+            window.location.reload();
         }
 
         function getUser() {
