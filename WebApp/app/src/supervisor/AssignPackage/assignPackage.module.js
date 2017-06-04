@@ -21,7 +21,7 @@
         role: appUserRole.Supervisor,
         views: {
             'content@shell.supervisor': {
-                templateUrl:'src/supervisor/AssignPackage/assignList.html',
+                templateUrl:'src/supervisor/AssignPackage/assignPackageList.html',
                 controller: 'AssignPackageListCtrl as vm'
             }
         }
@@ -31,7 +31,7 @@
         role: appUserRole.Supervisor,
         views: {
             'content@shell.supervisor': {
-                templateUrl:'src/supervisor/AssignPackage/assignForm.html',
+                templateUrl:'src/supervisor/AssignPackage/assignPackageForm.html',
                 controller: 'AssignPackageFormCtrl as vm'
             }
         }
