@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62be6262-ef47-44bd-bcac-1004b0eae513" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.v12.suo" afterPath="$PROJECT_DIR$/../API/CarReservation.v12.suo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/DTO/RideDTO.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/DTO/RideDTO.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/IRepository/IVehicleRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/IRepository/IVehicleRepository.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/Model/Ride.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/Model/Ride.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Repository/VehicleRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Repository/VehicleRepository.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Service/RideService.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Service/RideService.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/core/location.factory.js" afterPath="$PROJECT_DIR$/www/src/core/location.factory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" afterPath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js" afterPath="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/core/restangular.config.js" afterPath="$PROJECT_DIR$/www/src/core/restangular.config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../WebApp/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -29,27 +22,22 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="customerDashboard.factory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js">
+      <file leaf-file-name="router.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/src/core/router.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="87" column="39" lean-forward="true" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="39" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="driverDashboard.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js">
+      <file leaf-file-name="restangular.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/src/core/restangular.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="819">
-              <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-              <folding>
-                <element signature="e#1131#1371#0" expanded="false" />
-                <element signature="e#1987#2192#0" expanded="false" />
-                <element signature="e#2231#2672#0" expanded="false" />
-                <element signature="e#2711#2858#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="274">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,8 +45,8 @@
       <file leaf-file-name="location.factory.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/src/core/location.factory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="91" column="46" lean-forward="false" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
+            <state relative-caret-position="272">
+              <caret line="97" column="20" lean-forward="false" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
               <folding>
                 <element signature="e#2550#2753#0" expanded="false" />
               </folding>
@@ -127,12 +115,12 @@
         <option value="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html" />
         <option value="$PROJECT_DIR$/www/src/auth/auth.factory.js" />
         <option value="$PROJECT_DIR$/www/src/shell/shell.html" />
-        <option value="$PROJECT_DIR$/www/src/core/restangular.config.js" />
         <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html" />
         <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js" />
         <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" />
         <option value="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js" />
         <option value="$PROJECT_DIR$/www/src/core/location.factory.js" />
+        <option value="$PROJECT_DIR$/www/src/core/restangular.config.js" />
       </list>
     </option>
   </component>
@@ -213,6 +201,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MobileApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MobileApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,12 +339,12 @@
       <workItem from="1494257724721" duration="32888000" />
       <workItem from="1494602051920" duration="23443000" />
       <workItem from="1495998633157" duration="6270000" />
-      <workItem from="1496574107125" duration="4199000" />
+      <workItem from="1496574107125" duration="5247000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75636000" />
+    <option name="totallyTimeSpent" value="76684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
@@ -467,13 +477,6 @@
     <entry file="file://$PROJECT_DIR$/www/src/errorPage/driverAssociation.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/core/router.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-448">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -733,14 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/core/restangular.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/cordova-plugin-geolocation/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -770,10 +765,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/core/router.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/core/restangular.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/src/core/location.factory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="91" column="46" lean-forward="false" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
+        <state relative-caret-position="272">
+          <caret line="97" column="20" lean-forward="false" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
           <folding>
             <element signature="e#2550#2753#0" expanded="false" />
           </folding>
