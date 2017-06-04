@@ -17,7 +17,8 @@
     'app.dashboard',
     'app.supervisor',
     'app.package',
-    'app.driver'
+    'app.driver',
+    'app.assignPackage'
   ]);
 
 }());

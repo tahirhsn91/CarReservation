@@ -1,0 +1,71 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">
+            <span ng-bind="vm.pageTitle"></span>
+            <small>{{vm.data.RegistrationNumber}} Edit</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-click="vm.redirect('shell.supervisor.dashboard')">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-dashboard"></i>
+                <a ng-click="vm.redirect('shell.supervisor.assignPackage')">
+                    <span ng-bind="vm.pageTitle"></span> Module
+                </a>
+            </li>
+            <li class="active">
+                <i class="fa fa-file"></i>
+                <span ng-bind="vm.data.Name"></span> Edit
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <form role="form" name="form" novalidate ng-submit="form.$valid && vm.submit()">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <td class="col-xs-3">
+                                <label for="Package">Package</label>
+                            </td>
+                            <td class="col-xs-9">
+                                <ui-select ng-model="vm.data.Package">
+                                    <ui-select-match>
+                                        <span ng-bind="$select.selected.Name"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (vm.package | filter: $select.search) track by item.Id">
+                                        <span ng-bind="item.Name"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-3">
+                                <label for="Driver">Driver</label>
+                            </td>
+                            <td class="col-xs-9">
+                                <ui-select ng-model="vm.data.Driver">
+                                    <ui-select-match>
+                                        <span ng-bind="$select.selected.User.FirstName + ' ' + $select.selected.User.LastName"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (vm.driver | filter: $select.search) track by item.Id">
+                                        <span ng-bind="item.User.FirstName + ' ' + item.User.LastName"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="submit" class="btn btn-success">Submit Button</button>
+            <button type="reset" class="btn btn-info">Reset Button</button>
+        </form>
+    </div>
+</div>

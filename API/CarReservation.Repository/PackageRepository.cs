@@ -2,8 +2,10 @@
 using CarReservation.Core.IRepository;
 using CarReservation.Core.Model;
 using CarReservation.Repository.Base;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CarReservation.Repository
 {
@@ -22,7 +24,7 @@ namespace CarReservation.Repository
             }
         }
 
-        protected override System.Linq.IQueryable<Package> DefaultSingleQuery
+        protected override IQueryable<Package> DefaultSingleQuery
         {
             get
             {
@@ -32,24 +34,33 @@ namespace CarReservation.Repository
             }
         }
 
-        public override async System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Package>> GetAll()
+        public override async Task<IEnumerable<Package>> GetAll()
         {
             return await this.DefaultListQuery.Where(x => x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId)).ToListAsync();
         }
 
-        public override async System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<Package>> GetAll(Common.Helper.JsonApiRequest request)
+        public override async Task<IEnumerable<Package>> GetAll(Common.Helper.JsonApiRequest request)
         {
             return await this.GetAllQueryable(request).Include(x => x.StartFare).Where(x => x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId)).ToListAsync();
         }
 
-        public override async System.Threading.Tasks.Task<Package> GetAsync(int id)
+        public override async Task<Package> GetAsync(int id)
         {
             return await this.DefaultSingleQuery.SingleOrDefaultAsync(x => x.Id.Equals(id) && x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId));
         }
 
-        public override async System.Threading.Tasks.Task<int> GetCount()
+        public override async Task<int> GetCount()
         {
-            return await this.DefaultListQuery.Where(x => x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId)).CountAsync();
+            IList<Package> obj = await this.DefaultListQuery.Where(x => x.CreatedBy.Equals(RepositoryRequisite.RequestInfo.UserId)).ToListAsync();
+
+            if (obj == null || obj.Count > 0)
+            {
+                return obj.Count;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

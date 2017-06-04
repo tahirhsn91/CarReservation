@@ -35,9 +35,19 @@ namespace CarReservation.Repository
             }
         }
 
-        public async Task<int> GetCount(int supervisorId)
+        public async Task<int> GetCount(Supervisor supervisor)
         {
-            return await this.DefaultListQuery.Where(x => x.SupervisorId == supervisorId).CountAsync();
+            if (supervisor != null)
+            {
+                IList<Driver> obj = await this.DefaultListQuery.Where(x => x.SupervisorId == supervisor.Id).ToListAsync();
+
+                if (obj != null && obj.Count > 0)
+                {
+                    return obj.Count;
+                }
+            }
+
+            return 0;
         }
 
         public async Task<IEnumerable<Driver>> GetByUserId(string userId)
@@ -69,7 +79,7 @@ namespace CarReservation.Repository
         {
             var driver = (await this.DefaultSingleQuery.Include(x => x.User).Where(x => x.User != null && x.User.UserName == userName).SingleOrDefaultAsync());
 
-            return (driver == null || (driver.SupervisorId == null || driver.SupervisorId == 0));
+            return (driver != null && (driver.SupervisorId == null || driver.SupervisorId == 0));
         }
 
         public async Task<IEnumerable<Driver>> GetAvaiableDrivers()

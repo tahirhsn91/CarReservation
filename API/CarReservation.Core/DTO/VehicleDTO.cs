@@ -55,6 +55,8 @@ namespace CarReservation.Core.DTO
 
         public PackageDTO Package { get; set; }
 
+        public DriverDTO Driver { get; set; }
+
         [IgnoreDataMember]
         public int CountryId { get; set; }
 
@@ -81,6 +83,9 @@ namespace CarReservation.Core.DTO
 
         [IgnoreDataMember]
         public int PackageID { get; set; }
+
+        [IgnoreDataMember]
+        public int DriverID { get; set; }
 
         public List<VehicleFeatureDTO> VehicleFeature { get; set; }
 
@@ -133,10 +138,16 @@ namespace CarReservation.Core.DTO
                 this.ModelId = entity.Model.Id;
                 this.VehicleModel = new VehicleModelDTO(entity.Model);
             }
+
             if (entity.Package != null)
             {
                 this.PackageID = entity.Package.Id;
                 this.Package = new PackageDTO(entity.Package);
+            }
+            if (entity.Driver != null)
+            {
+                this.DriverID = entity.Driver.Id;
+                this.Driver = new DriverDTO(entity.Driver);
             }
         }
 
@@ -165,6 +176,15 @@ namespace CarReservation.Core.DTO
             else
             {
                 entity.PackageID = null;
+            }
+
+            if (this.Driver != null)
+            {
+                entity.DriverID = this.Driver.Id;
+            }
+            else
+            {
+                entity.DriverID = null;
             }
 
             return entity;

@@ -55,7 +55,7 @@ namespace CarReservation.Service
 
             dto.Package = await this.UnitOfWork.PackageRepository.GetCount();
             dto.Vehicle = await this.UnitOfWork.VehicleRepository.GetCount();
-            dto.Driver = await this.UnitOfWork.DriverRepository.GetCount(supervisor.Id);
+            dto.Driver = await this.UnitOfWork.DriverRepository.GetCount(supervisor);
 
             return dto;
         }

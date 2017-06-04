@@ -21,9 +21,25 @@
       <file leaf-file-name="customerDashboard.factory.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="77" column="125" lean-forward="false" selection-start-line="77" selection-start-column="125" selection-end-line="77" selection-end-column="125" />
+            <state relative-caret-position="187">
+              <caret line="77" column="31" lean-forward="false" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="driverDashboard.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+              <folding>
+                <element signature="e#1131#1371#0" expanded="false" />
+                <element signature="e#1987#2192#0" expanded="false" />
+                <element signature="e#2231#2672#0" expanded="false" />
+                <element signature="e#2711#2858#0" expanded="false" />
+                <element signature="e#3269#3421#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -31,8 +47,8 @@
       <file leaf-file-name="location.factory.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/src/core/location.factory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="59" selection-end-column="19" />
+            <state relative-caret-position="153">
+              <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
               <folding>
                 <element signature="e#668#744#0" expanded="false" />
               </folding>
@@ -113,11 +129,11 @@
         <option value="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html" />
         <option value="$PROJECT_DIR$/www/src/auth/auth.factory.js" />
         <option value="$PROJECT_DIR$/www/src/shell/shell.html" />
-        <option value="$PROJECT_DIR$/www/src/core/location.factory.js" />
         <option value="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js" />
         <option value="$PROJECT_DIR$/www/src/core/restangular.config.js" />
         <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html" />
         <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js" />
+        <option value="$PROJECT_DIR$/www/src/core/location.factory.js" />
         <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" />
       </list>
     </option>
@@ -387,12 +403,12 @@
       <workItem from="1494247030162" duration="108000" />
       <workItem from="1494257724721" duration="32888000" />
       <workItem from="1494602051920" duration="23443000" />
-      <workItem from="1495998633157" duration="4203000" />
+      <workItem from="1495998633157" duration="6270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69370000" />
+    <option name="totallyTimeSpent" value="71437000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -786,20 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-          <folding>
-            <element signature="e#1131#1371#0" expanded="false" />
-            <element signature="e#1987#2192#0" expanded="false" />
-            <element signature="e#2231#2672#0" expanded="false" />
-            <element signature="e#2711#2858#0" expanded="false" />
-            <element signature="e#3269#3421#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -821,10 +823,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+          <folding>
+            <element signature="e#1131#1371#0" expanded="false" />
+            <element signature="e#1987#2192#0" expanded="false" />
+            <element signature="e#2231#2672#0" expanded="false" />
+            <element signature="e#2711#2858#0" expanded="false" />
+            <element signature="e#3269#3421#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/src/core/location.factory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="59" selection-end-column="19" />
+        <state relative-caret-position="153">
+          <caret line="31" column="35" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
           <folding>
             <element signature="e#668#744#0" expanded="false" />
           </folding>
@@ -833,8 +849,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="77" column="125" lean-forward="false" selection-start-line="77" selection-start-column="125" selection-end-line="77" selection-end-column="125" />
+        <state relative-caret-position="187">
+          <caret line="77" column="31" lean-forward="false" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
           <folding />
         </state>
       </provider>

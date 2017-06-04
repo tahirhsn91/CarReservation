@@ -50,14 +50,16 @@
                 }
             };
             postDriverLocation(pos).then(function (result) {
-                currentRide.data = result;
+                if (result) {
+                    currentRide.data = result;
 
-                var myLatLng = {lat: result.Source.Latitude, lng: result.Source.Longitude};
-                new google.maps.Marker({
-                    position: myLatLng,
-                    map: driverMap.map,
-                    title: 'Customer Location'
-                });
+                    var myLatLng = {lat: result.Source.Latitude, lng: result.Source.Longitude};
+                    new google.maps.Marker({
+                        position: myLatLng,
+                        map: driverMap.map,
+                        title: 'Customer Location'
+                    });
+                }
 
                 logCurrentLocation();
             }, function (error) {

@@ -1,17 +1,17 @@
 /**
  * @ngdoc overview
- * @name app.genericCrud.factory: genericCrudFactory
+ * @name app.genericCrud.factory: packageFactory
  * @description generic Crud factory for most modules.
  */
 
 (function(){
 
   angular
-    .module('app.auth')
-    .factory('genericCrudFactory', genericCrudFactory);
+    .module('app.assignPackage')
+    .factory('assignPackageFactory', assignPackageFactory);
 
   /* @ngInject */
-  function genericCrudFactory(Restangular, lodash, store, appModules, $state){
+  function assignPackageFactory(Restangular, lodash, store, appModules, $state){
 
       return {
         getModuleName: getModuleName,
@@ -22,13 +22,14 @@
         checkString: checkString,
         getFieldName: getFieldName,
         fillChoices: fillChoices,
-        redirect: redirect
+        redirect: redirect,
+        checkDriver: checkDriver,
+        getDriverLocation: getDriverLocation
       };
 
       function getModuleName(name){
-          return name;
-        // return name.replace(/([A-Z])/g, ' $1')
-        //         .replace(/^./, function(str){ return str.toUpperCase(); });
+        return name.replace(/([A-Z])/g, ' $1')
+                .replace(/^./, function(str){ return str.toUpperCase(); });
       }
 
       function getAll(module, param){
@@ -43,19 +44,15 @@
         return Restangular.one(module, id).get();
       }
 
-      function save(module, data){
-        if(data.Id){
-          return Restangular.all(module).customPUT(data); 
-        } else {
-          return Restangular.all(module).post(data);
-        }
+      function save(data){
+          return Restangular.all('Vehicle/AssignVehicle').customPUT(data);
       }
 
       function remove(module, id){
         return Restangular.all(module).remove(id);
       }
 
-      function checkString(data){
+      function checkString(data) {
           if (typeof data === 'string' || data instanceof String){
             return true;
           }
@@ -71,7 +68,7 @@
       function fillChoices(obj, choices) {
         lodash.forEach(obj, function(value){
           if(!checkString(value)){
-            if(value.Type ==='DropDown' || value.Type ==='MultiDropDown'){
+            if(value.Type ==='DropDown' || value.Type ==='MultiDropDown' || value.Type ==='Ignore'){
               getAll(value.Field).then(function(res){
                 choices[value.Field] = res;
               });
@@ -81,18 +78,18 @@
       }
 
       function redirect(url, obj){
-        var currentUser = store.get('user');
-        var baseRoute = appModules.BaseRoute[currentUser.Role];
-
-        if(baseRoute){
-          url =  'shell.' + baseRoute + '.' + url;
-        }
-        else{
-          url = 'shell.' + url;
-        }
-
         $state.go(url, obj);
       }
-  }
 
+      function checkDriver(driver) {
+          var obj = {
+              Email: driver.User.Email
+          };
+          return Restangular.all('Supervisor/CheckDriver/').post(obj);
+      }
+
+      function getDriverLocation(id) {
+          return Restangular.one('DriverLocation/GetByDriverId/' + id).get();
+      }
+  }
 }());

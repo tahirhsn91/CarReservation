@@ -46,7 +46,7 @@
                             <div ng-if="!vm.checkString(field) && vm.data[field.Field]">
                                 <span ng-if="field.Type ==='DropDown'" ng-bind="vm.data[field.Field].Name"></span>
                                 <span ng-if="field.Type ==='Number' || field.Type==='MultiDropDown'" ng-bind="vm.data[field.Field]"></span>
-                                <span ng-if="field.Type==='Date'" ng-bind="vm.data[field.Field] |  date: vm.appFormats.Date"></span>
+                                <span ng-if="field.Type==='Date'" ng-bind="vm.data[field.Field] | date: vm.appFormats.Date"></span>
                             </div>
                             
                         </td>

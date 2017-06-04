@@ -38,7 +38,7 @@
               draggable: false,
               scrollwheel: false
           };
-          vm.geocoder = new google.maps.Geocoder;
+          vm.geocoder = new google.maps.Geocoder();
           vm.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
           var marker = new google.maps.Marker({
