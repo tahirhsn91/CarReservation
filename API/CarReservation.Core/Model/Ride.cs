@@ -32,6 +32,9 @@ namespace CarReservation.Core.Model
         [ForeignKey("Package")]
         public int? PackageId { get; set; }
 
+        [ForeignKey("Vehicle")]
+        public int? VehicleId { get; set; }
+
         [ForeignKey("RideStatus")]
         public int? RideStatusId { get; set; }
 
@@ -57,6 +60,8 @@ namespace CarReservation.Core.Model
         public Driver Driver { get; set; }
 
         public Package Package { get; set; }
+
+        public Vehicle Vehicle { get; set; }
 
         //public List<TravelUnit> TravelUnits { get; set; }
 

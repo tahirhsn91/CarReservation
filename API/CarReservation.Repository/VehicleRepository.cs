@@ -70,6 +70,14 @@ namespace CarReservation.Repository
             }
         }
 
+        public async Task<IList<Vehicle>> GetAllByDriverId(int driverId)
+        {
+            return await this.DefaultListQuery
+                .Include(x => x.Package)
+                .Include(x => x.Driver)
+                .Where(x => x.DriverID == driverId).ToListAsync();
+        }
+
         public async Task<IList<Vehicle>> GetVehicleWithPackageInfo()
         {
             return await this.DefaultListQuery

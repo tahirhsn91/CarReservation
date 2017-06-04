@@ -14,6 +14,7 @@
   /* @ngInject */
   function customerDashboardFactory(Restangular, $timeout, $cordovaGeolocation, authFactory){
 
+    var driverMarkers = [];
     var activeRide = {};
     var customerMap = {};
     init();
@@ -77,11 +78,22 @@
     function addDriverMarker() {
         if (activeRide.ride && activeRide.ride.Driver && activeRide.ride.Driver.DriverLocation && activeRide.ride.Driver.DriverLocation.Location) {
             var myLatLng = {lat: activeRide.ride.Driver.DriverLocation.Location.Latitude, lng: activeRide.ride.Driver.DriverLocation.Location.Longitude};
-            new google.maps.Marker({
+            removeDriverMarkers();
+            driverMarkers = [];
+            var marker = new google.maps.Marker({
                 position: myLatLng,
                 map: customerMap.map,
-                title: 'Customer Location'
+                title: 'Driver Location'
             });
+            driverMarkers.push(marker);
+        }
+    }
+    
+    function removeDriverMarkers() {
+        if(driverMarkers && driverMarkers.length > 0) {
+            for (var i = 0; i < driverMarkers.length; i++) {
+                driverMarkers[i].setMap(null);
+            }
         }
     }
   }

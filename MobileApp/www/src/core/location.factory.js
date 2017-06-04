@@ -13,6 +13,9 @@
 
   /* @ngInject */
   function locationFactory(Restangular, $timeout, $cordovaGeolocation, authFactory) {
+
+    var directionsService = new google.maps.DirectionsService();
+    var customerMarkers = [];
     var currentRide = {};
     var driverMap = {};
     logCurrentLocation();
@@ -54,11 +57,17 @@
                     currentRide.data = result;
 
                     var myLatLng = {lat: result.Source.Latitude, lng: result.Source.Longitude};
-                    new google.maps.Marker({
+                    var currentLatLng = {lat: position.coords.latitude, lng: position.coords.longitude};
+                    removeCustomerMarkers();
+                    customerMarkers = [];
+                    var marker = new google.maps.Marker({
                         position: myLatLng,
                         map: driverMap.map,
                         title: 'Customer Location'
                     });
+                    customerMarkers.push(marker);
+
+                    createRoute(myLatLng, currentLatLng);
                 }
 
                 logCurrentLocation();
@@ -67,6 +76,29 @@
             });
         }, function(err) {
             logCurrentLocation();
+        });
+    }
+
+    function removeCustomerMarkers() {
+        if(customerMarkers && customerMarkers.length > 0) {
+            for (var i = 0; i < customerMarkers.length; i++) {
+                customerMarkers[i].setMap(null);
+            }
+        }
+    }
+
+    function createRoute(myLatLng, currentLatLng) {
+        var directionsDisplay = new google.maps.DirectionsRenderer();
+        directionsDisplay.setMap(driverMap.map);
+        var request = {
+            origin: currentLatLng,
+            destination: myLatLng,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+        directionsService.route(request, function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
         });
     }
   }

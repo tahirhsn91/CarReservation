@@ -37,6 +37,8 @@ namespace CarReservation.Core.DTO
 
         public int? PackageId { get; set; }
 
+        public int? VehicleId { get; set; }
+
         public int? RideStatusId { get; set; }
 
         public int? ParentRideId { get; set; }
@@ -61,6 +63,8 @@ namespace CarReservation.Core.DTO
 
         public PackageDTO Package { get; set; }
 
+        public VehicleDTO Vehicle { get; set; }
+
         //public List<TravelUnit> TravelUnits { get; set; }
 
         public RideStatusDTO RideStatus { get; set; }
@@ -80,6 +84,7 @@ namespace CarReservation.Core.DTO
             this.CustomerId = entity.CustomerId;
             this.DriverId = entity.DriverId;
             this.PackageId = entity.PackageId;
+            this.VehicleId = entity.VehicleId;
             this.RideStatusId = entity.RideStatusId;
             this.ParentRideId = entity.ParentRideId;
             this.IsActive = entity.IsActive;
@@ -129,6 +134,11 @@ namespace CarReservation.Core.DTO
                 this.Package = new PackageDTO(entity.Package);
             }
 
+            if (entity.Vehicle != null)
+            {
+                this.Vehicle = new VehicleDTO(entity.Vehicle);
+            }
+
             if (entity.RideStatus != null)
             {
                 this.RideStatus = new RideStatusDTO(entity.RideStatus);
@@ -153,6 +163,7 @@ namespace CarReservation.Core.DTO
             entity.CustomerId = this.CustomerId;
             entity.DriverId = this.DriverId;
             entity.PackageId = this.PackageId;
+            entity.VehicleId = this.VehicleId;
             entity.RideStatusId = this.RideStatusId;
             entity.ParentRideId = this.ParentRideId;
             entity.IsActive = this.IsActive;

@@ -56,7 +56,7 @@ namespace CarReservation.Service
 
                     await this.UnitOfWork.SaveAsync();
                     dtoObject.SourceId = sourceEntity.Id;
-                    dtoObject.DestinationId = sourceEntity.Id;
+                    dtoObject.DestinationId = destinationEntity.Id;
                     dtoObject.CustomerId = customer.Id;
                     dtoObject.IsActive = true;
 
@@ -68,7 +68,7 @@ namespace CarReservation.Service
                 }
                 else
                 {
-                    var activeRide = rideEntities.Where(x => x.IsActive).FirstOrDefault();
+                    Ride activeRide = rideEntities.Where(x => x.IsActive).FirstOrDefault();
                     if (activeRide != null)
                     {
                         if (activeRide.Driver == null)
@@ -76,12 +76,23 @@ namespace CarReservation.Service
                             Driver nearestDriver = await GetNearestDriver(activeRide.Source.Latitude, activeRide.Source.Longitude);
                             if (nearestDriver != null)
                             {
-                                activeRide.Driver = nearestDriver;
-                                activeRide.DriverId = nearestDriver.Id;
+                                IList<Vehicle> vehiclesEntity = await this.UnitOfWork.VehicleRepository.GetAllByDriverId(nearestDriver.Id);
 
-                                await this.Repository.Update(activeRide);
-                                await this.UnitOfWork.SaveAsync();
-                                trans.Commit();
+                                if (vehiclesEntity != null && vehiclesEntity.Count > 0 && vehiclesEntity.First().Package != null && vehiclesEntity.First().PackageID > 0)
+                                {
+                                    activeRide.Driver = nearestDriver;
+                                    activeRide.DriverId = nearestDriver.Id;
+
+                                    activeRide.PackageId = vehiclesEntity.First().PackageID;
+                                    activeRide.Package = vehiclesEntity.First().Package;
+
+                                    activeRide.Vehicle = vehiclesEntity.First();
+                                    activeRide.VehicleId = vehiclesEntity.First().Id;
+
+                                    await this.Repository.Update(activeRide);
+                                    await this.UnitOfWork.SaveAsync();
+                                    trans.Commit();
+                                }
                             }
                         }
                         else
