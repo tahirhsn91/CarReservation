@@ -68,7 +68,7 @@
                         var destinationMark = {lat: result.Destination.Latitude, lng: result.Destination.Longitude};
                         var currentLatLng = {lat: position.coords.latitude, lng: position.coords.longitude};
 
-                        addLocationInfo(currentRide.data);
+                        addLocationInfo(currentRide);
 
                         if (currentRide.data.RideStatusId === 1) {
                             createRoute(currentLatLng, sourceMark);
@@ -146,8 +146,8 @@
     }
 
       function addLocationInfo(ride) {
-          var sourceLatLng = {lat: ride.Source.Latitude, lng: ride.Source.Longitude};
-          var destinationLatLng = {lat: ride.Destination.Latitude, lng: ride.Destination.Longitude};
+          var sourceLatLng = {lat: ride.data.Source.Latitude, lng: ride.data.Source.Longitude};
+          var destinationLatLng = {lat: ride.data.Destination.Latitude, lng: ride.data.Destination.Longitude};
 
           geocoder.geocode({'location': sourceLatLng}, function(results, status) {
               if (status === 'OK') {

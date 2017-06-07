@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62be6262-ef47-44bd-bcac-1004b0eae513" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.v12.suo" afterPath="$PROJECT_DIR$/../API/CarReservation.v12.suo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.API/Controllers/RideController.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.API/Controllers/RideController.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.API/Controllers/RideStatusController.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.API/Controllers/RideStatusController.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/CarReservation.Core.csproj" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/CarReservation.Core.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/DTO/RideDTO.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/DTO/RideDTO.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/IRepository/IRideRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/IRepository/IRideRepository.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/IRepository/IRideStatusRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/IRepository/IRideStatusRepository.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/IService/IRideService.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/IService/IRideService.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/IService/IRideStatusService.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/IService/IRideStatusService.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/Migrations/Configuration.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/Migrations/Configuration.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Repository/DriverRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Repository/DriverRepository.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Repository/RideRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Repository/RideRepository.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Repository/RideStatusRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Repository/RideStatusRepository.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Service/DriverStatusService.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Service/DriverStatusService.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Service/RideService.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Service/RideService.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Service/RideStatusService.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Service/RideStatusService.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/core/location.factory.js" afterPath="$PROJECT_DIR$/www/src/core/location.factory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js" afterPath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" afterPath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html" afterPath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js" afterPath="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html" afterPath="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/rides/rideDetail.controller.js" afterPath="$PROJECT_DIR$/www/src/rides/rideDetail.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/rides/rideDetail.html" afterPath="$PROJECT_DIR$/www/src/rides/rideDetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/rides/rides.controller.js" afterPath="$PROJECT_DIR$/www/src/rides/rides.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/rides/rides.html" afterPath="$PROJECT_DIR$/www/src/rides/rides.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../WebApp/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,8 +24,8 @@
       <file leaf-file-name="driverDashboard.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="200">
+              <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
               <folding>
                 <element signature="e#660#1134#0" expanded="false" />
                 <element signature="e#1211#1451#0" expanded="false" />
@@ -60,7 +33,6 @@
                 <element signature="e#2067#2272#0" expanded="false" />
                 <element signature="e#2311#2752#0" expanded="false" />
                 <element signature="e#2791#2938#0" expanded="false" />
-                <element signature="e#2978#3034#0" expanded="false" />
                 <element signature="e#3066#3125#0" expanded="false" />
                 <element signature="e#3308#3483#0" expanded="false" />
                 <element signature="e#3582#3757#0" expanded="false" />
@@ -69,19 +41,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="location.factory.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="location.factory.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/src/core/location.factory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="76" column="53" lean-forward="false" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+            <state relative-caret-position="-221">
+              <caret line="65" column="20" lean-forward="false" selection-start-line="65" selection-start-column="20" selection-end-line="86" selection-end-column="21" />
               <folding>
                 <element signature="e#1067#1330#0" expanded="false" />
-                <element signature="e#3402#3635#0" expanded="false" />
-                <element signature="e#3664#3968#0" expanded="false" />
-                <element signature="e#4024#4461#0" expanded="false" />
-                <element signature="e#4493#4630#0" expanded="false" />
-                <element signature="e#4665#4813#0" expanded="false" />
-                <element signature="e#4838#4977#0" expanded="false" />
+                <element signature="e#3397#3630#0" expanded="false" />
+                <element signature="e#3659#3963#0" expanded="false" />
+                <element signature="e#4019#4456#0" expanded="false" />
+                <element signature="e#4488#4625#0" expanded="false" />
+                <element signature="e#4660#4808#0" expanded="false" />
+                <element signature="e#4833#4972#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -100,8 +72,8 @@
       <file leaf-file-name="driverDashboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="43" column="49" lean-forward="false" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+            <state relative-caret-position="117">
+              <caret line="34" column="55" lean-forward="false" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
               <folding>
                 <element signature="n#ion-footer-bar#0;n#!!top" expanded="false" />
                 <element signature="n#ion-footer-bar#1;n#!!top" expanded="false" />
@@ -112,7 +84,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -191,9 +163,9 @@
         <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" />
         <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html" />
         <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js" />
+        <option value="$PROJECT_DIR$/www/css/style.css" />
         <option value="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html" />
         <option value="$PROJECT_DIR$/www/src/core/location.factory.js" />
-        <option value="$PROJECT_DIR$/www/css/style.css" />
       </list>
     </option>
   </component>
@@ -500,12 +472,12 @@
       <workItem from="1494257724721" duration="32888000" />
       <workItem from="1494602051920" duration="23443000" />
       <workItem from="1495998633157" duration="6270000" />
-      <workItem from="1496574107125" duration="27894000" />
+      <workItem from="1496574107125" duration="28161000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99331000" />
+    <option name="totallyTimeSpent" value="99598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -911,29 +883,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#660#1134#0" expanded="false" />
-            <element signature="e#1211#1451#0" expanded="false" />
-            <element signature="e#1488#2032#0" expanded="false" />
-            <element signature="e#2067#2272#0" expanded="false" />
-            <element signature="e#2311#2752#0" expanded="false" />
-            <element signature="e#2791#2938#0" expanded="false" />
-            <element signature="e#2978#3034#0" expanded="false" />
-            <element signature="e#3066#3125#0" expanded="false" />
-            <element signature="e#3308#3483#0" expanded="false" />
-            <element signature="e#3582#3757#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/src/rides/rides.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="33" column="6" lean-forward="true" selection-start-line="33" selection-start-column="6" selection-end-line="52" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="132" column="19" lean-forward="false" selection-start-line="132" selection-start-column="19" selection-end-line="132" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -948,8 +909,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="43" column="49" lean-forward="false" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+        <state relative-caret-position="117">
+          <caret line="34" column="55" lean-forward="false" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
           <folding>
             <element signature="n#ion-footer-bar#0;n#!!top" expanded="false" />
             <element signature="n#ion-footer-bar#1;n#!!top" expanded="false" />
@@ -959,27 +920,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/core/location.factory.js">
+    <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="76" column="53" lean-forward="false" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+        <state relative-caret-position="200">
+          <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
           <folding>
-            <element signature="e#1067#1330#0" expanded="false" />
-            <element signature="e#3402#3635#0" expanded="false" />
-            <element signature="e#3664#3968#0" expanded="false" />
-            <element signature="e#4024#4461#0" expanded="false" />
-            <element signature="e#4493#4630#0" expanded="false" />
-            <element signature="e#4665#4813#0" expanded="false" />
-            <element signature="e#4838#4977#0" expanded="false" />
+            <element signature="e#660#1134#0" expanded="false" />
+            <element signature="e#1211#1451#0" expanded="false" />
+            <element signature="e#1488#2032#0" expanded="false" />
+            <element signature="e#2067#2272#0" expanded="false" />
+            <element signature="e#2311#2752#0" expanded="false" />
+            <element signature="e#2791#2938#0" expanded="false" />
+            <element signature="e#3066#3125#0" expanded="false" />
+            <element signature="e#3308#3483#0" expanded="false" />
+            <element signature="e#3582#3757#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/style.css">
+    <entry file="file://$PROJECT_DIR$/www/src/core/location.factory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="132" column="19" lean-forward="false" selection-start-line="132" selection-start-column="19" selection-end-line="132" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="-221">
+          <caret line="65" column="20" lean-forward="false" selection-start-line="65" selection-start-column="20" selection-end-line="86" selection-end-column="21" />
+          <folding>
+            <element signature="e#1067#1330#0" expanded="false" />
+            <element signature="e#3397#3630#0" expanded="false" />
+            <element signature="e#3659#3963#0" expanded="false" />
+            <element signature="e#4019#4456#0" expanded="false" />
+            <element signature="e#4488#4625#0" expanded="false" />
+            <element signature="e#4660#4808#0" expanded="false" />
+            <element signature="e#4833#4972#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -32,17 +32,17 @@
     </div>
     <div class="row tableRow">
       <div class="col headerCell singleHeaderCell">Source</div>
-      <div class="col">{{vm.locationFactory.currentRide.data.SourceAddress}}</div>
+      <div class="col">{{vm.locationFactory.currentRide.SourceAddress}}</div>
     </div>
   </div>
   <div ng-if="vm.locationFactory.currentRide.data && vm.locationFactory.currentRide.data.RideStatusId === 2">
     <div class="row tableRow header">
       <div class="col headerCell singleHeaderCell">Source</div>
-      <div class="col">{{vm.locationFactory.currentRide.data.SourceAddress}}</div>
+      <div class="col">{{vm.locationFactory.currentRide.SourceAddress}}</div>
     </div>
     <div class="row tableRow">
       <div class="col headerCell singleHeaderCell">Destination</div>
-      <div class="col">{{vm.locationFactory.currentRide.data.DestinationAddress}}</div>
+      <div class="col">{{vm.locationFactory.currentRide.DestinationAddress}}</div>
     </div>
   </div>
 </ion-view>
