@@ -17,6 +17,8 @@
 
     vm.getCurrectLoction = getCurrectLoction;
     vm.rideNow = rideNow;
+    vm.letsGo = letsGo;
+    vm.rideSource = null;
 
     function initialize() {
       var mapOptions = {
@@ -55,12 +57,16 @@
     }
 
     function rideNow(){
+        vm.rideSource = {
+            Latitude: customerDashboardFactory.customerMap.map.getCenter().lat(),
+            Longitude: customerDashboardFactory.customerMap.map.getCenter().lng()
+        };
+    }
+
+    function letsGo() {
         navigator.geolocation.getCurrentPosition(function (position) {
             var ride = {
-                Source: {
-                    Latitude: position.coords.latitude,
-                    Longitude: position.coords.longitude
-                },
+                Source: vm.rideSource,
                 Destination: {
                     Latitude: customerDashboardFactory.customerMap.map.getCenter().lat(),
                     Longitude: customerDashboardFactory.customerMap.map.getCenter().lng()

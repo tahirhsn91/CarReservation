@@ -24,6 +24,42 @@ namespace CarReservation.Repository
             }
         }
 
+        public override async Task<Ride> GetAsync(int id)
+        {
+            return await this.DefaultListQuery
+                .Include(x => x.Source)
+                .Include(x => x.Destination)
+                .Include(x => x.RideDistance)
+                .Include(x => x.TimeTaken)
+                .Include(x => x.TotalFare)
+                .Include(x => x.ApproximateFare)
+                .Include(x => x.Customer)
+                .Include(x => x.Driver.User)
+                .Include(x => x.Vehicle.Model)
+                .Include(x => x.Package)
+                .Include(x => x.RideStatus)
+                .Where(x => x.Id == id)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<Ride>> GetCustomerByUserId(string userId)
+        {
+            return await this.DefaultListQuery
+                .Include(x => x.Source)
+                .Include(x => x.Destination)
+                .Include(x => x.RideDistance)
+                .Include(x => x.TimeTaken)
+                .Include(x => x.TotalFare)
+                .Include(x => x.ApproximateFare)
+                .Include(x => x.Customer)
+                .Include(x => x.Driver.User)
+                .Include(x => x.Vehicle.Model)
+                .Include(x => x.Package)
+                .Include(x => x.RideStatus)
+                .Where(x => x.Customer.UserId == userId)
+                .ToListAsync();
+        }
+
         public async Task<IEnumerable<Ride>> GetByCustomerId(int customerId)
         {
             return await this.DefaultListQuery
@@ -34,7 +70,8 @@ namespace CarReservation.Repository
                 .Include(x => x.TotalFare)
                 .Include(x => x.ApproximateFare)
                 .Include(x => x.Customer)
-                .Include(x => x.Driver)
+                .Include(x => x.Driver.User)
+                .Include(x => x.Vehicle.Model)
                 .Include(x => x.Package)
                 .Include(x => x.RideStatus)
                 .Where(x => x.CustomerId == customerId)
@@ -50,9 +87,10 @@ namespace CarReservation.Repository
                 .Include(x => x.TimeTaken)
                 .Include(x => x.TotalFare)
                 .Include(x => x.ApproximateFare)
-                .Include(x => x.Customer)
+                .Include(x => x.Customer.User)
                 .Include(x => x.Driver)
                 .Include(x => x.Package)
+                .Include(x => x.Vehicle)
                 .Include(x => x.RideStatus)
                 .Where(x => x.DriverId == driverId && x.IsActive)
                 .ToListAsync();

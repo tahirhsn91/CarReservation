@@ -118,7 +118,7 @@ a {
 
 .gmap-wrap {
     margin:0;
-    height:calc(100% - 88px);
+    height:calc(100% - 153px);
     margin-top: 44px;
     position: relative;
 
@@ -130,7 +130,7 @@ a {
 .gmap-wrap .center-marker{
     position:absolute;
     background:url(http://maps.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png) no-repeat;
-    top:50%;left:50%;
+    top:50%;left:53%;
     z-index:1;
     margin-left: -50px;/*-16px*/
     margin-top: -16px;
@@ -147,4 +147,36 @@ a {
     box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     padding: 5px 5px 2px;
     font-size: 16px;
+}
+
+
+
+.tableRow {
+    margin: -4px !important;
+    width: calc(100% + 20px);
+}
+.headerCell {
+    background-color:lightgrey;
+    font-weight: bold;
+}
+
+.singleHeaderCell {
+    width:25%;
+}
+
+.col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.col:last-child {
+    border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+    border-bottom: solid 1px grey;
 }

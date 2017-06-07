@@ -57,5 +57,71 @@ namespace CarReservation.Service
                 return null;
             }
         }
+
+        public async Task<DriverDTO> ChangeStatusToPick()
+        {
+            Driver driver = (await this.UnitOfWork.DriverRepository.GetByUserId(this.requestInfo.UserId)).FirstOrDefault();
+            return await this.ChangeStatusToPick(driver);
+        }
+
+        public async Task<DriverDTO> ChangeStatusToPick(int driverId)
+        {
+            Driver driver = await this.UnitOfWork.DriverRepository.GetAsync(driverId);
+            return await this.ChangeStatusToPick(driver);
+        }
+
+        public async Task<DriverDTO> ChangeStatusToPick(Driver driver)
+        {
+            if (driver != null)
+            {
+                DriverStatus status = await this.UnitOfWork.DriverStatusRepository.GetByCode(Core.Constant.DriverStatus.GoingToPick);
+
+                if (status != null)
+                {
+                    driver.StatusId = status.Id;
+                    await this.UnitOfWork.DriverRepository.Update(driver);
+                    await this.UnitOfWork.SaveAsync();
+                }
+
+                return new DriverDTO(driver);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<DriverDTO> ChangeStatusToRiding()
+        {
+            Driver driver = (await this.UnitOfWork.DriverRepository.GetByUserId(this.requestInfo.UserId)).FirstOrDefault();
+            return await this.ChangeStatusToRiding(driver);
+        }
+
+        public async Task<DriverDTO> ChangeStatusToRiding(int driverId)
+        {
+            Driver driver = await this.UnitOfWork.DriverRepository.GetAsync(driverId);
+            return await this.ChangeStatusToRiding(driver);
+        }
+
+        public async Task<DriverDTO> ChangeStatusToRiding(Driver driver)
+        {
+            if (driver != null)
+            {
+                DriverStatus status = await this.UnitOfWork.DriverStatusRepository.GetByCode(Core.Constant.DriverStatus.Riding);
+
+                if (status != null)
+                {
+                    driver.StatusId = status.Id;
+                    await this.UnitOfWork.DriverRepository.Update(driver);
+                    await this.UnitOfWork.SaveAsync();
+                }
+
+                return new DriverDTO(driver);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

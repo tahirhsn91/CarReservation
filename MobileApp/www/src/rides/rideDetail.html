@@ -3,17 +3,17 @@
     <ul class="list">
       <li class="item">
         <a ui-sref="shell.rideDetail({'id': 1})" class="ride-route">
-          <h3>16 Nov, 11:30 PM</h3>
+          <h3>{{vm.ride.CreatedDate | date:'dd MMM-yyyy, HH:mm a'}}</h3>
           <h2>
             <i class="ion-android-radio-button-on"></i>
-            Zahid Uncle
-            <div>Marhaba Galaxy Appartments</div>
+            UnSaved Location
+            <div>{{vm.ride.SourceAddress}}</div>
             <i class="location-bar">..........</i>
           </h2>
           <h2>
             <i class="ion-ios-location"></i>
-            Home
-            <div>ABC Appartments Nazimabad</div>
+            UnSaved Location
+            <div>{{vm.ride.DestinationAddress}}</div>
           </h2>
         </a>
       </li>
@@ -24,8 +24,8 @@
             <h2>26 mins</h2>
           </div>
           <div class="col">
-            <h3>Car Type</h3>
-            <h2>Go</h2>
+            <h3>Package</h3>
+            <h2>{{vm.ride.Package.Name}}</h2>
           </div>
         </div>
       </li>
@@ -38,18 +38,18 @@
         <h2>Cash</h2>
       </li>
       <li class="item">
-        <h3>Captain</h3>
-        <h2>Niazi Bhai</h2>
+        <h3>Driver Name</h3>
+        <h2>{{vm.ride.Driver.User.FirstName + ' ' + vm.ride.Driver.User.LastName}}</h2>
       </li>
       <li class="item">
         <div class="row">
           <div class="col">
             <h3>Car</h3>
-            <h2>Toyota Vitz Go</h2>
+            <h2>{{vm.ride.Vehicle.VehicleModel.Name}}</h2>
           </div>
           <div class="col">
             <h3>Plate #</h3>
-            <h2>ANE - 765</h2>
+            <h2>{{vm.ride.Vehicle.RegistrationNumber}}</h2>
           </div>
         </div>
       </li>

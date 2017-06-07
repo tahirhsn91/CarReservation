@@ -8,6 +8,8 @@ namespace CarReservation.Core.IService
 {
     public interface IRideService : IBaseService<IRideRepository, Ride, RideDTO, int>
     {
+        Task<RideDTO> CustomerHeartBeatAsync(RideDTO dtoObject);
+
         Task<RideDTO> GetCustomerActiveRide();
     }
 }

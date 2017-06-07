@@ -61,6 +61,14 @@ namespace CarReservation.Core.Migrations
                 context.DriverStatus.Add(new Core.Model.DriverStatus { Name = Core.Constant.DriverStatus.GoingToPick, Code = Core.Constant.DriverStatus.GoingToPick, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
                 context.DriverStatus.Add(new Core.Model.DriverStatus { Name = Core.Constant.DriverStatus.Riding, Code = Core.Constant.DriverStatus.Riding, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
             }
+
+            if (context.RideStatus.Count() == 0)
+            {
+                context.RideStatus.Add(new Core.Model.RideStatus { Name = Core.Constant.RideStatus.Waiting, Code = Core.Constant.RideStatus.Waiting, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.RideStatus.Add(new Core.Model.RideStatus { Name = Core.Constant.RideStatus.Riding, Code = Core.Constant.RideStatus.Riding, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.RideStatus.Add(new Core.Model.RideStatus { Name = Core.Constant.RideStatus.WaitingForPayment, Code = Core.Constant.RideStatus.WaitingForPayment, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.RideStatus.Add(new Core.Model.RideStatus { Name = Core.Constant.RideStatus.RideOver, Code = Core.Constant.RideStatus.RideOver, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+            }
         }
     }
 }

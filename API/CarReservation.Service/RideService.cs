@@ -25,6 +25,13 @@ namespace CarReservation.Service
             this.requestInfo = requestInfo;
         }
 
+        public override async Task<IList<RideDTO>> GetAllAsync(Common.Helper.JsonApiRequest request)
+        {
+            IEnumerable<Ride> entities = await this.Repository.GetCustomerByUserId(this.requestInfo.UserId);
+
+            return RideDTO.ConvertEntityListToDTOList<RideDTO>(entities);
+        }
+
         public override async Task<RideDTO> CreateAsync(RideDTO dtoObject)
         {
             using (var trans = this.UnitOfWork.DBContext.Database.BeginTransaction())
@@ -55,10 +62,18 @@ namespace CarReservation.Service
                     }
 
                     await this.UnitOfWork.SaveAsync();
+
+                    RideStatus rideStatus = await this.UnitOfWork.RideStatusRepository.GetByCode(Core.Constant.RideStatus.Waiting);
+
                     dtoObject.SourceId = sourceEntity.Id;
                     dtoObject.DestinationId = destinationEntity.Id;
                     dtoObject.CustomerId = customer.Id;
                     dtoObject.IsActive = true;
+
+                    if (rideStatus != null)
+                    {
+                        dtoObject.RideStatusId = rideStatus.Id;
+                    }
 
                     dtoObject = await base.CreateAsync(dtoObject);
 
@@ -67,6 +82,28 @@ namespace CarReservation.Service
                     return dtoObject;
                 }
                 else
+                {
+                    return await this.CustomerHeartBeatAsync(dtoObject);
+                }
+            }
+        }
+
+        public async Task<RideDTO> CustomerHeartBeatAsync(RideDTO dtoObject)
+        {
+            using (var trans = this.UnitOfWork.DBContext.Database.BeginTransaction())
+            {
+                Customer customer = await this.UnitOfWork.CustomerRepository.GetByUserId(this.requestInfo.UserId);
+                if (customer == null)
+                {
+                    customer = await this.UnitOfWork.CustomerRepository.Create(new Customer()
+                    {
+                        UserId = this.requestInfo.UserId
+                    });
+                }
+
+                IEnumerable<Ride> rideEntities = await this.Repository.GetByCustomerId(customer.Id);
+
+                if (rideEntities.Where(x => x.IsActive).Count() > 0)
                 {
                     Ride activeRide = rideEntities.Where(x => x.IsActive).FirstOrDefault();
                     if (activeRide != null)
@@ -117,6 +154,10 @@ namespace CarReservation.Service
                     {
                         return null;
                     }
+                }
+                else
+                {
+                    return null;
                 }
             }
         }

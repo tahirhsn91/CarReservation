@@ -19,6 +19,8 @@
       vm.currentDriver = {};
       vm.getCurrectLoction = getCurrectLoction;
       vm.toggleAvailable = toggleAvailable;
+      vm.pickUpCustomer = pickUpCustomer;
+      vm.dropCustomer = dropCustomer;
 
       function initialize() {
           var mapOptions = {
@@ -81,6 +83,14 @@
           Restangular.one('Driver/GetCurrentDriver').get().then(function (result) {
               vm.currentDriver = result;
           })
+      }
+      
+      function pickUpCustomer() {
+          vm.locationFactory.pickUpCustomer();
+      }
+
+      function dropCustomer() {
+          vm.locationFactory.waitingForPayment();
       }
 
       //google.maps.event.addDomListener(window, 'load', initialize);

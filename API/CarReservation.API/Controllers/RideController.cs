@@ -31,14 +31,14 @@ namespace CarReservation.API.Controllers
         [HttpPost]
         [AuthorizeRoles(UserRoles.CUSTOMER)]
         [Route("RideNow/HeartBeat")]
-        public Task<RideDTO> RideNow(RideDTO dtoObject)
+        public async Task<RideDTO> RideNow(RideDTO dtoObject)
         {
-            return base.Post(dtoObject);
+            return await this._service.CustomerHeartBeatAsync(dtoObject);
         }
 
         [HttpGet]
         [AuthorizeRoles(UserRoles.CUSTOMER)]
-        [Route("GetActiveRide/HeartBeat")]
+        [Route("GetActiveRide")]
         public async Task<RideDTO> GetActiveRide()
         {
             return await this._service.GetCustomerActiveRide();

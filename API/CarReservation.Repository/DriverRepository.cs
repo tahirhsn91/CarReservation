@@ -53,7 +53,7 @@ namespace CarReservation.Repository
         public async Task<IEnumerable<Driver>> GetByUserId(string userId)
         {
             return await this.DefaultListQuery
-                .Include(x => x.Supervisor)
+                .Include(x => x.Supervisor.User)
                 .Include(x => x.User)
                 .Include(x => x.Status)
                 .Where(x => x.UserId == userId)
