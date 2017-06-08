@@ -69,6 +69,22 @@ namespace CarReservation.Core.Migrations
                 context.RideStatus.Add(new Core.Model.RideStatus { Name = Core.Constant.RideStatus.WaitingForPayment, Code = Core.Constant.RideStatus.WaitingForPayment, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
                 context.RideStatus.Add(new Core.Model.RideStatus { Name = Core.Constant.RideStatus.RideOver, Code = Core.Constant.RideStatus.RideOver, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
             }
+
+            if (context.DistanceUnit.Count() == 0)
+            {
+                context.DistanceUnit.Add(new Core.Model.DistanceUnit { Name = Core.Constant.DistanceUnit.Kilometer, Code = Core.Constant.DistanceUnit.Kilometer, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.DistanceUnit.Add(new Core.Model.DistanceUnit { Name = Core.Constant.DistanceUnit.Meter, Code = Core.Constant.DistanceUnit.Meter, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+            }
+
+            if (context.TravelUnit.Count() == 0)
+            {
+                context.TravelUnit.Add(new Core.Model.TravelUnit { Name = Core.Constant.TravelUnit.PerKilometer, Code = Core.Constant.TravelUnit.PerKilometer, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.TravelUnit.Add(new Core.Model.TravelUnit { Name = Core.Constant.TravelUnit.PerMeter, Code = Core.Constant.TravelUnit.PerMeter, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.TravelUnit.Add(new Core.Model.TravelUnit { Name = Core.Constant.TravelUnit.PerDay, Code = Core.Constant.TravelUnit.PerDay, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.TravelUnit.Add(new Core.Model.TravelUnit { Name = Core.Constant.TravelUnit.PerHour, Code = Core.Constant.TravelUnit.PerHour, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.TravelUnit.Add(new Core.Model.TravelUnit { Name = Core.Constant.TravelUnit.PerMinute, Code = Core.Constant.TravelUnit.PerMinute, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+                context.TravelUnit.Add(new Core.Model.TravelUnit { Name = Core.Constant.TravelUnit.PerMilliseconds, Code = Core.Constant.TravelUnit.PerMilliseconds, CreatedBy = "System", CreatedOn = DateTime.UtcNow, LastModifiedOn = DateTime.UtcNow });
+            }
         }
     }
 }

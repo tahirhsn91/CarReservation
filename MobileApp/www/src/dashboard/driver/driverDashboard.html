@@ -31,18 +31,32 @@
       <div class="col">{{vm.locationFactory.currentRide.data.Customer.User.MobileNumber}}</div>
     </div>
     <div class="row tableRow">
-      <div class="col headerCell singleHeaderCell">Source</div>
+      <div class="headerCell singleHeaderCell">Source</div>
       <div class="col">{{vm.locationFactory.currentRide.SourceAddress}}</div>
     </div>
   </div>
   <div ng-if="vm.locationFactory.currentRide.data && vm.locationFactory.currentRide.data.RideStatusId === 2">
     <div class="row tableRow header">
-      <div class="col headerCell singleHeaderCell">Source</div>
+      <div class="headerCell singleHeaderCell">Source</div>
       <div class="col">{{vm.locationFactory.currentRide.SourceAddress}}</div>
     </div>
     <div class="row tableRow">
-      <div class="col headerCell singleHeaderCell">Destination</div>
+      <div class="headerCell singleHeaderCell">Destination</div>
       <div class="col">{{vm.locationFactory.currentRide.DestinationAddress}}</div>
+    </div>
+  </div>
+  <div ng-if="vm.locationFactory.currentRide.data && vm.locationFactory.currentRide.data.RideStatusId === 3">
+    <div class="row tableRow header">
+      <div class="col headerCell">Start Fare</div>
+      <div class="col">{{vm.locationFactory.currentRide.data.Package.StartFare.TotalFare | number:2}}</div>
+      <div class="col headerCell">Total Fare</div>
+      <div class="col">{{vm.locationFactory.currentRide.data.TotalFare.TotalFare | number:2}}</div>
+    </div>
+    <div class="row tableRow">
+      <div class="col headerCell">Time</div>
+      <div class="col">{{vm.locationFactory.currentRide.data.TimeTaken.TotalMinutes | number:2}}</div>
+      <div class="col headerCell">Distance</div>
+      <div class="col">{{vm.locationFactory.currentRide.data.RideDistance.TotalDistance/ 1000 | number:2}}</div>
     </div>
   </div>
 </ion-view>
@@ -69,7 +83,7 @@
 </ion-footer-bar>
 <ion-footer-bar class="bar" ng-if="vm.locationFactory.currentRide.data && vm.locationFactory.currentRide.data.RideStatusId === 3">
   <div class="footer-action">
-    <a class="button button-positive" ng-click="vm.dropCustomer()">
+    <a class="button button-positive" ng-click="vm.endRide()">
       End Ride
     </a>
   </div>

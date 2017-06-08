@@ -32,6 +32,13 @@ namespace CarReservation.Service
             return RideDTO.ConvertEntityListToDTOList<RideDTO>(entities);
         }
 
+        public async Task<IList<RideDTO>> GetRideBySupervisorUserId()
+        {
+            IEnumerable<Ride> entities = await this.Repository.GetRideBySupervisorUserId(this.requestInfo.UserId);
+
+            return RideDTO.ConvertEntityListToDTOList<RideDTO>(entities);
+        }
+
         public override async Task<RideDTO> CreateAsync(RideDTO dtoObject)
         {
             using (var trans = this.UnitOfWork.DBContext.Database.BeginTransaction())
@@ -51,6 +58,8 @@ namespace CarReservation.Service
                 {
                     LocationLagLon sourceEntity = null;
                     LocationLagLon destinationEntity = null;
+                    Distance rideDistance = null;
+
                     if (dtoObject.Source != null)
                     {
                         sourceEntity = await this.UnitOfWork.LocationLagLonRepository.Create(dtoObject.Source.ConvertToEntity());
@@ -61,12 +70,27 @@ namespace CarReservation.Service
                         destinationEntity = await this.UnitOfWork.LocationLagLonRepository.Create(dtoObject.Destination.ConvertToEntity());
                     }
 
+                    if (dtoObject.Source != null && dtoObject.Destination != null)
+                    {
+                        DistanceUnit distanceUnit = await this.UnitOfWork.DistanceUnitRepository.GetByCode(Core.Constant.DistanceUnit.Kilometer);
+
+                        if (distanceUnit != null)
+                        {
+                            rideDistance = await this.UnitOfWork.DistanceRepository.Create(new Distance()
+                            {
+                                UnitId = distanceUnit.Id,
+                                TotalDistance = (await CalculateDistance(dtoObject.Destination.Latitude, dtoObject.Destination.Longitude, dtoObject.Source.Latitude, dtoObject.Source.Longitude))
+                            });
+                        }
+                    }
+
                     await this.UnitOfWork.SaveAsync();
 
                     RideStatus rideStatus = await this.UnitOfWork.RideStatusRepository.GetByCode(Core.Constant.RideStatus.Waiting);
 
                     dtoObject.SourceId = sourceEntity.Id;
                     dtoObject.DestinationId = destinationEntity.Id;
+                    dtoObject.RideDistanceId = rideDistance.Id;
                     dtoObject.CustomerId = customer.Id;
                     dtoObject.IsActive = true;
 

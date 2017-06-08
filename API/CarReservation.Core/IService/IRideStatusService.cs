@@ -20,5 +20,13 @@ namespace CarReservation.Core.IService
         Task<RideDTO> ChangeStatusToRideOver(int rideId);
 
         Task<RideDTO> ChangeStatusToRideOver(Ride ride);
+
+        Task<RideDTO> CancelRide(int rideId);
+
+        Task<RideDTO> CancelRide(Ride ride);
+
+        Task<RideDTO> EndRide(int rideId, RideDTO ride);
+
+        Task<RideDTO> EndRide(Ride ride, RideDTO currentRide);
     }
 }

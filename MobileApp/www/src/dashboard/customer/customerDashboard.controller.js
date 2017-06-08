@@ -18,7 +18,11 @@
     vm.getCurrectLoction = getCurrectLoction;
     vm.rideNow = rideNow;
     vm.letsGo = letsGo;
+    vm.cancelRide = cancelRide;
+    vm.endRide = endRide
     vm.rideSource = null;
+    vm.MainSourceAddress = "";
+    vm.MainDestinationAddress = "";
 
     function initialize() {
       var mapOptions = {
@@ -50,6 +54,7 @@
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
+          geocodeLatLng(pos);
           customerDashboardFactory.customerMap.map.setCenter(pos);
       }, function(err) {
           // error
@@ -62,6 +67,40 @@
             Longitude: customerDashboardFactory.customerMap.map.getCenter().lng()
         };
     }
+    
+    function cancelRide() {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var ride = {
+                Destination: {
+                    Latitude: position.coords.latitude,
+                    Longitude: position.coords.longitude
+                }
+            };
+            customerDashboardFactory.cancelRide(ride).then(function (result) {
+                customerDashboardFactory.processRide(result, position);
+                vm.MainSourceAddress = "";
+                vm.MainDestinationAddress = "";
+                vm.rideSource = null;
+            });
+        });
+    }
+    
+    function endRide() {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var ride = {
+                Destination: {
+                    Latitude: position.coords.latitude,
+                    Longitude: position.coords.longitude
+                }
+            };
+            customerDashboardFactory.endRide(ride).then(function (result) {
+                customerDashboardFactory.processRide(result, position);
+                vm.MainSourceAddress = "";
+                vm.MainDestinationAddress = "";
+                vm.rideSource = null;
+            });
+        });
+    }
 
     function letsGo() {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -72,7 +111,12 @@
                     Longitude: customerDashboardFactory.customerMap.map.getCenter().lng()
                 }
             };
-            customerDashboardFactory.rideNow(ride);
+            customerDashboardFactory.rideNow(ride).then(function (result) {
+                customerDashboardFactory.processRide(result, position);
+                vm.MainSourceAddress = "";
+                vm.MainDestinationAddress = "";
+                vm.rideSource = null;
+            });
         });
     }
 
@@ -80,9 +124,12 @@
       vm.geocoder.geocode({'location': latlng}, function(results, status) {
         if (status === 'OK') {
           if (results[1]) {
-            // alert(results[1].formatted_address);
-          } else {
-            // alert('No results found');
+              if (!vm.activeRide.ride && !vm.rideSource) {
+                  vm.MainSourceAddress = results[1].formatted_address
+              }
+              else if (!vm.activeRide.ride && vm.rideSource) {
+                  vm.MainDestinationAddress = results[1].formatted_address
+              }
           }
         } else {
           // alert('Geocoder failed due to: ' + status);

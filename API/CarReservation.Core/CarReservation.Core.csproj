@@ -146,9 +146,11 @@
     <Compile Include="Attributes\AuditOperation.cs" />
     <Compile Include="Configuration\AppConfiguration.cs" />
     <Compile Include="Constant\Claim.cs" />
+    <Compile Include="Constant\DistanceUnit.cs" />
     <Compile Include="Constant\DriverStatus.cs" />
     <Compile Include="Constant\Message.cs" />
     <Compile Include="Constant\RideStatus.cs" />
+    <Compile Include="Constant\TravelUnit.cs" />
     <Compile Include="Constant\UserRoles.cs" />
     <Compile Include="Constant\Validations.cs" />
     <Compile Include="DTO\AccountDTO.cs" />

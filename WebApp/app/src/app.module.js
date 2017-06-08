@@ -18,7 +18,8 @@
     'app.supervisor',
     'app.package',
     'app.driver',
-    'app.assignPackage'
+    'app.assignPackage',
+    'app.viewRides'
   ]);
 
 }());

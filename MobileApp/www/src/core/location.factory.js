@@ -30,7 +30,8 @@
         driverMap: driverMap,
         pickUpCustomer: pickUpCustomer,
         waitingForPayment: waitingForPayment,
-        endRide: endRide
+        endRide: endRide,
+        processRide: processRide
     };
 
     function postDriverLocation(data){
@@ -58,35 +59,7 @@
                 }
             };
             postDriverLocation(pos).then(function (result) {
-                currentRide.data = result;
-                removeRoute();
-                removeCustomerMarkers();
-
-                if (result) {
-                    if (currentRide.data) {
-                        var sourceMark = {lat: result.Source.Latitude, lng: result.Source.Longitude};
-                        var destinationMark = {lat: result.Destination.Latitude, lng: result.Destination.Longitude};
-                        var currentLatLng = {lat: position.coords.latitude, lng: position.coords.longitude};
-
-                        addLocationInfo(currentRide);
-
-                        if (currentRide.data.RideStatusId === 1) {
-                            createRoute(currentLatLng, sourceMark);
-                        }
-                        else if (currentRide.data.RideStatusId === 2) {
-                            createRoute(currentLatLng, destinationMark);
-                        }
-                        else if (currentRide.data.RideStatusId === 3) {
-                            var marker = new google.maps.Marker({
-                                position: destinationMark,
-                                map: driverMap.map,
-                                title: 'Customer Location'
-                            });
-                            customerMarkers.push(marker);
-                        }
-                    }
-                }
-
+                processRide(result, position);
                 logCurrentLocation();
             }, function (error) {
                 logCurrentLocation();
@@ -94,6 +67,37 @@
         }, function(err) {
             logCurrentLocation();
         });
+    }
+
+    function processRide(ride, position) {
+        currentRide.data = ride;
+        removeRoute();
+        removeCustomerMarkers();
+
+        if (currentRide.data) {
+            if (currentRide.data) {
+                var sourceMark = {lat: currentRide.data.Source.Latitude, lng: currentRide.data.Source.Longitude};
+                var destinationMark = {lat: currentRide.data.Destination.Latitude, lng: currentRide.data.Destination.Longitude};
+                var currentLatLng = {lat: position.coords.latitude, lng: position.coords.longitude};
+
+                addLocationInfo(currentRide);
+
+                if (currentRide.data.RideStatusId === 1) {
+                    createRoute(currentLatLng, sourceMark);
+                }
+                else if (currentRide.data.RideStatusId === 2) {
+                    createRoute(currentLatLng, destinationMark);
+                }
+                else if (currentRide.data.RideStatusId === 3) {
+                    var marker = new google.maps.Marker({
+                        position: destinationMark,
+                        map: driverMap.map,
+                        title: 'Customer Location'
+                    });
+                    customerMarkers.push(marker);
+                }
+            }
+        }
     }
 
     function removeCustomerMarkers() {
@@ -132,16 +136,19 @@
 
     function pickUpCustomer() {
         Restangular.all('RideStatus/ChangeStatusToRiding/' + currentRide.data.Id).post({}).then(function (response) {
+            currentRide.data = response;
         });
     }
 
     function waitingForPayment() {
         Restangular.all('RideStatus/ChangeStatusToWaitingForPayment/' + currentRide.data.Id).post({}).then(function (response) {
+            currentRide.data = response;
         });
     }
 
     function endRide() {
         Restangular.all('RideStatus/ChangeStatusToRideOver/' + currentRide.data.Id).post({}).then(function (response) {
+            currentRide.data = null;
         });
     }
 

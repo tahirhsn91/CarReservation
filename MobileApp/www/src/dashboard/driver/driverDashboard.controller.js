@@ -21,6 +21,7 @@
       vm.toggleAvailable = toggleAvailable;
       vm.pickUpCustomer = pickUpCustomer;
       vm.dropCustomer = dropCustomer;
+      vm.endRide = endRide;
 
       function initialize() {
           var mapOptions = {
@@ -91,6 +92,10 @@
 
       function dropCustomer() {
           vm.locationFactory.waitingForPayment();
+      }
+      
+      function endRide() {
+          vm.locationFactory.endRide();
       }
 
       //google.maps.event.addDomListener(window, 'load', initialize);

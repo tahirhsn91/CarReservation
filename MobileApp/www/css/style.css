@@ -130,7 +130,7 @@ a {
 .gmap-wrap .center-marker{
     position:absolute;
     background:url(http://maps.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png) no-repeat;
-    top:50%;left:53%;
+    top:46%;left:59%;
     z-index:1;
     margin-left: -50px;/*-16px*/
     margin-top: -16px;

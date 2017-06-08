@@ -10,5 +10,8 @@ namespace CarReservation.Core.IRepository
 {
     public interface ITravelUnitRepository : IBaseRepository<TravelUnit>
     {
+        Task<TravelUnit> GetByName(string name);
+
+        Task<TravelUnit> GetByCode(string code);
     }
 }

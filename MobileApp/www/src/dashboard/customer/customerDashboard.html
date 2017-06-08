@@ -10,7 +10,17 @@
     </a>
   </div>
 
-  <div>
+  <div ng-if="!vm.activeRide.ride">
+    <div class="row tableRow header">
+      <div class="headerCell singleHeaderCell">Source</div>
+      <div class="col">{{vm.MainSourceAddress}}</div>
+    </div>
+    <div class="row tableRow">
+      <div class="headerCell singleHeaderCell">Destination</div>
+      <div class="col">{{vm.MainDestinationAddress}}</div>
+    </div>
+  </div>
+  <div ng-if="vm.activeRide.ride && vm.activeRide.ride.RideStatusId !== 3">
     <div class="row tableRow header">
       <div class="col headerCell">Driver</div>
       <div class="col">{{vm.activeRide.ride.Driver.User.FirstName + ' ' + vm.activeRide.ride.Driver.User.LastName}}</div>
@@ -22,6 +32,20 @@
       <div class="col">{{vm.activeRide.ride.Vehicle.RegistrationNumber}}</div>
       <div class="col headerCell">Model</div>
       <div class="col">{{vm.activeRide.ride.Vehicle.VehicleModel.Name}}</div>
+    </div>
+  </div>
+  <div ng-if="vm.activeRide.ride && vm.activeRide.ride.RideStatusId === 3">
+    <div class="row tableRow header">
+      <div class="col headerCell">Start Fare</div>
+      <div class="col">{{vm.activeRide.ride.Package.StartFare.TotalFare | number:2}}</div>
+      <div class="col headerCell">Total Fare</div>
+      <div class="col">{{vm.activeRide.ride.TotalFare.TotalFare | number:2}}</div>
+    </div>
+    <div class="row tableRow">
+      <div class="col headerCell">Time</div>
+      <div class="col">{{vm.activeRide.ride.TimeTaken.TotalMinutes | number:2}}</div>
+      <div class="col headerCell">Distance</div>
+      <div class="col">{{vm.activeRide.ride.RideDistance.TotalDistance/ 1000 | number:2}}</div>
     </div>
   </div>
   <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14481.051337981453!2d67.25735798559889!3d24.854871227255114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3316c5276e35b%3A0x823a6a0100195ffd!2sNational+University+Of+Computer+%26+Emergin+Sciences!5e0!3m2!1sen!2s!4v1479904208889" style="width: 100%; height: 100%;" frameborder="0" style="border:0" allowfullscreen></iframe>-->
@@ -37,7 +61,21 @@
 <ion-footer-bar class="bar" ng-if="!vm.activeRide.ride && vm.rideSource">
   <div class="footer-action">
     <a class="button button-positive" ng-click="vm.letsGo()">
-      Lets's Go
+      Let's Go
+    </a>
+  </div>
+</ion-footer-bar>
+<ion-footer-bar class="bar" ng-if="vm.activeRide.ride && vm.activeRide.ride.RideStatusId === 1">
+  <div class="footer-action">
+    <a class="button button-positive" ng-click="vm.cancelRide()">
+      Cancel Ride
+    </a>
+  </div>
+</ion-footer-bar>
+<ion-footer-bar class="bar" ng-if="vm.activeRide.ride && vm.activeRide.ride.RideStatusId !== 1">
+  <div class="footer-action">
+    <a class="button button-positive" ng-click="vm.endRide()">
+      End Ride
     </a>
   </div>
 </ion-footer-bar>

@@ -2,8 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62be6262-ef47-44bd-bcac-1004b0eae513" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.v12.suo" afterPath="$PROJECT_DIR$/../API/CarReservation.v12.suo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.API/Controllers/RideStatusController.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.API/Controllers/RideStatusController.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/CarReservation.Core.csproj" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/CarReservation.Core.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/IRepository/IDistanceUnitRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/IRepository/IDistanceUnitRepository.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/IRepository/ITravelUnitRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/IRepository/ITravelUnitRepository.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/IService/IRideStatusService.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/IService/IRideStatusService.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/Migrations/Configuration.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/Migrations/Configuration.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Core/Model/TimeTracker.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Core/Model/TimeTracker.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Repository/DistanceUnitRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Repository/DistanceUnitRepository.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Repository/RideRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Repository/RideRepository.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Repository/TravelUnitRepository.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Repository/TravelUnitRepository.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Service/RideService.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Service/RideService.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../API/CarReservation.Service/RideStatusService.cs" afterPath="$PROJECT_DIR$/../API/CarReservation.Service/RideStatusService.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/core/location.factory.js" afterPath="$PROJECT_DIR$/www/src/core/location.factory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js" afterPath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" afterPath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html" afterPath="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js" afterPath="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html" afterPath="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/rides/rideDetail.html" afterPath="$PROJECT_DIR$/www/src/rides/rideDetail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/src/rides/rides.html" afterPath="$PROJECT_DIR$/www/src/rides/rides.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../WebApp/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/app/index.html" afterPath="$PROJECT_DIR$/../WebApp/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/app/src/app.module.js" afterPath="$PROJECT_DIR$/../WebApp/app/src/app.module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../WebApp/app/src/supervisor/shell/sideBar.html" afterPath="$PROJECT_DIR$/../WebApp/app/src/supervisor/shell/sideBar.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,65 +46,78 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="driverDashboard.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js">
+      <file leaf-file-name="customerDashboard.factory.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+            <state relative-caret-position="126">
+              <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="31" />
               <folding>
-                <element signature="e#660#1134#0" expanded="false" />
-                <element signature="e#1211#1451#0" expanded="false" />
-                <element signature="e#1488#2032#0" expanded="false" />
-                <element signature="e#2067#2272#0" expanded="false" />
-                <element signature="e#2311#2752#0" expanded="false" />
-                <element signature="e#2791#2938#0" expanded="false" />
-                <element signature="e#3066#3125#0" expanded="false" />
-                <element signature="e#3308#3483#0" expanded="false" />
-                <element signature="e#3582#3757#0" expanded="false" />
+                <element signature="e#821#853#0" expanded="false" />
+                <element signature="e#1848#2550#0" expanded="false" />
+                <element signature="e#2578#2634#0" expanded="false" />
+                <element signature="e#3005#3079#0" expanded="false" />
+                <element signature="e#3110#3177#0" expanded="false" />
+                <element signature="e#3210#3750#0" expanded="false" />
+                <element signature="e#3791#4014#0" expanded="false" />
+                <element signature="e#4043#4347#0" expanded="false" />
+                <element signature="e#4403#4842#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="location.factory.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/src/core/location.factory.js">
+      <file leaf-file-name="customerDashboard.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-221">
-              <caret line="65" column="20" lean-forward="false" selection-start-line="65" selection-start-column="20" selection-end-line="86" selection-end-column="21" />
-              <folding>
-                <element signature="e#1067#1330#0" expanded="false" />
-                <element signature="e#3397#3630#0" expanded="false" />
-                <element signature="e#3659#3963#0" expanded="false" />
-                <element signature="e#4019#4456#0" expanded="false" />
-                <element signature="e#4488#4625#0" expanded="false" />
-                <element signature="e#4660#4808#0" expanded="false" />
-                <element signature="e#4833#4972#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rideDetail.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/src/rides/rideDetail.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="49" />
+            <state relative-caret-position="202">
+              <caret line="76" column="58" lean-forward="false" selection-start-line="76" selection-start-column="51" selection-end-line="76" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="driverDashboard.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html">
+      <file leaf-file-name="location.factory.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/src/core/location.factory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="34" column="55" lean-forward="false" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
+            <state relative-caret-position="663">
+              <caret line="88" column="36" lean-forward="true" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
               <folding>
-                <element signature="n#ion-footer-bar#0;n#!!top" expanded="false" />
-                <element signature="n#ion-footer-bar#1;n#!!top" expanded="false" />
-                <element signature="n#ion-footer-bar#2;n#!!top" expanded="false" />
-                <element signature="n#ion-footer-bar#3;n#!!top" expanded="false" />
+                <element signature="e#1101#1364#0" expanded="false" />
+                <element signature="e#3375#3608#0" expanded="false" />
+                <element signature="e#3637#3941#0" expanded="false" />
+                <element signature="e#3997#4434#0" expanded="false" />
+                <element signature="e#5108#5894#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restangular.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/src/core/restangular.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rides.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/src/rides/rides.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rides.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/src/rides/rides.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,9 +125,24 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="1734">
               <caret line="132" column="19" lean-forward="false" selection-start-line="132" selection-start-column="19" selection-end-line="132" selection-end-column="19" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customerDashboard.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="117" column="37" lean-forward="false" selection-start-line="117" selection-start-column="37" selection-end-line="117" selection-end-column="37" />
+              <folding>
+                <element signature="e#1211#1487#0" expanded="false" />
+                <element signature="e#4272#4819#0" expanded="false" />
+                <element signature="e#5007#5194#0" expanded="false" />
+                <element signature="e#5302#5489#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,15 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$timeout</find>
-      <find>authFactory.getUser()</find>
-      <find>logCurrentLocation</find>
-      <find>activeRide</find>
-      <find>saveCurrentLocation</find>
-      <find>saveCurrentLoction</find>
-      <find>$cordovaGeolocationnavigator.geolocatio</find>
-      <find>$cordovaGeolocation</find>
-      <find>$cordovaGeolocationnavigator.geolocation</find>
       <find>cordo</find>
       <find>navigator.geolocation</find>
       <find>ActiveRide</find>
@@ -128,6 +172,15 @@
       <find>foreach</find>
       <find>Restangular</find>
       <find>rideNow</find>
+      <find>dropCustomer</find>
+      <find>vm.locationFactory.currentRide.data</find>
+      <find>posi</find>
+      <find>result</find>
+      <find>position</find>
+      <find>processRide</find>
+      <find>activeRide</find>
+      <find>endRide</find>
+      <find>process</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -154,18 +207,18 @@
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/src/auth/auth.factory.js" />
         <option value="$PROJECT_DIR$/www/src/shell/shell.html" />
-        <option value="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js" />
         <option value="$PROJECT_DIR$/www/src/rides/rides.controller.js" />
-        <option value="$PROJECT_DIR$/www/src/rides/rides.html" />
         <option value="$PROJECT_DIR$/www/src/rides/rideDetail.controller.js" />
+        <option value="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js" />
+        <option value="$PROJECT_DIR$/www/src/rides/rides.html" />
         <option value="$PROJECT_DIR$/www/src/rides/rideDetail.html" />
-        <option value="$PROJECT_DIR$/www/src/core/restangular.config.js" />
-        <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" />
-        <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html" />
-        <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js" />
         <option value="$PROJECT_DIR$/www/css/style.css" />
         <option value="$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html" />
+        <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html" />
+        <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js" />
+        <option value="$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js" />
         <option value="$PROJECT_DIR$/www/src/core/location.factory.js" />
+        <option value="$PROJECT_DIR$/www/src/core/restangular.config.js" />
       </list>
     </option>
   </component>
@@ -285,84 +338,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="driver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -472,26 +455,25 @@
       <workItem from="1494257724721" duration="32888000" />
       <workItem from="1494602051920" duration="23443000" />
       <workItem from="1495998633157" duration="6270000" />
-      <workItem from="1496574107125" duration="28161000" />
+      <workItem from="1496574107125" duration="32191000" />
+      <workItem from="1496855844182" duration="13060000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99598000" />
+    <option name="totallyTimeSpent" value="116688000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2913257" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2913257" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -504,6 +486,7 @@
       <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -759,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="40" column="39" lean-forward="false" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -774,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="53" lean-forward="true" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="653" column="21" lean-forward="false" selection-start-line="653" selection-start-column="21" selection-end-line="653" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-434">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,7 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -814,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="999">
           <caret line="59" column="68" lean-forward="false" selection-start-line="59" selection-start-column="68" selection-end-line="59" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,80 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-204">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/rides/rides.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/rides/rideDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/core/restangular.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="68" column="20" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="68" selection-end-column="20" />
-          <folding>
-            <element signature="e#729#761#0" expanded="false" />
-            <element signature="e#2806#3346#0" expanded="false" />
-            <element signature="e#3387#3610#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="29" column="72" lean-forward="false" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding>
-            <element signature="e#1087#1363#0" expanded="false" />
-            <element signature="e#1398#1900#0" expanded="false" />
-            <element signature="e#2643#3004#0" expanded="false" />
-            <element signature="e#3487#3674#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/rides/rides.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="33" column="6" lean-forward="true" selection-start-line="33" selection-start-column="6" selection-end-line="52" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="132" column="19" lean-forward="false" selection-start-line="132" selection-start-column="19" selection-end-line="132" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -903,54 +805,127 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html">
+    <entry file="file://$PROJECT_DIR$/www/src/rides/rideDetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="34" column="55" lean-forward="false" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-          <folding>
-            <element signature="n#ion-footer-bar#0;n#!!top" expanded="false" />
-            <element signature="n#ion-footer-bar#1;n#!!top" expanded="false" />
-            <element signature="n#ion-footer-bar#2;n#!!top" expanded="false" />
-            <element signature="n#ion-footer-bar#3;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="561">
+          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+        <state relative-caret-position="148">
+          <caret line="89" column="39" lean-forward="false" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
           <folding>
-            <element signature="e#660#1134#0" expanded="false" />
-            <element signature="e#1211#1451#0" expanded="false" />
-            <element signature="e#1488#2032#0" expanded="false" />
-            <element signature="e#2067#2272#0" expanded="false" />
-            <element signature="e#2311#2752#0" expanded="false" />
-            <element signature="e#2791#2938#0" expanded="false" />
-            <element signature="e#3066#3125#0" expanded="false" />
-            <element signature="e#3308#3483#0" expanded="false" />
-            <element signature="e#3582#3757#0" expanded="false" />
+            <element signature="e#688#1162#0" expanded="false" />
+            <element signature="e#1239#1479#0" expanded="false" />
+            <element signature="e#1516#2060#0" expanded="false" />
+            <element signature="e#2095#2300#0" expanded="false" />
+            <element signature="e#2339#2780#0" expanded="false" />
+            <element signature="e#2819#2966#0" expanded="false" />
+            <element signature="e#3418#3593#0" expanded="false" />
+            <element signature="e#3692#3867#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/dashboard/driver/driverDashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-230">
+          <caret line="47" column="50" lean-forward="false" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="107" />
+          <folding>
+            <element signature="n#ion-footer-bar#0;n#!!top" expanded="false" />
+            <element signature="n#ion-footer-bar#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="76" column="58" lean-forward="false" selection-start-line="76" selection-start-column="51" selection-end-line="76" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="117" column="37" lean-forward="false" selection-start-line="117" selection-start-column="37" selection-end-line="117" selection-end-column="37" />
+          <folding>
+            <element signature="e#1211#1487#0" expanded="false" />
+            <element signature="e#4272#4819#0" expanded="false" />
+            <element signature="e#5007#5194#0" expanded="false" />
+            <element signature="e#5302#5489#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/dashboard/customer/customerDashboard.factory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="31" />
+          <folding>
+            <element signature="e#821#853#0" expanded="false" />
+            <element signature="e#1848#2550#0" expanded="false" />
+            <element signature="e#2578#2634#0" expanded="false" />
+            <element signature="e#3005#3079#0" expanded="false" />
+            <element signature="e#3110#3177#0" expanded="false" />
+            <element signature="e#3210#3750#0" expanded="false" />
+            <element signature="e#3791#4014#0" expanded="false" />
+            <element signature="e#4043#4347#0" expanded="false" />
+            <element signature="e#4403#4842#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/src/core/location.factory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="65" column="20" lean-forward="false" selection-start-line="65" selection-start-column="20" selection-end-line="86" selection-end-column="21" />
+        <state relative-caret-position="663">
+          <caret line="88" column="36" lean-forward="true" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
           <folding>
-            <element signature="e#1067#1330#0" expanded="false" />
-            <element signature="e#3397#3630#0" expanded="false" />
-            <element signature="e#3659#3963#0" expanded="false" />
-            <element signature="e#4019#4456#0" expanded="false" />
-            <element signature="e#4488#4625#0" expanded="false" />
-            <element signature="e#4660#4808#0" expanded="false" />
-            <element signature="e#4833#4972#0" expanded="false" />
+            <element signature="e#1101#1364#0" expanded="false" />
+            <element signature="e#3375#3608#0" expanded="false" />
+            <element signature="e#3637#3941#0" expanded="false" />
+            <element signature="e#3997#4434#0" expanded="false" />
+            <element signature="e#5108#5894#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/core/restangular.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="132" column="19" lean-forward="false" selection-start-line="132" selection-start-column="19" selection-end-line="132" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/rides/rides.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="18" column="10" lean-forward="false" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/src/rides/rides.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

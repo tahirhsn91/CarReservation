@@ -25,5 +25,15 @@ namespace CarReservation.Repository
                 return RepositoryRequisite.RequestInfo.Context;
             }
         }
+
+        public async Task<DistanceUnit> GetByName(string name)
+        {
+            return await this.DefaultSingleQuery.Where(x => x.Name == name).SingleOrDefaultAsync();
+        }
+
+        public async Task<DistanceUnit> GetByCode(string code)
+        {
+            return await this.DefaultSingleQuery.Where(x => x.Code == code).SingleOrDefaultAsync();
+        }
     }
 }

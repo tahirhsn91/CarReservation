@@ -39,5 +39,21 @@ namespace CarReservation.API.Controllers
         {
             return await this._service.ChangeStatusToRideOver(rideId);
         }
+
+        [HttpPost]
+        [AuthorizeRoles(UserRoles.CUSTOMER)]
+        [Route("CancelRide/{rideId}")]
+        public async Task<RideDTO> CancelRide(int rideId)
+        {
+            return await this._service.CancelRide(rideId);
+        }
+
+        [HttpPost]
+        [AuthorizeRoles(UserRoles.CUSTOMER)]
+        [Route("EndRide/{rideId}")]
+        public async Task<RideDTO> EndRide(int rideId, RideDTO ride)
+        {
+            return await this._service.EndRide(rideId, ride);
+        }
     }
 }

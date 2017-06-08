@@ -25,7 +25,10 @@
         rideNow: rideNow,
         GetActiveRide: GetActiveRide,
         activeRide: activeRide,
-        customerMap: customerMap
+        customerMap: customerMap,
+        processRide: processRide,
+        cancelRide: cancelRide,
+        endRide: endRide
     };
 
     function init(){
@@ -35,47 +38,61 @@
     function rideHeartBeat() {
         $timeout(function () {
             if (authFactory.getUser() && authFactory.getUser().Role === 'Customer') {
-                // if (activeRide.ride) {
-                    var posOptions = {timeout: 10000, enableHighAccuracy: true};
-                    $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
-                        var ride = {
-                            Source: {
-                                Latitude: position.coords.latitude,
-                                Longitude: position.coords.longitude
-                            }
-                        };
-                        rideNowHeartBeat(ride).then(function (result) {
-                            activeRide.ride = result;
-                            removeDriverMarkers();
-                            removeRoute();
-                            addDriverMarker();
-                            rideHeartBeat();
-                        });
-                    }, function (error) {
+                var posOptions = {timeout: 10000, enableHighAccuracy: true};
+                $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+                    var ride = {
+                        Source: {
+                            Latitude: position.coords.latitude,
+                            Longitude: position.coords.longitude
+                        }
+                    };
+                    rideNowHeartBeat(ride).then(function (result) {
+                        processRide(result, position);
                         rideHeartBeat();
                     });
-                // }
-                // else {
-                //     GetActiveRide().then(function (result) {
-                //         activeRide.ride = result;
-                //         removeDriverMarkers();
-                //         removeRoute();
-                //         addDriverMarker();
-                //         createRoute();
-                //         rideHeartBeat();
-                //     }, function (error) {
-                //         rideHeartBeat();
-                //     });
-                // }
+                }, function (error) {
+                    rideHeartBeat();
+                });
             }
             else {
                 rideHeartBeat();
             }
         }, 2000);
     }
-    
+
+    function processRide(ride, position) {
+        activeRide.ride = ride;
+        removeDriverMarkers();
+        removeRoute();
+
+        if (activeRide.ride ) {
+            var sourceMark = {lat: activeRide.ride.Source.Latitude, lng: activeRide.ride.Source.Longitude};
+            var destinationMark = {lat: activeRide.ride.Destination.Latitude, lng: activeRide.ride.Destination.Longitude};
+            var currentLatLng = {lat: position.coords.latitude, lng: position.coords.longitude};
+
+            if (activeRide.ride.RideStatusId === 1) {
+                addDriverMarker();
+            }
+            else if (activeRide.ride.RideStatusId === 2) {
+                createRoute(currentLatLng, destinationMark);
+            }
+        }
+    }
+
     function rideNow(data){
       return Restangular.all('Ride').post(data);
+    }
+
+    function cancelRide(){
+        if (activeRide.ride) {
+            return Restangular.all('RideStatus/CancelRide/' + activeRide.ride.Id).post({});
+        }
+    }
+
+    function endRide(data){
+        if (activeRide.ride) {
+            return Restangular.all('RideStatus/EndRide/' + activeRide.ride.Id).post(data);
+        }
     }
 
     function rideNowHeartBeat(data){
@@ -118,23 +135,18 @@
         }
     }
 
-    function createRoute() {
-        if (activeRide.ride && activeRide.ride.RideStatusId === 2) {
-            var sourceMark = {lat: activeRide.ride.Source.Latitude, lng: activeRide.ride.Source.Longitude};
-            var destinationMark = {lat: activeRide.ride.Destination.Latitude, lng: activeRide.ride.Destination.Longitude};
-
-            directionsDisplay.setMap(customerMap.map);
-            var request = {
-                origin: sourceMark,
-                destination: destinationMark,
-                travelMode: google.maps.TravelMode.DRIVING
-            };
-            directionsService.route(request, function (response, status) {
-                if (status == google.maps.DirectionsStatus.OK) {
-                    directionsDisplay.setDirections(response);
-                }
-            });
-        }
+    function createRoute(sourceMark, destinationMark) {
+        directionsDisplay.setMap(customerMap.map);
+        var request = {
+            origin: sourceMark,
+            destination: destinationMark,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+        directionsService.route(request, function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+            }
+        });
     }
   }
 

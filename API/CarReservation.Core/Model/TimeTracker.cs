@@ -41,7 +41,7 @@ namespace CarReservation.Core.Model
         {
             get
             {
-                return TotalTime.TotalSeconds;
+                return TotalTime.TotalMinutes;
             }
         }
 
