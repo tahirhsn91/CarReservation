@@ -31,7 +31,7 @@
         role: appUserRole.Supervisor,
         views: {
             'content@shell.supervisor': {
-                templateUrl:'src/supervisor/AssignPackage/viewRidesDetails.html',
+                templateUrl:'src/supervisor/ViewRides/viewRidesDetails.html',
                 controller: 'ViewRideDetailsCtrl as vm'
             }
         }

@@ -40,10 +40,10 @@
                             <span ng-bind="data.CreatedDate | date: vm.appFormats.DateTime"></span>
                         </td>
                         <td>
-                            <span>{{data.SourceAddress}}</span>
+                            <span>{{data.Source.Address}}</span>
                         </td>
                         <td>
-                            <span ng-bind="data.DestinationAddress"></span>
+                            <span ng-bind="data.Destination.Address"></span>
                         </td>
                         <td>
                             <span ng-if="data.Driver" ng-bind="data.Driver.User.FirstName + ' ' + data.Driver.User.LastName"></span>
@@ -57,7 +57,7 @@
                             <span ng-bind="data.TotalFare.TotalFare | currency:'PKR '"></span>
                         </td>
                         <td>
-                            <a ng-click="vm.redirect('shell.supervisor.assignPackage.edit', {'id': data.Id})">
+                            <a ng-click="vm.redirect('shell.supervisor.viewRides.details', {'id': data.Id})">
                                 View Details
                             </a>
                         </td>

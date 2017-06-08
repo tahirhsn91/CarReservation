@@ -3,7 +3,7 @@
     <div class="col-xs-12">
         <h1 class="page-header">
             <span ng-bind="vm.pageTitle"></span>
-            <small>{{vm.data.RegistrationNumber}} Edit</small>
+            <small>{{vm.data.RegistrationNumber}} View</small>
         </h1>
         <ol class="breadcrumb">
             <li>
@@ -12,13 +12,13 @@
             </li>
             <li>
                 <i class="fa fa-dashboard"></i>
-                <a ng-click="vm.redirect('shell.supervisor.assignPackage')">
+                <a ng-click="vm.redirect('shell.supervisor.viewRides')">
                     <span ng-bind="vm.pageTitle"></span> Module
                 </a>
             </li>
             <li class="active">
                 <i class="fa fa-file"></i>
-                <span ng-bind="vm.data.Name"></span> Edit
+                <span ng-bind="vm.data.Name"></span> View
             </li>
         </ol>
     </div>
@@ -32,40 +32,114 @@
                 <table class="table table-bordered table-hover">
                     <tbody>
                         <tr>
-                            <td class="col-xs-3">
-                                <label for="Package">Package</label>
+                            <td class="col-xs-2">
+                                <label>Ride Date/Time</label>
                             </td>
-                            <td class="col-xs-9">
-                                <ui-select ng-model="vm.data.Package">
-                                    <ui-select-match>
-                                        <span ng-bind="$select.selected.Name"></span>
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="item in (vm.package | filter: $select.search) track by item.Id">
-                                        <span ng-bind="item.Name"></span>
-                                    </ui-select-choices>
-                                </ui-select>
+                            <td class="col-xs-4">
+                                <span>{{vm.data.CreatedDate | date: 'dd MMM-yyyy, HH:mm a'}}</span>
+                            </td>
+                            <td class="col-xs-2">
+                                <label>Total Fare</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <span>{{vm.data.TotalFare.TotalFare | currency:'PKR '}}</span>
                             </td>
                         </tr>
                         <tr>
-                            <td class="col-xs-3">
-                                <label for="Driver">Driver</label>
+                            <td class="col-xs-2">
+                                <label>Source Address</label>
                             </td>
-                            <td class="col-xs-9">
-                                <ui-select ng-model="vm.data.Driver">
-                                    <ui-select-match>
-                                        <span ng-bind="$select.selected.User.FirstName + ' ' + $select.selected.User.LastName"></span>
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="item in (vm.driver | filter: $select.search) track by item.Id">
-                                        <span ng-bind="item.User.FirstName + ' ' + item.User.LastName"></span>
-                                    </ui-select-choices>
-                                </ui-select>
+                            <td class="col-xs-4">
+                                <span>{{vm.data.Source.Address}}</span>
+                            </td>
+                            <td class="col-xs-2">
+                                <label>Destination Address</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <span>{{vm.data.Destination.Address}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-2">
+                                <label>Duration</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <span>{{vm.data.TimeTaken.TotalMinutes | number:2}} min</span>
+                            </td>
+                            <td class="col-xs-2">
+                                <label>Distance</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <span>{{vm.data.RideDistance.TotalDistance/1000 | number:2}} km</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-2">
+                                <label>Package</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <span>{{vm.data.Package.Name }}</span>
+                            </td>
+                            <td class="col-xs-2">
+                                <label>StartFare</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <span>{{vm.data.Package.StartFare.TotalFare | currency:'PKR '}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-2">
+                                <label>Customer Name</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <span>{{vm.data.Customer.User.FirstName + ' ' + vm.data.Customer.User.LastName}}</span>
+                            </td>
+                            <td class="col-xs-2">
+                                <label>Customer Email</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <span>{{vm.data.Customer.User.Email}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-2">
+                                <label>Driver Name</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <a ng-click="vm.redirect('shell.supervisor.driver.detail', {'id': vm.data.Driver.Id})">
+                                    <span>{{vm.data.Driver.User.FirstName + ' ' + vm.data.Driver.User.LastName}}</span>
+                                </a>
+                            </td>
+                            <td class="col-xs-2">
+                                <label>Driver Email</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <a ng-click="vm.redirect('shell.supervisor.driver.detail', {'id': vm.data.Driver.Id})">
+                                    <span>{{vm.data.Driver.User.Email}}</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-2">
+                                <label>Vehicle No.</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <a ng-click="vm.redirect('shell.supervisor.genericCrud.genericCrudDetail', {'id': vm.data.Vehicle.Id, 'moduleName': 'Vehicle'})">
+                                    <span>{{vm.data.Vehicle.RegistrationNumber}}</span>
+                                </a>
+                            </td>
+                            <td class="col-xs-2">
+                                <label>Vehicle Model</label>
+                            </td>
+                            <td class="col-xs-4">
+                                <a ng-click="vm.redirect('shell.supervisor.genericCrud.genericCrudDetail', {'id': vm.data.Vehicle.Id, 'moduleName': 'Vehicle'})">
+                                    <span>{{vm.data.Vehicle.VehicleModel.Name}}</span>
+                                </a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <button type="submit" class="btn btn-success">Submit Button</button>
-            <button type="reset" class="btn btn-info">Reset Button</button>
         </form>
     </div>
 </div>

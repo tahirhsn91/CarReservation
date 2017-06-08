@@ -21,7 +21,7 @@
         <div class="row">
           <div class="col">
             <h3>Duration</h3>
-            <h2>26 mins</h2>
+            <h2>{{vm.ride.TimeTaken.TotalMinutes | number:2}} min</h2>
           </div>
           <div class="col">
             <h3>Package</h3>
@@ -48,7 +48,7 @@
             <h2>{{vm.ride.Vehicle.VehicleModel.Name}}</h2>
           </div>
           <div class="col">
-            <h3>Plate #</h3>
+            <h3>Vehicle No.</h3>
             <h2>{{vm.ride.Vehicle.RegistrationNumber}}</h2>
           </div>
         </div>

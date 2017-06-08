@@ -11,6 +11,8 @@ namespace CarReservation.Core.DTO
 {
     public class LocationLagLonDTO : BaseDTO<LocationLagLon, int>
     {
+        public string Address { get; set; }
+
         [Required]
         public double Latitude { get; set; }
 
@@ -30,6 +32,7 @@ namespace CarReservation.Core.DTO
         public override LocationLagLon ConvertToEntity(LocationLagLon entity)
         {
             entity = base.ConvertToEntity(entity);
+            entity.Address = this.Address;
             entity.Latitude = this.Latitude;
             entity.Longitude = this.Longitude;
 
@@ -39,6 +42,7 @@ namespace CarReservation.Core.DTO
         public override void ConvertFromEntity(LocationLagLon entity)
         {
             base.ConvertFromEntity(entity);
+            this.Address = entity.Address;
             this.Latitude = entity.Latitude;
             this.Longitude = entity.Longitude;
         }

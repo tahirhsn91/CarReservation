@@ -64,7 +64,8 @@
     function rideNow(){
         vm.rideSource = {
             Latitude: customerDashboardFactory.customerMap.map.getCenter().lat(),
-            Longitude: customerDashboardFactory.customerMap.map.getCenter().lng()
+            Longitude: customerDashboardFactory.customerMap.map.getCenter().lng(),
+            Address: vm.MainSourceAddress
         };
     }
     
@@ -108,7 +109,8 @@
                 Source: vm.rideSource,
                 Destination: {
                     Latitude: customerDashboardFactory.customerMap.map.getCenter().lat(),
-                    Longitude: customerDashboardFactory.customerMap.map.getCenter().lng()
+                    Longitude: customerDashboardFactory.customerMap.map.getCenter().lng(),
+                    Address: vm.MainDestinationAddress
                 }
             };
             customerDashboardFactory.rideNow(ride).then(function (result) {

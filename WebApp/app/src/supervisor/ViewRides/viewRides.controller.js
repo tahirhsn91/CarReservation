@@ -25,7 +25,7 @@
         vm.geocoder = new google.maps.Geocoder;
         assignPackageFactory.getAll('Ride/GetRideBySupervisorUserId').then(function(result){
         vm.data = result;
-        addLocationInfos(vm.data);
+        // addLocationInfos(vm.data);
       });
     }
 
