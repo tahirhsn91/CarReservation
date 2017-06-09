@@ -4,6 +4,7 @@ using CarReservation.Core.Constant;
 using CarReservation.Core.DTO;
 using CarReservation.Core.IService;
 using CarReservation.Core.Model;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -31,6 +32,14 @@ namespace CarReservation.API.Controllers
         public async Task<DriverLocationDTO> GetByDriverId(int id)
         {
             return await this._service.GetByDriverId(id);
+        }
+
+        [HttpGet]
+        [AuthorizeRoles(UserRoles.CUSTOMER)]
+        [Route("GetAllDriverLocation/HeartBeat/")]
+        public async Task<IList<DriverLocationDTO>> GetAllDriverLocation()
+        {
+            return await this._service.GetAllDriverLocation();
         }
     }
 }

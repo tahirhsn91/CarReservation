@@ -52,5 +52,15 @@ namespace CarReservation.Repository
                 .Where(x => driverIds.Contains(x.DriverId))
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<DriverLocation>> GetAllDriverLocation()
+        {
+            return await this.DefaultListQuery
+                .Include(x => x.Location)
+                .Include(x => x.Driver.Status)
+                .Include(x => x.Status)
+                .Where(x => x.Driver.Status.Code == Core.Constant.DriverStatus.Available)
+                .ToListAsync();
+        }
     }
 }

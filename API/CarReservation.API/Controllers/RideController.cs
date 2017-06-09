@@ -51,5 +51,13 @@ namespace CarReservation.API.Controllers
         {
             return await this._service.GetRideBySupervisorUserId();
         }
+
+        [HttpPost]
+        [AuthorizeRoles(UserRoles.CUSTOMER)]
+        [Route("Rating/{rideId}/{rating}")]
+        public async Task Rating(int rideId, int rating)
+        {
+            await this._service.Rating(rideId, rating);
+        }
     }
 }

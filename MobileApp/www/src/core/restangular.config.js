@@ -21,8 +21,8 @@
     RestangularProvider.setDefaultHeaders({"Access-Control-Allow-Origin":"*"});
     RestangularProvider.setDefaultHeaders({"Access-Control-Allow-core":"*"});
 
-    RestangularProvider.setBaseUrl('http://35.164.206.165:80/api');
-    // RestangularProvider.setBaseUrl('http://localhost:46363/api');
+    // RestangularProvider.setBaseUrl('http://35.164.206.165:80/api');
+    RestangularProvider.setBaseUrl('http://localhost:46363/api');
 
   }
 

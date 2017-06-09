@@ -74,6 +74,12 @@ namespace CarReservation.Service
             return new DriverLocationDTO(await this.Repository.GetByDriverId(id));
         }
 
+        public async Task<IList<DriverLocationDTO>> GetAllDriverLocation()
+        {
+            var entities = await this.Repository.GetAllDriverLocation();
+            return DriverLocationDTO.ConvertEntityListToDTOList<DriverLocationDTO>(entities);
+        }
+
         #region Private Functions
         private async Task<RideDTO> GetDriverActiveRide(int driverId)
         {

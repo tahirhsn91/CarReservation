@@ -14,5 +14,7 @@ namespace CarReservation.Core.IService
         Task<RideDTO> CustomerHeartBeatAsync(RideDTO dtoObject);
 
         Task<RideDTO> GetCustomerActiveRide();
+
+        Task Rating(int rideId, int rating);
     }
 }

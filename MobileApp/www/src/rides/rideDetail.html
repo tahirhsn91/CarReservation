@@ -53,6 +53,25 @@
           </div>
         </div>
       </li>
+      <li class="item">
+        <h3>Rating</h3>
+        <i ng-if="vm.ride.Rating >=1" ng-click="vm.ride.Rating = 0" class="ion-ios-star"></i>
+        <i ng-if="vm.ride.Rating <1" ng-click="vm.ride.Rating = 1" class="ion-ios-star-outline"></i>
+
+        <i ng-if="vm.ride.Rating >=2" ng-click="vm.ride.Rating = 1" class="ion-ios-star"></i>
+        <i ng-if="vm.ride.Rating <2" ng-click="vm.ride.Rating = 2" class="ion-ios-star-outline"></i>
+
+        <i ng-if="vm.ride.Rating >=3" ng-click="vm.ride.Rating = 2" class="ion-ios-star"></i>
+        <i ng-if="vm.ride.Rating <3" ng-click="vm.ride.Rating = 3" class="ion-ios-star-outline"></i>
+
+        <i ng-if="vm.ride.Rating >=4" ng-click="vm.ride.Rating = 3" class="ion-ios-star"></i>
+        <i ng-if="vm.ride.Rating <4"  ng-click="vm.ride.Rating = 4" class="ion-ios-star-outline"></i>
+
+        <i ng-if="vm.ride.Rating >=5" ng-click="vm.ride.Rating = 4" class="ion-ios-star"></i>
+        <i ng-if="vm.ride.Rating <5" ng-click="vm.ride.Rating = 5" class="ion-ios-star-outline"></i>
+
+        <button ng-click="vm.rateIt()">Rate It!!!</button>
+      </li>
     </ul>
   </ion-content>
 </ion-view>

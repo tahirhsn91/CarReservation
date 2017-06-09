@@ -13,5 +13,7 @@ namespace CarReservation.Core.IService
         Task<RideDTO> SaveAsync(DriverLocationDTO dtoObject);
 
         Task<DriverLocationDTO> GetByDriverId(int id);
+
+        Task<IList<DriverLocationDTO>> GetAllDriverLocation();
     }
 }

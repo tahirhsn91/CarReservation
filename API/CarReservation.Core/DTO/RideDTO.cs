@@ -45,6 +45,8 @@ namespace CarReservation.Core.DTO
 
         public bool IsActive { get; set; }
 
+        public int Rating { get; set; }
+
         public DateTime CreatedDate { get; set; }
 
         public LocationLagLonDTO Source { get; set; }
@@ -90,6 +92,7 @@ namespace CarReservation.Core.DTO
             this.RideStatusId = entity.RideStatusId;
             this.ParentRideId = entity.ParentRideId;
             this.IsActive = entity.IsActive;
+            this.Rating = entity.Rating;
             this.CreatedDate = entity.CreatedOn;
 
             if (entity.Source != null)
@@ -170,6 +173,7 @@ namespace CarReservation.Core.DTO
             entity.RideStatusId = this.RideStatusId;
             entity.ParentRideId = this.ParentRideId;
             entity.IsActive = this.IsActive;
+            entity.Rating = this.Rating;
 
             return entity;
         }

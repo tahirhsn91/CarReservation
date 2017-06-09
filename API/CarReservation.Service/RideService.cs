@@ -201,6 +201,15 @@ namespace CarReservation.Service
             }
         }
 
+        public async Task Rating(int rideId, int rating)
+        {
+            Ride entity = await this.UnitOfWork.RideRepository.GetAsync(rideId);
+            entity.Rating = rating;
+
+            await this.UnitOfWork.RideRepository.Update(entity);
+            await this.UnitOfWork.SaveAsync();
+        }
+
         #region Private Functions
         private async Task<Driver> GetNearestDriver(double latitude, double longitude)
         {

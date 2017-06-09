@@ -42,6 +42,8 @@ namespace CarReservation.Core.Model
         public int? ParentRideId { get; set; }
 
         public bool IsActive { get; set; }
+        
+        public int Rating { get; set; }
 
         public LocationLagLon Source { get; set; }
 

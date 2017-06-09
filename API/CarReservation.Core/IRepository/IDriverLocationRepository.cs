@@ -12,5 +12,7 @@ namespace CarReservation.Core.IRepository
         Task<DriverLocation> GetByDriverId(int id);
 
         Task<IEnumerable<DriverLocation>> GetByDriverId(IList<int> driverIds);
+
+        Task<IEnumerable<DriverLocation>> GetAllDriverLocation();
     }
 }

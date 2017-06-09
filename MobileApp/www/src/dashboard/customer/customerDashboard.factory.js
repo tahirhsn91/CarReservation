@@ -17,6 +17,7 @@
     var directionsDisplay = null;
     var directionsService = new google.maps.DirectionsService();
     var driverMarkers = [];
+    var availableDriverMarkers = [];
     var activeRide = {};
     var customerMap = {};
     init();
@@ -33,6 +34,7 @@
 
     function init(){
         rideHeartBeat();
+        availableDriverHeartBeat();
     }
 
     function rideHeartBeat() {
@@ -66,12 +68,13 @@
         removeRoute();
 
         if (activeRide.ride ) {
+            var driverMark = {lat: activeRide.ride.Driver.DriverLocation.Location.Latitude, lng: activeRide.ride.Driver.DriverLocation.Location.Longitude};
             var sourceMark = {lat: activeRide.ride.Source.Latitude, lng: activeRide.ride.Source.Longitude};
             var destinationMark = {lat: activeRide.ride.Destination.Latitude, lng: activeRide.ride.Destination.Longitude};
             var currentLatLng = {lat: position.coords.latitude, lng: position.coords.longitude};
 
             if (activeRide.ride.RideStatusId === 1) {
-                addDriverMarker();
+                createRoute(driverMark, sourceMark);
             }
             else if (activeRide.ride.RideStatusId === 2) {
                 createRoute(currentLatLng, destinationMark);
@@ -103,6 +106,35 @@
         return Restangular.one('Ride/GetActiveRide').get();
     }
 
+    function availableDriverHeartBeat() {
+        $timeout(function () {
+            if (authFactory.getUser() && authFactory.getUser().Role === 'Customer') {
+                removeAvailableDriverMarkers();
+                if (!activeRide || !activeRide.ride) {
+                    Restangular.one('DriverLocation/GetAllDriverLocation/HeartBeat').get().then(function (result) {
+                        if (result && result.length > 0) {
+                            for (var i = 0; i < result.length; i++) {
+                                var myLatLng = {lat: result[i].Location.Latitude, lng: result[i].Location.Longitude};
+                                var marker = new google.maps.Marker({
+                                    position: myLatLng,
+                                    map: customerMap.map,
+                                    title: 'Available Driver Location'
+                                });
+                                availableDriverMarkers.push(marker);
+                            }
+                        }
+                        availableDriverHeartBeat();
+                    }, function (error) {
+                        availableDriverHeartBeat();
+                    });
+                }
+                else {
+                    availableDriverHeartBeat();
+                }
+            }
+        }, 2000);
+    }
+
     function addDriverMarker() {
         if (activeRide.ride && activeRide.ride.Driver && activeRide.ride.Driver.DriverLocation && activeRide.ride.Driver.DriverLocation.Location) {
             var myLatLng = {lat: activeRide.ride.Driver.DriverLocation.Location.Latitude, lng: activeRide.ride.Driver.DriverLocation.Location.Longitude};
@@ -114,7 +146,16 @@
             driverMarkers.push(marker);
         }
     }
-    
+
+    function removeAvailableDriverMarkers() {
+        if(availableDriverMarkers && availableDriverMarkers.length > 0) {
+            for (var i = 0; i < availableDriverMarkers.length; i++) {
+                availableDriverMarkers[i].setMap(null);
+            }
+        }
+        availableDriverMarkers = [];
+    }
+
     function removeDriverMarkers() {
         if(driverMarkers && driverMarkers.length > 0) {
             for (var i = 0; i < driverMarkers.length; i++) {
