@@ -39,24 +39,29 @@
 
     function rideHeartBeat() {
         $timeout(function () {
-            if (authFactory.getUser() && authFactory.getUser().Role === 'Customer') {
-                var posOptions = {timeout: 10000, enableHighAccuracy: true};
-                $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
-                    var ride = {
-                        Source: {
-                            Latitude: position.coords.latitude,
-                            Longitude: position.coords.longitude
-                        }
-                    };
-                    rideNowHeartBeat(ride).then(function (result) {
-                        processRide(result, position);
+            try {
+                if (authFactory.getUser() && authFactory.getUser().Role === 'Customer') {
+                    var posOptions = {timeout: 10000, enableHighAccuracy: true};
+                    $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+                        var ride = {
+                            Source: {
+                                Latitude: position.coords.latitude,
+                                Longitude: position.coords.longitude
+                            }
+                        };
+                        rideNowHeartBeat(ride).then(function (result) {
+                            processRide(result, position);
+                            rideHeartBeat();
+                        });
+                    }, function (error) {
                         rideHeartBeat();
                     });
-                }, function (error) {
+                }
+                else {
                     rideHeartBeat();
-                });
+                }
             }
-            else {
+            catch (error){
                 rideHeartBeat();
             }
         }, 2000);
@@ -67,14 +72,22 @@
         removeDriverMarkers();
         removeRoute();
 
-        if (activeRide.ride ) {
-            var driverMark = {lat: activeRide.ride.Driver.DriverLocation.Location.Latitude, lng: activeRide.ride.Driver.DriverLocation.Location.Longitude};
+        if (activeRide.ride) {
             var sourceMark = {lat: activeRide.ride.Source.Latitude, lng: activeRide.ride.Source.Longitude};
             var destinationMark = {lat: activeRide.ride.Destination.Latitude, lng: activeRide.ride.Destination.Longitude};
             var currentLatLng = {lat: position.coords.latitude, lng: position.coords.longitude};
 
             if (activeRide.ride.RideStatusId === 1) {
-                createRoute(driverMark, sourceMark);
+                if (activeRide.ride.Driver && activeRide.ride.Driver.DriverLocation && activeRide.ride.Driver.DriverLocation.Location) {
+                    var driverMark = {
+                        lat: activeRide.ride.Driver.DriverLocation.Location.Latitude,
+                        lng: activeRide.ride.Driver.DriverLocation.Location.Longitude
+                    };
+                    createRoute(driverMark, sourceMark);
+                }
+                else {
+                    addDriverMarker();
+                }
             }
             else if (activeRide.ride.RideStatusId === 2) {
                 createRoute(currentLatLng, destinationMark);
@@ -108,29 +121,37 @@
 
     function availableDriverHeartBeat() {
         $timeout(function () {
-            if (authFactory.getUser() && authFactory.getUser().Role === 'Customer') {
-                removeAvailableDriverMarkers();
-                if (!activeRide || !activeRide.ride) {
-                    Restangular.one('DriverLocation/GetAllDriverLocation/HeartBeat').get().then(function (result) {
-                        if (result && result.length > 0) {
-                            for (var i = 0; i < result.length; i++) {
-                                var myLatLng = {lat: result[i].Location.Latitude, lng: result[i].Location.Longitude};
-                                var marker = new google.maps.Marker({
-                                    position: myLatLng,
-                                    map: customerMap.map,
-                                    title: 'Available Driver Location'
-                                });
-                                availableDriverMarkers.push(marker);
+            try {
+                if (authFactory.getUser() && authFactory.getUser().Role === 'Customer') {
+                    removeAvailableDriverMarkers();
+                    if (!activeRide || !activeRide.ride) {
+                        Restangular.one('DriverLocation/GetAllDriverLocation/HeartBeat').get().then(function (result) {
+                            if (result && result.length > 0) {
+                                for (var i = 0; i < result.length; i++) {
+                                    var myLatLng = {
+                                        lat: result[i].Location.Latitude,
+                                        lng: result[i].Location.Longitude
+                                    };
+                                    var marker = new google.maps.Marker({
+                                        position: myLatLng,
+                                        map: customerMap.map,
+                                        title: 'Available Driver Location'
+                                    });
+                                    availableDriverMarkers.push(marker);
+                                }
                             }
-                        }
+                            availableDriverHeartBeat();
+                        }, function (error) {
+                            availableDriverHeartBeat();
+                        });
+                    }
+                    else {
                         availableDriverHeartBeat();
-                    }, function (error) {
-                        availableDriverHeartBeat();
-                    });
+                    }
                 }
-                else {
-                    availableDriverHeartBeat();
-                }
+            }
+            catch (error) {
+                availableDriverHeartBeat();
             }
         }, 2000);
     }

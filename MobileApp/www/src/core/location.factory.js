@@ -40,10 +40,15 @@
 
     function logCurrentLocation() {
         $timeout(function () {
-            if (authFactory.getUser() && authFactory.getUser().Role === 'Driver') {
-                saveCurrentLocation();
+            try {
+                if (authFactory.getUser() && authFactory.getUser().Role === 'Driver') {
+                    saveCurrentLocation();
+                }
+                else {
+                    logCurrentLocation();
+                }
             }
-            else {
+            catch (error) {
                 logCurrentLocation();
             }
         }, 2000)

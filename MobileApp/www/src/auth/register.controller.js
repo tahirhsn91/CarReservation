@@ -15,7 +15,7 @@
   function RegisterCtrl(store, appRegex, authFactory, $state){
     var vm = this;
     
-    vm.user = {Role: 'CUSTOMER'};
+    vm.user = {Role: 'Customer'};
     vm.register = register;
     vm.regex = appRegex;
 

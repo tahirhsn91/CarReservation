@@ -70,7 +70,24 @@ namespace CarReservation.Service
 
         public async Task<bool> CheckDriver(string driverUserName)
         {
-            return await this.UnitOfWork.DriverRepository.CheckByUserName(driverUserName);
+            UserDTO driverUser = await this.userService.GetByUserName(driverUserName);
+            bool checkDriver = await this.UnitOfWork.DriverRepository.CheckByUserName(driverUserName);
+
+            if (driverUser != null && !checkDriver)
+            {
+                Driver driver = new Driver()
+                {
+                    UserId = driverUser.UserId,
+                    Address = "abc",
+                    NICNumber = "0123456789",
+                };
+
+                await this.UnitOfWork.DriverRepository.Create(driver);
+                await this.UnitOfWork.SaveAsync();
+                return true;
+            }
+
+            return checkDriver;
         }
     }
 }

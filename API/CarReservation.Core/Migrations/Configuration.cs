@@ -34,7 +34,7 @@ namespace CarReservation.Core.Migrations
                 roleManager.Create(new IdentityRole { Name = UserRoles.CUSTOMER });
             }
 
-            string emailAddress = "tahir.hassan@gmail.com";
+            string emailAddress = "Admin@gmail.com";
             if (manager.FindByEmail(emailAddress) == null)
             {
                 var user = new ApplicationUser()
@@ -43,15 +43,15 @@ namespace CarReservation.Core.Migrations
                     Email = emailAddress,
                     EmailConfirmed = true,
                     FirstName = "tahir",
-                    LastName = "hassan",
+                    LastName = "Admin",
                     MobileNumber = "0000000000",
                     CreatedOn = DateTime.UtcNow,
                     LastModifiedOn = DateTime.UtcNow
                 };
-                manager.Create(user, "Admin123!@#$");
+                manager.Create(user, "tahir123");
 
                 var adminUser = manager.FindByName(emailAddress);
-                manager.AddToRoles(adminUser.Id, new string[] { UserRoles.SUPER, UserRoles.ADMIN });
+                manager.AddToRoles(adminUser.Id, new string[] { UserRoles.ADMIN });
             }
 
             if (context.DriverStatus.Count() == 0)
